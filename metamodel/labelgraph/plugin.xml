@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated labelgraph -->
+      <package
+            uri="http://st.tud.de/labelgraph"
+            class="labelgraph.LabelgraphPackage"
+            genModel="model/labelgraph.genmodel"/>
+   </extension>
+
+</plugin>

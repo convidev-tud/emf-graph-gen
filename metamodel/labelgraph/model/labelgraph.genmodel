@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/labelgraph/src-gen" creationIcons="false" editDirectory="/labelgraph.edit/src-gen"
+    editorDirectory="/labelgraph.editor/src-gen" modelPluginID="labelgraph" modelName="Labelgraph"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>labelgraph.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Labelgraph" disposableProviderFactory="true" ecorePackage="labelgraph.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="labelgraph.ecore#//Label">
+      <genEnumLiterals ecoreEnumLiteral="labelgraph.ecore#//Label/GREY"/>
+      <genEnumLiterals ecoreEnumLiteral="labelgraph.ecore#//Label/GREEN"/>
+      <genEnumLiterals ecoreEnumLiteral="labelgraph.ecore#//Label/ORANGE"/>
+      <genEnumLiterals ecoreEnumLiteral="labelgraph.ecore#//Label/BLUE"/>
+    </genEnums>
+    <genClasses ecoreClass="labelgraph.ecore#//Graph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference labelgraph.ecore#//Graph/nodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference labelgraph.ecore#//Graph/edges"/>
+    </genClasses>
+    <genClasses ecoreClass="labelgraph.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labelgraph.ecore#//Node/name"/>
+    </genClasses>
+    <genClasses ecoreClass="labelgraph.ecore#//Edge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference labelgraph.ecore#//Edge/nodes"/>
+    </genClasses>
+    <genClasses ecoreClass="labelgraph.ecore#//SimpleNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute labelgraph.ecore#//SimpleNode/label"/>
+    </genClasses>
+    <genClasses ecoreClass="labelgraph.ecore#//Region">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference labelgraph.ecore#//Region/graph"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

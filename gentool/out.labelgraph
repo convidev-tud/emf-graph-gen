@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<labelgraph:Graph xmlns:xmi="http://www.omg.org/XMI" xmlns:labelgraph="http://st.tud.de/labelgraph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
+  <nodes xsi:type="labelgraph:SimpleNode" name="N1" label="BLUE"/>
+  <nodes xsi:type="labelgraph:SimpleNode" name="N2" label="ORANGE"/>
+  <edges nodes="//@nodes.0 //@nodes.1"/>
+</labelgraph:Graph>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated labelgraph -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="labelgraph.presentation.LabelgraphModelWizardID"
+            name="%_UI_LabelgraphModelWizard_label"
+            class="labelgraph.presentation.LabelgraphModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/LabelgraphModelFile.gif">
+         <description>%_UI_LabelgraphModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated labelgraph -->
+      <editor
+            id="labelgraph.presentation.LabelgraphEditorID"
+            name="%_UI_LabelgraphEditor_label"
+            icon="icons/full/obj16/LabelgraphModelFile.gif"
+            extensions="labelgraph"
+            class="labelgraph.presentation.LabelgraphEditor"
+            contributorClass="labelgraph.presentation.LabelgraphActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
