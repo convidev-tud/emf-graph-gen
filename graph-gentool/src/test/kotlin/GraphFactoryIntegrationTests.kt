@@ -306,8 +306,8 @@ class GraphFactoryIntegrationTests {
         val allSubGraphs: MutableSet<Graph> = HashSet<Graph>()
         allSubGraphs.add(graph)
         allSubGraphs.addAll(stats.allRegions.map { r -> r.graph })
-        Assertions.assertTrue(allSubGraphs.map { g -> g.isSinglePartition() }.reduce{a, b -> a && b})
-        Assertions.assertTrue(stats.allEdges.size > 300)
+        assertTrue(allSubGraphs.map { g -> g.isSinglePartition() }.reduce{a, b -> a && b})
+        assertTrue(stats.allEdges.size > 300)
     }
 
 }

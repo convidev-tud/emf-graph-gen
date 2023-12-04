@@ -66,6 +66,10 @@ class Checksum : Callable<Int> {
     )
     var allowPartitions: Boolean = defaultConfiguration.allowPartitions
 
+    /**
+     * TODO the features below
+     */
+
     @CommandLine.Option(
         names = ["-bn", "--branch_number"],
         description = ["The number of branches (variants) to create from the final base model (INT)."]
@@ -146,4 +150,5 @@ fun createOutputBaseModelFile(configuration: Configuration): URI {
 
 fun createOutputBranchModelFiles(configuration: Configuration): List<URI> {
     //TODO
+    return LinkedList()
 }
