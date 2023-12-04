@@ -19,6 +19,10 @@ import kotlin.test.assertTrue
 
 class EcoreHandlerIntegrationTests {
 
+    /**
+     * TODO test if the ecore transformation serialization is correct
+     */
+
     @Test
     fun writeAndReadCongruenceTest(){
         //TODO

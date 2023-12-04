@@ -2,8 +2,11 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertTrue
 
 class GraphFactoryUnitTests {
-    //TODO therefore, the GraphFactory must be refactored to have more smaller methods instead of
-    // the one large exec() method.
+
+    /**
+     * TODO the GraphFactoryIntegrationTest assures the optimistic general functionality.
+     *  Here, edge-cases and combinations of interest have to be tested!
+     */
 
     @Test
     fun placeholder(){
