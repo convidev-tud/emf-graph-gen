@@ -30,7 +30,7 @@ class GraphFactory(private val root: Graph, private val conf: Configuration, ran
         assert(rootStats.allSimpleNodes.size == 0)
     }
 
-    fun exec(){
+    fun exec(): Unit{
         //calculate target stats
         val numberOfNodes: Int = (conf.modelSize / (1 + conf.edgesPerNode)).toInt()
         val numberOfRegions: Int = (numberOfNodes * conf.regionProbability).toInt()
@@ -41,36 +41,73 @@ class GraphFactory(private val root: Graph, private val conf: Configuration, ran
         if(numberOfNodes == 0) throw IllegalArgumentException("Configuration must allow at least one node!")
 
         //create regions
+        val regions = regions(numberOfRegions)
+        //create sub graphs for each region
+        val subGraphs = subGraphs(regions, root)
+        // Security assertion to prevent rounding mistakes leading to zero regions
+        assert(subGraphs.size >= 1)
+        //create simple nodes
+        val simpleNodes = simpleNodes(numberOfSimpleNodes)
+
+        //distribute simple nodes evenly over regions
+        distributeSimpleNodes(simpleNodes, subGraphs)
+        //distribute sub graphs (Nodes that are Regions) over other Regions
+        distributeSubGraphs(regions, root)
+
+        val edges: MutableList<Edge> = LinkedList<Edge>()
+
+        addMandatoryEdges(edges, subGraphs)
+
+        val allNodes = ArrayList<Node>()
+        allNodes.addAll(simpleNodes)
+        allNodes.addAll(regions)
+
+        //add random connections otherwise
+        fillMissingEdges(edges, subGraphs, numberOfEdges, numberOfDistortedEdges)
+    }
+
+    private fun regions(numberOfRegions: Int): MutableList<Region> {
         val regions: MutableList<Region> = LinkedList<Region>()
         repeat(numberOfRegions) { i ->
             val r = Region("R$i", Graph(LinkedList<Node>(), LinkedList<Edge>(), null))
             regions.add(r)
         }
+        return regions
+    }
+
+    private fun subGraphs(regions: List<Region>, root: Graph): MutableList<Graph> {
         val subGraphs: MutableList<Graph> = ArrayList<Graph>()
         subGraphs.add(0, root)
         subGraphs.addAll(regions.map { r -> r.graph }.toMutableList())
+        return subGraphs
+    }
 
-        //create simple nodes
+    private fun simpleNodes(numberOfSimpleNodes: Int): MutableList<SimpleNode> {
         val simpleNodes: MutableList<SimpleNode> = LinkedList<SimpleNode>()
         repeat(numberOfSimpleNodes) { i ->
             val n = SimpleNode("N$i", SimpleNode.randomLabel())
             simpleNodes.add(n)
         }
+        return simpleNodes
+    }
 
-        //distribute simple nodes evenly over regions
-        assert(subGraphs.size >= 1)
+    private fun distributeSimpleNodes(simpleNodes: List<SimpleNode>, subGraphs: List<Graph>): Unit {
         var distributedSimpleNodes: Int = 0
-        while (distributedSimpleNodes < simpleNodes.size){
-            for (graph in subGraphs){
-                if(distributedSimpleNodes == simpleNodes.size) break
+        while (distributedSimpleNodes < simpleNodes.size) {
+            for (graph in subGraphs) {
+                if (distributedSimpleNodes == simpleNodes.size) break
                 graph.nodes.add(simpleNodes[distributedSimpleNodes])
                 distributedSimpleNodes++
             }
         }
+    }
 
-        //distribute regions over graphs (1 / region probability = number of regions per region)
-        //this must not have cycles, as a result, regions can only be added to graphs (of regions) that are already added
-        //the distribution is not evenly, regions with lower indices will have more sub-regions, however this is realistic
+    /**
+     * distribute regions over graphs (1 / region probability = number of regions per region)
+     * this must not have cycles, as a result, regions can only be added to graphs (of regions) that are already added
+     * the distribution is not evenly, regions with lower indices will have more sub-regions, however this is realistic
+     */
+    private fun distributeSubGraphs(regions: List<Region>, root: Graph): Unit {
         val distributedSubGraphs: MutableList<Graph> = LinkedList<Graph>()
         distributedSubGraphs.add(root)
 
@@ -82,19 +119,22 @@ class GraphFactory(private val root: Graph, private val conf: Configuration, ran
             distributedSubGraphs.add(nextRegion.graph)
             distributedRegions++
         }
+    }
 
-        val edges: MutableList<Edge> = LinkedList<Edge>()
-
+    private fun addMandatoryEdges(edges: MutableList<Edge>, subGraphs: List<Graph>): Unit {
         //if everything has to be connected, start by systematically connecting the nodes of each sub-graph
         if(!conf.allowPartitions){
             subGraphs.forEach { graph ->
+
                 //only do something if number of nodes is larger then 1
                 if(graph.nodes.size > 1){
+
                     //remember the connected nodes (put the first node inside)
                     //then, connect each not connected node to an already connected node
                     //this forms a hierarchical connected structure (cycle-free)
                     val connectedNodes: MutableList<Node> = LinkedList()
                     connectedNodes.add(graph.nodes[0])
+
                     var nodeIndex = 1
                     while (nodeIndex < graph.nodes.size){
                         val connectedNodeSource = connectedNodes[random.nextInt(0, connectedNodes.size)]
@@ -108,16 +148,14 @@ class GraphFactory(private val root: Graph, private val conf: Configuration, ran
                 }
             }
         }
+    }
 
-        val allNodes = ArrayList<Node>()
-        allNodes.addAll(simpleNodes)
-        allNodes.addAll(regions)
-
-        //add random connections otherwise
+    private fun fillMissingEdges(edges: MutableList<Edge>, subGraphs: List<Graph>,
+                                 numberOfEdges: Int, numberOfDistortedEdges: Int): Unit {
         if(edges.size < numberOfEdges){
             val missingEdges = numberOfEdges - edges.size
-            //the existing edges are not distorted (because they connect nodes in reqions together)
-            //try to keep the distorted edges at least
+            //the existing edges are not distorted (because they connect nodes in Regions together)
+            //try to keep the distorted edges in case of too few remaining edges
             var missingDistortedEdges = numberOfDistortedEdges.coerceAtMost(missingEdges)
             var missingNormalEdges = (missingEdges - missingDistortedEdges).coerceAtLeast(0)
 
