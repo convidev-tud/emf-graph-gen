@@ -43,6 +43,12 @@ application {
     mainClassName = 'MainKt'
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+}
+
 apply plugin : "org.jetbrains.dokka"
 import org.jetbrains.dokka.gradle.DokkaTask
 
