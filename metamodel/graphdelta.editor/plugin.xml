@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated graphdelta -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="graphdelta.presentation.GraphdeltaModelWizardID"
+            name="%_UI_GraphdeltaModelWizard_label"
+            class="graphdelta.presentation.GraphdeltaModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GraphdeltaModelFile.gif">
+         <description>%_UI_GraphdeltaModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated graphdelta -->
+      <editor
+            id="graphdelta.presentation.GraphdeltaEditorID"
+            name="%_UI_GraphdeltaEditor_label"
+            icon="icons/full/obj16/GraphdeltaModelFile.gif"
+            extensions="graphdelta"
+            class="graphdelta.presentation.GraphdeltaEditor"
+            contributorClass="graphdelta.presentation.GraphdeltaActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

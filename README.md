@@ -78,4 +78,17 @@ The graph has the following properties:
 
 ## Delta Metamodel
 
-:ambulance: TODO
+![](doc/../doc/delta_metamodel_screenshot.png)
+
+**Example**
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="N1"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="N2"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" nodeA="N1" nodeB="N2"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" nodeA="N1" nodeB="N2"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" edgeImplications="//@deltaOperations.3" nodeName="N1"/>
+</graphdelta:DeltaSequence>
+```
