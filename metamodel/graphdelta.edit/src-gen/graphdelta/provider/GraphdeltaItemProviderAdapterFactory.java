@@ -96,29 +96,6 @@ public class GraphdeltaItemProviderAdapterFactory extends GraphdeltaAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link graphdelta.DeltaOperation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DeltaOperationItemProvider deltaOperationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link graphdelta.DeltaOperation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDeltaOperationAdapter() {
-		if (deltaOperationItemProvider == null) {
-			deltaOperationItemProvider = new DeltaOperationItemProvider(this);
-		}
-
-		return deltaOperationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link graphdelta.AddNode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -363,8 +340,6 @@ public class GraphdeltaItemProviderAdapterFactory extends GraphdeltaAdapterFacto
 	public void dispose() {
 		if (deltaSequenceItemProvider != null)
 			deltaSequenceItemProvider.dispose();
-		if (deltaOperationItemProvider != null)
-			deltaOperationItemProvider.dispose();
 		if (addNodeItemProvider != null)
 			addNodeItemProvider.dispose();
 		if (deleteNodeItemProvider != null)

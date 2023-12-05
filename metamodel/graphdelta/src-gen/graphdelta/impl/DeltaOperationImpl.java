@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class DeltaOperationImpl extends MinimalEObjectImpl.Container implements DeltaOperation {
+public abstract class DeltaOperationImpl extends MinimalEObjectImpl.Container implements DeltaOperation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

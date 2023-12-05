@@ -31,15 +31,6 @@ public interface GraphdeltaFactory extends EFactory {
 	DeltaSequence createDeltaSequence();
 
 	/**
-	 * Returns a new object of class '<em>Delta Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Delta Operation</em>'.
-	 * @generated
-	 */
-	DeltaOperation createDeltaOperation();
-
-	/**
 	 * Returns a new object of class '<em>Add Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -151,9 +151,6 @@ public class DeltaSequenceItemProvider extends ItemProviderAdapter implements IE
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(GraphdeltaPackage.Literals.DELTA_SEQUENCE__DELTA_OPERATIONS,
-				GraphdeltaFactory.eINSTANCE.createDeltaOperation()));
-
-		newChildDescriptors.add(createChildParameter(GraphdeltaPackage.Literals.DELTA_SEQUENCE__DELTA_OPERATIONS,
 				GraphdeltaFactory.eINSTANCE.createAddNode()));
 
 		newChildDescriptors.add(createChildParameter(GraphdeltaPackage.Literals.DELTA_SEQUENCE__DELTA_OPERATIONS,

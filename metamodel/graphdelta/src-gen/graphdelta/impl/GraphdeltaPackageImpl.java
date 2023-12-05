@@ -534,7 +534,7 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 				-1, DeltaSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(deltaOperationEClass, DeltaOperation.class, "DeltaOperation", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(deltaOperationEClass, DeltaOperation.class, "DeltaOperation", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(addNodeEClass, AddNode.class, "AddNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

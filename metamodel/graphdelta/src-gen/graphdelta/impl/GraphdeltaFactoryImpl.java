@@ -59,8 +59,6 @@ public class GraphdeltaFactoryImpl extends EFactoryImpl implements GraphdeltaFac
 		switch (eClass.getClassifierID()) {
 		case GraphdeltaPackage.DELTA_SEQUENCE:
 			return createDeltaSequence();
-		case GraphdeltaPackage.DELTA_OPERATION:
-			return createDeltaOperation();
 		case GraphdeltaPackage.ADD_NODE:
 			return createAddNode();
 		case GraphdeltaPackage.DELETE_NODE:
@@ -121,17 +119,6 @@ public class GraphdeltaFactoryImpl extends EFactoryImpl implements GraphdeltaFac
 	public DeltaSequence createDeltaSequence() {
 		DeltaSequenceImpl deltaSequence = new DeltaSequenceImpl();
 		return deltaSequence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DeltaOperation createDeltaOperation() {
-		DeltaOperationImpl deltaOperation = new DeltaOperationImpl();
-		return deltaOperation;
 	}
 
 	/**

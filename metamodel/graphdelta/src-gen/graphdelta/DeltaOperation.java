@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see graphdelta.GraphdeltaPackage#getDeltaOperation()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface DeltaOperation extends EObject {
