@@ -40,14 +40,14 @@ class Checksum : Callable<Int> {
     var modelSize: Int = defaultConfiguration.modelSize
 
     @CommandLine.Option(
-        names = ["-en", "--edges_per_node"],
+        names = ["-n", "--edges_per_node"],
         description = ["Number of edge elements per node element (DOUBLE)." +
                 "This value influences edge_distortion and is influenced by allow_partitions."]
     )
     var edgesPerNode: Double = defaultConfiguration.edgesPerNode
 
     @CommandLine.Option(
-        names = ["-ed", "--edge_distortion"],
+        names = ["-d", "--edge_distortion"],
         description = ["Probability 0...1 that an edge crosses region boundaries (DOUBLE)." +
                 "This value is influenced by allow_partitions."]
     )
@@ -71,19 +71,19 @@ class Checksum : Callable<Int> {
      */
 
     @CommandLine.Option(
-        names = ["-bn", "--branch_number"],
+        names = ["-c", "--branch_number"],
         description = ["The number of branches (variants) to create from the final base model (INT)."]
     )
     var branchNumber: Int = defaultConfiguration.branchNumber
 
     @CommandLine.Option(
-        names = ["-bel", "--branch_edit_length"],
+        names = ["-l", "--branch_edit_length"],
         description = ["The number of additional edit operation performed on each branch (INT)."]
     )
     var branchEditLength: Int = defaultConfiguration.branchEditLength
 
     @CommandLine.Option(
-        names = ["-bef", "--branch_edit_focus"],
+        names = ["-f", "--branch_edit_focus"],
         description = ["Probability factor 0..1 that the next edit operation happens in the same region as the previous." +
                 "A value of 0.0 results in a evenly distribution over all regions."]
     )
