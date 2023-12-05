@@ -143,7 +143,7 @@ fun runWithConfig(configuration: Configuration) {
 fun createOutputBaseModelFile(configuration: Configuration): URI {
     val modelTemplate = File(object {}.javaClass.getResource("template.labelgraph")!!.toURI())
     return URI.createFileURI(modelTemplate.copyTo(
-        File(configuration.outputPath + "out/base.labelgraph"),
+        File(configuration.outputPath + "/base.labelgraph"),
         overwrite = true
     ).path)
 }
