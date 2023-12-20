@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import ecore.EcoreHandler
+import meta.Branch
 import meta.Configuration
 import model.Edge
 import model.Graph
@@ -148,7 +149,22 @@ fun createOutputBaseModelFile(configuration: Configuration): URI {
     ).path)
 }
 
-fun createOutputBranchModelFiles(configuration: Configuration): List<URI> {
-    //TODO
-    return LinkedList()
+fun createOutputBranchModelFiles(configuration: Configuration, baseModel: File): List<Branch> {
+
+    val deltaTemplate = File(object {}.javaClass.getResource("template.graphdelta")!!.toURI())
+    val results: MutableList<Branch> = LinkedList()
+
+    for(i: Int in 0..< configuration.branchNumber){
+        val dir = configuration.outputPath + "/b_" + i.toString()
+        val deltaURI = URI.createFileURI(deltaTemplate.copyTo(
+            File("$dir/model.graphdelta"),
+            overwrite = true
+        ).path)
+        val modelURI = URI.createFileURI(baseModel.copyTo(
+            File("$dir/model.labelgraph"),
+            overwrite = true
+        ).path)
+        results.add(Branch(modelURI, deltaURI))
+    }
+    return results
 }
