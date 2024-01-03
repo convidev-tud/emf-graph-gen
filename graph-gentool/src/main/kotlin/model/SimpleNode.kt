@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.impl.EEnumLiteralImpl
 import kotlin.random.Random
 
 class SimpleNode(name: String, private var label: Label) : Node(name), EObjectSource {
@@ -38,13 +39,28 @@ class SimpleNode(name: String, private var label: Label) : Node(name), EObjectSo
         return node
     }
 
-    companion object{
 
-        private val random: Random = Random(System.currentTimeMillis())
+    override fun deepEquals(other: Any): Boolean {
+        if(other is SimpleNode){
+            return name == other.name && label.name == other.label.name
+        }
+        return false
+    }
 
-        fun randomLabel(): Label {
+    companion object {
+
+        fun randomLabel(random: Random): Label {
             val index = random.nextInt(0, 4)
             return Label.entries[index]
+        }
+
+        fun construct(predef: EObject): SimpleNode {
+            val nameAttribute = predef.eClass().getEStructuralFeature("name")
+            val labelAttribute = predef.eClass().getEStructuralFeature("label")
+            val name = predef.eGet(nameAttribute, true) as String
+            val labelIndex = (predef.eGet(labelAttribute, true) as EEnumLiteralImpl).value
+            val label = Label.entries[labelIndex]
+            return SimpleNode(name, label)
         }
 
     }

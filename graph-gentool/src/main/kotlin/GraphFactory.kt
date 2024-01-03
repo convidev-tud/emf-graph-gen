@@ -85,7 +85,7 @@ class GraphFactory(private val root: Graph, private val conf: Configuration, ran
     private fun simpleNodes(numberOfSimpleNodes: Int): MutableList<SimpleNode> {
         val simpleNodes: MutableList<SimpleNode> = LinkedList<SimpleNode>()
         repeat(numberOfSimpleNodes) { i ->
-            val n = SimpleNode("N$i", SimpleNode.randomLabel())
+            val n = SimpleNode("N$i", SimpleNode.randomLabel(random))
             simpleNodes.add(n)
         }
         return simpleNodes
@@ -103,9 +103,9 @@ class GraphFactory(private val root: Graph, private val conf: Configuration, ran
     }
 
     /**
-     * distribute regions over graphs (1 / region probability = number of regions per region)
-     * this must not have cycles, as a result, regions can only be added to graphs (of regions) that are already added
-     * the distribution is not evenly, regions with lower indices will have more sub-regions, however this is realistic
+     * Distribute regions over graphs (1 / region probability = number of regions per region).
+     * This must not have cycles, as a result, regions can only be added to graphs (of regions) that are already added.
+     * The distribution is not even, regions with lower indices will have more sub-regions.
      */
     private fun distributeSubGraphs(regions: List<Region>, root: Graph): Unit {
         val distributedSubGraphs: MutableList<Graph> = LinkedList<Graph>()

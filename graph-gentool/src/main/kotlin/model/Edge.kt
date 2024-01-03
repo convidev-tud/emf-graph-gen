@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject
 class Edge(
     val a: Node,
     val b: Node
-) : EObjectSource {
+) : EObjectSource, DeepComparable {
 
     private val description = "Edge"
 
@@ -33,6 +33,17 @@ class Edge(
         val nodesComposition = edge.eClass().getEStructuralFeature("nodes")
         (edge.eGet(nodesComposition) as java.util.List<Any>).addAll(listOf(a.buffer!!, b.buffer!!))
         return edge
+    }
+
+    /**
+     * Compares two edges.
+     * Two edges are considered equal if their nodes have the same names and are in the same order
+     */
+    override fun deepEquals(other: Any): Boolean {
+        if(other is Edge){
+            return a.name == other.a.name && b.name == other.b.name
+        }
+        return false
     }
 
 }

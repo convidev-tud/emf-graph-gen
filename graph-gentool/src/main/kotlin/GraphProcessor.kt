@@ -1,8 +1,5 @@
-import org.junit.jupiter.api.Test
-import kotlin.test.assertTrue
-
 /**
- * Copyright 2023 Karl Kegel
+ * Copyright 2024 Karl Kegel
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,16 +14,5 @@ import kotlin.test.assertTrue
  * limitations under the License.
  */
 
-class EcoreHandlerIntegrationTests {
-
-    /**
-     * TODO test if the ecore transformation serialization is correct
-     */
-
-    @Test
-    fun writeAndReadCongruenceTest(){
-        //TODO
-        assertTrue(true)
-    }
-
+class GraphProcessor {
 }

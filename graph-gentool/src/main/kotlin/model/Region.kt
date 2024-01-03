@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
 import org.eclipse.emf.ecore.EObject
+import java.util.*
 
 class Region(name: String, val graph: Graph) : Node(name), EObjectSource {
 
@@ -44,6 +45,24 @@ class Region(name: String, val graph: Graph) : Node(name), EObjectSource {
         }
 
         return super.buffer!!
+    }
+
+    override fun deepEquals(other: Any): Boolean {
+        if(other is Region){
+            return name == other.name && graph.deepEquals(other.graph)
+        }
+        return false
+    }
+
+    companion object {
+
+        fun construct(predef: EObject): Region {
+            val nameAttribute = predef.eClass().getEStructuralFeature("name")
+            val name = predef.eGet(nameAttribute, true) as String
+            val graphEObject = predef.eContents()[0]
+            return Region(name, Graph(LinkedList(), LinkedList(), graphEObject, isRoot = false))
+        }
+
     }
 
 }

@@ -25,9 +25,8 @@ import org.eclipse.emf.ecore.util.ExtendedMetaData
 import org.eclipse.emf.ecore.xmi.XMLResource
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
-import java.lang.Exception
 
-class EcoreHandler(metamodel: URI, model: URI) {
+class EcoreHandler(metamodel: URI, model: URI, registryExtension: String) {
 
     private var resourceSet: ResourceSet? = null
     private var metamodelRoot: EPackage? = null
@@ -36,7 +35,7 @@ class EcoreHandler(metamodel: URI, model: URI) {
     init {
         Resource.Factory.Registry.INSTANCE.extensionToFactoryMap["ecore"] = EcoreResourceFactoryImpl()
         Resource.Factory.Registry.INSTANCE.extensionToFactoryMap["xmi"] = XMIResourceFactoryImpl()
-        Resource.Factory.Registry.INSTANCE.extensionToFactoryMap["labelgraph"] = XMIResourceFactoryImpl()
+        Resource.Factory.Registry.INSTANCE.extensionToFactoryMap[registryExtension] = XMIResourceFactoryImpl()
 
         resourceSet = ResourceSetImpl()
         val extendedMetaData: ExtendedMetaData = BasicExtendedMetaData(resourceSet!!.packageRegistry)

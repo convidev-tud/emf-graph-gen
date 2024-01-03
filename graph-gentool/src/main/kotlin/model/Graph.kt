@@ -27,11 +27,28 @@ import kotlin.random.Random
 class Graph (
     val nodes: MutableList<Node> = LinkedList<Node>(),
     val edges: MutableList<Edge> = LinkedList<Edge>(),
-    predef: EObject? = null
-) : EObjectSource {
+    private val predef: EObject? = null,
+    val isRoot: Boolean = false
+) : EObjectSource, DeepComparable {
 
     private val description = "Graph"
     private var buffer: EObject? = predef
+
+    init {
+        if(predef != null){
+            val nodesComposition = predef.eClass().getEStructuralFeature("nodes")
+
+            val eNodes = predef.eGet(nodesComposition) as java.util.List<EObject>
+            val genSimpleNodes = eNodes.filter { e -> e.eClass().name == "SimpleNode" }.map { e -> SimpleNode.construct(e) }
+            val genRegions = eNodes.filter { e -> e.eClass().name == "Region" }.map { e -> Region.construct(e) }
+            nodes.addAll(genSimpleNodes)
+            nodes.addAll(genRegions)
+
+            if(isRoot){
+                constructEdgesFromPredef(getNodesRecursive())
+            }
+        }
+    }
 
     fun getStats(recursive: Boolean): GraphStats {
         val stats = GraphStats(
@@ -101,6 +118,39 @@ class Graph (
         return partition.size == nodes.size
     }
 
+    private fun getNodesRecursive(): Set<Node> {
+        val nodeSet: MutableSet<Node> = HashSet()
+        nodeSet.addAll(nodes)
+        nodes.filterIsInstance<Region>().forEach { region ->
+            nodeSet.addAll(region.graph.getNodesRecursive())
+        }
+        return nodeSet
+    }
+
+    fun constructEdgesFromPredef(nodes: Set<Node>){
+        val edgesComposition = predef!!.eClass().getEStructuralFeature("edges")
+        val eEdges = predef.eGet(edgesComposition) as java.util.List<EObject>
+
+        eEdges.forEach{edge ->
+            val nodesComposition = edge.eClass().getEStructuralFeature("nodes")
+            val edgeList = (edge.eGet(nodesComposition) as java.util.List<EObject>)
+            val a = edgeList[0]
+            val b = edgeList[1]
+            val aName = a.eGet(a.eClass().getEStructuralFeature("name"), true) as String
+            val bName = b.eGet(b.eClass().getEStructuralFeature("name"), true) as String
+            //println("$aName <---> $bName")
+            val aNode = nodes.find { n -> n.name == aName }!!
+            val bNode = nodes.find { n -> n.name == bName }!!
+            val genEdge = Edge(aNode, bNode)
+            edges.add(genEdge)
+        }
+
+        this.nodes.filterIsInstance<Region>().forEach { region ->
+            region.graph.constructEdgesFromPredef(nodes)
+        }
+
+    }
+
     override fun generate(classes: Map<String, EClass>, label: EEnum, factory: EFactory, filter: Set<String>): EObject {
         val graph = buffer ?: factory.create(classes[description])
         buffer = graph
@@ -123,5 +173,20 @@ class Graph (
         }
         return graph
     }
+
+    override fun deepEquals(other: Any): Boolean {
+        if(other is Graph){
+            if (nodes.size != other.nodes.size || edges.size != other.edges.size) return false
+            for(node in nodes){
+                if(other.nodes.find { otherNode -> otherNode.deepEquals(node) } == null) return false
+            }
+            for(edge in edges){
+                if(other.edges.find { otherEdge -> otherEdge.deepEquals(edge) } == null) return false
+            }
+            return true
+        }
+        return false
+    }
+
 
 }

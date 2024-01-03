@@ -112,10 +112,11 @@ fun main(args: Array<String>) {
     exitProcess(CommandLine(Checksum()).execute(*args))
 }
 
-fun runWithConfig(configuration: Configuration) {
+fun runWithConfig(configuration: Configuration): Graph {
     val metamodelPath: String = object {}.javaClass.getResource("labelgraph.ecore")!!.path
     val metamodelURI = URI.createFileURI(metamodelPath)
-    val ecoreHandler = EcoreHandler(metamodelURI, createOutputBaseModelFile(configuration))
+    val baseModel = createOutputBaseModelFile(configuration)
+    val ecoreHandler = EcoreHandler(metamodelURI, baseModel, "labelgraph")
 
     val factory = ecoreHandler.getModelFactory()
     val classMap = ecoreHandler.getClassMap()
@@ -137,8 +138,37 @@ fun runWithConfig(configuration: Configuration) {
     val endTimeWrite = System.currentTimeMillis()
     println("Postprocessing Time: ${endTimeWrite - startTimeWrite} ms")
 
-    println("Creating Branches...")
-    //TODO
+    if (configuration.branchNumber > 0) {
+        println("Creating Branches...")
+        val branches = createOutputBranchModelFiles(configuration, File(baseModel.toFileString()))
+    }
+
+    return graph
+}
+
+fun processBranches(branches: List<Branch>, configuration: Configuration, graphMetamodelURI: URI, deltaMetamodelURI: URI): Unit {
+
+    for (branch in branches){
+        val graphEcoreHandler = EcoreHandler(graphMetamodelURI, branch.modelURI, "labelgraph")
+        //TODO check if Graph class can decode predefined input
+
+        val graphClassMap = graphEcoreHandler.getClassMap()
+        val graphLabels = graphEcoreHandler.getEnumMap()["Label"]!!
+        val graphRoot = graphEcoreHandler.getModelRoot()
+        val graph = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot)
+
+        val deltaEcoreHandler = EcoreHandler(deltaMetamodelURI, branch.deltaURI, "graphdelta")
+
+        //TODO delta mappings
+
+        val deltaClassMap = graphEcoreHandler.getClassMap()
+        val deltaLabels = graphEcoreHandler.getEnumMap()["Label"]!!
+        val deltaRoot = graphEcoreHandler.getModelRoot()
+        val deltaSequence = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot)
+
+        val processor = GraphProcessor()
+    }
+
 }
 
 fun createOutputBaseModelFile(configuration: Configuration): URI {
