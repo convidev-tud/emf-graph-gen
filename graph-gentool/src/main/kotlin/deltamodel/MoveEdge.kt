@@ -35,6 +35,10 @@ class MoveEdge(val edge: Edge,
 
     val description = "MoveEdge"
 
+    override fun flatten(): List<DeltaOperation> {
+        return listOf(this)
+    }
+
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
                           label: EEnum?, nodeType: EEnum?): EObject {
         val operation = factory.create(classes[description])

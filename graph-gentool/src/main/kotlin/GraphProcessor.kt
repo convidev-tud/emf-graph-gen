@@ -71,7 +71,7 @@ class GraphProcessor(private val graph: Graph,
         //return graph copy and int
         return 0
     }
-/*
+
     fun applyStage(stage: Stage) {
 
     }
@@ -79,5 +79,5 @@ class GraphProcessor(private val graph: Graph,
     fun clearStage() {
 
     }
-*/
+
 }

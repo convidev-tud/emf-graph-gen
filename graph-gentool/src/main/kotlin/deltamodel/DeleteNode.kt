@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
 import org.eclipse.emf.ecore.EObject
+import java.util.*
 
 /**
  * Delete a [Node] from the specified [Region].
@@ -36,8 +37,24 @@ class DeleteNode(val node: Node,
 
     val description = "DeleteNode"
 
+    override fun flatten(): List<DeltaOperation> {
+        val result: MutableList<DeltaOperation> = LinkedList()
+        for (op in edgeImplications){
+            result.addAll(op.flatten())
+        }
+        for (op in nodeImplications){
+            result.addAll(op.flatten())
+        }
+        result.add(this)
+        return result
+    }
+
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
                           label: EEnum?, nodeType: EEnum?): EObject {
+
+        nodeImplications.forEach{ni -> ni.generate(classes, factory, filter, label, nodeType)}
+        edgeImplications.forEach{ei -> ei.generate(classes, factory, filter, label, nodeType)}
+
         val operation = factory.create(classes[description])
         val nodeNameAttribute = operation.eClass().getEStructuralFeature("nodeName")
         val fromRegionAttribute = operation.eClass().getEStructuralFeature("fromRegion")

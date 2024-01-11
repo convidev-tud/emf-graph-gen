@@ -17,7 +17,6 @@
 package deltamodel
 
 import ecore.EObjectSource
-import ecore.DeepComparable
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
@@ -25,37 +24,41 @@ import org.eclipse.emf.ecore.EObject
 import java.util.*
 
 class DeltaSequence(
-    val deltaOperations: MutableList<DeltaOperation> = LinkedList(),
-    private val predef: EObject? = null
-): EObjectSource, DeepComparable {
+    private val deltaOperations: MutableList<DeltaOperation> = LinkedList(),
+    predef: EObject? = null
+) : EObjectSource {
 
-    override fun generate(classes: Map<String, EClass>, label: EEnum, factory: EFactory, filter: Set<String>): EObject {
-        TODO("Not yet implemented")
-        /*
-        val graph = buffer ?: factory.create(classes[description])
-        buffer = graph
-        val nodesComposition = graph.eClass().getEStructuralFeature("nodes")
-        val edgesComposition = graph.eClass().getEStructuralFeature("edges")
-        if(filter.contains("Node")){
-            graph.eSet(nodesComposition, LinkedList<Any>())
-            val eSimpleNodes = nodes.filterIsInstance<SimpleNode>().map { n -> n.generate(classes, label, factory, filter) }
-            val eRegions = nodes.filterIsInstance<Region>().map { n -> n.generate(classes, label, factory, filter) }
-            val eNodes = LinkedList<EObject>()
-            eNodes.addAll(eSimpleNodes)
-            eNodes.addAll(eRegions)
-            (graph.eGet(nodesComposition) as java.util.List<EObject>).addAll(eNodes)
+    private var buffer = predef
+    private val description = "DeltaSequence"
+
+    fun getLength(): Int = deltaOperations.size
+
+    fun getAtomicLength(): Int {
+        var size = 0
+        for (dop in deltaOperations){
+            size += dop.getAtomicLength()
         }
-        if(filter.contains("Edge")){
-            graph.eSet(edgesComposition, LinkedList<Any>())
-            val eEdges = edges.map { edge -> edge.generate(classes, label, factory, filter) }
-            (graph.eGet(edgesComposition) as java.util.List<EObject>).addAll(eEdges)
-            nodes.filterIsInstance<Region>().forEach{ r -> r.generate(classes, label, factory, filter)}
-        }
-        return graph
-         */
+        return size
     }
 
-    override fun deepEquals(other: Any): Boolean {
-        TODO("Not yet implemented")
+    override fun generate(
+        classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
+        label: EEnum?, nodeType: EEnum?
+    ): EObject {
+
+        val deltaSequence = buffer ?: factory.create(classes[description])
+
+        //recursively generate delta operations to EObjects
+        deltaOperations.forEach { op -> op.generate(classes, factory, filter, label, nodeType) }
+
+        val flatOperationSequence: List<DeltaOperation> = deltaOperations.flatMap { op -> op.flatten() }
+        val flatEObjectSequence: List<EObject> = flatOperationSequence.map { op -> op.buffer!! }
+
+        val operationsComposition = deltaSequence.eClass().getEStructuralFeature("deltaOperations")
+        (deltaSequence.eGet(operationsComposition) as java.util.List<EObject>).addAll(flatEObjectSequence)
+
+        buffer = deltaSequence
+        return deltaSequence
     }
+
 }

@@ -38,8 +38,20 @@ class MoveNode(val node: Node,
 
     private val description = "MoveNode"
 
+    override fun flatten(): List<DeltaOperation> {
+        val result: MutableList<DeltaOperation> = LinkedList()
+        for (op in edgeImplications){
+            result.addAll(op.flatten())
+        }
+        result.add(this)
+        return result
+    }
+
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
                           label: EEnum?, nodeType: EEnum?): EObject {
+
+        edgeImplications.forEach{ei -> ei.generate(classes, factory, filter, label, nodeType)}
+
         val operation = factory.create(classes[description])
         val nodeNameAttribute = operation.eClass().getEStructuralFeature("nodeName")
         val targetRegionAttribute = operation.eClass().getEStructuralFeature("targetRegion")

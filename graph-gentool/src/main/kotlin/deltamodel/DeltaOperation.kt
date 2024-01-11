@@ -27,4 +27,7 @@ abstract class DeltaOperation : EObjectSource, DeepComparable {
      */
     var buffer: EObject? = null
 
+    abstract fun flatten(): List<DeltaOperation>
+
+    fun getAtomicLength() = flatten().size
 }

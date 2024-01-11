@@ -33,6 +33,10 @@ class ChangeLabel(val node: Node,
 
     private val description = "ChangeLabel"
 
+    override fun flatten(): List<DeltaOperation> {
+        return listOf(this)
+    }
+
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
                           label: EEnum?, nodeType: EEnum?): EObject {
         val operation = factory.create(classes[description])
