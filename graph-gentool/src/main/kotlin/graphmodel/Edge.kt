@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package model
+package graphmodel
 
+import ecore.DeepComparable
 import ecore.EObjectSource
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
@@ -28,10 +29,11 @@ class Edge(
 
     private val description = "Edge"
 
-    override fun generate(classes: Map<String, EClass>, label: EEnum, factory: EFactory, filter: Set<String>): EObject {
+    override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
+                                   label: EEnum?, nodeType: EEnum?): EObject {
         val edge = factory.create(classes[description])
-        val nodesComposition = edge.eClass().getEStructuralFeature("nodes")
-        (edge.eGet(nodesComposition) as java.util.List<Any>).addAll(listOf(a.buffer!!, b.buffer!!))
+        val nodesReferences = edge.eClass().getEStructuralFeature("nodes")
+        (edge.eGet(nodesReferences) as java.util.List<Any>).addAll(listOf(a.buffer!!, b.buffer!!))
         return edge
     }
 

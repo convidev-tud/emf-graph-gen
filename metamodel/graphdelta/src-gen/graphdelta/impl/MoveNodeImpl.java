@@ -3,13 +3,17 @@
 package graphdelta.impl;
 
 import graphdelta.GraphdeltaPackage;
+import graphdelta.MoveEdge;
 import graphdelta.MoveNode;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link graphdelta.impl.MoveNodeImpl#getNodeName <em>Node Name</em>}</li>
  *   <li>{@link graphdelta.impl.MoveNodeImpl#getTargetRegion <em>Target Region</em>}</li>
  *   <li>{@link graphdelta.impl.MoveNodeImpl#getOldRegion <em>Old Region</em>}</li>
+ *   <li>{@link graphdelta.impl.MoveNodeImpl#getEdgeImplications <em>Edge Implications</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +91,16 @@ public class MoveNodeImpl extends DeltaOperationImpl implements MoveNode {
 	 * @ordered
 	 */
 	protected String oldRegion = OLD_REGION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEdgeImplications() <em>Edge Implications</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEdgeImplications()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MoveEdge> edgeImplications;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,6 +199,20 @@ public class MoveNodeImpl extends DeltaOperationImpl implements MoveNode {
 	 * @generated
 	 */
 	@Override
+	public EList<MoveEdge> getEdgeImplications() {
+		if (edgeImplications == null) {
+			edgeImplications = new EObjectResolvingEList<MoveEdge>(MoveEdge.class, this,
+					GraphdeltaPackage.MOVE_NODE__EDGE_IMPLICATIONS);
+		}
+		return edgeImplications;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case GraphdeltaPackage.MOVE_NODE__NODE_NAME:
@@ -192,6 +221,8 @@ public class MoveNodeImpl extends DeltaOperationImpl implements MoveNode {
 			return getTargetRegion();
 		case GraphdeltaPackage.MOVE_NODE__OLD_REGION:
 			return getOldRegion();
+		case GraphdeltaPackage.MOVE_NODE__EDGE_IMPLICATIONS:
+			return getEdgeImplications();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,6 +232,7 @@ public class MoveNodeImpl extends DeltaOperationImpl implements MoveNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -212,6 +244,10 @@ public class MoveNodeImpl extends DeltaOperationImpl implements MoveNode {
 			return;
 		case GraphdeltaPackage.MOVE_NODE__OLD_REGION:
 			setOldRegion((String) newValue);
+			return;
+		case GraphdeltaPackage.MOVE_NODE__EDGE_IMPLICATIONS:
+			getEdgeImplications().clear();
+			getEdgeImplications().addAll((Collection<? extends MoveEdge>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -234,6 +270,9 @@ public class MoveNodeImpl extends DeltaOperationImpl implements MoveNode {
 		case GraphdeltaPackage.MOVE_NODE__OLD_REGION:
 			setOldRegion(OLD_REGION_EDEFAULT);
 			return;
+		case GraphdeltaPackage.MOVE_NODE__EDGE_IMPLICATIONS:
+			getEdgeImplications().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -252,6 +291,8 @@ public class MoveNodeImpl extends DeltaOperationImpl implements MoveNode {
 			return TARGET_REGION_EDEFAULT == null ? targetRegion != null : !TARGET_REGION_EDEFAULT.equals(targetRegion);
 		case GraphdeltaPackage.MOVE_NODE__OLD_REGION:
 			return OLD_REGION_EDEFAULT == null ? oldRegion != null : !OLD_REGION_EDEFAULT.equals(oldRegion);
+		case GraphdeltaPackage.MOVE_NODE__EDGE_IMPLICATIONS:
+			return edgeImplications != null && !edgeImplications.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

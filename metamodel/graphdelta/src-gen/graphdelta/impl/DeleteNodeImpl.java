@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link graphdelta.impl.DeleteNodeImpl#getNodeImplications <em>Node Implications</em>}</li>
  *   <li>{@link graphdelta.impl.DeleteNodeImpl#getEdgeImplications <em>Edge Implications</em>}</li>
  *   <li>{@link graphdelta.impl.DeleteNodeImpl#getNodeName <em>Node Name</em>}</li>
+ *   <li>{@link graphdelta.impl.DeleteNodeImpl#getFromRegion <em>From Region</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,6 +74,26 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 	 * @ordered
 	 */
 	protected String nodeName = NODE_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFromRegion() <em>From Region</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFromRegion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FROM_REGION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getFromRegion() <em>From Region</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFromRegion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String fromRegion = FROM_REGION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,6 +172,30 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 	 * @generated
 	 */
 	@Override
+	public String getFromRegion() {
+		return fromRegion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFromRegion(String newFromRegion) {
+		String oldFromRegion = fromRegion;
+		fromRegion = newFromRegion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphdeltaPackage.DELETE_NODE__FROM_REGION,
+					oldFromRegion, fromRegion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case GraphdeltaPackage.DELETE_NODE__NODE_IMPLICATIONS:
@@ -159,6 +204,8 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 			return getEdgeImplications();
 		case GraphdeltaPackage.DELETE_NODE__NODE_NAME:
 			return getNodeName();
+		case GraphdeltaPackage.DELETE_NODE__FROM_REGION:
+			return getFromRegion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -183,6 +230,9 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 		case GraphdeltaPackage.DELETE_NODE__NODE_NAME:
 			setNodeName((String) newValue);
 			return;
+		case GraphdeltaPackage.DELETE_NODE__FROM_REGION:
+			setFromRegion((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -204,6 +254,9 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 		case GraphdeltaPackage.DELETE_NODE__NODE_NAME:
 			setNodeName(NODE_NAME_EDEFAULT);
 			return;
+		case GraphdeltaPackage.DELETE_NODE__FROM_REGION:
+			setFromRegion(FROM_REGION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -222,6 +275,8 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 			return edgeImplications != null && !edgeImplications.isEmpty();
 		case GraphdeltaPackage.DELETE_NODE__NODE_NAME:
 			return NODE_NAME_EDEFAULT == null ? nodeName != null : !NODE_NAME_EDEFAULT.equals(nodeName);
+		case GraphdeltaPackage.DELETE_NODE__FROM_REGION:
+			return FROM_REGION_EDEFAULT == null ? fromRegion != null : !FROM_REGION_EDEFAULT.equals(fromRegion);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -239,6 +294,8 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (nodeName: ");
 		result.append(nodeName);
+		result.append(", fromRegion: ");
+		result.append(fromRegion);
 		result.append(')');
 		return result.toString();
 	}

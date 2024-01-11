@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package model
+package graphmodel
 
+import ecore.DeepComparable
 import ecore.EObjectSource
-import meta.GraphStats
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
 import org.eclipse.emf.ecore.EObject
+import util.GraphStats
 import java.util.*
 import kotlin.random.Random
 
@@ -39,7 +40,11 @@ class Graph (
             val nodesComposition = predef.eClass().getEStructuralFeature("nodes")
 
             val eNodes = predef.eGet(nodesComposition) as java.util.List<EObject>
-            val genSimpleNodes = eNodes.filter { e -> e.eClass().name == "SimpleNode" }.map { e -> SimpleNode.construct(e) }
+            val genSimpleNodes = eNodes.filter { e -> e.eClass().name == "SimpleNode" }.map { e ->
+                SimpleNode.construct(
+                    e
+                )
+            }
             val genRegions = eNodes.filter { e -> e.eClass().name == "Region" }.map { e -> Region.construct(e) }
             nodes.addAll(genSimpleNodes)
             nodes.addAll(genRegions)
@@ -127,7 +132,7 @@ class Graph (
         return nodeSet
     }
 
-    fun constructEdgesFromPredef(nodes: Set<Node>){
+    private fun constructEdgesFromPredef(nodes: Set<Node>){
         val edgesComposition = predef!!.eClass().getEStructuralFeature("edges")
         val eEdges = predef.eGet(edgesComposition) as java.util.List<EObject>
 
@@ -148,18 +153,20 @@ class Graph (
         this.nodes.filterIsInstance<Region>().forEach { region ->
             region.graph.constructEdgesFromPredef(nodes)
         }
-
     }
 
-    override fun generate(classes: Map<String, EClass>, label: EEnum, factory: EFactory, filter: Set<String>): EObject {
+    override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
+                                       label: EEnum?, nodeType: EEnum?): EObject {
         val graph = buffer ?: factory.create(classes[description])
         buffer = graph
         val nodesComposition = graph.eClass().getEStructuralFeature("nodes")
         val edgesComposition = graph.eClass().getEStructuralFeature("edges")
         if(filter.contains("Node")){
             graph.eSet(nodesComposition, LinkedList<Any>())
-            val eSimpleNodes = nodes.filterIsInstance<SimpleNode>().map { n -> n.generate(classes, label, factory, filter) }
-            val eRegions = nodes.filterIsInstance<Region>().map { n -> n.generate(classes, label, factory, filter) }
+            val eSimpleNodes = nodes.filterIsInstance<SimpleNode>().map { n ->
+                n.generate(classes, factory, filter, label, nodeType) }
+            val eRegions = nodes.filterIsInstance<Region>().map { n ->
+                n.generate(classes, factory, filter, label, nodeType) }
             val eNodes = LinkedList<EObject>()
             eNodes.addAll(eSimpleNodes)
             eNodes.addAll(eRegions)
@@ -167,9 +174,9 @@ class Graph (
         }
         if(filter.contains("Edge")){
             graph.eSet(edgesComposition, LinkedList<Any>())
-            val eEdges = edges.map { edge -> edge.generate(classes, label, factory, filter) }
+            val eEdges = edges.map { edge -> edge.generate(classes, factory, filter, label, nodeType) }
             (graph.eGet(edgesComposition) as java.util.List<EObject>).addAll(eEdges)
-            nodes.filterIsInstance<Region>().forEach{r -> r.generate(classes, label, factory, filter)}
+            nodes.filterIsInstance<Region>().forEach{ r -> r.generate(classes, factory, filter, label, nodeType)}
         }
         return graph
     }

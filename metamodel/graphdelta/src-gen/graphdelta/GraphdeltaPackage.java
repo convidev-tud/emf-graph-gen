@@ -151,13 +151,22 @@ public interface GraphdeltaPackage extends EPackage {
 	int ADD_NODE__NODE_TYPE = DELTA_OPERATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>To Region</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_NODE__TO_REGION = DELTA_OPERATION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Add Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADD_NODE_FEATURE_COUNT = DELTA_OPERATION_FEATURE_COUNT + 2;
+	int ADD_NODE_FEATURE_COUNT = DELTA_OPERATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Add Node</em>' class.
@@ -206,13 +215,22 @@ public interface GraphdeltaPackage extends EPackage {
 	int DELETE_NODE__NODE_NAME = DELTA_OPERATION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>From Region</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE_NODE__FROM_REGION = DELTA_OPERATION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Delete Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELETE_NODE_FEATURE_COUNT = DELTA_OPERATION_FEATURE_COUNT + 3;
+	int DELETE_NODE_FEATURE_COUNT = DELTA_OPERATION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Delete Node</em>' class.
@@ -353,13 +371,22 @@ public interface GraphdeltaPackage extends EPackage {
 	int MOVE_NODE__OLD_REGION = DELTA_OPERATION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Edge Implications</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_NODE__EDGE_IMPLICATIONS = DELTA_OPERATION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Move Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVE_NODE_FEATURE_COUNT = DELTA_OPERATION_FEATURE_COUNT + 3;
+	int MOVE_NODE_FEATURE_COUNT = DELTA_OPERATION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Move Node</em>' class.
@@ -426,6 +453,70 @@ public interface GraphdeltaPackage extends EPackage {
 	int CHANGE_LABEL_OPERATION_COUNT = DELTA_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link graphdelta.impl.MoveEdgeImpl <em>Move Edge</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see graphdelta.impl.MoveEdgeImpl
+	 * @see graphdelta.impl.GraphdeltaPackageImpl#getMoveEdge()
+	 * @generated
+	 */
+	int MOVE_EDGE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Old Region</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_EDGE__OLD_REGION = DELTA_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>New Region</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_EDGE__NEW_REGION = DELTA_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Node A</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_EDGE__NODE_A = DELTA_OPERATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Node B</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_EDGE__NODE_B = DELTA_OPERATION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Move Edge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_EDGE_FEATURE_COUNT = DELTA_OPERATION_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Move Edge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_EDGE_OPERATION_COUNT = DELTA_OPERATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link graphdelta.NodeType <em>Node Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,7 +524,7 @@ public interface GraphdeltaPackage extends EPackage {
 	 * @see graphdelta.impl.GraphdeltaPackageImpl#getNodeType()
 	 * @generated
 	 */
-	int NODE_TYPE = 8;
+	int NODE_TYPE = 9;
 
 	/**
 	 * The meta object id for the '{@link graphdelta.Label <em>Label</em>}' enum.
@@ -443,7 +534,7 @@ public interface GraphdeltaPackage extends EPackage {
 	 * @see graphdelta.impl.GraphdeltaPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 9;
+	int LABEL = 10;
 
 	/**
 	 * Returns the meta object for class '{@link graphdelta.DeltaSequence <em>Delta Sequence</em>}'.
@@ -509,6 +600,17 @@ public interface GraphdeltaPackage extends EPackage {
 	EAttribute getAddNode_NodeType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link graphdelta.AddNode#getToRegion <em>To Region</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>To Region</em>'.
+	 * @see graphdelta.AddNode#getToRegion()
+	 * @see #getAddNode()
+	 * @generated
+	 */
+	EAttribute getAddNode_ToRegion();
+
+	/**
 	 * Returns the meta object for class '{@link graphdelta.DeleteNode <em>Delete Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -550,6 +652,17 @@ public interface GraphdeltaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDeleteNode_NodeName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link graphdelta.DeleteNode#getFromRegion <em>From Region</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>From Region</em>'.
+	 * @see graphdelta.DeleteNode#getFromRegion()
+	 * @see #getDeleteNode()
+	 * @generated
+	 */
+	EAttribute getDeleteNode_FromRegion();
 
 	/**
 	 * Returns the meta object for class '{@link graphdelta.AddEdge <em>Add Edge</em>}'.
@@ -659,6 +772,17 @@ public interface GraphdeltaPackage extends EPackage {
 	EAttribute getMoveNode_OldRegion();
 
 	/**
+	 * Returns the meta object for the reference list '{@link graphdelta.MoveNode#getEdgeImplications <em>Edge Implications</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Edge Implications</em>'.
+	 * @see graphdelta.MoveNode#getEdgeImplications()
+	 * @see #getMoveNode()
+	 * @generated
+	 */
+	EReference getMoveNode_EdgeImplications();
+
+	/**
 	 * Returns the meta object for class '{@link graphdelta.ChangeLabel <em>Change Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -700,6 +824,60 @@ public interface GraphdeltaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getChangeLabel_OldLabel();
+
+	/**
+	 * Returns the meta object for class '{@link graphdelta.MoveEdge <em>Move Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Move Edge</em>'.
+	 * @see graphdelta.MoveEdge
+	 * @generated
+	 */
+	EClass getMoveEdge();
+
+	/**
+	 * Returns the meta object for the attribute '{@link graphdelta.MoveEdge#getOldRegion <em>Old Region</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Old Region</em>'.
+	 * @see graphdelta.MoveEdge#getOldRegion()
+	 * @see #getMoveEdge()
+	 * @generated
+	 */
+	EAttribute getMoveEdge_OldRegion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link graphdelta.MoveEdge#getNewRegion <em>New Region</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New Region</em>'.
+	 * @see graphdelta.MoveEdge#getNewRegion()
+	 * @see #getMoveEdge()
+	 * @generated
+	 */
+	EAttribute getMoveEdge_NewRegion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link graphdelta.MoveEdge#getNodeA <em>Node A</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Node A</em>'.
+	 * @see graphdelta.MoveEdge#getNodeA()
+	 * @see #getMoveEdge()
+	 * @generated
+	 */
+	EAttribute getMoveEdge_NodeA();
+
+	/**
+	 * Returns the meta object for the attribute '{@link graphdelta.MoveEdge#getNodeB <em>Node B</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Node B</em>'.
+	 * @see graphdelta.MoveEdge#getNodeB()
+	 * @see #getMoveEdge()
+	 * @generated
+	 */
+	EAttribute getMoveEdge_NodeB();
 
 	/**
 	 * Returns the meta object for enum '{@link graphdelta.NodeType <em>Node Type</em>}'.
@@ -799,6 +977,14 @@ public interface GraphdeltaPackage extends EPackage {
 		EAttribute ADD_NODE__NODE_TYPE = eINSTANCE.getAddNode_NodeType();
 
 		/**
+		 * The meta object literal for the '<em><b>To Region</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ADD_NODE__TO_REGION = eINSTANCE.getAddNode_ToRegion();
+
+		/**
 		 * The meta object literal for the '{@link graphdelta.impl.DeleteNodeImpl <em>Delete Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -831,6 +1017,14 @@ public interface GraphdeltaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DELETE_NODE__NODE_NAME = eINSTANCE.getDeleteNode_NodeName();
+
+		/**
+		 * The meta object literal for the '<em><b>From Region</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DELETE_NODE__FROM_REGION = eINSTANCE.getDeleteNode_FromRegion();
 
 		/**
 		 * The meta object literal for the '{@link graphdelta.impl.AddEdgeImpl <em>Add Edge</em>}' class.
@@ -919,6 +1113,14 @@ public interface GraphdeltaPackage extends EPackage {
 		EAttribute MOVE_NODE__OLD_REGION = eINSTANCE.getMoveNode_OldRegion();
 
 		/**
+		 * The meta object literal for the '<em><b>Edge Implications</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MOVE_NODE__EDGE_IMPLICATIONS = eINSTANCE.getMoveNode_EdgeImplications();
+
+		/**
 		 * The meta object literal for the '{@link graphdelta.impl.ChangeLabelImpl <em>Change Label</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -951,6 +1153,48 @@ public interface GraphdeltaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CHANGE_LABEL__OLD_LABEL = eINSTANCE.getChangeLabel_OldLabel();
+
+		/**
+		 * The meta object literal for the '{@link graphdelta.impl.MoveEdgeImpl <em>Move Edge</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see graphdelta.impl.MoveEdgeImpl
+		 * @see graphdelta.impl.GraphdeltaPackageImpl#getMoveEdge()
+		 * @generated
+		 */
+		EClass MOVE_EDGE = eINSTANCE.getMoveEdge();
+
+		/**
+		 * The meta object literal for the '<em><b>Old Region</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVE_EDGE__OLD_REGION = eINSTANCE.getMoveEdge_OldRegion();
+
+		/**
+		 * The meta object literal for the '<em><b>New Region</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVE_EDGE__NEW_REGION = eINSTANCE.getMoveEdge_NewRegion();
+
+		/**
+		 * The meta object literal for the '<em><b>Node A</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVE_EDGE__NODE_A = eINSTANCE.getMoveEdge_NodeA();
+
+		/**
+		 * The meta object literal for the '<em><b>Node B</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVE_EDGE__NODE_B = eINSTANCE.getMoveEdge_NodeB();
 
 		/**
 		 * The meta object literal for the '{@link graphdelta.NodeType <em>Node Type</em>}' enum.

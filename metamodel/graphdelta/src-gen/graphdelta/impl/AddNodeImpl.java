@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link graphdelta.impl.AddNodeImpl#getNodeName <em>Node Name</em>}</li>
  *   <li>{@link graphdelta.impl.AddNodeImpl#getNodeType <em>Node Type</em>}</li>
+ *   <li>{@link graphdelta.impl.AddNodeImpl#getToRegion <em>To Region</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +67,26 @@ public class AddNodeImpl extends DeltaOperationImpl implements AddNode {
 	 * @ordered
 	 */
 	protected NodeType nodeType = NODE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getToRegion() <em>To Region</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToRegion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TO_REGION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getToRegion() <em>To Region</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToRegion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String toRegion = TO_REGION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,12 +161,38 @@ public class AddNodeImpl extends DeltaOperationImpl implements AddNode {
 	 * @generated
 	 */
 	@Override
+	public String getToRegion() {
+		return toRegion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setToRegion(String newToRegion) {
+		String oldToRegion = toRegion;
+		toRegion = newToRegion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphdeltaPackage.ADD_NODE__TO_REGION, oldToRegion,
+					toRegion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case GraphdeltaPackage.ADD_NODE__NODE_NAME:
 			return getNodeName();
 		case GraphdeltaPackage.ADD_NODE__NODE_TYPE:
 			return getNodeType();
+		case GraphdeltaPackage.ADD_NODE__TO_REGION:
+			return getToRegion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +210,9 @@ public class AddNodeImpl extends DeltaOperationImpl implements AddNode {
 			return;
 		case GraphdeltaPackage.ADD_NODE__NODE_TYPE:
 			setNodeType((NodeType) newValue);
+			return;
+		case GraphdeltaPackage.ADD_NODE__TO_REGION:
+			setToRegion((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -182,6 +232,9 @@ public class AddNodeImpl extends DeltaOperationImpl implements AddNode {
 		case GraphdeltaPackage.ADD_NODE__NODE_TYPE:
 			setNodeType(NODE_TYPE_EDEFAULT);
 			return;
+		case GraphdeltaPackage.ADD_NODE__TO_REGION:
+			setToRegion(TO_REGION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -198,6 +251,8 @@ public class AddNodeImpl extends DeltaOperationImpl implements AddNode {
 			return NODE_NAME_EDEFAULT == null ? nodeName != null : !NODE_NAME_EDEFAULT.equals(nodeName);
 		case GraphdeltaPackage.ADD_NODE__NODE_TYPE:
 			return nodeType != NODE_TYPE_EDEFAULT;
+		case GraphdeltaPackage.ADD_NODE__TO_REGION:
+			return TO_REGION_EDEFAULT == null ? toRegion != null : !TO_REGION_EDEFAULT.equals(toRegion);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -217,6 +272,8 @@ public class AddNodeImpl extends DeltaOperationImpl implements AddNode {
 		result.append(nodeName);
 		result.append(", nodeType: ");
 		result.append(nodeType);
+		result.append(", toRegion: ");
+		result.append(toRegion);
 		result.append(')');
 		return result.toString();
 	}

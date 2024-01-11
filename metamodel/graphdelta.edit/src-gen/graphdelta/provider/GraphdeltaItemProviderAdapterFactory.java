@@ -234,6 +234,29 @@ public class GraphdeltaItemProviderAdapterFactory extends GraphdeltaAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link graphdelta.MoveEdge} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MoveEdgeItemProvider moveEdgeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link graphdelta.MoveEdge}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMoveEdgeAdapter() {
+		if (moveEdgeItemProvider == null) {
+			moveEdgeItemProvider = new MoveEdgeItemProvider(this);
+		}
+
+		return moveEdgeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -352,6 +375,8 @@ public class GraphdeltaItemProviderAdapterFactory extends GraphdeltaAdapterFacto
 			moveNodeItemProvider.dispose();
 		if (changeLabelItemProvider != null)
 			changeLabelItemProvider.dispose();
+		if (moveEdgeItemProvider != null)
+			moveEdgeItemProvider.dispose();
 	}
 
 }

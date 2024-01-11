@@ -1,6 +1,6 @@
 
-import meta.Configuration
-import model.Graph
+import graphmodel.Graph
+import util.Configuration
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -37,11 +37,11 @@ class ModelIntegrationTests {
             edgeDistortion = 0.2
         )
         val graphA = Graph()
-        val factoryA = GraphFactory(graphA, configuration, randomSeed)
+        val factoryA = GraphFactory(graphA, configuration)
         factoryA.exec()
 
         val graphB = Graph()
-        val factoryB = GraphFactory(graphB, configuration, randomSeed)
+        val factoryB = GraphFactory(graphB, configuration)
         factoryB.exec()
 
         assertEquals(graphA.getStats(true).toString(), graphB.getStats(true).toString())
@@ -56,14 +56,23 @@ class ModelIntegrationTests {
             modelSize = 3000,
             edgesPerNode = 3.0,
             regionProbability = 0.1,
-            edgeDistortion = 0.0
+            edgeDistortion = 0.0,
+            randomSeed = 10
         )
         val graphA = Graph()
-        val factoryA = GraphFactory(graphA, configuration, 10)
+        val factoryA = GraphFactory(graphA, configuration)
         factoryA.exec()
 
+        val configuration2 = Configuration(
+            modelSize = 3000,
+            edgesPerNode = 3.0,
+            regionProbability = 0.1,
+            edgeDistortion = 0.0,
+            randomSeed = 20
+        )
+
         val graphB = Graph()
-        val factoryB = GraphFactory(graphB, configuration,20)
+        val factoryB = GraphFactory(graphB, configuration)
         factoryB.exec()
 
         assertEquals(graphA.getStats(true).toString(), graphB.getStats(true).toString())

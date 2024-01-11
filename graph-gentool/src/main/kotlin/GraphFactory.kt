@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import meta.Configuration
-import meta.GraphStats
-import model.*
+import graphmodel.*
+import util.Configuration
+import util.GraphStats
 import java.util.*
 import kotlin.random.Random
 
-class GraphFactory(private val root: Graph, private val conf: Configuration, randomSeed: Long = 42) {
+class GraphFactory(private val root: Graph, private val conf: Configuration) {
 
-    private val random: Random = Random(randomSeed)
+    private val random: Random = Random(conf.randomSeed)
     private val rootStats: GraphStats = root.getStats(true)
 
     init {

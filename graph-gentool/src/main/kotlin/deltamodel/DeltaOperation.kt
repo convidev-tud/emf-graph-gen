@@ -1,5 +1,5 @@
 /**
- * Copyright 2023 Karl Kegel
+ * Copyright 2024 Karl Kegel
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ecore
 
-import org.eclipse.emf.ecore.EClass
-import org.eclipse.emf.ecore.EEnum
-import org.eclipse.emf.ecore.EFactory
+package deltamodel
+
+import ecore.DeepComparable
+import ecore.EObjectSource
 import org.eclipse.emf.ecore.EObject
 
-interface EObjectSource {
+abstract class DeltaOperation : EObjectSource, DeepComparable {
 
-    fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
-                 label: EEnum? = null, nodeType: EEnum? = null): EObject
+    /**
+     * Set the EObject after it was generated for later use
+     */
+    var buffer: EObject? = null
 
 }

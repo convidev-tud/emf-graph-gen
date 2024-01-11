@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-import meta.Configuration
-import model.Graph
-import model.Region
+import graphmodel.Graph
+import graphmodel.Region
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import util.Configuration
 
 class GraphFactoryIntegrationTests {
 
@@ -39,7 +39,7 @@ class GraphFactoryIntegrationTests {
         val configuration = Configuration(
             modelSize = 1
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         try {
             factory.exec()
             Assertions.fail<String>("Operation should not complete with success")
@@ -53,7 +53,7 @@ class GraphFactoryIntegrationTests {
         val configuration = Configuration(
             modelSize = 2
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
         assertEquals(1, stats.allSimpleNodes.size)
@@ -68,7 +68,7 @@ class GraphFactoryIntegrationTests {
             edgesPerNode = 2.0,
             regionProbability = 0.0
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
         assertEquals(300, stats.allSimpleNodes.size)
@@ -84,7 +84,7 @@ class GraphFactoryIntegrationTests {
             regionProbability = 0.3,
             allowPartitions = false
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
         assertEquals(300, stats.allSimpleNodes.size + stats.allRegions.size)
@@ -99,7 +99,7 @@ class GraphFactoryIntegrationTests {
             regionProbability = 0.0,
             allowPartitions = false
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
         assertEquals(60, stats.allSimpleNodes.size)
@@ -114,7 +114,7 @@ class GraphFactoryIntegrationTests {
             regionProbability = 0.0,
             allowPartitions = true
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
         assertEquals(60, stats.allSimpleNodes.size)
@@ -129,7 +129,7 @@ class GraphFactoryIntegrationTests {
             regionProbability = 0.1,
             allowPartitions = true
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
         assertEquals(stats.allRegions.size.toDouble(), 100.0, 1.0 )
@@ -144,7 +144,7 @@ class GraphFactoryIntegrationTests {
             edgeDistortion = 0.1,
             allowPartitions = true
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val numberDistortedEdges = graph.countDistortedEdges(recursive = true)
         assertEquals(0, numberDistortedEdges)
@@ -159,7 +159,7 @@ class GraphFactoryIntegrationTests {
             edgeDistortion = 0.1,
             allowPartitions = true
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val numberDistortedEdges = graph.countDistortedEdges(recursive = true)
         val stats = graph.getStats(true)
@@ -175,7 +175,7 @@ class GraphFactoryIntegrationTests {
             regionProbability = 0.1,
             allowPartitions = true
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration,)
         factory.exec()
         val stats = graph.getStats(true)
         assertEquals(10, stats.allRegions.size)
@@ -204,7 +204,7 @@ class GraphFactoryIntegrationTests {
             regionProbability = 0.1,
             allowPartitions = true
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
         assertEquals(10, stats.allRegions.size)
@@ -238,7 +238,7 @@ class GraphFactoryIntegrationTests {
             edgesPerNode = 0.0,
             regionProbability = 0.25,
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val numberDistortedEdges = graph.countDistortedEdges(recursive = true)
         val stats = graph.getStats(true)
@@ -263,7 +263,7 @@ class GraphFactoryIntegrationTests {
             edgeDistortion = 0.1,
             allowPartitions = false
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
         assertEquals(60, stats.allRegions.size)
@@ -283,7 +283,7 @@ class GraphFactoryIntegrationTests {
             regionProbability = 0.2,
             allowPartitions = true
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
         val allSubGraphs: MutableSet<Graph> = HashSet<Graph>()
@@ -300,7 +300,7 @@ class GraphFactoryIntegrationTests {
             regionProbability = 0.2,
             allowPartitions = false
         )
-        val factory = GraphFactory(graph, configuration, randomSeed)
+        val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
         val allSubGraphs: MutableSet<Graph> = HashSet<Graph>()

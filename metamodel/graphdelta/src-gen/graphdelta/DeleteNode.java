@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link graphdelta.DeleteNode#getNodeImplications <em>Node Implications</em>}</li>
  *   <li>{@link graphdelta.DeleteNode#getEdgeImplications <em>Edge Implications</em>}</li>
  *   <li>{@link graphdelta.DeleteNode#getNodeName <em>Node Name</em>}</li>
+ *   <li>{@link graphdelta.DeleteNode#getFromRegion <em>From Region</em>}</li>
  * </ul>
  *
  * @see graphdelta.GraphdeltaPackage#getDeleteNode()
@@ -68,5 +69,27 @@ public interface DeleteNode extends DeltaOperation {
 	 * @generated
 	 */
 	void setNodeName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>From Region</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>From Region</em>' attribute.
+	 * @see #setFromRegion(String)
+	 * @see graphdelta.GraphdeltaPackage#getDeleteNode_FromRegion()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getFromRegion();
+
+	/**
+	 * Sets the value of the '{@link graphdelta.DeleteNode#getFromRegion <em>From Region</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>From Region</em>' attribute.
+	 * @see #getFromRegion()
+	 * @generated
+	 */
+	void setFromRegion(String value);
 
 } // DeleteNode

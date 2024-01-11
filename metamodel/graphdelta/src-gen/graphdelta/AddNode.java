@@ -13,6 +13,7 @@ package graphdelta;
  * <ul>
  *   <li>{@link graphdelta.AddNode#getNodeName <em>Node Name</em>}</li>
  *   <li>{@link graphdelta.AddNode#getNodeType <em>Node Type</em>}</li>
+ *   <li>{@link graphdelta.AddNode#getToRegion <em>To Region</em>}</li>
  * </ul>
  *
  * @see graphdelta.GraphdeltaPackage#getAddNode()
@@ -67,5 +68,27 @@ public interface AddNode extends DeltaOperation {
 	 * @generated
 	 */
 	void setNodeType(NodeType value);
+
+	/**
+	 * Returns the value of the '<em><b>To Region</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>To Region</em>' attribute.
+	 * @see #setToRegion(String)
+	 * @see graphdelta.GraphdeltaPackage#getAddNode_ToRegion()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getToRegion();
+
+	/**
+	 * Sets the value of the '{@link graphdelta.AddNode#getToRegion <em>To Region</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>To Region</em>' attribute.
+	 * @see #getToRegion()
+	 * @generated
+	 */
+	void setToRegion(String value);
 
 } // AddNode

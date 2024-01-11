@@ -12,6 +12,7 @@ import graphdelta.DeltaSequence;
 import graphdelta.GraphdeltaFactory;
 import graphdelta.GraphdeltaPackage;
 import graphdelta.Label;
+import graphdelta.MoveEdge;
 import graphdelta.MoveNode;
 import graphdelta.NodeType;
 
@@ -85,6 +86,13 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 	 * @generated
 	 */
 	private EClass changeLabelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass moveEdgeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -230,6 +238,16 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAddNode_ToRegion() {
+		return (EAttribute) addNodeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDeleteNode() {
 		return deleteNodeEClass;
 	}
@@ -262,6 +280,16 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 	@Override
 	public EAttribute getDeleteNode_NodeName() {
 		return (EAttribute) deleteNodeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDeleteNode_FromRegion() {
+		return (EAttribute) deleteNodeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -370,6 +398,16 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 	 * @generated
 	 */
 	@Override
+	public EReference getMoveNode_EdgeImplications() {
+		return (EReference) moveNodeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getChangeLabel() {
 		return changeLabelEClass;
 	}
@@ -402,6 +440,56 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 	@Override
 	public EAttribute getChangeLabel_OldLabel() {
 		return (EAttribute) changeLabelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMoveEdge() {
+		return moveEdgeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMoveEdge_OldRegion() {
+		return (EAttribute) moveEdgeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMoveEdge_NewRegion() {
+		return (EAttribute) moveEdgeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMoveEdge_NodeA() {
+		return (EAttribute) moveEdgeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMoveEdge_NodeB() {
+		return (EAttribute) moveEdgeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -462,11 +550,13 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 		addNodeEClass = createEClass(ADD_NODE);
 		createEAttribute(addNodeEClass, ADD_NODE__NODE_NAME);
 		createEAttribute(addNodeEClass, ADD_NODE__NODE_TYPE);
+		createEAttribute(addNodeEClass, ADD_NODE__TO_REGION);
 
 		deleteNodeEClass = createEClass(DELETE_NODE);
 		createEReference(deleteNodeEClass, DELETE_NODE__NODE_IMPLICATIONS);
 		createEReference(deleteNodeEClass, DELETE_NODE__EDGE_IMPLICATIONS);
 		createEAttribute(deleteNodeEClass, DELETE_NODE__NODE_NAME);
+		createEAttribute(deleteNodeEClass, DELETE_NODE__FROM_REGION);
 
 		addEdgeEClass = createEClass(ADD_EDGE);
 		createEAttribute(addEdgeEClass, ADD_EDGE__NODE_A);
@@ -480,11 +570,18 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 		createEAttribute(moveNodeEClass, MOVE_NODE__NODE_NAME);
 		createEAttribute(moveNodeEClass, MOVE_NODE__TARGET_REGION);
 		createEAttribute(moveNodeEClass, MOVE_NODE__OLD_REGION);
+		createEReference(moveNodeEClass, MOVE_NODE__EDGE_IMPLICATIONS);
 
 		changeLabelEClass = createEClass(CHANGE_LABEL);
 		createEAttribute(changeLabelEClass, CHANGE_LABEL__NODE_NAME);
 		createEAttribute(changeLabelEClass, CHANGE_LABEL__NEW_LABEL);
 		createEAttribute(changeLabelEClass, CHANGE_LABEL__OLD_LABEL);
+
+		moveEdgeEClass = createEClass(MOVE_EDGE);
+		createEAttribute(moveEdgeEClass, MOVE_EDGE__OLD_REGION);
+		createEAttribute(moveEdgeEClass, MOVE_EDGE__NEW_REGION);
+		createEAttribute(moveEdgeEClass, MOVE_EDGE__NODE_A);
+		createEAttribute(moveEdgeEClass, MOVE_EDGE__NODE_B);
 
 		// Create enums
 		nodeTypeEEnum = createEEnum(NODE_TYPE);
@@ -526,6 +623,7 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 		deleteEdgeEClass.getESuperTypes().add(this.getDeltaOperation());
 		moveNodeEClass.getESuperTypes().add(this.getDeltaOperation());
 		changeLabelEClass.getESuperTypes().add(this.getDeltaOperation());
+		moveEdgeEClass.getESuperTypes().add(this.getDeltaOperation());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(deltaSequenceEClass, DeltaSequence.class, "DeltaSequence", !IS_ABSTRACT, !IS_INTERFACE,
@@ -542,6 +640,8 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAddNode_NodeType(), this.getNodeType(), "nodeType", "SIMPLE", 1, 1, AddNode.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAddNode_ToRegion(), ecorePackage.getEString(), "toRegion", null, 1, 1, AddNode.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deleteNodeEClass, DeleteNode.class, "DeleteNode", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -553,6 +653,9 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeleteNode_NodeName(), ecorePackage.getEString(), "nodeName", null, 1, 1, DeleteNode.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeleteNode_FromRegion(), ecorePackage.getEString(), "fromRegion", null, 1, 1,
+				DeleteNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(addEdgeEClass, AddEdge.class, "AddEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAddEdge_NodeA(), ecorePackage.getEString(), "nodeA", null, 1, 1, AddEdge.class, !IS_TRANSIENT,
@@ -576,6 +679,9 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMoveNode_OldRegion(), ecorePackage.getEString(), "oldRegion", null, 1, 1, MoveNode.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMoveNode_EdgeImplications(), this.getMoveEdge(), null, "edgeImplications", null, 0, -1,
+				MoveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(changeLabelEClass, ChangeLabel.class, "ChangeLabel", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -584,6 +690,17 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 		initEAttribute(getChangeLabel_NewLabel(), this.getLabel(), "newLabel", null, 1, 1, ChangeLabel.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChangeLabel_OldLabel(), this.getLabel(), "oldLabel", null, 1, 1, ChangeLabel.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(moveEdgeEClass, MoveEdge.class, "MoveEdge", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMoveEdge_OldRegion(), ecorePackage.getEString(), "oldRegion", null, 1, 1, MoveEdge.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMoveEdge_NewRegion(), ecorePackage.getEString(), "newRegion", null, 1, 1, MoveEdge.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMoveEdge_NodeA(), ecorePackage.getEString(), "nodeA", null, 1, 1, MoveEdge.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMoveEdge_NodeB(), ecorePackage.getEString(), "nodeB", null, 1, 1, MoveEdge.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

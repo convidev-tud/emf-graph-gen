@@ -71,6 +71,8 @@ public class GraphdeltaFactoryImpl extends EFactoryImpl implements GraphdeltaFac
 			return createMoveNode();
 		case GraphdeltaPackage.CHANGE_LABEL:
 			return createChangeLabel();
+		case GraphdeltaPackage.MOVE_EDGE:
+			return createMoveEdge();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -185,6 +187,17 @@ public class GraphdeltaFactoryImpl extends EFactoryImpl implements GraphdeltaFac
 	public ChangeLabel createChangeLabel() {
 		ChangeLabelImpl changeLabel = new ChangeLabelImpl();
 		return changeLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MoveEdge createMoveEdge() {
+		MoveEdgeImpl moveEdge = new MoveEdgeImpl();
+		return moveEdge;
 	}
 
 	/**

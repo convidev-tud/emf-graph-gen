@@ -1,5 +1,5 @@
 /**
- * Copyright 2023 Karl Kegel
+ * Copyright 2024 Karl Kegel
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,8 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package meta
 
-import org.eclipse.emf.common.util.URI
+package util
 
-data class Branch(val modelURI: URI, val deltaURI: URI)
+import deltamodel.DeltaSequence
+import graphmodel.Graph
+
+class Stage(
+    var graph: Graph,
+    var deltaSequence: DeltaSequence
+) {
+}

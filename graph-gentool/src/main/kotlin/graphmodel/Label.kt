@@ -13,16 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ecore
+package graphmodel
 
-import org.eclipse.emf.ecore.EClass
-import org.eclipse.emf.ecore.EEnum
-import org.eclipse.emf.ecore.EFactory
-import org.eclipse.emf.ecore.EObject
-
-interface EObjectSource {
-
-    fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
-                 label: EEnum? = null, nodeType: EEnum? = null): EObject
-
+enum class Label {
+    GREY, GREEN, ORANGE, BLUE
 }

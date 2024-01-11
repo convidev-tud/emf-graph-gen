@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package model
+package graphmodel
 
 import ecore.EObjectSource
 import org.eclipse.emf.ecore.EClass
@@ -27,13 +27,14 @@ class SimpleNode(name: String, private var label: Label) : Node(name), EObjectSo
 
     private val description = "SimpleNode"
 
-    override fun generate(classes: Map<String, EClass>, label: EEnum, factory: EFactory, filter: Set<String>): EObject {
+    override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
+                                   label: EEnum?, nodeType: EEnum?): EObject {
         val node = factory.create(classes[description])
         val nameAttribute = node.eClass().getEStructuralFeature("name")
         val labelAttribute = node.eClass().getEStructuralFeature("label")
 
         node.eSet(nameAttribute, super.name)
-        node.eSet(labelAttribute, label.getEEnumLiteral(this.label.name))
+        node.eSet(labelAttribute, label!!.getEEnumLiteral(this.label.name))
 
         super.buffer = node
         return node

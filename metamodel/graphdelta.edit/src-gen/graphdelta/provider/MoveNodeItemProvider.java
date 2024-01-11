@@ -47,6 +47,7 @@ public class MoveNodeItemProvider extends DeltaOperationItemProvider {
 			addNodeNamePropertyDescriptor(object);
 			addTargetRegionPropertyDescriptor(object);
 			addOldRegionPropertyDescriptor(object);
+			addEdgeImplicationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,6 +98,21 @@ public class MoveNodeItemProvider extends DeltaOperationItemProvider {
 								"_UI_MoveNode_type"),
 						GraphdeltaPackage.Literals.MOVE_NODE__OLD_REGION, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Edge Implications feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEdgeImplicationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MoveNode_edgeImplications_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MoveNode_edgeImplications_feature",
+								"_UI_MoveNode_type"),
+						GraphdeltaPackage.Literals.MOVE_NODE__EDGE_IMPLICATIONS, true, false, true, null, null, null));
 	}
 
 	/**

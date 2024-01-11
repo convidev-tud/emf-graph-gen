@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package model
+package graphmodel
 
 import ecore.EObjectSource
-import meta.GraphStats
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
 import org.eclipse.emf.ecore.EObject
+import util.GraphStats
 import java.util.*
 
 class Region(name: String, val graph: Graph) : Node(name), EObjectSource {
@@ -31,7 +31,8 @@ class Region(name: String, val graph: Graph) : Node(name), EObjectSource {
         return graph.getStats(recursive)
     }
 
-    override fun generate(classes: Map<String, EClass>, label: EEnum, factory: EFactory, filter: Set<String>): EObject {
+    override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
+                                   label: EEnum?, nodeType: EEnum?): EObject {
         if(filter.contains("Node")) {
             val region = factory.create(classes[description])
             super.buffer = region
@@ -39,9 +40,9 @@ class Region(name: String, val graph: Graph) : Node(name), EObjectSource {
             val graph = region.eClass().getEStructuralFeature("graph")
 
             region.eSet(nameAttribute, super.name)
-            region.eSet(graph, this.graph.generate(classes, label, factory, filter))
+            region.eSet(graph, this.graph.generate(classes, factory, filter, label, nodeType))
         }else{
-            this.graph.generate(classes, label, factory, filter)
+            this.graph.generate(classes, factory, filter, label, nodeType)
         }
 
         return super.buffer!!

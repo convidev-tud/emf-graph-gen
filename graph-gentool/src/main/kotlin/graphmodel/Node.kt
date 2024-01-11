@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package model
+package graphmodel
 
+import ecore.DeepComparable
 import org.eclipse.emf.ecore.EObject
 
 abstract class Node(val name: String) : DeepComparable {

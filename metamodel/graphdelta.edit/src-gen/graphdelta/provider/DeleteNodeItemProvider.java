@@ -47,6 +47,7 @@ public class DeleteNodeItemProvider extends DeltaOperationItemProvider {
 			addNodeImplicationsPropertyDescriptor(object);
 			addEdgeImplicationsPropertyDescriptor(object);
 			addNodeNamePropertyDescriptor(object);
+			addFromRegionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,6 +101,22 @@ public class DeleteNodeItemProvider extends DeltaOperationItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the From Region feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFromRegionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_DeleteNode_fromRegion_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_DeleteNode_fromRegion_feature",
+								"_UI_DeleteNode_type"),
+						GraphdeltaPackage.Literals.DELETE_NODE__FROM_REGION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns DeleteNode.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,6 +163,7 @@ public class DeleteNodeItemProvider extends DeltaOperationItemProvider {
 
 		switch (notification.getFeatureID(DeleteNode.class)) {
 		case GraphdeltaPackage.DELETE_NODE__NODE_NAME:
+		case GraphdeltaPackage.DELETE_NODE__FROM_REGION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

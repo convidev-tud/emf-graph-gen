@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 Karl Kegel
+ * Copyright 2023 Karl Kegel
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package model
+package util
 
-interface DeepComparable {
+import org.eclipse.emf.common.util.URI
 
-    fun deepEquals(other: Any): Boolean
-
-}
+data class Branch(val modelURI: URI, val deltaURI: URI)

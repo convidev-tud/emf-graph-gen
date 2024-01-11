@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 import ecore.EcoreHandler
-import meta.Branch
-import meta.Configuration
-import model.Edge
-import model.Graph
-import model.Node
+import graphmodel.Edge
+import graphmodel.Graph
+import graphmodel.Node
 import org.eclipse.emf.common.util.URI
 import picocli.CommandLine
+import util.Branch
+import util.Configuration
 import java.io.File
 import java.util.*
 import java.util.concurrent.Callable
@@ -90,10 +90,23 @@ class Checksum : Callable<Int> {
     )
     var branchEditFocus: Double = defaultConfiguration.branchEditFocus
 
+    @CommandLine.Option(
+        names = ["-e", "--atomic_counting"],
+        description = ["Toggle, how the edit length is counted. true for atomic counting and false for accumulative counting. " +
+                "If true, the resulting edit sequence will have exactly the same size as specified by the branch edit length. " +
+                "If false, the number of explicit (high-level) edits is counted (although writing the atomic edits to the " +
+                "edit sequence). For example, let there be a region R containing 3 nodes and 2 edges. If delete R is the edit. " +
+                "If R gets deleted, its composite contents must be deleted as well. The result are 6 atomic edits which are " +
+                "added to the edit sequence (one explicit edit and 5 implicit edits). If atomic counting is used, the counter " +
+                "increments by 6. If no atomic counting is used, the counter increments by 1."]
+    )
+    val atomicCounting: Boolean = false
+
     override fun call(): Int {
         runWithConfig(
             Configuration(
-                output.path,
+                randomSeed = 0,
+                outputPath = output.path,
                 modelSize,
                 edgesPerNode,
                 edgeDistortion,
@@ -101,7 +114,8 @@ class Checksum : Callable<Int> {
                 allowPartitions,
                 branchNumber,
                 branchEditLength,
-                branchEditFocus
+                branchEditFocus,
+                atomicCounting
             )
         )
         return 0
@@ -166,7 +180,7 @@ fun processBranches(branches: List<Branch>, configuration: Configuration, graphM
         val deltaRoot = graphEcoreHandler.getModelRoot()
         val deltaSequence = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot)
 
-        val processor = GraphProcessor()
+        //val processor = GraphProcessor()
     }
 
 }

@@ -2,6 +2,8 @@
  */
 package graphdelta;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Move Node</b></em>'.
@@ -14,6 +16,7 @@ package graphdelta;
  *   <li>{@link graphdelta.MoveNode#getNodeName <em>Node Name</em>}</li>
  *   <li>{@link graphdelta.MoveNode#getTargetRegion <em>Target Region</em>}</li>
  *   <li>{@link graphdelta.MoveNode#getOldRegion <em>Old Region</em>}</li>
+ *   <li>{@link graphdelta.MoveNode#getEdgeImplications <em>Edge Implications</em>}</li>
  * </ul>
  *
  * @see graphdelta.GraphdeltaPackage#getMoveNode()
@@ -86,5 +89,17 @@ public interface MoveNode extends DeltaOperation {
 	 * @generated
 	 */
 	void setOldRegion(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Edge Implications</b></em>' reference list.
+	 * The list contents are of type {@link graphdelta.MoveEdge}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Edge Implications</em>' reference list.
+	 * @see graphdelta.GraphdeltaPackage#getMoveNode_EdgeImplications()
+	 * @model
+	 * @generated
+	 */
+	EList<MoveEdge> getEdgeImplications();
 
 } // MoveNode

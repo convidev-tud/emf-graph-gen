@@ -85,6 +85,15 @@ public interface GraphdeltaFactory extends EFactory {
 	ChangeLabel createChangeLabel();
 
 	/**
+	 * Returns a new object of class '<em>Move Edge</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Move Edge</em>'.
+	 * @generated
+	 */
+	MoveEdge createMoveEdge();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

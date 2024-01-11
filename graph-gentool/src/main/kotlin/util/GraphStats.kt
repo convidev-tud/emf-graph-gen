@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package meta
+package util
 
-import model.Edge
-import model.Region
-import model.SimpleNode
+import graphmodel.Edge
+import graphmodel.Region
+import graphmodel.SimpleNode
 
 data class GraphStats(
     val allSimpleNodes: MutableSet<SimpleNode>,

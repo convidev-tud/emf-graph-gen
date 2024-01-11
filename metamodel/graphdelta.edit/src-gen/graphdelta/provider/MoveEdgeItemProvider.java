@@ -2,8 +2,8 @@
  */
 package graphdelta.provider;
 
-import graphdelta.AddNode;
 import graphdelta.GraphdeltaPackage;
+import graphdelta.MoveEdge;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,19 +17,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link graphdelta.AddNode} object.
+ * This is the item provider adapter for a {@link graphdelta.MoveEdge} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AddNodeItemProvider extends DeltaOperationItemProvider {
+public class MoveEdgeItemProvider extends DeltaOperationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AddNodeItemProvider(AdapterFactory adapterFactory) {
+	public MoveEdgeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,70 +44,87 @@ public class AddNodeItemProvider extends DeltaOperationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNodeNamePropertyDescriptor(object);
-			addNodeTypePropertyDescriptor(object);
-			addToRegionPropertyDescriptor(object);
+			addOldRegionPropertyDescriptor(object);
+			addNewRegionPropertyDescriptor(object);
+			addNodeAPropertyDescriptor(object);
+			addNodeBPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Node Name feature.
+	 * This adds a property descriptor for the Old Region feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNodeNamePropertyDescriptor(Object object) {
+	protected void addOldRegionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_AddNode_nodeName_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_AddNode_nodeName_feature",
-								"_UI_AddNode_type"),
-						GraphdeltaPackage.Literals.ADD_NODE__NODE_NAME, true, false, false,
+						getResourceLocator(), getString("_UI_MoveEdge_oldRegion_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MoveEdge_oldRegion_feature",
+								"_UI_MoveEdge_type"),
+						GraphdeltaPackage.Literals.MOVE_EDGE__OLD_REGION, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Node Type feature.
+	 * This adds a property descriptor for the New Region feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNodeTypePropertyDescriptor(Object object) {
+	protected void addNewRegionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_AddNode_nodeType_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_AddNode_nodeType_feature",
-								"_UI_AddNode_type"),
-						GraphdeltaPackage.Literals.ADD_NODE__NODE_TYPE, true, false, false,
+						getResourceLocator(), getString("_UI_MoveEdge_newRegion_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MoveEdge_newRegion_feature",
+								"_UI_MoveEdge_type"),
+						GraphdeltaPackage.Literals.MOVE_EDGE__NEW_REGION, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the To Region feature.
+	 * This adds a property descriptor for the Node A feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addToRegionPropertyDescriptor(Object object) {
+	protected void addNodeAPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_AddNode_toRegion_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_AddNode_toRegion_feature",
-								"_UI_AddNode_type"),
-						GraphdeltaPackage.Literals.ADD_NODE__TO_REGION, true, false, false,
+						getResourceLocator(), getString("_UI_MoveEdge_nodeA_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MoveEdge_nodeA_feature",
+								"_UI_MoveEdge_type"),
+						GraphdeltaPackage.Literals.MOVE_EDGE__NODE_A, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This returns AddNode.gif.
+	 * This adds a property descriptor for the Node B feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNodeBPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MoveEdge_nodeB_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MoveEdge_nodeB_feature",
+								"_UI_MoveEdge_type"),
+						GraphdeltaPackage.Literals.MOVE_EDGE__NODE_B, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This returns MoveEdge.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AddNode"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MoveEdge"));
 	}
 
 	/**
@@ -128,9 +145,9 @@ public class AddNodeItemProvider extends DeltaOperationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AddNode) object).getNodeName();
-		return label == null || label.length() == 0 ? getString("_UI_AddNode_type")
-				: getString("_UI_AddNode_type") + " " + label;
+		String label = ((MoveEdge) object).getOldRegion();
+		return label == null || label.length() == 0 ? getString("_UI_MoveEdge_type")
+				: getString("_UI_MoveEdge_type") + " " + label;
 	}
 
 	/**
@@ -144,10 +161,11 @@ public class AddNodeItemProvider extends DeltaOperationItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AddNode.class)) {
-		case GraphdeltaPackage.ADD_NODE__NODE_NAME:
-		case GraphdeltaPackage.ADD_NODE__NODE_TYPE:
-		case GraphdeltaPackage.ADD_NODE__TO_REGION:
+		switch (notification.getFeatureID(MoveEdge.class)) {
+		case GraphdeltaPackage.MOVE_EDGE__OLD_REGION:
+		case GraphdeltaPackage.MOVE_EDGE__NEW_REGION:
+		case GraphdeltaPackage.MOVE_EDGE__NODE_A:
+		case GraphdeltaPackage.MOVE_EDGE__NODE_B:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

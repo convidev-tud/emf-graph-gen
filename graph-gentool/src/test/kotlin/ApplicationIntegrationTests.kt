@@ -15,14 +15,14 @@
  */
 
 import ecore.EcoreHandler
-import meta.Configuration
-import model.Edge
-import model.Graph
-import model.Node
+import graphmodel.Edge
+import graphmodel.Graph
+import graphmodel.Node
 import org.eclipse.emf.common.util.URI
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import util.Configuration
 import java.io.File
 import java.util.*
 
@@ -34,7 +34,7 @@ class ApplicationIntegrationTests {
     fun cleanTestFiles() {
         if (output != null){
             val file = File(output!!)
-            file.delete()
+            //file.delete()
             output = null
         }
     }
@@ -45,7 +45,7 @@ class ApplicationIntegrationTests {
         val configuration = Configuration(
             modelSize = 3000,
             edgesPerNode = 3.0,
-            regionProbability = 0.1,
+            regionProbability = 0.2,
             edgeDistortion = 0.1,
             outputPath = "./out/test"
         )

@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package meta
+package util
 
 data class Configuration(
+
+    val randomSeed: Int = 0,
 
     val outputPath: String = "./",
 
@@ -57,13 +59,16 @@ data class Configuration(
 
 
     //TODO
-    val branchNumber: Int = 0,
+    val branchNumber: Int = 8,
 
     //TODO
     val branchEditLength: Int = 0,
 
     //TODO
-    val branchEditFocus: Double = 0.0
+    val branchEditFocus: Double = 0.0,
+
+    //TODO
+    val atomicCounting: Boolean = false
 
 ){
 
