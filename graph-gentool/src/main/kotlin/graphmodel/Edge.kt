@@ -29,6 +29,12 @@ class Edge(
 
     private val description = "Edge"
 
+    fun deepCopy(allNodes: Collection<Node>): Edge {
+        val symmetricA = allNodes.find { n -> n.name == a.name }!!
+        val symmetricB = allNodes.find { n -> n.name == b.name }!!
+        return Edge(symmetricA, symmetricB)
+    }
+
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
                                    label: EEnum?, nodeType: EEnum?): EObject {
         val edge = factory.create(classes[description])

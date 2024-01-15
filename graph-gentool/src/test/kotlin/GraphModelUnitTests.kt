@@ -1,10 +1,10 @@
 
 import graphmodel.Graph
+import graphmodel.Label
+import graphmodel.Region
+import graphmodel.SimpleNode
 import util.Configuration
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
+import kotlin.test.*
 
 /**
  * Copyright 2023 Karl Kegel
@@ -22,7 +22,7 @@ import kotlin.test.assertTrue
  * limitations under the License.
  */
 
-class ModelIntegrationTests {
+class GraphModelUnitTests {
 
     @Test
     fun modelDeepEqualsTest(){
@@ -36,15 +36,17 @@ class ModelIntegrationTests {
             regionProbability = 0.1,
             edgeDistortion = 0.2
         )
-        val graphA = Graph()
+        val graphA = Graph(isRoot = true)
         val factoryA = GraphFactory(graphA, configuration)
         factoryA.exec()
 
-        val graphB = Graph()
+        val graphB = Graph(isRoot = true)
         val factoryB = GraphFactory(graphB, configuration)
         factoryB.exec()
 
-        assertEquals(graphA.getStats(true).toString(), graphB.getStats(true).toString())
+        val statsA = graphA.getStats(true).toString()
+        val statsB = graphB.getStats(true).toString()
+        assertEquals(statsA, statsB)
         assertTrue(graphA.deepEquals(graphB))
         assertTrue(graphB.deepEquals(graphA))
     }
@@ -59,7 +61,7 @@ class ModelIntegrationTests {
             edgeDistortion = 0.0,
             randomSeed = 10
         )
-        val graphA = Graph()
+        val graphA = Graph(isRoot = true)
         val factoryA = GraphFactory(graphA, configuration)
         factoryA.exec()
 
@@ -71,13 +73,41 @@ class ModelIntegrationTests {
             randomSeed = 20
         )
 
-        val graphB = Graph()
-        val factoryB = GraphFactory(graphB, configuration)
+        val graphB = Graph(isRoot = true)
+        val factoryB = GraphFactory(graphB, configuration2)
         factoryB.exec()
 
         assertEquals(graphA.getStats(true).toString(), graphB.getStats(true).toString())
         assertFalse(graphA.deepEquals(graphB))
         assertFalse(graphB.deepEquals(graphA))
+    }
+
+    @Test
+    fun deepCopyDeepEqualsTest(){
+        val configuration = Configuration(
+            modelSize = 3000,
+            edgesPerNode = 3.0,
+            regionProbability = 0.1,
+            edgeDistortion = 0.2,
+            randomSeed = 10
+        )
+        val graph = Graph(isRoot = true)
+        val factory = GraphFactory(graph, configuration)
+        factory.exec()
+
+        val graphCopy = graph.deepCopy()
+
+        //They are not identical references:
+        assertNotEquals(graph, graphCopy)
+
+        //The internal deepEquals is true however because of the same structure:
+        assertEquals(graph.getStats(true).toString(), graphCopy.getStats(true).toString())
+        assertTrue(graph.deepEquals(graphCopy))
+        assertTrue(graphCopy.deepEquals(graph))
+
+        //If we manipulate the copy, the structural equality is lost (change happens only in one object)
+        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode("N_FOO", Label.BLUE))
+        assertFalse(graph.deepEquals(graphCopy))
     }
 
 }

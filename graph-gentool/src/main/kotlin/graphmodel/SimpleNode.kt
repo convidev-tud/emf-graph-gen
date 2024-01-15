@@ -27,8 +27,12 @@ class SimpleNode(name: String, private var label: Label) : Node(name), EObjectSo
 
     private val description = "SimpleNode"
 
+    override fun deepCopy(): Node {
+        return SimpleNode(name, label)
+    }
+
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
-                                   label: EEnum?, nodeType: EEnum?): EObject {
+                          label: EEnum?, nodeType: EEnum?): EObject {
         val node = factory.create(classes[description])
         val nameAttribute = node.eClass().getEStructuralFeature("name")
         val labelAttribute = node.eClass().getEStructuralFeature("label")

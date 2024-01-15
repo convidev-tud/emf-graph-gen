@@ -22,4 +22,6 @@ abstract class Node(val name: String) : DeepComparable {
 
     var buffer: EObject? = null
 
+    abstract fun deepCopy(): Node
+
 }

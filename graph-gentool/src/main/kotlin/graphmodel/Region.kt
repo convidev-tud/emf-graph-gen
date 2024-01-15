@@ -31,6 +31,10 @@ class Region(name: String, val graph: Graph) : Node(name), EObjectSource {
         return graph.getStats(recursive)
     }
 
+    override fun deepCopy(): Node {
+        return Region(name, graph.deepCopy())
+    }
+
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
                                    label: EEnum?, nodeType: EEnum?): EObject {
         if(filter.contains("Node")) {
