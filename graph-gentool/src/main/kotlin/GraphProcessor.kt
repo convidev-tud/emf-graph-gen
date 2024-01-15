@@ -20,6 +20,7 @@ import util.Configuration
 import util.GraphStats
 import util.ImpactType
 import util.Stage
+import java.util.*
 import kotlin.random.Random
 
 /**
@@ -75,6 +76,9 @@ class GraphProcessor(
         assert(conf.branchEditLength > 0)
         assert(conf.branchEditFocus in 0.0..1.0)
         assert(changeOperationWeights.values.reduce { d1, d2 -> d1 + d2 } == 100)
+
+        //Assure convergence of the nondeterministic edit algorithm:
+        assert(changeOperationWeights["ADD_SIMPLE"]!! + changeOperationWeights["ADD_REGION"]!! >= 1)
 
         impactType = if (conf.atomicCounting) {
             ImpactType.ATOMIC
@@ -135,7 +139,7 @@ class GraphProcessor(
         return Stage(globalGraph, globalDeltaSequence)
     }
 
-    fun executeOnStageWithImpact(operation: String?, workingRegion: Region?, impactType: ImpactType): Int {
+    private fun executeOnStageWithImpact(operation: String?, workingRegion: Region?, impactType: ImpactType): Int {
         if (operation == null) return 0
 
         when (operation) {
@@ -167,6 +171,7 @@ class GraphProcessor(
 
     private fun randomGlobalStageRegion(): Region? {
         val allRegions = stage.graph.getRegionsRecursive().toList()
+        if(allRegions.isEmpty()) return null
         val p = random.nextInt(0, allRegions.size + 1)
         if ( p == allRegions.size + 1) return null
         return allRegions[p]
@@ -202,20 +207,132 @@ class GraphProcessor(
         stage.deltaSequence.pushOperation(op)
     }
 
+    /**
+     * If the given [Region] contains no [Node], this operation returns without a result.
+     */
     private fun deleteNode(region: Region?) {
-        //TODO
-    }
-
-    private fun moveNode(region: Region?) {
-        //TODO
+        val graph = region?.graph ?: stage.graph
+        if (graph.nodes.isEmpty()) return
+        val node = graph.randomNode(random)
+        val op = deleteNode(region, node)
+        stage.deltaSequence.pushOperation(op)
     }
 
     /**
+     * Delete a [Node] from the given [Region].
+     * This method assumes that the given Region contains the given Node.
+     * This method removes the Node from the stage [Graph]. It also removes all [Edge]s from the stage Graph that
+     * contain the Node as start or end.
+     * If the given Node is a Region itself, the operation is executed recursively on all Nodes its subgraph contains.
+     * The [DeleteNode] delta operation is returned. All recursive deletes are executed in order and part of the
+     * returned object.
      *
+     * @param region
+     * @param node
+     */
+    private fun deleteNode(region: Region?, node: Node): DeleteNode {
+        val graph = region?.graph ?: stage.graph
+        if (node !is Region) {
+            //identify deleted nodes
+            //delete edges containing deleted nodes
+            val connectedEdgeDeletes = deleteEdgesContaining(stage.graph, node)
+            graph.nodes.remove(node)
+            return DeleteNode(node, LinkedList(), connectedEdgeDeletes.toMutableList(), region)
+        }
+        //identify deleted nodes
+        val impactedNodes = node.graph.nodes
+        val impactedNodeDeletes: MutableList<DeleteNode> = LinkedList<DeleteNode>()
+        //delete edges targeting deleted nodes
+        for (nodeToDelete in impactedNodes) {
+            //walk recursive through deleted nodes with this function
+            impactedNodeDeletes.add(deleteNode(node, nodeToDelete))
+        }
+        val impactedEdgeDeletes = deleteEdgesContaining(graph, node)
+        graph.nodes.remove(node)
+
+        return DeleteNode(node, impactedNodeDeletes, impactedEdgeDeletes.toMutableList(), region)
+    }
+
+    /**
+     * This operation deletes all [Edge] objects from the staged [Graph] containing the given [Node] either as start
+     * or end reference.
+     * The staged Graph is manipulated by this operation.
+     * The traversal happens recursively.
+     */
+    private fun deleteEdgesContaining(graph: Graph, node: Node): List<DeleteEdge> {
+        val edgesToDelete = graph.edges.filter { e -> e.a == node || e.b == node }
+        val deleteOperations: MutableList<DeleteEdge> = LinkedList<DeleteEdge>()
+        for (edge in edgesToDelete){
+            graph.edges.remove(edge)
+            deleteOperations.add(DeleteEdge(edge))
+        }
+        graph.nodes.filterIsInstance<Region>().forEach { region ->
+            deleteOperations.addAll(deleteEdgesContaining(region.graph, node))
+        }
+        return deleteOperations
+    }
+
+    /**
+     * Delete an [Edge] from the staged [Graph].
+     * If the given [Region] contains no Edge, this operation returns without a result.
+     */
+    private fun deleteEdge(region: Region?) {
+        val graph = region?.graph ?: stage.graph
+        if(graph.edges.isEmpty()) return
+        val edge = graph.edges[random.nextInt(0, graph.edges.size)]
+        graph.edges.remove(edge)
+        val op = DeleteEdge(edge)
+        stage.deltaSequence.pushOperation(op)
+    }
+
+    /**
+     * Move a [Node] from the given [Region] to another [Region].
+     * If the given Region contains no Nodes, this operation returns without a result.
+     * If the graph contains only one Region, this operation returns without a result.
+     * This operation also moves all [Edge]s to assure that each Edge is located within the [Graph] of its start Node.
+     */
+    private fun moveNode(region: Region?) {
+        val graph = region?.graph ?: stage.graph
+        if(graph.nodes.isEmpty()) return
+        val allRegions = graph.getRegionsRecursive().toList()
+        if(allRegions.isEmpty()) return
+        var targetRegion: Region? = null
+        do {
+            val p = random.nextInt(0, allRegions.size + 1)
+            if(p != allRegions.size + 1){
+                targetRegion = allRegions[p]
+            }
+        } while (targetRegion == region)
+        val node = graph.randomNode(random)
+        graph.nodes.remove(node)
+        val targetGraph = targetRegion?.graph ?: stage.graph
+        targetGraph.nodes.add(node)
+        val edgeImplications = moveEdgesWithNode(region, targetRegion, node)
+        stage.deltaSequence.pushOperation(MoveNode(node, targetRegion, region, edgeImplications))
+    }
+
+    private fun moveEdgesWithNode(oldRegion: Region?, newRegion: Region?, node: Node): MutableList<MoveEdge>{
+        val oldGraph = oldRegion?.graph ?: stage.graph
+        val newGraph = newRegion?.graph ?: stage.graph
+        val result: MutableList<MoveEdge> = LinkedList()
+        val edgesToMove = oldGraph.edges.filter { e -> e.a == node }
+
+        for(edge in edgesToMove){
+            oldGraph.edges.remove(edge)
+            newGraph.edges.add(edge)
+            result.add( MoveEdge(edge, newRegion, oldRegion))
+        }
+        return result
+    }
+
+    /**
+     * If the given [Region] contains no [SimpleNode], this operation returns without a result.
      */
     private fun changeLabel(region: Region?) {
         val graph = region?.graph ?: stage.graph
+        if (graph.nodes.isEmpty()) return
         val simpleNodesInGraph = graph.nodes.filterIsInstance<SimpleNode>()
+        if (simpleNodesInGraph.isEmpty()) return
         val simpleNode = simpleNodesInGraph[random.nextInt(0, simpleNodesInGraph.size)]
         val oldLabel = simpleNode.label
         do {
@@ -226,27 +343,27 @@ class GraphProcessor(
     }
 
     /**
-     * 
+     * Add a new [Edge].
+     * In certain random cases (especially if the given [Region] is empty), this operation
+     * returns without a result.
      */
     private fun addEdge(region: Region?) {
         val p = random.nextDouble(0.0, 1.0)
         val isDistorted = p <= conf.edgeDistortion
         val graph = region?.graph ?: stage.graph
+        if(graph.nodes.isEmpty()) return
         val nodeA: Node = graph.randomNode(random)
         val nodeB: Node = if (!isDistorted) {
             graph.randomNode(random)
         } else {
             val graphB = randomGlobalStageRegion()?.graph ?: stage.graph
+            if(graphB.nodes.isEmpty()) return
             graphB.randomNode(random)
         }
         val edge = Edge(nodeA, nodeB)
         graph.edges.add(edge)
         val op = AddEdge(edge)
         stage.deltaSequence.pushOperation(op)
-    }
-
-    private fun deleteEdge(region: Region?) {
-        //TODO
     }
 
 }
