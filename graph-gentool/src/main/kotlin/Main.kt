@@ -146,8 +146,8 @@ fun runWithConfig(configuration: Configuration): Graph {
 
     println("Postprocessing ECORE models...")
     val startTimeWrite = System.currentTimeMillis()
-    graph.generate(classMap, label, factory, setOf("Node"))
-    graph.generate(classMap, label, factory, setOf("Edge"))
+    graph.generate(classMap, factory, setOf("Node"), label)
+    graph.generate(classMap, factory, setOf("Edge"), label)
     ecoreHandler.saveModel()
     val endTimeWrite = System.currentTimeMillis()
     println("Postprocessing Time: ${endTimeWrite - startTimeWrite} ms")

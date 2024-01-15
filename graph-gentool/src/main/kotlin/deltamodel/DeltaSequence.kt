@@ -41,6 +41,18 @@ class DeltaSequence(
         return size
     }
 
+    fun pushOperation(deltaOperation: DeltaOperation){
+        deltaOperations.add(deltaOperation)
+    }
+
+    fun pushOperations(deltaOperations: List<DeltaOperation>){
+        this.deltaOperations.addAll(deltaOperations)
+    }
+
+    fun operations(): List<DeltaOperation> {
+        return deltaOperations.toList()
+    }
+
     override fun generate(
         classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
         label: EEnum?, nodeType: EEnum?

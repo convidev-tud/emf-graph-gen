@@ -132,6 +132,14 @@ class Graph(
         return nodeSet
     }
 
+    fun getRegionsRecursive(): Set<Region> {
+        return getNodesRecursive().filterIsInstance<Region>().toSet()
+    }
+
+    fun getRegionByNameRecursive(name: String): Region? {
+        return getRegionsRecursive().find { r -> r.name == name}
+    }
+
     private fun constructEdgesFromPredef(nodes: Set<Node>) {
         val edgesComposition = predef!!.eClass().getEStructuralFeature("edges")
         val eEdges = predef.eGet(edgesComposition) as java.util.List<EObject>

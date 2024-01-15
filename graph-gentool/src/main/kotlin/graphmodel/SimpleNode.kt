@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.impl.EEnumLiteralImpl
 import kotlin.random.Random
 
-class SimpleNode(name: String, private var label: Label) : Node(name), EObjectSource {
+class SimpleNode(name: String, var label: Label) : Node(name), EObjectSource {
 
     private val description = "SimpleNode"
 
