@@ -1,5 +1,5 @@
 /**
- * Copyright 2023 Karl Kegel
+ * Copyright 2024 Karl Kegel
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package graphmodel
 
-import ecore.DeepComparable
-import org.eclipse.emf.ecore.EObject
-import util.IndexedComparable
+package util
 
-abstract class Node(val name: String) : DeepComparable, IndexedComparable() {
+open class IndexedComparable() : Comparable<IndexedComparable>{
 
-    var buffer: EObject? = null
+    private val uid: Int = index
 
-    abstract fun deepCopy(): Node
+    init {
+        index++
+    }
+
+    override fun compareTo(other: IndexedComparable): Int {
+        return uid - other.uid
+    }
+
+    companion object {
+
+        private var index = 0
+
+    }
 
 }

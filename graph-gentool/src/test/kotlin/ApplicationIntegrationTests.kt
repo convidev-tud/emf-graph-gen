@@ -18,6 +18,7 @@ import ecore.EcoreHandler
 import graphmodel.Edge
 import graphmodel.Graph
 import graphmodel.Node
+import org.apache.commons.io.FileUtils
 import org.eclipse.emf.common.util.URI
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
@@ -32,13 +33,10 @@ class ApplicationIntegrationTests {
 
     @AfterEach
     fun cleanTestFiles() {
-        if (output != null){
-
-            //FIXME DOES NOT WORK FOR SOME TESTS
-            
-            val file = File(output!!)
-            file.delete()
-            output = null
+        try {
+            FileUtils.forceDelete(File("./out"))
+        } catch (e: Exception) {
+            println("WARNING: No test cleanup required")
         }
     }
 
@@ -59,7 +57,6 @@ class ApplicationIntegrationTests {
 
         //there should be a non-empty file:
         val expectedOutputURI = URI.createFileURI(File(configuration.outputPath + "/base.labelgraph").absolutePath)
-        output = expectedOutputURI.toFileString()
 
         val metamodelPath: String = object {}.javaClass.getResource("labelgraph.ecore")!!.path
         val metamodelURI = URI.createFileURI(metamodelPath)
@@ -73,15 +70,15 @@ class ApplicationIntegrationTests {
     }
 
     @Test
-    fun writeAndReadDeltaSequenceEqualsTest(){
+    fun writeAndReadDeltaSequenceEqualsTest() {
         //TODO
         Assertions.assertTrue(true)
     }
 
     @Test
-    fun simpleWorkflowExecutionTest(){
+    fun simpleWorkflowExecutionTest() {
 
-        for(i in 0..100) {
+        for (i in 0..100) {
 
             val configuration = Configuration(
                 modelSize = 100,
@@ -107,6 +104,33 @@ class ApplicationIntegrationTests {
             }
         }
 
+    }
+
+    @Test
+    fun largeModelWorkflowExecutionTest() {
+
+        val configuration = Configuration(
+            modelSize = 5000,
+            edgesPerNode = 3.0,
+            regionProbability = 0.2,
+            allowPartitions = false,
+            edgeDistortion = 0.1,
+            outputPath = "./out/test",
+            branchNumber = 10,
+            branchEditLength = 100,
+            branchEditFocus = 0.8,
+            atomicCounting = true,
+            randomSeed = 100
+        )
+
+        val outputEnv = runWithConfig(configuration)
+
+        Assertions.assertEquals(10, outputEnv.branchDeltas.size)
+        Assertions.assertEquals(10, outputEnv.branchGraphs.size)
+
+        for (deltaSequence in outputEnv.branchDeltas) {
+            Assertions.assertEquals(100, deltaSequence.getAtomicLength())
+        }
     }
 
 }

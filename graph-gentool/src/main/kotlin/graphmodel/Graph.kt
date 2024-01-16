@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
 import org.eclipse.emf.ecore.EObject
 import util.GraphStats
+import util.IndexedComparable
 import java.util.*
 import kotlin.random.Random
 
@@ -30,7 +31,7 @@ class Graph(
     val edges: MutableList<Edge> = LinkedList<Edge>(),
     private val predef: EObject? = null,
     val isRoot: Boolean = false
-) : EObjectSource, DeepComparable {
+) : EObjectSource, DeepComparable, IndexedComparable() {
 
     private val description = "Graph"
     private var buffer: EObject? = predef
@@ -104,8 +105,8 @@ class Graph(
 
     fun isSinglePartition(): Boolean {
         if (nodes.isEmpty()) return true
-        val partition: MutableSet<Node> = HashSet<Node>()
-        val undistributedNodes: MutableSet<Node> = HashSet()
+        val partition: MutableSet<Node> = TreeSet<Node>()
+        val undistributedNodes: MutableSet<Node> = TreeSet()
         undistributedNodes.addAll(nodes)
         partition.add(nodes[0])
         undistributedNodes.remove(nodes[0])
@@ -131,7 +132,7 @@ class Graph(
     }
 
     private fun getNodesRecursive(): Set<Node> {
-        val nodeSet: MutableSet<Node> = HashSet()
+        val nodeSet: MutableSet<Node> = TreeSet()
         nodeSet.addAll(nodes)
         val regions = nodes.filterIsInstance<Region>()
         for(region in regions){
@@ -242,6 +243,5 @@ class Graph(
         }
         return false
     }
-
 
 }

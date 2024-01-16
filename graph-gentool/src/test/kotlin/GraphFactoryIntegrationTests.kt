@@ -22,6 +22,7 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import util.Configuration
+import java.util.*
 
 class GraphFactoryIntegrationTests {
 
@@ -225,7 +226,7 @@ class GraphFactoryIntegrationTests {
 
     private fun visitRegions(graph: Graph): Set<Region> {
         val regions = graph.getStats(false).allRegions
-        val result: MutableSet<Region> = HashSet<Region>()
+        val result: MutableSet<Region> = TreeSet<Region>()
         result.addAll(regions)
         regions.forEach{r -> result.addAll(visitRegions(r.graph))}
         return result
@@ -244,7 +245,7 @@ class GraphFactoryIntegrationTests {
         val stats = graph.getStats(true)
         assertEquals(15, stats.allSimpleNodes.size)
         assertEquals(5, stats.allRegions.size)
-        val allSubGraphs: MutableSet<Graph> = HashSet<Graph>()
+        val allSubGraphs: MutableSet<Graph> = TreeSet<Graph>()
         allSubGraphs.add(graph)
         allSubGraphs.addAll(stats.allRegions.map { r -> r.graph })
         val sizes = allSubGraphs.map { g -> g.getStats(false).allSimpleNodes.size }
@@ -267,7 +268,7 @@ class GraphFactoryIntegrationTests {
         factory.exec()
         val stats = graph.getStats(true)
         assertEquals(60, stats.allRegions.size)
-        val allSubGraphs: MutableSet<Graph> = HashSet<Graph>()
+        val allSubGraphs: MutableSet<Graph> = TreeSet<Graph>()
         allSubGraphs.add(graph)
         allSubGraphs.addAll(stats.allRegions.map { r -> r.graph })
         for(g in allSubGraphs){
@@ -286,7 +287,7 @@ class GraphFactoryIntegrationTests {
         val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
-        val allSubGraphs: MutableSet<Graph> = HashSet<Graph>()
+        val allSubGraphs: MutableSet<Graph> = TreeSet<Graph>()
         allSubGraphs.add(graph)
         allSubGraphs.addAll(stats.allRegions.map { r -> r.graph })
         Assertions.assertFalse(allSubGraphs.map { g -> g.isSinglePartition() }.reduce{a, b -> a && b})
@@ -303,7 +304,7 @@ class GraphFactoryIntegrationTests {
         val factory = GraphFactory(graph, configuration)
         factory.exec()
         val stats = graph.getStats(true)
-        val allSubGraphs: MutableSet<Graph> = HashSet<Graph>()
+        val allSubGraphs: MutableSet<Graph> = TreeSet<Graph>()
         allSubGraphs.add(graph)
         allSubGraphs.addAll(stats.allRegions.map { r -> r.graph })
         assertTrue(allSubGraphs.map { g -> g.isSinglePartition() }.reduce{a, b -> a && b})

@@ -19,8 +19,9 @@ package deltamodel
 import ecore.DeepComparable
 import ecore.EObjectSource
 import org.eclipse.emf.ecore.EObject
+import util.IndexedComparable
 
-abstract class DeltaOperation : EObjectSource, DeepComparable {
+abstract class DeltaOperation : EObjectSource, DeepComparable, IndexedComparable() {
 
     /**
      * Set the EObject after it was generated for later use

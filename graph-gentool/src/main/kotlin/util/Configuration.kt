@@ -17,7 +17,7 @@ package util
 
 data class Configuration(
 
-    val randomSeed: Int = 0,
+    var randomSeed: Int = 0,
 
     val outputPath: String = "./",
 

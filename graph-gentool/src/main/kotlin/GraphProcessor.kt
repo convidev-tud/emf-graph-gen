@@ -54,7 +54,7 @@ class GraphProcessor(
      *  - Delete Edge
      */
     //TODO config file with edit weights / probabilities
-    private val changeOperationWeights: Map<String, Int> = mapOf(
+    private val changeOperationWeights: List<Pair<String, Int>> = listOf(
         Pair("ADD_SIMPLE", 18),
         Pair("ADD_REGION", 2),
         Pair("DELETE_NODE", 20),
@@ -64,7 +64,8 @@ class GraphProcessor(
         Pair("DELETE_EDGE", 10)
     )
 
-    private val operationDistribution: MutableMap<Pair<Int, Int>, String> = HashMap()
+    // list: ( (min, max) -> operation )
+    private val operationDistribution: MutableList<Pair<Pair<Int, Int>, String>> = LinkedList()
 
     private lateinit var stage: Stage
 
@@ -75,10 +76,10 @@ class GraphProcessor(
     init {
         assert(conf.branchEditLength > 0)
         assert(conf.branchEditFocus in 0.0..1.0)
-        assert(changeOperationWeights.values.reduce { d1, d2 -> d1 + d2 } == 100)
+        assert(changeOperationWeights.map { e -> e.second }.reduce { d1, d2 -> d1 + d2 } == 100)
 
         //Assure convergence of the nondeterministic edit algorithm:
-        assert(changeOperationWeights["ADD_SIMPLE"]!! + changeOperationWeights["ADD_REGION"]!! >= 1)
+        assert(getWeightOf("ADD_SIMPLE") + getWeightOf("ADD_REGION") >= 1)
 
         impactType = if (conf.atomicCounting) {
             ImpactType.ATOMIC
@@ -88,11 +89,15 @@ class GraphProcessor(
 
         var start = 0
         for (element in changeOperationWeights) {
-            operationDistribution[Pair(start, start + element.value)] = element.key
-            start += element.value
+            operationDistribution.add(Pair(Pair(start, start + element.second), element.first))
+            start += element.second
         }
 
         clearStage()
+    }
+
+    private fun getWeightOf(operation: String): Int {
+        return changeOperationWeights.find { values -> values.first == operation }?.second ?: 0
     }
 
     /**
@@ -110,8 +115,9 @@ class GraphProcessor(
             var operation: String? = null
 
             for (candidate in operationDistribution) {
-                if (candidate.key.first <= p && p < candidate.key.second) {
-                    operation = candidate.value
+                val interval = candidate.first
+                if (interval.first <= p && p < interval.second) {
+                    operation = candidate.second
                     break
                 }
             }

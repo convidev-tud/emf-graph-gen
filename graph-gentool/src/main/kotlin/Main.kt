@@ -97,7 +97,7 @@ class Checksum : Callable<Int> {
                 "added to the edit sequence (one explicit edit and 5 implicit edits). If atomic counting is used, the counter " +
                 "increments by 6. If no atomic counting is used, the counter increments by 1."]
     )
-    val atomicCounting: Boolean = false
+    var atomicCounting: Boolean = false
 
     override fun call(): Int {
         runWithConfig(
@@ -129,6 +129,8 @@ fun runWithConfig(configuration: Configuration): Environment {
     val baseModel = createOutputBaseModelFile(configuration)
     val ecoreHandler = EcoreHandler(graphMetamodelURI, baseModel, "labelgraph")
 
+    println("Generating Base Graph ECORE models...")
+
     val factory = ecoreHandler.getModelFactory()
     val classMap = ecoreHandler.getClassMap()
     val label = ecoreHandler.getEnumMap()["Label"]!!
@@ -138,16 +140,13 @@ fun runWithConfig(configuration: Configuration): Environment {
 
     val startTimeGenerate = System.currentTimeMillis()
     originGraphFactory.exec()
-    val endTimeGenerate = System.currentTimeMillis()
-    println("Generation Time: ${endTimeGenerate - startTimeGenerate} ms")
 
-    println("Postprocessing ECORE models...")
-    val startTimeWrite = System.currentTimeMillis()
     graph.generate(classMap, factory, setOf("Node"), label)
     graph.generate(classMap, factory, setOf("Edge"), label)
     ecoreHandler.saveModel()
-    val endTimeWrite = System.currentTimeMillis()
-    println("Postprocessing Time: ${endTimeWrite - startTimeWrite} ms")
+
+    val endTimeGenerate = System.currentTimeMillis()
+    println("Generation Time: ${endTimeGenerate - startTimeGenerate} ms")
 
     val environment = Environment(graph, LinkedList(), LinkedList())
 
@@ -181,12 +180,11 @@ fun processBranches(branches: List<Branch>, configuration: Configuration, graphM
         val deltaNodeTypes = deltaEcoreHandler.getEnumMap()["NodeType"]!!
         val deltaRoot = deltaEcoreHandler.getModelRoot()
 
-        println("Postprocessing Branch $branchIndex...")
+        println("Generating Edit Sequence Branch $branchIndex...")
+
         val startTimeProcessing = System.currentTimeMillis()
         val graphProcessor = GraphProcessor(graph, configuration)
         val finalStage = graphProcessor.exec()
-        val endTimeProcessing = System.currentTimeMillis()
-        println("Processing Time: ${endTimeProcessing - startTimeProcessing} ms")
 
         val graphFactory = graphEcoreHandler.getModelFactory()
         graph.apply(finalStage.graph)
@@ -195,12 +193,16 @@ fun processBranches(branches: List<Branch>, configuration: Configuration, graphM
         environment.branchGraphs.add(graph)
 
         val deltaSequence = DeltaSequence(finalStage.deltaSequence.deltaOperations, deltaRoot)
-        deltaSequence.generate(deltaClassMap, deltaEcoreHandler.getModelFactory(), HashSet(), deltaLabels, deltaNodeTypes)
+        deltaSequence.generate(deltaClassMap, deltaEcoreHandler.getModelFactory(), TreeSet(), deltaLabels, deltaNodeTypes)
         environment.branchDeltas.add(deltaSequence)
 
         graphEcoreHandler.saveModel()
         deltaEcoreHandler.saveModel()
 
+        val endTimeProcessing = System.currentTimeMillis()
+        println("Processing Time: ${endTimeProcessing - startTimeProcessing} ms")
+
+        configuration.randomSeed++
     }
 
 }

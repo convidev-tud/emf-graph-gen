@@ -26,13 +26,20 @@ The following Gradle setup is the most easy way to use the graph-gentool. The se
 * JVM           OpenJDK 21
 * OS            Mac OS X 14.0 aarch64 (should have no influence)
 
-Navigate in the project root directory (where the ``build.gradle`` file is located). 
+Navigate in the project root directory (where the ``build.gradle`` file is located).
 To run the application, execute:
 
 ```
 gradle run --args="./output_directory ...Arguments" 
 ```
-For example ``gradle run --args="./out -s 512 -r 0.1 -p"``. You find the catalogue of possible arguments in the next section.
+For example:
+```
+ gradle run --args="./out -c 1 -d 0.1 -e -f 0.8 -n 3 -r 0.2 -s 10000 -l 100"
+```
+
+:ambulance: As of right now, executing the compiled JAR does not work. 
+
+You find the catalogue of possible arguments in the next section.
 
 ### Arguments
 
@@ -81,6 +88,63 @@ The specified output directory is populated as follows:
 
 The toplevel model is the base model (root graph) and the delta sequence to create it.
 The branch-level models contain the edited branches (variants). The branch-level delta sequence contains the edit steps from the base to the final model.
+
+### Runtime Properties
+
+:ambualance: The current implementation of the generator is not optimized for performance yet.
+
+> This section is NOT based on scientific measurements but simple test-runs with time tracking only.
+
+Generating a graph base model has a sub-quadratic average complecity (estimated / not prooven yet). The perceived generation speed is fast for smaller and mid-sized models. Generation and serialization of models less thann 100.000 elements (n/e = 1/3) takes less than one second. For models with 1.000.000 elements (n/e = 1/3) it takes around 60 seconds. However, the generation of edit sequences can easily run into very long (not terminating) execution times. From first observations, generation long edit sequences for small base models is fast. Generation small edit sequences for large base models is slow. The edit algoritm is non-deteministic but assures a non-zero probability to terminate.
+
+The following table shows execution times for selected model sizes. Tested on a MacBook with an Apple M2 processor. The follwong configuration is used.
+
+```
+modelSize = X,
+branchEditLength = Y,
+edgesPerNode = 3.0,
+regionProbability = 0.2,
+allowPartitions = false,
+edgeDistortion = 0.1,
+branchNumber = 1,
+branchEditFocus = 0.8,
+atomicCounting = true,
+randomSeed = 1
+```
+
+Change operations are choosen with the following percentages.
+
+```
+"ADD_SIMPLE", 18%
+"ADD_REGION", 2%
+"DELETE_NODE", 20%
+"MOVE_NODE", 20%
+"CHANGE_LABEL", 20%
+"ADD_EDGE", 10%
+"DELETE_EDGE", 10%
+```
+
+Executed via gradle (example call from the project root).
+
+```
+ gradle run --args="./out -c 1 -d 0.1 -e -f 0.8 -n 3 -r 0.2 -s 10000 -l 100"
+```
+
+| Base Model Size | Edit Sequence Length | Time Base Model Generation | Time Edit Generation |
+| ---       | ---  | ---    | ---     |
+| 1.000     | 10   | 0.067s |  0.4s   |
+| 1.000     | 100  | 0.065s |  0.8s   |
+| 1.000     | 200  | 0.065s |  0.9s   |
+| 10.000    | 100  | 0.165s |  3.6s   |
+| 10.000    | 500  | 0.168s |  11.6s   |
+| 10.000    | 1000 | 0.176s |  25.2s   |
+| 10.000    | 1500 | 0.176s |  37.0s   |
+| 10.000    | 2000 | 0.172s |  43.4s   |
+| 20.000    | 100  | 0.241s |  18.4s   |
+| 30.000    | 100  | 0.315s |  38.2s   |
+| 50.000    | 100  | 0.488s |  100.0s  |
+| 100.000   | 10   | 1.1s   |  82.0s   |
+| 1.000.000 |    | 55.4s   |     |
 
 ## Graph Metamodel
 

@@ -17,4 +17,4 @@ package util
 
 import org.eclipse.emf.common.util.URI
 
-data class Branch(val modelURI: URI, val deltaURI: URI)
+data class Branch(val modelURI: URI, val deltaURI: URI) : IndexedComparable()

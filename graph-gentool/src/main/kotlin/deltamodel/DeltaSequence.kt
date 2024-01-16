@@ -21,12 +21,13 @@ import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
 import org.eclipse.emf.ecore.EObject
+import util.IndexedComparable
 import java.util.*
 
 class DeltaSequence(
     val deltaOperations: MutableList<DeltaOperation> = LinkedList(),
     predef: EObject? = null
-) : EObjectSource {
+) : EObjectSource, IndexedComparable() {
 
     private var buffer = predef
     private val description = "DeltaSequence"

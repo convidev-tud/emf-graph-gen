@@ -21,11 +21,12 @@ import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
 import org.eclipse.emf.ecore.EObject
+import util.IndexedComparable
 
 class Edge(
     val a: Node,
     val b: Node
-) : EObjectSource, DeepComparable {
+) : EObjectSource, DeepComparable, IndexedComparable() {
 
     private val description = "Edge"
 

@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.ExtendedMetaData
 import org.eclipse.emf.ecore.xmi.XMLResource
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
+import java.util.*
 
 class EcoreHandler(metamodel: URI, model: URI, registryExtension: String) {
 
@@ -59,7 +60,7 @@ class EcoreHandler(metamodel: URI, model: URI, registryExtension: String) {
     }
 
     fun getClassMap(): Map<String, EClass> {
-        val metaMap: MutableMap<String, EClass> = HashMap()
+        val metaMap: MutableMap<String, EClass> = TreeMap()
         for (e in metamodelRoot!!.eClassifiers) {
             if (e is EClass) {
                 metaMap[e.getName()] = e
@@ -69,7 +70,7 @@ class EcoreHandler(metamodel: URI, model: URI, registryExtension: String) {
     }
 
     fun getEnumMap(): Map<String, EEnum> {
-        val enumMap: MutableMap<String, EEnum> = HashMap()
+        val enumMap: MutableMap<String, EEnum> = TreeMap()
         for (e in metamodelRoot!!.eClassifiers) {
             if (e is EEnum) {
                 enumMap[e.getName()] = e
