@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:MoveEdge" oldRegion="R4" newRegion="R3" nodeA="N11" nodeB="N13"/>
+  <deltaOperations xsi:type="graphdelta:MoveEdge" oldRegion="R4" newRegion="R3" nodeA="N11" nodeB="R4"/>
+  <deltaOperations xsi:type="graphdelta:MoveEdge" oldRegion="R4" newRegion="R3" nodeA="N11" nodeB="N17"/>
+  <deltaOperations xsi:type="graphdelta:MoveEdge" oldRegion="R4" newRegion="R3" nodeA="N11" nodeB="N5"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" nodeName="N11" targetRegion="R3" oldRegion="R4" edgeImplications="//@deltaOperations.0 //@deltaOperations.1 //@deltaOperations.2 //@deltaOperations.3"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="NE0"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" nodeName="NE0" targetRegion="R2" oldRegion="R4"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" nodeName="N5" newLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" nodeA="N5" nodeB="N11"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" nodeA="N5" nodeB="N5"/>
+</graphdelta:DeltaSequence>

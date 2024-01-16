@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:AddEdge" nodeA="R2" nodeB="R2"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="NE0"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="NE1"/>
+  <deltaOperations xsi:type="graphdelta:MoveEdge" oldRegion="R1" newRegion="" nodeA="N8" nodeB="N14"/>
+  <deltaOperations xsi:type="graphdelta:MoveEdge" oldRegion="R1" newRegion="" nodeA="N8" nodeB="N16"/>
+  <deltaOperations xsi:type="graphdelta:MoveEdge" oldRegion="R1" newRegion="" nodeA="N8" nodeB="R2"/>
+  <deltaOperations xsi:type="graphdelta:MoveEdge" oldRegion="R1" newRegion="" nodeA="N8" nodeB="N8"/>
+  <deltaOperations xsi:type="graphdelta:MoveEdge" oldRegion="R1" newRegion="" nodeA="N8" nodeB="N8"/>
+  <deltaOperations xsi:type="graphdelta:MoveEdge" oldRegion="R1" newRegion="" nodeA="N8" nodeB="N2"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" nodeName="N8" targetRegion="" oldRegion="R1" edgeImplications="//@deltaOperations.3 //@deltaOperations.4 //@deltaOperations.5 //@deltaOperations.6 //@deltaOperations.7 //@deltaOperations.8"/>
+</graphdelta:DeltaSequence>

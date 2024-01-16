@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" nodeA="N3" nodeB="N15"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" nodeA="N9" nodeB="N15"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" nodeA="N15" nodeB="N15"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" nodeA="N15" nodeB="N15"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" edgeImplications="//@deltaOperations.0 //@deltaOperations.1 //@deltaOperations.2 //@deltaOperations.3" nodeName="N15" fromRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" nodeA="N3" nodeB="N3"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" nodeName="N3" oldLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" nodeName="N3" newLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" nodeName="N9" newLabel="GREEN" oldLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" nodeA="N8" nodeB="N2"/>
+</graphdelta:DeltaSequence>

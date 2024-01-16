@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" nodeName="N19" newLabel="GREEN" oldLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="NE0"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="NE1"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="NE2"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="NE3"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" nodeA="N5" nodeB="N11"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" nodeName="N17" newLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" nodeName="N11" newLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="NE4"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="NE5"/>
+</graphdelta:DeltaSequence>
