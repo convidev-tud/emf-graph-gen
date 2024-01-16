@@ -144,7 +144,11 @@ Executed via gradle (example call from the project root).
 | 30.000    | 100  | 0.315s |  38.2s   |
 | 50.000    | 100  | 0.488s |  100.0s  |
 | 100.000   | 10   | 1.1s   |  82.0s   |
+| 400.000 |    | 11.3s   |     |
+| 700.000 |    | 26.6s   |     |
 | 1.000.000 |    | 55.4s   |     |
+
+![](doc/../doc/gentool_performance_charts.png)
 
 ## Graph Metamodel
 
