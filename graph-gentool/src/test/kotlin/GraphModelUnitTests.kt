@@ -83,13 +83,127 @@ class GraphModelUnitTests {
     }
 
     @Test
-    fun deepCopyDeepEqualsTest(){
+    fun deepCopyDeepEqualsTest0(){
         val configuration = Configuration(
             modelSize = 3000,
             edgesPerNode = 3.0,
             regionProbability = 0.1,
             edgeDistortion = 0.2,
             randomSeed = 10
+        )
+        val graph = Graph(isRoot = true)
+        val factory = GraphFactory(graph, configuration)
+        factory.exec()
+
+        val graphCopy = graph.deepCopy()
+
+        //They are not identical references:
+        assertNotEquals(graph, graphCopy)
+
+        //The internal deepEquals is true however because of the same structure:
+        assertEquals(graph.getStats(true).toString(), graphCopy.getStats(true).toString())
+        assertTrue(graph.deepEquals(graphCopy))
+        assertTrue(graphCopy.deepEquals(graph))
+
+        //If we manipulate the copy, the structural equality is lost (change happens only in one object)
+        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode("N_FOO", Label.BLUE))
+        assertFalse(graph.deepEquals(graphCopy))
+    }
+
+    @Test
+    fun deepCopyDeepEqualsTest1(){
+        val configuration = Configuration(
+            modelSize = 3000,
+            edgesPerNode = 3.0,
+            regionProbability = 0.1,
+            edgeDistortion = 0.2,
+            randomSeed = 10
+        )
+        val graph = Graph(isRoot = true)
+        val factory = GraphFactory(graph, configuration)
+        factory.exec()
+
+        val graphCopy = graph.deepCopy()
+
+        //They are not identical references:
+        assertNotEquals(graph, graphCopy)
+
+        //The internal deepEquals is true however because of the same structure:
+        assertEquals(graph.getStats(true).toString(), graphCopy.getStats(true).toString())
+        assertTrue(graph.deepEquals(graphCopy))
+        assertTrue(graphCopy.deepEquals(graph))
+
+        //If we manipulate the copy, the structural equality is lost (change happens only in one object)
+        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode("N_FOO", Label.BLUE))
+        assertFalse(graph.deepEquals(graphCopy))
+    }
+
+    @Test
+    fun deepCopyDeepEqualsTest2(){
+        val configuration = Configuration(
+            modelSize = 30000,
+            edgesPerNode = 3.0,
+            allowPartitions = false,
+            regionProbability = 0.1,
+            edgeDistortion = 0.2,
+            randomSeed = 2
+        )
+        val graph = Graph(isRoot = true)
+        val factory = GraphFactory(graph, configuration)
+        factory.exec()
+
+        val graphCopy = graph.deepCopy()
+
+        //They are not identical references:
+        assertNotEquals(graph, graphCopy)
+
+        //The internal deepEquals is true however because of the same structure:
+        assertEquals(graph.getStats(true).toString(), graphCopy.getStats(true).toString())
+        assertTrue(graph.deepEquals(graphCopy))
+        assertTrue(graphCopy.deepEquals(graph))
+
+        //If we manipulate the copy, the structural equality is lost (change happens only in one object)
+        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode("N_FOO", Label.BLUE))
+        assertFalse(graph.deepEquals(graphCopy))
+    }
+
+    @Test
+    fun deepCopyDeepEqualsTest3(){
+        val configuration = Configuration(
+            modelSize = 300,
+            edgesPerNode = 3.0,
+            regionProbability = 0.1,
+            edgeDistortion = 0.2,
+            randomSeed = 1000
+        )
+        val graph = Graph(isRoot = true)
+        val factory = GraphFactory(graph, configuration)
+        factory.exec()
+
+        val graphCopy = graph.deepCopy()
+
+        //They are not identical references:
+        assertNotEquals(graph, graphCopy)
+
+        //The internal deepEquals is true however because of the same structure:
+        assertEquals(graph.getStats(true).toString(), graphCopy.getStats(true).toString())
+        assertTrue(graph.deepEquals(graphCopy))
+        assertTrue(graphCopy.deepEquals(graph))
+
+        //If we manipulate the copy, the structural equality is lost (change happens only in one object)
+        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode("N_FOO", Label.BLUE))
+        assertFalse(graph.deepEquals(graphCopy))
+    }
+
+    @Test
+    fun deepCopyDeepEqualsTest4(){
+        val configuration = Configuration(
+            modelSize = 30700,
+            edgesPerNode = 3.0,
+            regionProbability = 0.2,
+            allowPartitions = false,
+            edgeDistortion = 0.2,
+            randomSeed = 10635
         )
         val graph = Graph(isRoot = true)
         val factory = GraphFactory(graph, configuration)

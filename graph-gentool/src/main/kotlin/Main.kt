@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import deltamodel.DeltaSequence
 import ecore.EcoreHandler
 import graphmodel.Edge
 import graphmodel.Graph
@@ -67,10 +68,6 @@ class Checksum : Callable<Int> {
     )
     var allowPartitions: Boolean = defaultConfiguration.allowPartitions
 
-    /**
-     * TODO the features below
-     */
-
     @CommandLine.Option(
         names = ["-c", "--branch_number"],
         description = ["The number of branches (variants) to create from the final base model (INT)."]
@@ -86,7 +83,7 @@ class Checksum : Callable<Int> {
     @CommandLine.Option(
         names = ["-f", "--branch_edit_focus"],
         description = ["Probability factor 0..1 that the next edit operation happens in the same region as the previous." +
-                "A value of 0.0 results in a evenly distribution over all regions."]
+                "A value of 0.0 results in an even distribution over all regions."]
     )
     var branchEditFocus: Double = defaultConfiguration.branchEditFocus
 
@@ -105,7 +102,7 @@ class Checksum : Callable<Int> {
     override fun call(): Int {
         runWithConfig(
             Configuration(
-                randomSeed = 0,
+                randomSeed = 0, //TODO add random seed as optional CLI argument
                 outputPath = output.path,
                 modelSize,
                 edgesPerNode,
@@ -126,11 +123,11 @@ fun main(args: Array<String>) {
     exitProcess(CommandLine(Checksum()).execute(*args))
 }
 
-fun runWithConfig(configuration: Configuration): Graph {
-    val metamodelPath: String = object {}.javaClass.getResource("labelgraph.ecore")!!.path
-    val metamodelURI = URI.createFileURI(metamodelPath)
+fun runWithConfig(configuration: Configuration): Environment {
+    val graphMetamodelPath: String = object {}.javaClass.getResource("labelgraph.ecore")!!.path
+    val graphMetamodelURI = URI.createFileURI(graphMetamodelPath)
     val baseModel = createOutputBaseModelFile(configuration)
-    val ecoreHandler = EcoreHandler(metamodelURI, baseModel, "labelgraph")
+    val ecoreHandler = EcoreHandler(graphMetamodelURI, baseModel, "labelgraph")
 
     val factory = ecoreHandler.getModelFactory()
     val classMap = ecoreHandler.getClassMap()
@@ -152,35 +149,58 @@ fun runWithConfig(configuration: Configuration): Graph {
     val endTimeWrite = System.currentTimeMillis()
     println("Postprocessing Time: ${endTimeWrite - startTimeWrite} ms")
 
+    val environment = Environment(graph, LinkedList(), LinkedList())
+
     if (configuration.branchNumber > 0) {
         println("Creating Branches...")
+        val deltaMetamodelPath: String = object {}.javaClass.getResource("graphdelta.ecore")!!.path
+        val deltaMetamodelURI = URI.createFileURI(deltaMetamodelPath)
         val branches = createOutputBranchModelFiles(configuration, File(baseModel.toFileString()))
+        processBranches(branches, configuration, graphMetamodelURI, deltaMetamodelURI, environment)
     }
 
-    return graph
+    return environment
 }
 
-fun processBranches(branches: List<Branch>, configuration: Configuration, graphMetamodelURI: URI, deltaMetamodelURI: URI): Unit {
+fun processBranches(branches: List<Branch>, configuration: Configuration, graphMetamodelURI: URI,
+                    deltaMetamodelURI: URI, environment: Environment) {
 
-    for (branch in branches){
-        val graphEcoreHandler = EcoreHandler(graphMetamodelURI, branch.modelURI, "labelgraph")
-        //TODO check if Graph class can decode predefined input
+    for ((branchIndex, branch) in branches.withIndex()){
+
+        val graphEcoreHandler = EcoreHandler(metamodel = graphMetamodelURI, model = branch.modelURI, "labelgraph")
 
         val graphClassMap = graphEcoreHandler.getClassMap()
         val graphLabels = graphEcoreHandler.getEnumMap()["Label"]!!
         val graphRoot = graphEcoreHandler.getModelRoot()
-        val graph = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot)
+        val graph = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot, isRoot = true)
 
-        val deltaEcoreHandler = EcoreHandler(deltaMetamodelURI, branch.deltaURI, "graphdelta")
+        val deltaEcoreHandler = EcoreHandler(metamodel = deltaMetamodelURI, model = branch.deltaURI, "graphdelta")
 
-        //TODO delta mappings
+        val deltaClassMap = deltaEcoreHandler.getClassMap()
+        val deltaLabels = deltaEcoreHandler.getEnumMap()["Label"]!!
+        val deltaNodeTypes = deltaEcoreHandler.getEnumMap()["NodeType"]!!
+        val deltaRoot = deltaEcoreHandler.getModelRoot()
 
-        val deltaClassMap = graphEcoreHandler.getClassMap()
-        val deltaLabels = graphEcoreHandler.getEnumMap()["Label"]!!
-        val deltaRoot = graphEcoreHandler.getModelRoot()
-        val deltaSequence = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot)
+        println("Postprocessing Branch $branchIndex...")
+        val startTimeProcessing = System.currentTimeMillis()
+        val graphProcessor = GraphProcessor(graph, configuration)
+        val finalStage = graphProcessor.exec()
+        val endTimeProcessing = System.currentTimeMillis()
+        println("Processing Time: ${endTimeProcessing - startTimeProcessing} ms")
 
-        //val processor = GraphProcessor()
+        val graphFactory = graphEcoreHandler.getModelFactory()
+        graph.apply(finalStage.graph)
+        graph.generate(graphClassMap, graphFactory, setOf("Node"), graphLabels)
+        graph.generate(graphClassMap, graphFactory, setOf("Edge"), graphLabels)
+        environment.branchGraphs.add(graph)
+
+        val deltaSequence = DeltaSequence(finalStage.deltaSequence.deltaOperations, deltaRoot)
+        deltaSequence.generate(deltaClassMap, deltaEcoreHandler.getModelFactory(), HashSet(), deltaLabels, deltaNodeTypes)
+        environment.branchDeltas.add(deltaSequence)
+
+        graphEcoreHandler.saveModel()
+        deltaEcoreHandler.saveModel()
+
     }
 
 }

@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject
 import java.util.*
 
 class DeltaSequence(
-    private val deltaOperations: MutableList<DeltaOperation> = LinkedList(),
+    val deltaOperations: MutableList<DeltaOperation> = LinkedList(),
     predef: EObject? = null
 ) : EObjectSource {
 

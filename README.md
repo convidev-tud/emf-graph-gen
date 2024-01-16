@@ -106,7 +106,7 @@ The implemented construction algorithm has certain consequences on the graph str
   * SimpleNodes are distributed evenly over all regions
   * Regions are distributed according to the region distribution algorithm
 
-**Region DIstribution**
+**Region Distribution**
 
 1. Define the two sets *Distributed* and *NotDistributed*
 2. Construct all regions and add them to the *NotDistributed* set.

@@ -57,17 +57,31 @@ data class Configuration(
      */
     val allowPartitions: Boolean = false,
 
-
-    //TODO
+    /**
+     * The number of branches (variants) to create from the final base model
+     */
     val branchNumber: Int = 8,
 
-    //TODO
+    /**
+     * The number of additional edit operation performed on each branch.
+     */
     val branchEditLength: Int = 0,
 
-    //TODO
+    /**
+     * Probability factor 0..1 that the next edit operation happens in the same region as the previous.
+     * A value of 0.0 results in an even distribution over all regions.
+     */
     val branchEditFocus: Double = 0.0,
 
-    //TODO
+    /**
+     * Toggle, how the edit length is counted. true for atomic counting and false for accumulative counting
+     * If true, the resulting edit sequence will have exactly the same size as specified by the branch edit length.
+     * If false, the number of explicit (high-level) edits is counted (although writing the atomic edits to the
+     * edit sequence). For example, let there be a region R containing 3 nodes and 2 edges. If delete R is the edit.
+     * If R gets deleted, its composite contents must be deleted as well. The result are 6 atomic edits which are
+     * added to the edit sequence (one explicit edit and 5 implicit edits). If atomic counting is used, the counter
+     * increments by 6. If no atomic counting is used, the counter increments by 1.
+     */
     val atomicCounting: Boolean = false
 
 ){

@@ -55,6 +55,13 @@ class Graph(
         }
     }
 
+    fun apply(graph: Graph){
+        nodes.clear()
+        edges.clear()
+        nodes.addAll(graph.nodes)
+        edges.addAll(graph.edges)
+    }
+
     fun getStats(recursive: Boolean): GraphStats {
         val stats = GraphStats(
             nodes.filterIsInstance<SimpleNode>().map { n -> n as SimpleNode }.toMutableSet(),
@@ -126,7 +133,8 @@ class Graph(
     private fun getNodesRecursive(): Set<Node> {
         val nodeSet: MutableSet<Node> = HashSet()
         nodeSet.addAll(nodes)
-        nodes.filterIsInstance<Region>().forEach { region ->
+        val regions = nodes.filterIsInstance<Region>()
+        for(region in regions){
             nodeSet.addAll(region.graph.getNodesRecursive())
         }
         return nodeSet
@@ -134,10 +142,6 @@ class Graph(
 
     fun getRegionsRecursive(): Set<Region> {
         return getNodesRecursive().filterIsInstance<Region>().toSet()
-    }
-
-    fun getRegionByNameRecursive(name: String): Region? {
-        return getRegionsRecursive().find { r -> r.name == name}
     }
 
     private fun constructEdgesFromPredef(nodes: Set<Node>) {

@@ -104,7 +104,7 @@ class GraphProcessor(
         var currentEditLength = 0
         var workingRegionName: String? = null
 
-        while (currentEditLength <= conf.branchEditLength) {
+        while (currentEditLength < conf.branchEditLength) {
 
             val p = random.nextInt(0, 100)
             var operation: String? = null
@@ -132,16 +132,18 @@ class GraphProcessor(
                 applyStageGlobal()
                 currentEditLength += impact
             }
+            //println("Edit Length: $currentEditLength")
 
             //clear stage (and reject if not applied beforehand)
             clearStage()
         }
+
         return Stage(globalGraph, globalDeltaSequence)
     }
 
     private fun executeOnStageWithImpact(operation: String?, workingRegion: Region?, impactType: ImpactType): Int {
         if (operation == null) return 0
-
+        //println(operation)
         when (operation) {
             "ADD_SIMPLE" -> addSimpleNode(workingRegion)
             "ADD_REGION" -> addRegion(workingRegion)
@@ -173,7 +175,7 @@ class GraphProcessor(
         val allRegions = stage.graph.getRegionsRecursive().toList()
         if(allRegions.isEmpty()) return null
         val p = random.nextInt(0, allRegions.size + 1)
-        if ( p == allRegions.size + 1) return null
+        if ( p == allRegions.size) return null
         return allRegions[p]
     }
 
@@ -240,14 +242,15 @@ class GraphProcessor(
             return DeleteNode(node, LinkedList(), connectedEdgeDeletes.toMutableList(), region)
         }
         //identify deleted nodes
-        val impactedNodes = node.graph.nodes
+        val impactedNodes = LinkedList(node.graph.nodes)
         val impactedNodeDeletes: MutableList<DeleteNode> = LinkedList<DeleteNode>()
         //delete edges targeting deleted nodes
         for (nodeToDelete in impactedNodes) {
             //walk recursive through deleted nodes with this function
-            impactedNodeDeletes.add(deleteNode(node, nodeToDelete))
+            val deleteNode = deleteNode(node, nodeToDelete)
+            impactedNodeDeletes.add(deleteNode)
         }
-        val impactedEdgeDeletes = deleteEdgesContaining(graph, node)
+        val impactedEdgeDeletes = deleteEdgesContaining(stage.graph, node)
         graph.nodes.remove(node)
 
         return DeleteNode(node, impactedNodeDeletes, impactedEdgeDeletes.toMutableList(), region)
@@ -290,20 +293,23 @@ class GraphProcessor(
      * If the given Region contains no Nodes, this operation returns without a result.
      * If the graph contains only one Region, this operation returns without a result.
      * This operation also moves all [Edge]s to assure that each Edge is located within the [Graph] of its start Node.
+     *
+     * REGIONS CAN NOT BE MOVED BECAUSE THIS WOULD VIOLATE THE COMPOSITION TREE STRUCTURE!
      */
     private fun moveNode(region: Region?) {
         val graph = region?.graph ?: stage.graph
-        if(graph.nodes.isEmpty()) return
-        val allRegions = graph.getRegionsRecursive().toList()
+        val simpleNodes = graph.nodes.filterIsInstance<SimpleNode>()
+        if(simpleNodes.isEmpty()) return
+        val allRegions = stage.graph.getRegionsRecursive().toList()
         if(allRegions.isEmpty()) return
         var targetRegion: Region? = null
         do {
             val p = random.nextInt(0, allRegions.size + 1)
-            if(p != allRegions.size + 1){
+            if(p < allRegions.size){
                 targetRegion = allRegions[p]
             }
         } while (targetRegion == region)
-        val node = graph.randomNode(random)
+        val node = simpleNodes[random.nextInt(0, simpleNodes.size)]
         graph.nodes.remove(node)
         val targetGraph = targetRegion?.graph ?: stage.graph
         targetGraph.nodes.add(node)
