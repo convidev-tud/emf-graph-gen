@@ -111,7 +111,7 @@ class Checksum : Callable<Int> {
                 "This operation is not compatible with atomic counting. " +
                 "This operation is not compatible with atomic counting. "]
     )
-    val stepwiseExport: Boolean = false
+    var stepwiseExport: Boolean = false
 
 
     override fun call(): Int {
@@ -184,18 +184,14 @@ fun processBranches(
 
     for ((branchIndex, branch) in branches.withIndex()) {
 
-        var graphEcoreHandlerSet: MutableList<EcoreHandler> = LinkedList()
+        val graphEcoreHandlerSet: MutableList<EcoreHandler> = LinkedList()
 
-        var graphClassMap: Map<String, EClass>? = null
-        var graphLabels: EEnum? = null
-        var graphRoot: EObject? = null
+        var graphRoot: EObject?
         var graph: Graph? = null
 
         for((versionIndex, branchVersion) in branch.modelURIs.withIndex()){
             val graphEcoreHandler = EcoreHandler(metamodel = graphMetamodelURI, model = branchVersion, "labelgraph")
             if(versionIndex == 0) {
-                graphClassMap = graphEcoreHandler.getClassMap()
-                graphLabels = graphEcoreHandler.getEnumMap()["Label"]!!
                 graphRoot = graphEcoreHandler.getModelRoot()
                 graph = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot, isRoot = true)
             }
@@ -218,7 +214,7 @@ fun processBranches(
 
         graphProcessor.exec(
             { stage: Stage ->
-                persistGraph(graphEcoreHandlerSet[iterationCounter], stage, graphLabels!!, graphClassMap!!, environment)
+                persistGraph(graphEcoreHandlerSet[iterationCounter], stage, environment)
                 iterationCounter++
             },
             { stage: Stage ->
@@ -243,9 +239,10 @@ fun processBranches(
 }
 
 fun persistGraph(
-    graphEcoreHandler: EcoreHandler, stage: Stage, graphLabels: EEnum,
-    graphClassMap: Map<String, EClass>, environment: Environment
+    graphEcoreHandler: EcoreHandler, stage: Stage, environment: Environment
 ) {
+    val graphClassMap = graphEcoreHandler.getClassMap()
+    val graphLabels = graphEcoreHandler.getEnumMap()["Label"]!!
     val graphFactory = graphEcoreHandler.getModelFactory()
     val graphRoot = graphEcoreHandler.getModelRoot()
     val rootGraph = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot, isRoot = true)
@@ -254,7 +251,7 @@ fun persistGraph(
     rootGraph.generate(graphClassMap, graphFactory, setOf("Edge"), graphLabels)
 
     //FIXME this is not version aware
-    //environment.branchGraphs.add(rootGraph)
+    environment.branchGraphs.add(mutableListOf(rootGraph))
 
     graphEcoreHandler.saveModel()
 }

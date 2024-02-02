@@ -141,7 +141,7 @@ class GraphProcessor(
                 applyStageGlobal()
                 currentEditLength += impact
 
-                if(conf.stepwiseExport){
+                if(impact > 0 && conf.stepwiseExport){
                     persistGraph(Stage(globalGraph, globalDeltaSequence))
                 }
 
@@ -153,6 +153,9 @@ class GraphProcessor(
         }
 
         val finalStage = Stage(globalGraph, globalDeltaSequence)
+        if(!conf.stepwiseExport){
+            persistGraph(finalStage)
+        }
         persistDeltas(finalStage)
 
         return finalStage
@@ -174,8 +177,8 @@ class GraphProcessor(
         val impact = when (impactType) {
             ImpactType.ATOMIC -> stage.deltaSequence.getAtomicLength()
             ImpactType.SUM -> {
-                assert(stage.deltaSequence.getLength() == 1)
-                return 1
+                assert(stage.deltaSequence.getLength() <= 1)
+                return stage.deltaSequence.getLength()
             }
         }
 
@@ -321,7 +324,7 @@ class GraphProcessor(
         val simpleNodes = graph.nodes.filterIsInstance<SimpleNode>()
         if(simpleNodes.isEmpty()) return
         val allRegions = stage.graph.getRegionsRecursive().toList()
-        if(allRegions.isEmpty()) return
+        if(allRegions.size < 2) return
         var targetRegion: Region? = null
         do {
             val p = random.nextInt(0, allRegions.size + 1)
