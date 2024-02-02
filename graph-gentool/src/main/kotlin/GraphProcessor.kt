@@ -105,9 +105,12 @@ class GraphProcessor(
      * Iteration time of the implemented naive (try-check-rollback) algorithm is non-deterministic but termination is
      * guaranteed because addNode is always viable as a 1-impact operation.
      */
-    fun exec(): Stage {
+    fun exec(persistGraph: (Stage) -> Unit, persistDeltas: (Stage) -> Unit): Stage {
+
         var currentEditLength = 0
         var workingRegionName: String? = null
+
+        conf.atomicCounting
 
         while (currentEditLength < conf.branchEditLength) {
 
@@ -137,6 +140,11 @@ class GraphProcessor(
                 //apply stage
                 applyStageGlobal()
                 currentEditLength += impact
+
+                if(conf.stepwiseExport){
+                    persistGraph(Stage(globalGraph, globalDeltaSequence))
+                }
+
             }
             //println("Edit Length: $currentEditLength")
 
@@ -144,7 +152,10 @@ class GraphProcessor(
             clearStage()
         }
 
-        return Stage(globalGraph, globalDeltaSequence)
+        val finalStage = Stage(globalGraph, globalDeltaSequence)
+        persistDeltas(finalStage)
+
+        return finalStage
     }
 
     private fun executeOnStageWithImpact(operation: String?, workingRegion: Region?, impactType: ImpactType): Int {
@@ -162,7 +173,10 @@ class GraphProcessor(
 
         val impact = when (impactType) {
             ImpactType.ATOMIC -> stage.deltaSequence.getAtomicLength()
-            ImpactType.SUM -> stage.deltaSequence.getLength()
+            ImpactType.SUM -> {
+                assert(stage.deltaSequence.getLength() == 1)
+                return 1
+            }
         }
 
         return impact
