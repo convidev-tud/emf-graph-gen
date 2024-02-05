@@ -55,12 +55,12 @@ class GraphProcessor(
      */
     //TODO config file with edit weights / probabilities
     private val changeOperationWeights: List<Pair<String, Int>> = listOf(
-        Pair("ADD_SIMPLE", 18),
+        Pair("ADD_SIMPLE", 13),
         Pair("ADD_REGION", 2),
-        Pair("DELETE_NODE", 20),
-        Pair("MOVE_NODE", 20),
-        Pair("CHANGE_LABEL", 20),
-        Pair("ADD_EDGE", 10),
+        Pair("DELETE_NODE", 10),
+        Pair("MOVE_NODE", 10),
+        Pair("CHANGE_LABEL", 30),
+        Pair("ADD_EDGE", 25),
         Pair("DELETE_EDGE", 10)
     )
 
