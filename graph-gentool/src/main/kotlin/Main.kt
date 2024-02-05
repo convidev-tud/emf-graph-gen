@@ -113,11 +113,16 @@ class Checksum : Callable<Int> {
     )
     var stepwiseExport: Boolean = false
 
+    @CommandLine.Option(
+        names = ["-u", "--random_seed"],
+        description = ["Random seed for the strict deterministic random generation algorithms"]
+    )
+    var userRandomSeed: Int = 0
 
     override fun call(): Int {
         runWithConfig(
             Configuration(
-                randomSeed = 0, //TODO add random seed as optional CLI argument
+                randomSeed = userRandomSeed,
                 outputPath = output.path,
                 modelSize,
                 edgesPerNode,
