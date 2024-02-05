@@ -82,7 +82,16 @@ data class Configuration(
      * added to the edit sequence (one explicit edit and 5 implicit edits). If atomic counting is used, the counter
      * increments by 6. If no atomic counting is used, the counter increments by 1.
      */
-    val atomicCounting: Boolean = false
+    val atomicCounting: Boolean = false,
+
+    /**
+     * Toggle if the processor the variants only once or after each step.
+     * The base model generation is not influenced by this toggle.
+     * If set to true, a model variant with an edit length of 10 leads to 10 exported models.
+     * This operation is not compatible with atomic counting.
+     * This operation does not lead to a stepwise export of the delta models.
+     */
+    val stepwiseExport: Boolean = false
 
 ){
 
@@ -94,5 +103,6 @@ data class Configuration(
         assert(branchNumber >= 0)
         assert(branchEditLength >= 0)
         assert(branchEditFocus in 0.0..1.0)
+        assert(!(stepwiseExport && atomicCounting))
     }
 }

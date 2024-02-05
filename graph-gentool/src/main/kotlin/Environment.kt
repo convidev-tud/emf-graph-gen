@@ -17,4 +17,6 @@
 import deltamodel.DeltaSequence
 import graphmodel.Graph
 
-data class Environment(val baseGraph: Graph, val branchGraphs: MutableList<Graph>, val branchDeltas: MutableList<DeltaSequence>)
+data class Environment(val baseGraph: Graph,
+                       val branchGraphs: MutableList<MutableList<Graph>>,
+                       val branchDeltas: MutableList<DeltaSequence>)
