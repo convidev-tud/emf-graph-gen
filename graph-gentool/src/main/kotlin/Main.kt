@@ -26,7 +26,12 @@ import picocli.CommandLine
 import util.Branch
 import util.Configuration
 import util.Stage
+import java.io.BufferedReader
 import java.io.File
+import java.io.InputStreamReader
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
 import java.util.*
 import java.util.concurrent.Callable
 import kotlin.system.exitProcess
@@ -155,7 +160,7 @@ fun main(args: Array<String>) {
 }
 
 fun runWithConfig(configuration: Configuration): Environment {
-    val graphMetamodelPath: String = object {}.javaClass.getResource("labelgraph.ecore")!!.path
+    val graphMetamodelPath: String = createTempMetamodelFile("labelgraph").toString()
     val graphMetamodelURI = URI.createFileURI(graphMetamodelPath)
     val baseModel = createOutputBaseModelFile(configuration)
     val ecoreHandler = EcoreHandler(graphMetamodelURI, baseModel, "labelgraph")
@@ -183,7 +188,7 @@ fun runWithConfig(configuration: Configuration): Environment {
 
     if (configuration.branchNumber > 0) {
         println("Creating Branches...")
-        val deltaMetamodelPath: String = object {}.javaClass.getResource("graphdelta.ecore")!!.path
+        val deltaMetamodelPath: String = createTempMetamodelFile("graphdelta").toString()
         val deltaMetamodelURI = URI.createFileURI(deltaMetamodelPath)
         val branches = createOutputBranchModelFiles(configuration, File(baseModel.toFileString()))
         processBranches(branches, configuration, graphMetamodelURI, deltaMetamodelURI, environment)
@@ -282,29 +287,42 @@ fun persistDeltas(
 }
 
 fun createOutputBaseModelFile(configuration: Configuration): URI {
-    val modelTemplate = File(object {}.javaClass.getResource("template.labelgraph")!!.toURI())
-    return URI.createFileURI(
-        modelTemplate.copyTo(
-            File(configuration.outputPath + "/base.labelgraph"),
-            overwrite = true
-        ).path
-    )
+    val basePath = Paths.get(configuration.outputPath, "base.labelgraph")
+    Files.createDirectories(basePath.parent)
+
+    object {}.javaClass.getResourceAsStream("template.labelgraph").use { input ->
+        if (input != null)
+            BufferedReader(InputStreamReader(input)).use { reader ->
+                Files.newBufferedWriter(basePath).use { writer ->
+                    reader.copyTo(writer)
+                    writer.flush()
+                }
+            }
+    }
+
+    return URI.createFileURI(basePath.toString())
 }
 
 fun createOutputBranchModelFiles(configuration: Configuration, baseModel: File): List<Branch> {
-
-    val deltaTemplate = File(object {}.javaClass.getResource("template.graphdelta")!!.toURI())
     val results: MutableList<Branch> = LinkedList()
 
-    for (i: Int in 0..<configuration.branchNumber) {
-        val dir = configuration.outputPath + "/b_" + i.toString()
-        val deltaURI = URI.createFileURI(
-            deltaTemplate.copyTo(
-                File("$dir/model.graphdelta"),
-                overwrite = true
-            ).path
-        )
+    var content: List<String> = LinkedList()
+    object {}.javaClass.getResourceAsStream("template.graphdelta").use { input ->
+        if (input != null)
+            BufferedReader(InputStreamReader(input)).use { reader ->
+                content = reader.readLines()
 
+            }
+    }
+
+    for(i: Int in 0..< configuration.branchNumber) {
+        val dir = configuration.outputPath + "/b_" + i.toString()
+        val deltaPath = Paths.get(dir, "model.graphdelta")
+
+        Files.createDirectories(deltaPath.parent)
+        Files.write(deltaPath, content)
+
+        val deltaURI = URI.createFileURI(deltaPath.toString())
 
         val modelURIs: MutableList<URI> = LinkedList()
         val numberVersions = if (!configuration.stepwiseExport) {
@@ -322,7 +340,29 @@ fun createOutputBranchModelFiles(configuration: Configuration, baseModel: File):
             modelURIs.add(modelURI)
         }
         results.add(Branch(modelURIs, deltaURI))
-
     }
+
+
     return results
+}
+
+fun createTempMetamodelFile(title: String): Path {
+    val tempPath = Files.createTempFile(title, ".ecore")
+    Runtime.getRuntime().addShutdownHook(Thread() {
+        run() {
+            Files.delete(tempPath)
+        }
+    })
+
+    object {}.javaClass.getResourceAsStream("$title.ecore").use { input ->
+        if (input != null)
+            BufferedReader(InputStreamReader(input)).use { reader ->
+                Files.newBufferedWriter(tempPath).use { writer ->
+                    reader.copyTo(writer)
+                    writer.flush()
+                }
+            }
+    }
+
+    return tempPath
 }
