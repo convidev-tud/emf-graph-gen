@@ -32,7 +32,8 @@ import kotlin.random.Random
  */
 class GraphProcessor(
     private val graph: Graph,
-    private val conf: Configuration
+    private val conf: Configuration,
+    val weights: List<Pair<String, Int>>
 ) {
 
     private val random: Random = Random(conf.randomSeed)
@@ -41,28 +42,8 @@ class GraphProcessor(
     private var simpleNodeNameIncrement = 0
     private var regionNameIncrement = 0
 
-    /**
-     * Viable operations are:
-     *  - Add Node
-     *      - Simple Node
-     *      - Region
-     *  - Delete Node
-     *  - Move Node
-     *  - Change Label
-     *  - Add Edge
-     *  - Move Edge (implicitly only)
-     *  - Delete Edge
-     */
-    //TODO config file with edit weights / probabilities
-    private val changeOperationWeights: List<Pair<String, Int>> = listOf(
-        Pair("ADD_SIMPLE", 13),
-        Pair("ADD_REGION", 2),
-        Pair("DELETE_NODE", 15),
-        Pair("MOVE_NODE", 5),
-        Pair("CHANGE_LABEL", 25),
-        Pair("ADD_EDGE", 20),
-        Pair("DELETE_EDGE", 20)
-    )
+
+    private val changeOperationWeights = weights
 
     // list: ( (min, max) -> operation )
     private val operationDistribution: MutableList<Pair<Pair<Int, Int>, String>> = LinkedList()

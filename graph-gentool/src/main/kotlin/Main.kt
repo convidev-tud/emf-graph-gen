@@ -119,6 +119,18 @@ class Checksum : Callable<Int> {
     )
     var userRandomSeed: Int = 0
 
+
+    val changeOperationWeights: List<Pair<String, Int>> = listOf(
+        Pair("ADD_SIMPLE", 15),
+        Pair("ADD_REGION", 5),
+        Pair("DELETE_NODE", 5),
+        Pair("MOVE_NODE", 5),
+        Pair("CHANGE_LABEL", 25),
+        Pair("ADD_EDGE", 25),
+        Pair("DELETE_EDGE", 20)
+    )
+
+
     override fun call(): Int {
         runWithConfig(
             Configuration(
