@@ -119,18 +119,6 @@ class Checksum : Callable<Int> {
     )
     var userRandomSeed: Int = 0
 
-
-    val changeOperationWeights: List<Pair<String, Int>> = listOf(
-        Pair("ADD_SIMPLE", 15),
-        Pair("ADD_REGION", 5),
-        Pair("DELETE_NODE", 5),
-        Pair("MOVE_NODE", 5),
-        Pair("CHANGE_LABEL", 25),
-        Pair("ADD_EDGE", 25),
-        Pair("DELETE_EDGE", 20)
-    )
-
-
     override fun call(): Int {
         runWithConfig(
             Configuration(
@@ -151,6 +139,16 @@ class Checksum : Callable<Int> {
         return 0
     }
 }
+
+private val changeOperationWeights: List<Pair<String, Int>> = listOf(
+    Pair("ADD_SIMPLE", 15),
+    Pair("ADD_REGION", 5),
+    Pair("DELETE_NODE", 5),
+    Pair("MOVE_NODE", 5),
+    Pair("CHANGE_LABEL", 25),
+    Pair("ADD_EDGE", 25),
+    Pair("DELETE_EDGE", 20)
+)
 
 fun main(args: Array<String>) {
     exitProcess(CommandLine(Checksum()).execute(*args))
@@ -225,7 +223,7 @@ fun processBranches(
         println("Generating Edit Sequence Branch $branchIndex...")
 
         val startTimeProcessing = System.currentTimeMillis()
-        val graphProcessor = GraphProcessor(graph!!, configuration)
+        val graphProcessor = GraphProcessor(graph!!, configuration, changeOperationWeights)
 
         var iterationCounter: Int = 0
 
