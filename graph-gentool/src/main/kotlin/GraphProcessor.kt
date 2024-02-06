@@ -57,11 +57,11 @@ class GraphProcessor(
     private val changeOperationWeights: List<Pair<String, Int>> = listOf(
         Pair("ADD_SIMPLE", 13),
         Pair("ADD_REGION", 2),
-        Pair("DELETE_NODE", 10),
-        Pair("MOVE_NODE", 10),
-        Pair("CHANGE_LABEL", 30),
-        Pair("ADD_EDGE", 25),
-        Pair("DELETE_EDGE", 10)
+        Pair("DELETE_NODE", 15),
+        Pair("MOVE_NODE", 5),
+        Pair("CHANGE_LABEL", 25),
+        Pair("ADD_EDGE", 20),
+        Pair("DELETE_EDGE", 20)
     )
 
     // list: ( (min, max) -> operation )
