@@ -67,3 +67,26 @@ tasks.withType(DokkaTask.class) {
             ["org.jetbrains.dokka.base.DokkaBase": dokkaBaseConfiguration]
     )
 }
+
+tasks.register('fatJar', Jar) {
+    group 'build'
+    manifest {
+        manifest {
+            attributes 'Main-Class': application.mainClass
+        }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    archiveClassifier = 'standalone'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
+}
+
+artifacts {
+    archives fatJar
+}

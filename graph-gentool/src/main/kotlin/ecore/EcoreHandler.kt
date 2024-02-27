@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData
 import org.eclipse.emf.ecore.util.ExtendedMetaData
 import org.eclipse.emf.ecore.xmi.XMLResource
+import org.eclipse.emf.ecore.xmi.XMLResource.MissingPackageHandler
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import java.util.*
@@ -51,6 +52,14 @@ class EcoreHandler(metamodel: URI, model: URI, registryExtension: String) {
         } else {
             throw Exception("Unsupported ECORE specification.")
         }
+
+        val mph = object : MissingPackageHandler {
+            override fun getPackage(p0: String?): EPackage {
+                return metamodelRoot as EPackage
+            }
+        }
+
+        resourceSet!!.loadOptions[XMLResource.OPTION_MISSING_PACKAGE_HANDLER] = mph
 
         modelResource = resourceSet!!.getResource(model, true)
     }
