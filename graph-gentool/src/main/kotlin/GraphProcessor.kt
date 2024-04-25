@@ -127,8 +127,6 @@ class GraphProcessor(
                 }
 
             }
-            //println("Edit Length: $currentEditLength")
-
             //clear stage (and reject if not applied beforehand)
             clearStage()
         }

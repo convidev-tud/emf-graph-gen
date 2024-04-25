@@ -46,6 +46,7 @@ class AddNode(val node: Node, private val nodeType: NodeType, val region: Region
 
         operation.eSet(nodeNameAttribute, node.name)
         operation.eSet(nodeTypeAttribute, nodeType!!.getEEnumLiteral(this.nodeType.name))
+        operation.eSet(nodeRegionAttribute, region?.name ?: "")
 
         this.buffer = operation
         return operation
