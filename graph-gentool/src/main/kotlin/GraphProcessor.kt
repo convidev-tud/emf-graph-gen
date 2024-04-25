@@ -107,13 +107,13 @@ class GraphProcessor(
             }
 
             val allRegions = stage.graph.getRegionsRecursive().toList()
-            var workingRegion = allRegions.find { r -> r.name == workingRegionName }
+            var workingRegion: Region? = allRegions.find { r -> r.name == workingRegionName }
 
             val changeRegionP = random.nextDouble(0.0, 1.0)
-            if (changeRegionP > conf.branchEditFocus || workingRegion == null) {
+            if (allRegions.isNotEmpty() && (changeRegionP > conf.branchEditFocus || workingRegion == null)) {
                 workingRegion = allRegions[random.nextInt(0, allRegions.size)]
             }
-            workingRegionName = workingRegion.name
+            workingRegionName = workingRegion?.name
 
             val impact = executeOnStageWithImpact(operation, workingRegion, impactType)
 
