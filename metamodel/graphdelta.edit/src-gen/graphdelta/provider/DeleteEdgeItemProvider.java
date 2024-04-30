@@ -111,7 +111,7 @@ public class DeleteEdgeItemProvider extends DeltaOperationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DeleteEdge) object).getNodeA();
+		String label = ((DeleteEdge) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_DeleteEdge_type")
 				: getString("_UI_DeleteEdge_type") + " " + label;
 	}

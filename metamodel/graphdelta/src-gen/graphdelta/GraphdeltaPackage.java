@@ -105,13 +105,22 @@ public interface GraphdeltaPackage extends EPackage {
 	int DELTA_OPERATION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELTA_OPERATION__ID = 0;
+
+	/**
 	 * The number of structural features of the '<em>Delta Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELTA_OPERATION_FEATURE_COUNT = 0;
+	int DELTA_OPERATION_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Delta Operation</em>' class.
@@ -131,6 +140,15 @@ public interface GraphdeltaPackage extends EPackage {
 	 * @generated
 	 */
 	int ADD_NODE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_NODE__ID = DELTA_OPERATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Node Name</b></em>' attribute.
@@ -186,6 +204,15 @@ public interface GraphdeltaPackage extends EPackage {
 	 * @generated
 	 */
 	int DELETE_NODE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE_NODE__ID = DELTA_OPERATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Node Implications</b></em>' reference list.
@@ -252,6 +279,15 @@ public interface GraphdeltaPackage extends EPackage {
 	int ADD_EDGE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_EDGE__ID = DELTA_OPERATION__ID;
+
+	/**
 	 * The feature id for the '<em><b>Node A</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -298,6 +334,15 @@ public interface GraphdeltaPackage extends EPackage {
 	int DELETE_EDGE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE_EDGE__ID = DELTA_OPERATION__ID;
+
+	/**
 	 * The feature id for the '<em><b>Node A</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -342,6 +387,15 @@ public interface GraphdeltaPackage extends EPackage {
 	 * @generated
 	 */
 	int MOVE_NODE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_NODE__ID = DELTA_OPERATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Node Name</b></em>' attribute.
@@ -408,6 +462,15 @@ public interface GraphdeltaPackage extends EPackage {
 	int CHANGE_LABEL = 7;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHANGE_LABEL__ID = DELTA_OPERATION__ID;
+
+	/**
 	 * The feature id for the '<em><b>Node Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -461,6 +524,15 @@ public interface GraphdeltaPackage extends EPackage {
 	 * @generated
 	 */
 	int MOVE_EDGE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_EDGE__ID = DELTA_OPERATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Old Region</b></em>' attribute.
@@ -566,6 +638,17 @@ public interface GraphdeltaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDeltaOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link graphdelta.DeltaOperation#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see graphdelta.DeltaOperation#getId()
+	 * @see #getDeltaOperation()
+	 * @generated
+	 */
+	EAttribute getDeltaOperation_Id();
 
 	/**
 	 * Returns the meta object for class '{@link graphdelta.AddNode <em>Add Node</em>}'.
@@ -949,6 +1032,14 @@ public interface GraphdeltaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DELTA_OPERATION = eINSTANCE.getDeltaOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DELTA_OPERATION__ID = eINSTANCE.getDeltaOperation_Id();
 
 		/**
 		 * The meta object literal for the '{@link graphdelta.impl.AddNodeImpl <em>Add Node</em>}' class.

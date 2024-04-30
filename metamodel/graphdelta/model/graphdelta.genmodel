@@ -22,7 +22,9 @@
     <genClasses ecoreClass="graphdelta.ecore#//DeltaSequence">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graphdelta.ecore#//DeltaSequence/deltaOperations"/>
     </genClasses>
-    <genClasses ecoreClass="graphdelta.ecore#//DeltaOperation"/>
+    <genClasses ecoreClass="graphdelta.ecore#//DeltaOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeltaOperation/id"/>
+    </genClasses>
     <genClasses ecoreClass="graphdelta.ecore#//AddNode">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddNode/nodeName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddNode/nodeType"/>

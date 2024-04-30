@@ -2,6 +2,8 @@
  */
 package graphdelta.provider;
 
+import graphdelta.DeltaOperation;
+import graphdelta.GraphdeltaPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -10,13 +12,16 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link graphdelta.DeltaOperation} object.
@@ -47,8 +52,25 @@ public class DeltaOperationItemProvider extends ItemProviderAdapter implements I
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_DeltaOperation_id_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_DeltaOperation_id_feature",
+								"_UI_DeltaOperation_type"),
+						GraphdeltaPackage.Literals.DELTA_OPERATION__ID, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -80,7 +102,9 @@ public class DeltaOperationItemProvider extends ItemProviderAdapter implements I
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DeltaOperation_type");
+		String label = ((DeltaOperation) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_DeltaOperation_type")
+				: getString("_UI_DeltaOperation_type") + " " + label;
 	}
 
 	/**
@@ -93,6 +117,12 @@ public class DeltaOperationItemProvider extends ItemProviderAdapter implements I
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(DeltaOperation.class)) {
+		case GraphdeltaPackage.DELTA_OPERATION__ID:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

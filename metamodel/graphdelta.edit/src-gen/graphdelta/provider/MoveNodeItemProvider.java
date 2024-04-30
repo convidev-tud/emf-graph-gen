@@ -144,7 +144,7 @@ public class MoveNodeItemProvider extends DeltaOperationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MoveNode) object).getNodeName();
+		String label = ((MoveNode) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_MoveNode_type")
 				: getString("_UI_MoveNode_type") + " " + label;
 	}

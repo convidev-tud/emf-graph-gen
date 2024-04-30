@@ -128,7 +128,7 @@ public class AddNodeItemProvider extends DeltaOperationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AddNode) object).getNodeName();
+		String label = ((AddNode) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_AddNode_type")
 				: getString("_UI_AddNode_type") + " " + label;
 	}

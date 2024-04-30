@@ -208,6 +208,16 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDeltaOperation_Id() {
+		return (EAttribute) deltaOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getAddNode() {
 		return addNodeEClass;
 	}
@@ -546,6 +556,7 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 		createEReference(deltaSequenceEClass, DELTA_SEQUENCE__DELTA_OPERATIONS);
 
 		deltaOperationEClass = createEClass(DELTA_OPERATION);
+		createEAttribute(deltaOperationEClass, DELTA_OPERATION__ID);
 
 		addNodeEClass = createEClass(ADD_NODE);
 		createEAttribute(addNodeEClass, ADD_NODE__NODE_NAME);
@@ -634,6 +645,8 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 
 		initEClass(deltaOperationEClass, DeltaOperation.class, "DeltaOperation", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDeltaOperation_Id(), ecorePackage.getEString(), "id", null, 1, 1, DeltaOperation.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(addNodeEClass, AddNode.class, "AddNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAddNode_NodeName(), ecorePackage.getEString(), "nodeName", null, 1, 1, AddNode.class,

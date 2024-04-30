@@ -145,7 +145,7 @@ public class MoveEdgeItemProvider extends DeltaOperationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MoveEdge) object).getOldRegion();
+		String label = ((MoveEdge) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_MoveEdge_type")
 				: getString("_UI_MoveEdge_type") + " " + label;
 	}

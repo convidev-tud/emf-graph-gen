@@ -111,7 +111,7 @@ public class AddEdgeItemProvider extends DeltaOperationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AddEdge) object).getNodeA();
+		String label = ((AddEdge) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_AddEdge_type")
 				: getString("_UI_AddEdge_type") + " " + label;
 	}

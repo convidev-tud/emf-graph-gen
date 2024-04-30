@@ -128,7 +128,7 @@ public class ChangeLabelItemProvider extends DeltaOperationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ChangeLabel) object).getNodeName();
+		String label = ((ChangeLabel) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_ChangeLabel_type")
 				: getString("_UI_ChangeLabel_type") + " " + label;
 	}

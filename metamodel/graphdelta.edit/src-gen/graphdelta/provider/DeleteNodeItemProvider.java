@@ -145,7 +145,7 @@ public class DeleteNodeItemProvider extends DeltaOperationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DeleteNode) object).getNodeName();
+		String label = ((DeleteNode) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_DeleteNode_type")
 				: getString("_UI_DeleteNode_type") + " " + label;
 	}
