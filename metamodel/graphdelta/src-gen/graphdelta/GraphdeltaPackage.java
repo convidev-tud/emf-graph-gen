@@ -215,7 +215,7 @@ public interface GraphdeltaPackage extends EPackage {
 	int DELETE_NODE__ID = DELTA_OPERATION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Node Implications</b></em>' reference list.
+	 * The feature id for the '<em><b>Node Implications</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -224,7 +224,7 @@ public interface GraphdeltaPackage extends EPackage {
 	int DELETE_NODE__NODE_IMPLICATIONS = DELTA_OPERATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Edge Implications</b></em>' reference list.
+	 * The feature id for the '<em><b>Edge Implications</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -425,7 +425,7 @@ public interface GraphdeltaPackage extends EPackage {
 	int MOVE_NODE__OLD_REGION = DELTA_OPERATION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Edge Implications</b></em>' reference list.
+	 * The feature id for the '<em><b>Edge Implications</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -704,10 +704,10 @@ public interface GraphdeltaPackage extends EPackage {
 	EClass getDeleteNode();
 
 	/**
-	 * Returns the meta object for the reference list '{@link graphdelta.DeleteNode#getNodeImplications <em>Node Implications</em>}'.
+	 * Returns the meta object for the containment reference list '{@link graphdelta.DeleteNode#getNodeImplications <em>Node Implications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Node Implications</em>'.
+	 * @return the meta object for the containment reference list '<em>Node Implications</em>'.
 	 * @see graphdelta.DeleteNode#getNodeImplications()
 	 * @see #getDeleteNode()
 	 * @generated
@@ -715,10 +715,10 @@ public interface GraphdeltaPackage extends EPackage {
 	EReference getDeleteNode_NodeImplications();
 
 	/**
-	 * Returns the meta object for the reference list '{@link graphdelta.DeleteNode#getEdgeImplications <em>Edge Implications</em>}'.
+	 * Returns the meta object for the containment reference list '{@link graphdelta.DeleteNode#getEdgeImplications <em>Edge Implications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Edge Implications</em>'.
+	 * @return the meta object for the containment reference list '<em>Edge Implications</em>'.
 	 * @see graphdelta.DeleteNode#getEdgeImplications()
 	 * @see #getDeleteNode()
 	 * @generated
@@ -855,10 +855,10 @@ public interface GraphdeltaPackage extends EPackage {
 	EAttribute getMoveNode_OldRegion();
 
 	/**
-	 * Returns the meta object for the reference list '{@link graphdelta.MoveNode#getEdgeImplications <em>Edge Implications</em>}'.
+	 * Returns the meta object for the containment reference list '{@link graphdelta.MoveNode#getEdgeImplications <em>Edge Implications</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Edge Implications</em>'.
+	 * @return the meta object for the containment reference list '<em>Edge Implications</em>'.
 	 * @see graphdelta.MoveNode#getEdgeImplications()
 	 * @see #getMoveNode()
 	 * @generated
@@ -1086,7 +1086,7 @@ public interface GraphdeltaPackage extends EPackage {
 		EClass DELETE_NODE = eINSTANCE.getDeleteNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Node Implications</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Node Implications</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1094,7 +1094,7 @@ public interface GraphdeltaPackage extends EPackage {
 		EReference DELETE_NODE__NODE_IMPLICATIONS = eINSTANCE.getDeleteNode_NodeImplications();
 
 		/**
-		 * The meta object literal for the '<em><b>Edge Implications</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Edge Implications</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1204,7 +1204,7 @@ public interface GraphdeltaPackage extends EPackage {
 		EAttribute MOVE_NODE__OLD_REGION = eINSTANCE.getMoveNode_OldRegion();
 
 		/**
-		 * The meta object literal for the '<em><b>Edge Implications</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Edge Implications</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

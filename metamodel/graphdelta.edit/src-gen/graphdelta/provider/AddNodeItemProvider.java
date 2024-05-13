@@ -4,7 +4,6 @@ package graphdelta.provider;
 
 import graphdelta.AddNode;
 import graphdelta.GraphdeltaPackage;
-
 import java.util.Collection;
 import java.util.List;
 

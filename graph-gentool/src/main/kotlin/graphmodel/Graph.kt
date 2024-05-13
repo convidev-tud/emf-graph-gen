@@ -197,6 +197,22 @@ class Graph(
         }
     }
 
+    fun findNode(name: String): Node? {
+        val node = nodes.find { n -> n.name == name }
+        if (node != null) return node
+
+        for (region in nodes.filterIsInstance<Region>()) {
+            val foundNode = region.graph.findNode(name)
+            if (foundNode != null) return foundNode
+        }
+
+        return null
+    }
+
+    fun findRegion(name: String): Region {
+        return findNode(name) as Region
+    }
+
     override fun generate(
         classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
         label: EEnum?, nodeType: EEnum?

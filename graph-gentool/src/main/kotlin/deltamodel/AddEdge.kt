@@ -17,6 +17,7 @@
 package deltamodel
 
 import graphmodel.Edge
+import graphmodel.Graph
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.EObject
  * Add a new [Edge].
  * The Edge is added to the (sub-)graph where the first Node is located.
  */
-class AddEdge(val edge: Edge) : DeltaOperation() {
+class AddEdge(id: String, val nodeAName: String, val nodeBName: String) : DeltaOperation(id) {
 
     private val description = "AddEdge"
 
@@ -39,9 +40,11 @@ class AddEdge(val edge: Edge) : DeltaOperation() {
         val operation = factory.create(classes[description])
         val nodeAAttribute = operation.eClass().getEStructuralFeature("nodeA")
         val nodeBAttribute = operation.eClass().getEStructuralFeature("nodeB")
+        val idAttribute = operation.eClass().getEStructuralFeature("id")
 
-        operation.eSet(nodeAAttribute, edge.a.name)
-        operation.eSet(nodeBAttribute, edge.b.name)
+        operation.eSet(idAttribute, id)
+        operation.eSet(nodeAAttribute, nodeAName)
+        operation.eSet(nodeBAttribute, nodeBName)
 
         this.buffer = operation
         return operation
@@ -49,8 +52,20 @@ class AddEdge(val edge: Edge) : DeltaOperation() {
 
     override fun deepEquals(other: Any): Boolean {
         if(other is AddEdge){
-            return edge.deepEquals(other.edge)
+            return nodeAName == other.nodeAName && nodeBName == other.nodeBName
         }
         return false
     }
+
+    companion object {
+
+        fun parse(eObject: EObject): AddEdge {
+            val idAttribute = eObject.eClass().getEStructuralFeature("id")
+            val id = eObject.eGet(idAttribute, true) as String
+            val nodeAName = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeA")) as String
+            val nodeBName = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeB")) as String
+            return AddEdge(id, nodeAName, nodeBName)
+        }
+    }
+
 }

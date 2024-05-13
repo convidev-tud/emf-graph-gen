@@ -22,14 +22,16 @@ import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.impl.EEnumLiteralImpl
 
 /**
  * Change the [Label] value of an existing [Node].
  * The uniqueness of the Label value must not be violated.
  */
-class ChangeLabel(val node: Node,
+class ChangeLabel(id: String,
+                  val nodeName: String,
                   val newLabel: Label,
-                  val oldLabel: Label) : DeltaOperation() {
+                  val oldLabel: Label) : DeltaOperation(id) {
 
     private val description = "ChangeLabel"
 
@@ -43,8 +45,10 @@ class ChangeLabel(val node: Node,
         val nodeNameAttribute = operation.eClass().getEStructuralFeature("nodeName")
         val newLabelAttribute = operation.eClass().getEStructuralFeature("newLabel")
         val oldLabelAttribute = operation.eClass().getEStructuralFeature("oldLabel")
+        val idAttribute = operation.eClass().getEStructuralFeature("id")
 
-        operation.eSet(nodeNameAttribute, node.name)
+        operation.eSet(nodeNameAttribute, nodeName)
+        operation.eSet(idAttribute, id)
         operation.eSet(newLabelAttribute, label!!.getEEnumLiteral(this.newLabel.name))
         operation.eSet(oldLabelAttribute, label.getEEnumLiteral(this.oldLabel.name))
 
@@ -54,8 +58,22 @@ class ChangeLabel(val node: Node,
 
     override fun deepEquals(other: Any): Boolean {
         if(other is ChangeLabel){
-            return node.deepEquals(other.node) && newLabel == other.newLabel && oldLabel == other.oldLabel
+            return nodeName == other.nodeName && newLabel == other.newLabel && oldLabel == other.oldLabel
         }
         return false
     }
+
+    companion object {
+
+        fun parse(eObject: EObject): ChangeLabel {
+            val nodeName = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeName")) as String
+            val newLabel = Label.entries[(eObject.eGet(eObject.eClass().getEStructuralFeature("newLabel")) as EEnumLiteralImpl).value]
+            val oldLabel = Label.entries[(eObject.eGet(eObject.eClass().getEStructuralFeature("oldLabel")) as EEnumLiteralImpl).value]
+            val id = eObject.eGet(eObject.eClass().getEStructuralFeature("id")) as String
+
+            return ChangeLabel(id, nodeName, newLabel, oldLabel)
+        }
+
+    }
+
 }

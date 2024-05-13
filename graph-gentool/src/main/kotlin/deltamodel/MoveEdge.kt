@@ -29,9 +29,11 @@ import org.eclipse.emf.ecore.EObject
  * This action exists to model and represent the movement of edges after a node was moved ensuring that edges
  * are located in the same region as their first node.
  */
-class MoveEdge(val edge: Edge,
-               val newRegion: Region? = null,
-               val oldRegion: Region? = null,) : DeltaOperation() {
+class MoveEdge(id: String,
+               val nodeAName: String,
+               val nodeBName: String,
+               val newRegionName: String = "",
+               val oldRegionName: String = "") : DeltaOperation(id) {
 
     val description = "MoveEdge"
 
@@ -42,21 +44,19 @@ class MoveEdge(val edge: Edge,
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
                           label: EEnum?, nodeType: EEnum?): EObject {
         val operation = factory.create(classes[description])
-
-        val newReg = newRegion?.name ?: ""
-        val oldReg = oldRegion?.name ?: ""
-
         val nodeAAttribute = operation.eClass().getEStructuralFeature("nodeA")
         val nodeBAttribute = operation.eClass().getEStructuralFeature("nodeB")
+        val idAttribute = operation.eClass().getEStructuralFeature("id")
 
-        operation.eSet(nodeAAttribute, edge.a.name)
-        operation.eSet(nodeBAttribute, edge.b.name)
+        operation.eSet(nodeAAttribute, nodeAName)
+        operation.eSet(nodeBAttribute, nodeBName)
+        operation.eSet(idAttribute, id)
 
         val newRegAttribute = operation.eClass().getEStructuralFeature("newRegion")
         val oldRegAttribute = operation.eClass().getEStructuralFeature("oldRegion")
 
-        operation.eSet(oldRegAttribute, oldReg)
-        operation.eSet(newRegAttribute, newReg)
+        operation.eSet(oldRegAttribute, oldRegionName)
+        operation.eSet(newRegAttribute, newRegionName)
 
         this.buffer = operation
         return operation
@@ -64,9 +64,24 @@ class MoveEdge(val edge: Edge,
 
     override fun deepEquals(other: Any): Boolean {
         if(other is MoveEdge){
-            return edge.deepEquals(other.edge) && oldRegion?.name == other.oldRegion?.name &&
-                    newRegion?.name == other.newRegion?.name
+            return nodeAName == other.nodeAName && nodeBName == other.nodeBName &&
+                    newRegionName == other.newRegionName && oldRegionName == other.oldRegionName
         }
         return false
     }
+
+    companion object {
+
+        fun parse(eObject: EObject): MoveEdge {
+            val nodeA = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeA")) as String
+            val nodeB = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeB")) as String
+            val id = eObject.eGet(eObject.eClass().getEStructuralFeature("id")) as String
+            val newRegion = eObject.eGet(eObject.eClass().getEStructuralFeature("newRegion")) as String
+            val oldRegion = eObject.eGet(eObject.eClass().getEStructuralFeature("oldRegion")) as String
+
+            return MoveEdge(id, nodeA, nodeB, newRegion, oldRegion)
+        }
+
+    }
+
 }

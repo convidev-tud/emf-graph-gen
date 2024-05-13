@@ -4,7 +4,6 @@ package graphdelta.provider;
 
 import graphdelta.AddEdge;
 import graphdelta.GraphdeltaPackage;
-
 import java.util.Collection;
 import java.util.List;
 

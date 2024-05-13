@@ -30,10 +30,11 @@ import java.util.*
  * NodeImplications contains the [DeleteNode] actions that must be executed beforehand to "clean" the node.
  * EdgeImplications contains the [DeleteEdge] actions that must be executed beforehand to "clean" the node.
  */
-class DeleteNode(val node: Node,
+class DeleteNode(id: String,
+                 val nodeName: String,
                  val nodeImplications: MutableList<DeleteNode>,
                  val edgeImplications: MutableList<DeleteEdge>,
-                 val region: Region? = null) : DeltaOperation() {
+                 val regionName: String = "") : DeltaOperation(id) {
 
     val description = "DeleteNode"
 
@@ -58,11 +59,11 @@ class DeleteNode(val node: Node,
         val operation = factory.create(classes[description])
         val nodeNameAttribute = operation.eClass().getEStructuralFeature("nodeName")
         val fromRegionAttribute = operation.eClass().getEStructuralFeature("fromRegion")
+        val idAttribute = operation.eClass().getEStructuralFeature("id")
 
-        val target = region?.name ?: ""
-
-        operation.eSet(nodeNameAttribute, node.name)
-        operation.eSet(fromRegionAttribute, target)
+        operation.eSet(nodeNameAttribute, nodeName)
+        operation.eSet(fromRegionAttribute, regionName)
+        operation.eSet(idAttribute, id)
 
         val nodeImplicationRefs = operation.eClass().getEStructuralFeature("nodeImplications")
         (operation.eGet(nodeImplicationRefs) as java.util.List<Any>).addAll(nodeImplications.map { e -> e.buffer!! })
@@ -76,8 +77,31 @@ class DeleteNode(val node: Node,
 
     override fun deepEquals(other: Any): Boolean {
         if(other is DeleteNode){
-            return node.deepEquals(other.node) && region == other.region
+            for (deleteNode in nodeImplications) {
+                if (!other.nodeImplications.any { it.deepEquals(deleteNode) }) return false
+            }
+            for (deleteEdge in edgeImplications) {
+                if (!other.edgeImplications.any { it.deepEquals(deleteEdge) }) return false
+            }
+            return nodeName == other.nodeName && regionName == other.regionName
         }
         return false
+    }
+
+    companion object {
+
+        fun parse(eObject: EObject): DeleteNode {
+            val nodeName = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeName"), true) as String
+            val id = eObject.eGet(eObject.eClass().getEStructuralFeature("id"), true) as String
+            val regionName = eObject.eGet(eObject.eClass().getEStructuralFeature("fromRegion"), true) as String
+
+            val nodeImplications = (eObject.eGet(eObject.eClass().getEStructuralFeature("nodeImplications")) as List<EObject>)
+                .map { e -> parse(e) }.toMutableList()
+            val edgeImplications = (eObject.eGet(eObject.eClass().getEStructuralFeature("edgeImplications")) as List<EObject>)
+                .map { e -> DeleteEdge.parse(e) }.toMutableList()
+
+            return DeleteNode(id, nodeName, nodeImplications, edgeImplications, regionName)
+        }
+
     }
 }

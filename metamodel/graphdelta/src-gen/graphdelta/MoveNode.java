@@ -91,13 +91,13 @@ public interface MoveNode extends DeltaOperation {
 	void setOldRegion(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Edge Implications</b></em>' reference list.
+	 * Returns the value of the '<em><b>Edge Implications</b></em>' containment reference list.
 	 * The list contents are of type {@link graphdelta.MoveEdge}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Edge Implications</em>' reference list.
+	 * @return the value of the '<em>Edge Implications</em>' containment reference list.
 	 * @see graphdelta.GraphdeltaPackage#getMoveNode_EdgeImplications()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<MoveEdge> getEdgeImplications();

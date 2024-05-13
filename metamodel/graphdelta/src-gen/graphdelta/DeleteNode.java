@@ -25,25 +25,25 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DeleteNode extends DeltaOperation {
 	/**
-	 * Returns the value of the '<em><b>Node Implications</b></em>' reference list.
+	 * Returns the value of the '<em><b>Node Implications</b></em>' containment reference list.
 	 * The list contents are of type {@link graphdelta.DeleteNode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Node Implications</em>' reference list.
+	 * @return the value of the '<em>Node Implications</em>' containment reference list.
 	 * @see graphdelta.GraphdeltaPackage#getDeleteNode_NodeImplications()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<DeleteNode> getNodeImplications();
 
 	/**
-	 * Returns the value of the '<em><b>Edge Implications</b></em>' reference list.
+	 * Returns the value of the '<em><b>Edge Implications</b></em>' containment reference list.
 	 * The list contents are of type {@link graphdelta.DeleteEdge}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Edge Implications</em>' reference list.
+	 * @return the value of the '<em>Edge Implications</em>' containment reference list.
 	 * @see graphdelta.GraphdeltaPackage#getDeleteNode_EdgeImplications()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<DeleteEdge> getEdgeImplications();

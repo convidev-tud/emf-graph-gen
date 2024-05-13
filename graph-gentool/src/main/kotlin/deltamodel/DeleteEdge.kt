@@ -17,6 +17,7 @@
 package deltamodel
 
 import graphmodel.Edge
+import graphmodel.Graph
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.EObject
  * Delete an [Edge].
  * In case the Edge occurs multiple times, only one occurrence is deleted.
  */
-class DeleteEdge(val edge: Edge) : DeltaOperation() {
+class DeleteEdge(id: String, val nodeAName: String, val nodeBName: String) : DeltaOperation(id) {
 
     private val description = "DeleteEdge"
 
@@ -39,9 +40,11 @@ class DeleteEdge(val edge: Edge) : DeltaOperation() {
         val operation = factory.create(classes[description])
         val nodeAAttribute = operation.eClass().getEStructuralFeature("nodeA")
         val nodeBAttribute = operation.eClass().getEStructuralFeature("nodeB")
+        val idAttribute = operation.eClass().getEStructuralFeature("id")
 
-        operation.eSet(nodeAAttribute, edge.a.name)
-        operation.eSet(nodeBAttribute, edge.b.name)
+        operation.eSet(nodeAAttribute, nodeAName)
+        operation.eSet(nodeBAttribute, nodeBName)
+        operation.eSet(idAttribute, id)
 
         this.buffer = operation
         return operation
@@ -49,8 +52,20 @@ class DeleteEdge(val edge: Edge) : DeltaOperation() {
 
     override fun deepEquals(other: Any): Boolean {
         if(other is DeleteEdge){
-            return edge.deepEquals(other.edge)
+            return nodeAName == other.nodeAName && nodeBName == other.nodeBName
         }
         return false
+    }
+
+    companion object {
+
+        fun parse(eObject: EObject): DeleteEdge {
+            val nodeA = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeA")) as String
+            val nodeB = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeB")) as String
+            val id = eObject.eGet(eObject.eClass().getEStructuralFeature("id")) as String
+
+            return DeleteEdge(id, nodeA, nodeB)
+        }
+
     }
 }

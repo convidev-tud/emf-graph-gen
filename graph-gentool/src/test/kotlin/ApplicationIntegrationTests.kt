@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import deltamodel.DeltaOperation
+import deltamodel.DeltaSequence
 import ecore.EcoreHandler
 import graphmodel.Edge
 import graphmodel.Graph
@@ -71,8 +73,42 @@ class ApplicationIntegrationTests {
 
     @Test
     fun writeAndReadDeltaSequenceEqualsTest() {
-        //TODO
-        Assertions.assertTrue(true)
+        val configuration = Configuration(
+            modelSize = 300,
+            edgesPerNode = 3.0,
+            regionProbability = 0.1,
+            branchNumber = 2,
+            branchEditLength = 20,
+            branchEditFocus = 0.8,
+            atomicCounting = false,
+            edgeDistortion = 0.1,
+            outputPath = "./out/test"
+        )
+
+        val outputDeltas = runWithConfig(configuration).branchDeltas
+
+        //there should be a non-empty file:
+        val expectedOutputURI_B0 = URI.createFileURI(File(configuration.outputPath + "/b_0/model.graphdelta").absolutePath)
+        val expectedOutputURI_B1 = URI.createFileURI(File(configuration.outputPath + "/b_1/model.graphdelta").absolutePath)
+
+        val metamodelPath: String = object {}.javaClass.getResource("graphdelta.ecore")!!.path
+        val metamodelURI = URI.createFileURI(metamodelPath)
+
+        val ecoreHandlerB0 = EcoreHandler(metamodelURI, expectedOutputURI_B0, "graphdelta")
+        val ecoreHandlerB1 = EcoreHandler(metamodelURI, expectedOutputURI_B1, "graphdelta")
+
+        val deltaEModelB0 = ecoreHandlerB0.getModelRoot()
+        val deltaEModelB1 = ecoreHandlerB1.getModelRoot()
+        val inputDeltaSequenceB0 = DeltaSequence(LinkedList<DeltaOperation>(), deltaEModelB0)
+        val inputDeltaSequenceB1 = DeltaSequence(LinkedList<DeltaOperation>(), deltaEModelB1)
+
+
+        Assertions.assertFalse(inputDeltaSequenceB0.deepEquals(inputDeltaSequenceB1))
+        Assertions.assertFalse(inputDeltaSequenceB1.deepEquals(inputDeltaSequenceB0))
+        Assertions.assertTrue(outputDeltas[0].deepEquals(inputDeltaSequenceB0))
+        Assertions.assertTrue(outputDeltas[1].deepEquals(inputDeltaSequenceB1))
+        Assertions.assertTrue(outputDeltas[0].idEquals(inputDeltaSequenceB0))
+        Assertions.assertTrue(outputDeltas[1].idEquals(inputDeltaSequenceB1))
     }
 
     @Test

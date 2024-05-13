@@ -18,10 +18,12 @@ package deltamodel
 
 import ecore.DeepComparable
 import ecore.EObjectSource
+import ecore.IDComparable
 import org.eclipse.emf.ecore.EObject
 import util.IndexedComparable
+import java.util.*
 
-abstract class DeltaOperation : EObjectSource, DeepComparable, IndexedComparable() {
+abstract class DeltaOperation(val id: String) : EObjectSource, DeepComparable, IDComparable, IndexedComparable() {
 
     /**
      * Set the EObject after it was generated for later use
@@ -31,4 +33,20 @@ abstract class DeltaOperation : EObjectSource, DeepComparable, IndexedComparable
     abstract fun flatten(): List<DeltaOperation>
 
     fun getAtomicLength() = flatten().size
+
+    override fun idEquals(other: Any): Boolean {
+        if(other is DeltaOperation){
+            return id == other.id
+        }
+        return false
+    }
+
+    companion object {
+
+        fun generateId(): String {
+            return UUID.randomUUID().toString()
+        }
+
+    }
+
 }

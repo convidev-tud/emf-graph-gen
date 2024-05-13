@@ -4,7 +4,6 @@ package graphdelta.impl;
 
 import graphdelta.DeltaOperation;
 import graphdelta.GraphdeltaPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 

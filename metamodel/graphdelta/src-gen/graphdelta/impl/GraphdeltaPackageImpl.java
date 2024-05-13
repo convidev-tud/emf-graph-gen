@@ -659,10 +659,10 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 		initEClass(deleteNodeEClass, DeleteNode.class, "DeleteNode", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDeleteNode_NodeImplications(), this.getDeleteNode(), null, "nodeImplications", null, 0, -1,
-				DeleteNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				DeleteNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeleteNode_EdgeImplications(), this.getDeleteEdge(), null, "edgeImplications", null, 0, -1,
-				DeleteNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				DeleteNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeleteNode_NodeName(), ecorePackage.getEString(), "nodeName", null, 1, 1, DeleteNode.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -693,7 +693,7 @@ public class GraphdeltaPackageImpl extends EPackageImpl implements GraphdeltaPac
 		initEAttribute(getMoveNode_OldRegion(), ecorePackage.getEString(), "oldRegion", null, 1, 1, MoveNode.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMoveNode_EdgeImplications(), this.getMoveEdge(), null, "edgeImplications", null, 0, -1,
-				MoveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				MoveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(changeLabelEClass, ChangeLabel.class, "ChangeLabel", !IS_ABSTRACT, !IS_INTERFACE,

@@ -192,7 +192,7 @@ class GraphProcessor(
         simpleNodeNameIncrement++
         val targetGraph = region?.graph ?: stage.graph
         targetGraph.nodes.add(node)
-        val op = AddNode(node, NodeType.SIMPLE, region)
+        val op = AddNode(DeltaOperation.generateId(), node.name, NodeType.SIMPLE, region?.name ?: "")
         stage.deltaSequence.pushOperation(op)
     }
 
@@ -207,7 +207,7 @@ class GraphProcessor(
         regionNameIncrement++
         val targetGraph = region?.graph ?: stage.graph
         targetGraph.nodes.add(node)
-        val op = AddNode(node, NodeType.REGION, region)
+        val op = AddNode(DeltaOperation.generateId(), node.name, NodeType.REGION, region?.name ?: "")
         stage.deltaSequence.pushOperation(op)
     }
 
@@ -241,7 +241,7 @@ class GraphProcessor(
             //delete edges containing deleted nodes
             val connectedEdgeDeletes = deleteEdgesContaining(stage.graph, node)
             graph.nodes.remove(node)
-            return DeleteNode(node, LinkedList(), connectedEdgeDeletes.toMutableList(), region)
+            return DeleteNode(DeltaOperation.generateId(), node.name, LinkedList(), connectedEdgeDeletes.toMutableList(), region?.name ?: "")
         }
         //identify deleted nodes
         val impactedNodes = LinkedList(node.graph.nodes)
@@ -255,7 +255,7 @@ class GraphProcessor(
         val impactedEdgeDeletes = deleteEdgesContaining(stage.graph, node)
         graph.nodes.remove(node)
 
-        return DeleteNode(node, impactedNodeDeletes, impactedEdgeDeletes.toMutableList(), region)
+        return DeleteNode(DeltaOperation.generateId(), node.name, impactedNodeDeletes, impactedEdgeDeletes.toMutableList(), region?.name ?: "")
     }
 
     /**
@@ -269,7 +269,7 @@ class GraphProcessor(
         val deleteOperations: MutableList<DeleteEdge> = LinkedList<DeleteEdge>()
         for (edge in edgesToDelete){
             graph.edges.remove(edge)
-            deleteOperations.add(DeleteEdge(edge))
+            deleteOperations.add(DeleteEdge(DeltaOperation.generateId(), edge.a.name, edge.b.name))
         }
         graph.nodes.filterIsInstance<Region>().forEach { region ->
             deleteOperations.addAll(deleteEdgesContaining(region.graph, node))
@@ -286,7 +286,7 @@ class GraphProcessor(
         if(graph.edges.isEmpty()) return
         val edge = graph.edges[random.nextInt(0, graph.edges.size)]
         graph.edges.remove(edge)
-        val op = DeleteEdge(edge)
+        val op = DeleteEdge(DeltaOperation.generateId(), edge.a.name, edge.b.name)
         stage.deltaSequence.pushOperation(op)
     }
 
@@ -316,7 +316,8 @@ class GraphProcessor(
         val targetGraph = targetRegion?.graph ?: stage.graph
         targetGraph.nodes.add(node)
         val edgeImplications = moveEdgesWithNode(region, targetRegion, node)
-        stage.deltaSequence.pushOperation(MoveNode(node, targetRegion, region, edgeImplications))
+        stage.deltaSequence.pushOperation(MoveNode(DeltaOperation.generateId(), node.name,
+            targetRegion?.name ?: "", region?.name ?: "", edgeImplications))
     }
 
     private fun moveEdgesWithNode(oldRegion: Region?, newRegion: Region?, node: Node): MutableList<MoveEdge>{
@@ -328,7 +329,8 @@ class GraphProcessor(
         for(edge in edgesToMove){
             oldGraph.edges.remove(edge)
             newGraph.edges.add(edge)
-            result.add( MoveEdge(edge, newRegion, oldRegion))
+            result.add( MoveEdge(DeltaOperation.generateId(), edge.a.name, edge.b.name,
+                newRegion?.name ?: "", oldRegion?.name ?: ""))
         }
         return result
     }
@@ -346,7 +348,7 @@ class GraphProcessor(
         do {
             simpleNode.label = SimpleNode.randomLabel(random)
         } while (oldLabel == simpleNode.label)
-        val op = ChangeLabel(simpleNode, simpleNode.label, oldLabel)
+        val op = ChangeLabel(DeltaOperation.generateId(), simpleNode.name, simpleNode.label, oldLabel)
         stage.deltaSequence.pushOperation(op)
     }
 
@@ -370,7 +372,7 @@ class GraphProcessor(
         }
         val edge = Edge(nodeA, nodeB)
         graph.edges.add(edge)
-        val op = AddEdge(edge)
+        val op = AddEdge(DeltaOperation.generateId(), edge.a.name, edge.b.name)
         stage.deltaSequence.pushOperation(op)
     }
 

@@ -10,13 +10,16 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +39,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 	/**
-	 * The cached value of the '{@link #getNodeImplications() <em>Node Implications</em>}' reference list.
+	 * The cached value of the '{@link #getNodeImplications() <em>Node Implications</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNodeImplications()
@@ -46,7 +49,7 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 	protected EList<DeleteNode> nodeImplications;
 
 	/**
-	 * The cached value of the '{@link #getEdgeImplications() <em>Edge Implications</em>}' reference list.
+	 * The cached value of the '{@link #getEdgeImplications() <em>Edge Implications</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEdgeImplications()
@@ -122,7 +125,7 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 	@Override
 	public EList<DeleteNode> getNodeImplications() {
 		if (nodeImplications == null) {
-			nodeImplications = new EObjectResolvingEList<DeleteNode>(DeleteNode.class, this,
+			nodeImplications = new EObjectContainmentEList<DeleteNode>(DeleteNode.class, this,
 					GraphdeltaPackage.DELETE_NODE__NODE_IMPLICATIONS);
 		}
 		return nodeImplications;
@@ -136,7 +139,7 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 	@Override
 	public EList<DeleteEdge> getEdgeImplications() {
 		if (edgeImplications == null) {
-			edgeImplications = new EObjectResolvingEList<DeleteEdge>(DeleteEdge.class, this,
+			edgeImplications = new EObjectContainmentEList<DeleteEdge>(DeleteEdge.class, this,
 					GraphdeltaPackage.DELETE_NODE__EDGE_IMPLICATIONS);
 		}
 		return edgeImplications;
@@ -188,6 +191,22 @@ public class DeleteNodeImpl extends DeltaOperationImpl implements DeleteNode {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphdeltaPackage.DELETE_NODE__FROM_REGION,
 					oldFromRegion, fromRegion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case GraphdeltaPackage.DELETE_NODE__NODE_IMPLICATIONS:
+			return ((InternalEList<?>) getNodeImplications()).basicRemove(otherEnd, msgs);
+		case GraphdeltaPackage.DELETE_NODE__EDGE_IMPLICATIONS:
+			return ((InternalEList<?>) getEdgeImplications()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

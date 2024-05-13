@@ -30,11 +30,12 @@ import java.util.*
  * EdgeImplications are the movement of Edges to be located in the same Graph as their start Node.
  * <strong>This operation must assure that regions do not have cycles in their composition structure!</strong>
  */
-class MoveNode(val node: Node,
-               val targetRegion: Region? = null,
-               val oldRegion: Region? = null,
+class MoveNode(id: String,
+               val nodeName: String,
+               val targetRegionName: String = "",
+               val oldRegionName: String = "",
                val edgeImplications: MutableList<MoveEdge> = LinkedList()
-    ) : DeltaOperation() {
+    ) : DeltaOperation(id) {
 
     private val description = "MoveNode"
 
@@ -56,13 +57,12 @@ class MoveNode(val node: Node,
         val nodeNameAttribute = operation.eClass().getEStructuralFeature("nodeName")
         val targetRegionAttribute = operation.eClass().getEStructuralFeature("targetRegion")
         val oldRegionAttribute = operation.eClass().getEStructuralFeature("oldRegion")
+        val idAttribute = operation.eClass().getEStructuralFeature("id")
 
-        val old = oldRegion?.name ?: ""
-        val target = targetRegion?.name ?: ""
-
-        operation.eSet(nodeNameAttribute, node.name)
-        operation.eSet(targetRegionAttribute, target)
-        operation.eSet(oldRegionAttribute, old)
+        operation.eSet(nodeNameAttribute, nodeName)
+        operation.eSet(targetRegionAttribute, targetRegionName)
+        operation.eSet(oldRegionAttribute, oldRegionName)
+        operation.eSet(idAttribute, id)
 
         val edgeImplicationRefs = operation.eClass().getEStructuralFeature("edgeImplications")
         (operation.eGet(edgeImplicationRefs) as java.util.List<Any>).addAll(edgeImplications.map { e -> e.buffer!! })
@@ -73,9 +73,28 @@ class MoveNode(val node: Node,
 
     override fun deepEquals(other: Any): Boolean {
         if(other is MoveNode){
-            return node.deepEquals(other.node) && oldRegion?.name == other.oldRegion?.name &&
-                    targetRegion?.name == other.targetRegion?.name
+            for (moveEdge in edgeImplications) {
+                if (!other.edgeImplications.any { it.deepEquals(moveEdge) }) return false
+            }
+            return other.nodeName == nodeName && other.targetRegionName == targetRegionName &&
+                    other.oldRegionName == oldRegionName
         }
         return false
+    }
+
+    companion object {
+
+        fun parse(eObject: EObject): MoveNode {
+            val nodeName = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeName"), true) as String
+            val id = eObject.eGet(eObject.eClass().getEStructuralFeature("id"), true) as String
+            val targetRegionName = eObject.eGet(eObject.eClass().getEStructuralFeature("targetRegion"), true) as String
+            val oldRegionName = eObject.eGet(eObject.eClass().getEStructuralFeature("oldRegion"), true) as String
+
+            val edgeImplications = (eObject.eGet(eObject.eClass().
+            getEStructuralFeature("edgeImplications"), true) as List<EObject>).map { e ->
+                MoveEdge.parse(e) } as MutableList<MoveEdge>
+
+            return MoveNode(id, nodeName, targetRegionName, oldRegionName, edgeImplications)
+        }
     }
 }
