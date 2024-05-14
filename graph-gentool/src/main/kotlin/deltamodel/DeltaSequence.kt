@@ -36,7 +36,7 @@ class DeltaSequence(
     private val description = "DeltaSequence"
 
     init {
-        if (predef != null){
+        if (deltaOperations.isEmpty() && predef != null){
             val operationsComposition = predef.eClass().getEStructuralFeature("deltaOperations")
             val eDeltaOperations = predef.eGet(operationsComposition) as java.util.List<EObject>
             for (eDeltaOperation in eDeltaOperations){

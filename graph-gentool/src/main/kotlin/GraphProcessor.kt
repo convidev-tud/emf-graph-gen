@@ -124,6 +124,7 @@ class GraphProcessor(
 
                 if(impact > 0 && conf.stepwiseExport){
                     persistGraph(Stage(globalGraph, globalDeltaSequence))
+                    persistDeltas(Stage(globalGraph, globalDeltaSequence))
                 }
 
             }
@@ -134,8 +135,8 @@ class GraphProcessor(
         val finalStage = Stage(globalGraph, globalDeltaSequence)
         if(!conf.stepwiseExport){
             persistGraph(finalStage)
+            persistDeltas(finalStage)
         }
-        persistDeltas(finalStage)
 
         return finalStage
     }

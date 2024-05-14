@@ -37,14 +37,12 @@ class Graph(
     private var buffer: EObject? = predef
 
     init {
-        if (predef != null) {
+        if (nodes.isEmpty() && edges.isEmpty() && predef != null) {
             val nodesComposition = predef.eClass().getEStructuralFeature("nodes")
 
             val eNodes = predef.eGet(nodesComposition) as java.util.List<EObject>
             val genSimpleNodes = eNodes.filter { e -> e.eClass().name == "SimpleNode" }.map { e ->
-                SimpleNode.construct(
-                    e
-                )
+                SimpleNode.construct(e)
             }
             val genRegions = eNodes.filter { e -> e.eClass().name == "Region" }.map { e -> Region.construct(e) }
             nodes.addAll(genSimpleNodes)
