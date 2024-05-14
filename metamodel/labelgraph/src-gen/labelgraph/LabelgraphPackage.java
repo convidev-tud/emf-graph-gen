@@ -86,13 +86,22 @@ public interface LabelgraphPackage extends EPackage {
 	int GRAPH__EDGES = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__ID = 2;
+
+	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = 2;
+	int GRAPH_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Graph</em>' class.
@@ -160,13 +169,22 @@ public interface LabelgraphPackage extends EPackage {
 	int EDGE__NODES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE__ID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE_FEATURE_COUNT = 1;
+	int EDGE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Edge</em>' class.
@@ -312,6 +330,17 @@ public interface LabelgraphPackage extends EPackage {
 	EReference getGraph_Edges();
 
 	/**
+	 * Returns the meta object for the attribute '{@link labelgraph.Graph#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see labelgraph.Graph#getId()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EAttribute getGraph_Id();
+
+	/**
 	 * Returns the meta object for class '{@link labelgraph.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -352,6 +381,17 @@ public interface LabelgraphPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEdge_Nodes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link labelgraph.Edge#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see labelgraph.Edge#getId()
+	 * @see #getEdge()
+	 * @generated
+	 */
+	EAttribute getEdge_Id();
 
 	/**
 	 * Returns the meta object for class '{@link labelgraph.SimpleNode <em>Simple Node</em>}'.
@@ -455,6 +495,14 @@ public interface LabelgraphPackage extends EPackage {
 		EReference GRAPH__EDGES = eINSTANCE.getGraph_Edges();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GRAPH__ID = eINSTANCE.getGraph_Id();
+
+		/**
 		 * The meta object literal for the '{@link labelgraph.impl.NodeImpl <em>Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -489,6 +537,14 @@ public interface LabelgraphPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EDGE__NODES = eINSTANCE.getEdge_Nodes();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EDGE__ID = eINSTANCE.getEdge_Id();
 
 		/**
 		 * The meta object literal for the '{@link labelgraph.impl.SimpleNodeImpl <em>Simple Node</em>}' class.

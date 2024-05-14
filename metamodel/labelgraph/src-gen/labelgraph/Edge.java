@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link labelgraph.Edge#getNodes <em>Nodes</em>}</li>
+ *   <li>{@link labelgraph.Edge#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see labelgraph.LabelgraphPackage#getEdge()
@@ -34,5 +35,27 @@ public interface Edge extends EObject {
 	 * @generated
 	 */
 	EList<Node> getNodes();
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see labelgraph.LabelgraphPackage#getEdge_Id()
+	 * @model id="true" required="true"
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link labelgraph.Edge#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
 
 } // Edge
