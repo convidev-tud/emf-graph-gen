@@ -198,6 +198,16 @@ public class LabelgraphPackageImpl extends EPackageImpl implements LabelgraphPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getNode_Id() {
+		return (EAttribute) nodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEdge() {
 		return edgeEClass;
 	}
@@ -309,6 +319,7 @@ public class LabelgraphPackageImpl extends EPackageImpl implements LabelgraphPac
 
 		nodeEClass = createEClass(NODE);
 		createEAttribute(nodeEClass, NODE__NAME);
+		createEAttribute(nodeEClass, NODE__ID);
 
 		edgeEClass = createEClass(EDGE);
 		createEReference(edgeEClass, EDGE__NODES);
@@ -370,6 +381,8 @@ public class LabelgraphPackageImpl extends EPackageImpl implements LabelgraphPac
 		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 1, 1, Node.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNode_Id(), ecorePackage.getEString(), "id", null, 1, 1, Node.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(edgeEClass, Edge.class, "Edge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEdge_Nodes(), this.getNode(), null, "nodes", null, 2, 2, Edge.class, !IS_TRANSIENT,

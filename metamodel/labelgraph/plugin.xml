@@ -10,8 +10,7 @@
       <!-- @generated labelgraph -->
       <package
             uri="http://st.tud.de/labelgraph"
-            class="labelgraph.LabelgraphPackage"
-            genModel="model/labelgraph.genmodel"/>
+            class="labelgraph.LabelgraphPackage"/>
    </extension>
 
 </plugin>

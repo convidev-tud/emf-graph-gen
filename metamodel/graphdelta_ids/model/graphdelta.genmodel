@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/graphdelta/src-gen" creationIcons="false" editDirectory="/graphdelta.edit/src-gen"
+    editorDirectory="/graphdelta.editor/src-gen" modelPluginID="graphdelta" modelName="Graphdelta"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>graphdelta.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Graphdelta" disposableProviderFactory="true" ecorePackage="graphdelta.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="graphdelta.ecore#//NodeType">
+      <genEnumLiterals ecoreEnumLiteral="graphdelta.ecore#//NodeType/SIMPLE"/>
+      <genEnumLiterals ecoreEnumLiteral="graphdelta.ecore#//NodeType/REGION"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="graphdelta.ecore#//Label">
+      <genEnumLiterals ecoreEnumLiteral="graphdelta.ecore#//Label/GREY"/>
+      <genEnumLiterals ecoreEnumLiteral="graphdelta.ecore#//Label/GREEN"/>
+      <genEnumLiterals ecoreEnumLiteral="graphdelta.ecore#//Label/ORANGE"/>
+      <genEnumLiterals ecoreEnumLiteral="graphdelta.ecore#//Label/BLUE"/>
+    </genEnums>
+    <genClasses ecoreClass="graphdelta.ecore#//DeltaSequence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graphdelta.ecore#//DeltaSequence/deltaOperations"/>
+    </genClasses>
+    <genClasses ecoreClass="graphdelta.ecore#//DeltaOperation"/>
+    <genClasses ecoreClass="graphdelta.ecore#//AddNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddNode/nodeID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddNode/nodeType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddNode/toRegionID"/>
+    </genClasses>
+    <genClasses ecoreClass="graphdelta.ecore#//DeleteNode">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference graphdelta.ecore#//DeleteNode/nodeImplications"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference graphdelta.ecore#//DeleteNode/edgeImplications"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteNode/nodeID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteNode/fromRegionID"/>
+    </genClasses>
+    <genClasses ecoreClass="graphdelta.ecore#//AddEdge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddEdge/nodeAID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddEdge/nodeBID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddEdge/edgeID"/>
+    </genClasses>
+    <genClasses ecoreClass="graphdelta.ecore#//DeleteEdge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteEdge/nodeAID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteEdge/nodeBID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteEdge/edgeID"/>
+    </genClasses>
+    <genClasses ecoreClass="graphdelta.ecore#//MoveNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveNode/nodeID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveNode/targetRegionID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveNode/oldRegionID"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference graphdelta.ecore#//MoveNode/edgeImplications"/>
+    </genClasses>
+    <genClasses ecoreClass="graphdelta.ecore#//ChangeLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//ChangeLabel/nodeID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//ChangeLabel/newLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//ChangeLabel/oldLabel"/>
+    </genClasses>
+    <genClasses ecoreClass="graphdelta.ecore#//MoveEdge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/oldNodeAID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/oldNodeBID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/nodeAID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/nodeBID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/edgeID"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

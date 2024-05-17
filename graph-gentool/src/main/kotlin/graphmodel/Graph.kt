@@ -27,6 +27,7 @@ import java.util.*
 import kotlin.random.Random
 
 class Graph(
+    val id: String,
     val nodes: MutableList<Node> = LinkedList<Node>(),
     val edges: MutableList<Edge> = LinkedList<Edge>(),
     private val predef: EObject? = null,
@@ -256,6 +257,14 @@ class Graph(
             return true
         }
         return false
+    }
+
+    companion object {
+
+        fun generateId(): String {
+            return UUID.randomUUID().toString()
+        }
+
     }
 
 }

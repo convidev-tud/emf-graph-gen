@@ -56,8 +56,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//ChangeLabel/oldLabel"/>
     </genClasses>
     <genClasses ecoreClass="graphdelta.ecore#//MoveEdge">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/oldRegion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/newRegion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/oldNodeA"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/oldNodeB"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/nodeA"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/nodeB"/>
     </genClasses>

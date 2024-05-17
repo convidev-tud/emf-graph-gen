@@ -132,13 +132,22 @@ public interface LabelgraphPackage extends EPackage {
 	int NODE__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__ID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = 1;
+	int NODE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -215,6 +224,15 @@ public interface LabelgraphPackage extends EPackage {
 	int SIMPLE_NODE__NAME = NODE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_NODE__ID = NODE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,6 +277,15 @@ public interface LabelgraphPackage extends EPackage {
 	 * @ordered
 	 */
 	int REGION__NAME = NODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGION__ID = NODE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' containment reference.
@@ -360,6 +387,17 @@ public interface LabelgraphPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNode_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link labelgraph.Node#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see labelgraph.Node#getId()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EAttribute getNode_Id();
 
 	/**
 	 * Returns the meta object for class '{@link labelgraph.Edge <em>Edge</em>}'.
@@ -519,6 +557,14 @@ public interface LabelgraphPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NODE__NAME = eINSTANCE.getNode_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE__ID = eINSTANCE.getNode_Id();
 
 		/**
 		 * The meta object literal for the '{@link labelgraph.impl.EdgeImpl <em>Edge</em>}' class.
