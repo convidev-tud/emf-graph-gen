@@ -46,6 +46,7 @@ You find the catalogue of possible arguments in the next section.
 Short | Argument (--arg)| Default | Description
 --- | --- | --- | ---
 -- | *output directory*  | ``"./"`` |                Explicit first parameter. An existing or not existing directory Path in the form "a/b/c". If not existing, it will be created. If the directory contains a generated model set, same called files are overwritten.
+``-i`` | ``--with_eids``| ``false`` | Flag to select the metamodel (graph + deltas) either without (false) or with (true) unique UUIDS.
 ``-s``|  ``model_size``     | ``1024`` |      Sum of nodes and edges in the generated base model (INT)
 ``-n``| ``edges_per_node``  | ``1.0`` |        Number of edge elements per node element (DOUBLE). This value influences edge_distortion and is influenced by allow_partitions.
 ``-d``| ``edge_distortion``   | ``0.0`` |      Probability 0...1 that an edge crosses region boundaries (DOUBLE). This value is influenced by allow_partitions.
@@ -92,13 +93,13 @@ The branch-level models contain the edited branches (variants). The branch-level
 
 ### Runtime Properties
 
-:ambalance: The current implementation of the generator is not optimized for performance yet.
+:ambulance: The current implementation of the generator is not optimized for performance yet.
 
 > This section is NOT based on scientific measurements but simple test-runs with time tracking only.
 
 Generating a graph base model has a sub-quadratic average complecity (estimated / not prooven yet). The perceived generation speed is fast for smaller and mid-sized models. Generation and serialization of models less thann 100.000 elements (n/e = 1/3) takes less than one second. For models with 1.000.000 elements (n/e = 1/3) it takes around 60 seconds. However, the generation of edit sequences can easily run into very long (not terminating) execution times. From first observations, generation long edit sequences for small base models is fast. Generation small edit sequences for large base models is slow. The edit algoritm is non-deteministic but assures a non-zero probability to terminate.
 
-The following table shows execution times for selected model sizes. Tested on a MacBook with an Apple M2 processor. The follwong configuration is used.
+The following table shows execution times for selected model sizes. Tested on a MacBook with an Apple M2 processor. The follwong configuration is used. The runs are **without stepwise export and without e-ids enabled**. Both features slow the generator down significantly.
 
 ```
 modelSize = X,
@@ -164,7 +165,13 @@ The graph has the following properties:
 * A Region is a Node that contains a Graph. We call it a Sub-Graph.
 * An Edge can connect Nodes out of different Sub-Graphs (Cross-Hierarchy). We call such an Edge *distorted*. An Edge is posessed by the (Sub-)Graph where its first Node is located in.
 
-![](doc/../doc/graph_metamodel_screenshot.png)
+Graph metamodel without IDs:
+![](doc/../doc/model_graph_noids.png)
+
+---
+
+Graph metamodel with IDs:
+![](doc/../doc/model_graph_ids.png)
 
 **Implementation Details**
 
@@ -189,17 +196,10 @@ This leads to a tree composite hierarchy. Regions closer to the root contain (ha
 
 ## Delta Metamodel
 
-![](doc/../doc/delta_metamodel_screenshot.png)
+Delta metamodel without IDs:
+![](doc/../doc/model_delta_noids.png)
 
-**Example**
+---
 
-```XML
-<?xml version="1.0" encoding="UTF-8"?>
-<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
-  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="N1" toRegion=""/>
-  <deltaOperations xsi:type="graphdelta:AddNode" nodeName="N2" toRegion=""/>
-  <deltaOperations xsi:type="graphdelta:AddEdge" nodeA="N1" nodeB="N2"/>
-  <deltaOperations xsi:type="graphdelta:DeleteEdge" nodeA="N1" nodeB="N2"/>
-  <deltaOperations xsi:type="graphdelta:DeleteNode" fromRegion="" edgeImplications="//@deltaOperations.3" nodeName="N1"/>
-</graphdelta:DeltaSequence>
-```
+Delta metamodel with IDs:
+![](doc/../doc/model_delta_ids.png)
