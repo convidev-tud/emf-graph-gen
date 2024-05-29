@@ -16,13 +16,19 @@
 package graphmodel
 
 import ecore.DeepComparable
+import ecore.IDComparable
 import org.eclipse.emf.ecore.EObject
 import util.IndexedComparable
 
-abstract class Node(val name: String) : DeepComparable, IndexedComparable() {
+abstract class Node(val id: String?, val name: String, val serializeWithIDs: Boolean = false) : DeepComparable, IDComparable, IndexedComparable() {
 
     var buffer: EObject? = null
 
     abstract fun deepCopy(): Node
+
+    override fun idEquals(other: Any): Boolean {
+        if(!serializeWithIDs) return false
+        return other is Node && other.serializeWithIDs && id == other.id
+    }
 
 }

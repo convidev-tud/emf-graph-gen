@@ -35,14 +35,18 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference graphdelta.ecore#//DeleteNode/edgeImplications"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteNode/nodeName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteNode/fromRegion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteNode/nodeType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteNode/label"/>
     </genClasses>
     <genClasses ecoreClass="graphdelta.ecore#//AddEdge">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddEdge/nodeA"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddEdge/nodeB"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//AddEdge/toRegion"/>
     </genClasses>
     <genClasses ecoreClass="graphdelta.ecore#//DeleteEdge">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteEdge/nodeA"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteEdge/nodeB"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//DeleteEdge/fromRegion"/>
     </genClasses>
     <genClasses ecoreClass="graphdelta.ecore#//MoveNode">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveNode/nodeName"/>
@@ -56,8 +60,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//ChangeLabel/oldLabel"/>
     </genClasses>
     <genClasses ecoreClass="graphdelta.ecore#//MoveEdge">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/oldNodeA"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/oldNodeB"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/oldRegion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/newRegion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/nodeA"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graphdelta.ecore#//MoveEdge/nodeB"/>
     </genClasses>

@@ -30,7 +30,13 @@ import org.eclipse.emf.ecore.impl.EEnumLiteralImpl
  * Add a [Node] ([SimpleNode] or [Region]) to a specified Region.
  * If the specified region is null, it is added to the root [Graph] directly.
  */
-class AddNode(id: String, val nodeName: String, private val nodeType: NodeType, val regionName: String = "") : DeltaOperation(id) {
+class AddNode(/*all*/       operationID: String,
+              /*no id*/     val nodeName: String,
+              /*with id*/   val nodeID: String?,
+              /*all*/       private val nodeType: NodeType,
+              /*no id*/     val toRegionName: String? = "root",
+              /*with id*/   val toRegionID: String? = "root",
+              /*all*/       val serializeWithIDs: Boolean) : DeltaOperation(operationID) {
 
     private val description = "AddNode"
 
@@ -41,15 +47,23 @@ class AddNode(id: String, val nodeName: String, private val nodeType: NodeType, 
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
                           label: EEnum?, nodeType: EEnum?): EObject {
         val operation = factory.create(classes[description])
+
         val nodeNameAttribute = operation.eClass().getEStructuralFeature("nodeName")
         val nodeTypeAttribute = operation.eClass().getEStructuralFeature("nodeType")
-        val nodeRegionAttribute = operation.eClass().getEStructuralFeature("toRegion")
         val idAttribute = operation.eClass().getEStructuralFeature("id")
-
         operation.eSet(nodeNameAttribute, nodeName)
         operation.eSet(nodeTypeAttribute, nodeType!!.getEEnumLiteral(this.nodeType.name))
-        operation.eSet(nodeRegionAttribute, regionName)
         operation.eSet(idAttribute, super.id)
+
+        if(serializeWithIDs){
+            val nodeIDAttribute = operation.eClass().getEStructuralFeature("nodeID")
+            val toRegionIDAttribute = operation.eClass().getEStructuralFeature("toRegionID")
+            operation.eSet(nodeIDAttribute, nodeID)
+            operation.eSet(toRegionIDAttribute, toRegionID)
+        }else{
+            val toRegionNameAttribute = operation.eClass().getEStructuralFeature("toRegion")
+            operation.eSet(toRegionNameAttribute, toRegionName)
+        }
 
         this.buffer = operation
         return operation
@@ -57,21 +71,40 @@ class AddNode(id: String, val nodeName: String, private val nodeType: NodeType, 
 
     override fun deepEquals(other: Any): Boolean {
         if(other is AddNode){
-            return other.nodeName == nodeName && other.nodeType == nodeType && other.regionName == regionName
+            return if (serializeWithIDs){
+               nodeName == other.nodeName && nodeType == other.nodeType &&
+                        toRegionID == other.toRegionID && nodeID == other.nodeID
+            }else{
+                val res = nodeName == other.nodeName && nodeType == other.nodeType && toRegionName == other.toRegionName
+                if(idEquals(other) && !res){
+                    throw AssertionError("Incoherent Comparison AddNode: $this != $other")
+                }
+                res
+            }
         }
         return false
     }
 
     companion object {
 
-        fun parse(eObject: EObject): AddNode {
+        fun parse(eObject: EObject, serializeWithIDs: Boolean): AddNode {
             val nodeName = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeName"), true) as String
             val id = eObject.eGet(eObject.eClass().getEStructuralFeature("id"), true) as String
             val typeIndex = (eObject.eGet(eObject.eClass().getEStructuralFeature("nodeType"), true) as EEnumLiteralImpl).value
             val nodeType = NodeType.entries[typeIndex]
-            val regionName = eObject.eGet(eObject.eClass().getEStructuralFeature("toRegion"), true) as String
 
-            return AddNode(id, nodeName, nodeType, regionName)
+            var toRegionName: String? = null
+            var toRegionID: String? = null
+            var nodeID: String? = null
+
+            if(serializeWithIDs){
+                toRegionID = eObject.eGet(eObject.eClass().getEStructuralFeature("toRegionID"), true) as String
+                nodeID = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeID"), true) as String
+            }else{
+                toRegionName = eObject.eGet(eObject.eClass().getEStructuralFeature("toRegion"), true) as String
+            }
+
+            return AddNode(id, nodeName, nodeID, nodeType, toRegionName, toRegionID, serializeWithIDs)
         }
 
     }

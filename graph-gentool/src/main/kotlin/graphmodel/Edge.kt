@@ -17,6 +17,7 @@ package graphmodel
 
 import ecore.DeepComparable
 import ecore.EObjectSource
+import ecore.IDComparable
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EFactory
@@ -24,21 +25,30 @@ import org.eclipse.emf.ecore.EObject
 import util.IndexedComparable
 
 class Edge(
+    val id: String?,
     val a: Node,
-    val b: Node
-) : EObjectSource, DeepComparable, IndexedComparable() {
+    val b: Node,
+    private val serializeWithIDs: Boolean = false
+) : EObjectSource, DeepComparable, IDComparable, IndexedComparable() {
 
     private val description = "Edge"
 
     fun deepCopy(allNodes: Collection<Node>): Edge {
         val symmetricA = allNodes.find { n -> n.name == a.name }!!
         val symmetricB = allNodes.find { n -> n.name == b.name }!!
-        return Edge(symmetricA, symmetricB)
+        return Edge(id, symmetricA, symmetricB, serializeWithIDs)
     }
 
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
                                    label: EEnum?, nodeType: EEnum?): EObject {
+
         val edge = factory.create(classes[description])
+
+        if(serializeWithIDs){
+            val idAttribute = edge.eClass().getEStructuralFeature("id")
+            edge.eSet(idAttribute, id)
+        }
+
         val nodesReferences = edge.eClass().getEStructuralFeature("nodes")
         (edge.eGet(nodesReferences) as java.util.List<Any>).addAll(listOf(a.buffer!!, b.buffer!!))
         return edge
@@ -53,6 +63,11 @@ class Edge(
             return a.name == other.a.name && b.name == other.b.name
         }
         return false
+    }
+
+    override fun idEquals(other: Any): Boolean {
+        if (!serializeWithIDs) return false
+        return other is Edge && other.serializeWithIDs && id == other.id
     }
 
 }

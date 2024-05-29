@@ -91,7 +91,12 @@ data class Configuration(
      * This operation is not compatible with atomic counting.
      * This operation does not lead to a stepwise export of the delta models.
      */
-    val stepwiseExport: Boolean = false
+    val stepwiseExport: Boolean = false,
+
+    /**
+     * Toggle if the processor should export the EIDs of the graphs, nodes and edges.
+     */
+    val withEIDs: Boolean = false
 
 ){
 

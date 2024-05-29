@@ -29,7 +29,8 @@ import java.util.*
 
 class DeltaSequence(
     val deltaOperations: MutableList<DeltaOperation> = LinkedList(),
-    predef: EObject? = null
+    predef: EObject? = null,
+    val serializeWithIDs: Boolean
 ) : EObjectSource, IndexedComparable(), DeepComparable, IDComparable {
 
     private var buffer = predef
@@ -46,25 +47,25 @@ class DeltaSequence(
 
                 when (name) {
                     "AddNode" -> {
-                        op = AddNode.parse(eDeltaOperation)
+                        op = AddNode.parse(eDeltaOperation, serializeWithIDs)
                     }
                     "AddEdge" -> {
-                        op = AddEdge.parse(eDeltaOperation)
+                        op = AddEdge.parse(eDeltaOperation, serializeWithIDs)
                     }
                     "ChangeLabel" -> {
-                        op = ChangeLabel.parse(eDeltaOperation)
+                        op = ChangeLabel.parse(eDeltaOperation, serializeWithIDs)
                     }
                     "MoveEdge" -> {
-                        op = MoveEdge.parse(eDeltaOperation)
+                        op = MoveEdge.parse(eDeltaOperation, serializeWithIDs)
                     }
                     "DeleteNode" -> {
-                        op = DeleteNode.parse(eDeltaOperation)
+                        op = DeleteNode.parse(eDeltaOperation, serializeWithIDs)
                     }
                     "DeleteEdge" -> {
-                        op = DeleteEdge.parse(eDeltaOperation)
+                        op = DeleteEdge.parse(eDeltaOperation, serializeWithIDs)
                     }
                     "MoveNode" -> {
-                        op = MoveNode.parse(eDeltaOperation)
+                        op = MoveNode.parse(eDeltaOperation, serializeWithIDs)
                     }
                 }
 

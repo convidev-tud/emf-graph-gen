@@ -119,6 +119,12 @@ class Checksum : Callable<Int> {
     var stepwiseExport: Boolean = false
 
     @CommandLine.Option(
+        names = ["-i", "--with_eids"],
+        description = ["Toggle if the generated models should contain EIDs (Boolean)."]
+    )
+    var withEIDs: Boolean = false
+
+    @CommandLine.Option(
         names = ["-u", "--random_seed"],
         description = ["Random seed for the strict deterministic random generation algorithms"]
     )
@@ -138,7 +144,8 @@ class Checksum : Callable<Int> {
                 branchEditLength,
                 branchEditFocus,
                 atomicCounting,
-                stepwiseExport
+                stepwiseExport,
+                withEIDs = withEIDs
             )
         )
         return 0
@@ -160,7 +167,11 @@ fun main(args: Array<String>) {
 }
 
 fun runWithConfig(configuration: Configuration): Environment {
-    val graphMetamodelPath: String = createTempMetamodelFile("labelgraph").toString()
+
+    val graphMetaName = if(configuration.withEIDs) "idlabelgraph" else "labelgraph"
+    val deltaMetaName = if(configuration.withEIDs) "idgraphdelta" else "graphdelta"
+
+    val graphMetamodelPath: String = createTempMetamodelFile(graphMetaName).toString()
     val graphMetamodelURI = URI.createFileURI(graphMetamodelPath)
     val baseModel = createOutputBaseModelFile(configuration)
     val ecoreHandler = EcoreHandler(graphMetamodelURI, baseModel, "labelgraph")
@@ -171,7 +182,7 @@ fun runWithConfig(configuration: Configuration): Environment {
     val classMap = ecoreHandler.getClassMap()
     val label = ecoreHandler.getEnumMap()["Label"]!!
     val graphRoot = ecoreHandler.getModelRoot()
-    val graph = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot)
+    val graph = Graph("root", LinkedList<Node>(), LinkedList<Edge>(), graphRoot, serializeWithIDs = configuration.withEIDs)
     val originGraphFactory = GraphFactory(graph, configuration)
 
     val startTimeGenerate = System.currentTimeMillis()
@@ -188,7 +199,7 @@ fun runWithConfig(configuration: Configuration): Environment {
 
     if (configuration.branchNumber > 0) {
         println("Creating Branches...")
-        val deltaMetamodelPath: String = createTempMetamodelFile("graphdelta").toString()
+        val deltaMetamodelPath: String = createTempMetamodelFile(deltaMetaName).toString()
         val deltaMetamodelURI = URI.createFileURI(deltaMetamodelPath)
         val branches = createOutputBranchModelFiles(configuration, File(baseModel.toFileString()))
         processBranches(branches, configuration, graphMetamodelURI, deltaMetamodelURI, environment)
@@ -201,6 +212,9 @@ fun processBranches(
     branches: List<Branch>, configuration: Configuration, graphMetamodelURI: URI,
     deltaMetamodelURI: URI, environment: Environment
 ) {
+
+    //val graphMetaName = if(configuration.withEIDs) "idlabelgraph" else "labelgraph"
+    //val deltaMetaName = if(configuration.withEIDs) "idgraphdelta" else "graphdelta"
 
     for ((branchIndex, branch) in branches.withIndex()) {
 
@@ -222,7 +236,8 @@ fun processBranches(
 
             if(versionIndex == 0) {
                 graphRoot = graphEcoreHandler.getModelRoot()
-                graph = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot, isRoot = true)
+                //Graph ID is set in the constructor
+                graph = Graph(null, LinkedList<Node>(), LinkedList<Edge>(), graphRoot, isRoot = true, serializeWithIDs = configuration.withEIDs)
             }
             graphEcoreHandlerSet.add(graphEcoreHandler)
             deltaEcoreHandlerSet.add(deltaEcoreHandler)
@@ -259,7 +274,8 @@ fun persistGraph(
     val graphLabels = graphEcoreHandler.getEnumMap()["Label"]!!
     val graphFactory = graphEcoreHandler.getModelFactory()
     val graphRoot = graphEcoreHandler.getModelRoot()
-    val rootGraph = Graph(LinkedList<Node>(), LinkedList<Edge>(), graphRoot, isRoot = true)
+    val rootGraph = Graph(stage.graph.id, LinkedList<Node>(), LinkedList<Edge>(), graphRoot,
+        isRoot = true, serializeWithIDs = stage.graph.serializeWithIDs)
     rootGraph.apply(stage.graph)
     rootGraph.generate(graphClassMap, graphFactory, setOf("Node"), graphLabels)
     rootGraph.generate(graphClassMap, graphFactory, setOf("Edge"), graphLabels)
@@ -275,7 +291,7 @@ fun persistDeltas(
     val deltaLabels = deltaEcoreHandler.getEnumMap()["Label"]!!
     val deltaNodeTypes = deltaEcoreHandler.getEnumMap()["NodeType"]!!
     val deltaRoot = deltaEcoreHandler.getModelRoot()
-    val rootSequence = DeltaSequence(stage.deltaSequence.deltaOperations, deltaRoot)
+    val rootSequence = DeltaSequence(stage.deltaSequence.deltaOperations, deltaRoot, stage.deltaSequence.serializeWithIDs)
 
     rootSequence.generate(deltaClassMap, deltaEcoreHandler.getModelFactory(), TreeSet(), deltaLabels, deltaNodeTypes)
     environment.branchDeltas[environment.branchDeltas.size-1].add(rootSequence)
@@ -283,10 +299,13 @@ fun persistDeltas(
 }
 
 fun createOutputBaseModelFile(configuration: Configuration): URI {
+
+    val templateName = if(configuration.withEIDs) "template_withid" else "template_noid"
+
     val basePath = Paths.get(configuration.outputPath, "base.labelgraph")
     Files.createDirectories(basePath.parent)
 
-    object {}.javaClass.getResourceAsStream("template.labelgraph").use { input ->
+    object {}.javaClass.getResourceAsStream("$templateName.labelgraph").use { input ->
         if (input != null)
             BufferedReader(InputStreamReader(input)).use { reader ->
                 Files.newBufferedWriter(basePath).use { writer ->
@@ -303,7 +322,7 @@ fun createOutputBranchModelFiles(configuration: Configuration, baseModel: File):
     val results: MutableList<Branch> = LinkedList()
 
     var content: List<String> = LinkedList()
-    object {}.javaClass.getResourceAsStream("template.graphdelta").use { input ->
+    object {}.javaClass.getResourceAsStream("template_universal.graphdelta").use { input ->
         if (input != null)
             BufferedReader(InputStreamReader(input)).use { reader ->
                 content = reader.readLines()

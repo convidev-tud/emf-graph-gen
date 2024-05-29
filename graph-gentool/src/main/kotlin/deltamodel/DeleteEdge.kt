@@ -27,7 +27,15 @@ import org.eclipse.emf.ecore.EObject
  * Delete an [Edge].
  * In case the Edge occurs multiple times, only one occurrence is deleted.
  */
-class DeleteEdge(id: String, val nodeAName: String, val nodeBName: String) : DeltaOperation(id) {
+class DeleteEdge(/*all*/    id: String,
+                 /*no id*/  val nodeAName: String?,
+                 /*with id*/val nodeAID: String?,
+                 /*no id*/  val nodeBName: String?,
+                 /*with id*/val nodeBID: String?,
+                 /*no id*/  val fromRegionName: String? = "root",
+                 /*with id*/val fromRegionID: String? = "root",
+                 /*with id*/val edgeID: String?,
+                 /*all*/    val serializeWithIDs: Boolean) : DeltaOperation(id) {
 
     private val description = "DeleteEdge"
 
@@ -38,13 +46,26 @@ class DeleteEdge(id: String, val nodeAName: String, val nodeBName: String) : Del
     override fun generate(classes: Map<String, EClass>, factory: EFactory, filter: Set<String>,
                           label: EEnum?, nodeType: EEnum?): EObject {
         val operation = factory.create(classes[description])
-        val nodeAAttribute = operation.eClass().getEStructuralFeature("nodeA")
-        val nodeBAttribute = operation.eClass().getEStructuralFeature("nodeB")
         val idAttribute = operation.eClass().getEStructuralFeature("id")
-
-        operation.eSet(nodeAAttribute, nodeAName)
-        operation.eSet(nodeBAttribute, nodeBName)
         operation.eSet(idAttribute, id)
+
+        if(serializeWithIDs) {
+            val nodeAIDAttribute = operation.eClass().getEStructuralFeature("nodeAID")
+            val nodeBIDAttribute = operation.eClass().getEStructuralFeature("nodeBID")
+            val fromRegionIDAttribute = operation.eClass().getEStructuralFeature("fromRegionID")
+            val edgeIDAttribute = operation.eClass().getEStructuralFeature("edgeID")
+            operation.eSet(nodeAIDAttribute, nodeAID)
+            operation.eSet(nodeBIDAttribute, nodeBID)
+            operation.eSet(fromRegionIDAttribute, fromRegionID)
+            operation.eSet(edgeIDAttribute, edgeID)
+        }else {
+            val nodeAAttribute = operation.eClass().getEStructuralFeature("nodeA")
+            val nodeBAttribute = operation.eClass().getEStructuralFeature("nodeB")
+            val fromRegionAttribute = operation.eClass().getEStructuralFeature("fromRegion")
+            operation.eSet(nodeAAttribute, nodeAName)
+            operation.eSet(nodeBAttribute, nodeBName)
+            operation.eSet(fromRegionAttribute, fromRegionName)
+        }
 
         this.buffer = operation
         return operation
@@ -52,19 +73,46 @@ class DeleteEdge(id: String, val nodeAName: String, val nodeBName: String) : Del
 
     override fun deepEquals(other: Any): Boolean {
         if(other is DeleteEdge){
-            return nodeAName == other.nodeAName && nodeBName == other.nodeBName
+            return if(serializeWithIDs){
+               nodeAID == other.nodeAID && nodeBID == other.nodeBID &&
+                        fromRegionID == other.fromRegionID && edgeID == other.edgeID
+            }else{
+                val res = nodeAName == other.nodeAName && nodeBName == other.nodeBName &&
+                        fromRegionName == other.fromRegionName
+                if(idEquals(other) && !res){
+                    throw AssertionError("Incoherent Comparison DeleteEdge: $this != $other")
+                }
+                res
+            }
         }
         return false
     }
 
     companion object {
 
-        fun parse(eObject: EObject): DeleteEdge {
-            val nodeA = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeA")) as String
-            val nodeB = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeB")) as String
+        fun parse(eObject: EObject, serializeWithIDs: Boolean): DeleteEdge {
             val id = eObject.eGet(eObject.eClass().getEStructuralFeature("id")) as String
 
-            return DeleteEdge(id, nodeA, nodeB)
+            var nodeAName: String? = null
+            var nodeBName: String? = null
+            var nodeAID: String? = null
+            var nodeBID: String? = null
+            var fromRegionName: String? = null
+            var fromRegionID: String? = null
+            var edgeID: String? = null
+
+            if(serializeWithIDs) {
+                nodeAID = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeAID")) as String
+                nodeBID = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeBID")) as String
+                fromRegionID = eObject.eGet(eObject.eClass().getEStructuralFeature("fromRegionID")) as String
+                edgeID = eObject.eGet(eObject.eClass().getEStructuralFeature("edgeID")) as String
+            }else {
+                nodeAName = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeA")) as String
+                nodeBName = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeB")) as String
+                fromRegionName = eObject.eGet(eObject.eClass().getEStructuralFeature("fromRegion")) as String
+            }
+
+            return DeleteEdge(id, nodeAName, nodeAID, nodeBName, nodeBID, fromRegionName, fromRegionID, edgeID, serializeWithIDs)
         }
 
     }

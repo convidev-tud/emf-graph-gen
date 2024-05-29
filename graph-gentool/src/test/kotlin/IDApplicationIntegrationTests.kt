@@ -29,7 +29,7 @@ import util.Configuration
 import java.io.File
 import java.util.*
 
-class ApplicationIntegrationTests {
+class IDApplicationIntegrationTests {
 
     private var output: String? = null
 
@@ -52,7 +52,8 @@ class ApplicationIntegrationTests {
             branchNumber = 0,
             branchEditLength = 0,
             edgeDistortion = 0.1,
-            outputPath = "./out/test"
+            outputPath = "./out/test",
+            withEIDs = true
         )
 
         val outputGraph = runWithConfig(configuration).baseGraph
@@ -60,12 +61,12 @@ class ApplicationIntegrationTests {
         //there should be a non-empty file:
         val expectedOutputURI = URI.createFileURI(File(configuration.outputPath + "/base.labelgraph").absolutePath)
 
-        val metamodelPath: String = object {}.javaClass.getResource("labelgraph.ecore")!!.path
+        val metamodelPath: String = object {}.javaClass.getResource("idlabelgraph.ecore")!!.path
         val metamodelURI = URI.createFileURI(metamodelPath)
         val ecoreHandler = EcoreHandler(metamodelURI, expectedOutputURI, "labelgraph")
 
         val graphRoot = ecoreHandler.getModelRoot()
-        val inputGraph = Graph(null, LinkedList<Node>(), LinkedList<Edge>(), graphRoot, isRoot = true)
+        val inputGraph = Graph(null, LinkedList<Node>(), LinkedList<Edge>(), graphRoot, isRoot = true, serializeWithIDs = true)
 
         Assertions.assertEquals(outputGraph.getStats(true).toString(), inputGraph.getStats(true).toString())
         Assertions.assertTrue(outputGraph.deepEquals(inputGraph))
@@ -84,7 +85,7 @@ class ApplicationIntegrationTests {
             stepwiseExport = false,
             edgeDistortion = 0.1,
             outputPath = "./out/test",
-            withEIDs = false
+            withEIDs = true
         )
 
         val outputDeltas = runWithConfig(configuration).branchDeltas
@@ -93,7 +94,7 @@ class ApplicationIntegrationTests {
         val expectedOutputURI_B0 = URI.createFileURI(File(configuration.outputPath + "/b_0/model_0.graphdelta").absolutePath)
         val expectedOutputURI_B1 = URI.createFileURI(File(configuration.outputPath + "/b_1/model_0.graphdelta").absolutePath)
 
-        val metamodelPath: String = object {}.javaClass.getResource("graphdelta.ecore")!!.path
+        val metamodelPath: String = object {}.javaClass.getResource("idgraphdelta.ecore")!!.path
         val metamodelURI = URI.createFileURI(metamodelPath)
 
         val ecoreHandlerB0 = EcoreHandler(metamodelURI, expectedOutputURI_B0, "graphdelta")
@@ -101,8 +102,8 @@ class ApplicationIntegrationTests {
 
         val deltaEModelB0 = ecoreHandlerB0.getModelRoot()
         val deltaEModelB1 = ecoreHandlerB1.getModelRoot()
-        val inputDeltaSequenceB0 = DeltaSequence(LinkedList<DeltaOperation>(), deltaEModelB0, false)
-        val inputDeltaSequenceB1 = DeltaSequence(LinkedList<DeltaOperation>(), deltaEModelB1, false)
+        val inputDeltaSequenceB0 = DeltaSequence(LinkedList<DeltaOperation>(), deltaEModelB0, true)
+        val inputDeltaSequenceB1 = DeltaSequence(LinkedList<DeltaOperation>(), deltaEModelB1, true)
 
 
         Assertions.assertFalse(inputDeltaSequenceB0.deepEquals(inputDeltaSequenceB1))
@@ -130,7 +131,7 @@ class ApplicationIntegrationTests {
             stepwiseExport = false,
             edgeDistortion = 0.1,
             outputPath = "./out/test",
-            withEIDs = false
+            withEIDs = true
         )
 
         val outputDeltas = runWithConfig(configuration).branchDeltas
@@ -139,7 +140,7 @@ class ApplicationIntegrationTests {
         val expectedOutputURI_B0 = URI.createFileURI(File(configuration.outputPath + "/b_0/model_0.graphdelta").absolutePath)
         val expectedOutputURI_B1 = URI.createFileURI(File(configuration.outputPath + "/b_1/model_0.graphdelta").absolutePath)
 
-        val metamodelPath: String = object {}.javaClass.getResource("graphdelta.ecore")!!.path
+        val metamodelPath: String = object {}.javaClass.getResource("idgraphdelta.ecore")!!.path
         val metamodelURI = URI.createFileURI(metamodelPath)
 
         val ecoreHandlerB0 = EcoreHandler(metamodelURI, expectedOutputURI_B0, "graphdelta")
@@ -147,8 +148,8 @@ class ApplicationIntegrationTests {
 
         val deltaEModelB0 = ecoreHandlerB0.getModelRoot()
         val deltaEModelB1 = ecoreHandlerB1.getModelRoot()
-        val inputDeltaSequenceB0 = DeltaSequence(LinkedList<DeltaOperation>(), deltaEModelB0, false)
-        val inputDeltaSequenceB1 = DeltaSequence(LinkedList<DeltaOperation>(), deltaEModelB1, false)
+        val inputDeltaSequenceB0 = DeltaSequence(LinkedList<DeltaOperation>(), deltaEModelB0, true)
+        val inputDeltaSequenceB1 = DeltaSequence(LinkedList<DeltaOperation>(), deltaEModelB1, true)
 
 
         Assertions.assertFalse(inputDeltaSequenceB0.deepEquals(inputDeltaSequenceB1))
@@ -179,7 +180,8 @@ class ApplicationIntegrationTests {
                 branchEditFocus = 0.8,
                 atomicCounting = true,
                 stepwiseExport = false,
-                randomSeed = i
+                randomSeed = i,
+                withEIDs = true
             )
 
             val outputEnv = runWithConfig(configuration)
@@ -213,7 +215,8 @@ class ApplicationIntegrationTests {
                 branchEditFocus = 0.8,
                 atomicCounting = false,
                 stepwiseExport = true,
-                randomSeed = i
+                randomSeed = i,
+                withEIDs = true
             )
 
             val outputEnv = runWithConfig(configuration)
@@ -241,7 +244,8 @@ class ApplicationIntegrationTests {
             branchEditLength = 100,
             branchEditFocus = 0.8,
             atomicCounting = true,
-            randomSeed = 100
+            randomSeed = 100,
+            withEIDs = true
         )
 
         val outputEnv = runWithConfig(configuration)
