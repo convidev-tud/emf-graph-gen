@@ -34,13 +34,14 @@ class GraphModelUnitTests {
             modelSize = 3000,
             edgesPerNode = 3.0,
             regionProbability = 0.1,
-            edgeDistortion = 0.2
+            edgeDistortion = 0.2,
+            withEIDs = false
         )
-        val graphA = Graph(isRoot = true)
+        val graphA = Graph(null, isRoot = true)
         val factoryA = GraphFactory(graphA, configuration)
         factoryA.exec()
 
-        val graphB = Graph(isRoot = true)
+        val graphB = Graph(null, isRoot = true)
         val factoryB = GraphFactory(graphB, configuration)
         factoryB.exec()
 
@@ -59,9 +60,10 @@ class GraphModelUnitTests {
             edgesPerNode = 3.0,
             regionProbability = 0.1,
             edgeDistortion = 0.0,
-            randomSeed = 10
+            randomSeed = 10,
+            withEIDs = false
         )
-        val graphA = Graph(isRoot = true)
+        val graphA = Graph(null, isRoot = true)
         val factoryA = GraphFactory(graphA, configuration)
         factoryA.exec()
 
@@ -70,10 +72,11 @@ class GraphModelUnitTests {
             edgesPerNode = 3.0,
             regionProbability = 0.1,
             edgeDistortion = 0.0,
-            randomSeed = 20
+            randomSeed = 20,
+            withEIDs = false
         )
 
-        val graphB = Graph(isRoot = true)
+        val graphB = Graph(null, isRoot = true)
         val factoryB = GraphFactory(graphB, configuration2)
         factoryB.exec()
 
@@ -89,9 +92,10 @@ class GraphModelUnitTests {
             edgesPerNode = 3.0,
             regionProbability = 0.1,
             edgeDistortion = 0.2,
-            randomSeed = 10
+            randomSeed = 10,
+            withEIDs = false
         )
-        val graph = Graph(isRoot = true)
+        val graph = Graph(null, isRoot = true)
         val factory = GraphFactory(graph, configuration)
         factory.exec()
 
@@ -106,7 +110,7 @@ class GraphModelUnitTests {
         assertTrue(graphCopy.deepEquals(graph))
 
         //If we manipulate the copy, the structural equality is lost (change happens only in one object)
-        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode("N_FOO", Label.BLUE))
+        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode(null, "N_FOO", Label.BLUE))
         assertFalse(graph.deepEquals(graphCopy))
     }
 
@@ -117,9 +121,10 @@ class GraphModelUnitTests {
             edgesPerNode = 3.0,
             regionProbability = 0.1,
             edgeDistortion = 0.2,
-            randomSeed = 10
+            randomSeed = 10,
+            withEIDs = false
         )
-        val graph = Graph(isRoot = true)
+        val graph = Graph(null, isRoot = true)
         val factory = GraphFactory(graph, configuration)
         factory.exec()
 
@@ -134,7 +139,7 @@ class GraphModelUnitTests {
         assertTrue(graphCopy.deepEquals(graph))
 
         //If we manipulate the copy, the structural equality is lost (change happens only in one object)
-        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode("N_FOO", Label.BLUE))
+        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode(null, "N_FOO", Label.BLUE))
         assertFalse(graph.deepEquals(graphCopy))
     }
 
@@ -146,9 +151,10 @@ class GraphModelUnitTests {
             allowPartitions = false,
             regionProbability = 0.1,
             edgeDistortion = 0.2,
-            randomSeed = 2
+            randomSeed = 2,
+            withEIDs = false
         )
-        val graph = Graph(isRoot = true)
+        val graph = Graph(null, isRoot = true)
         val factory = GraphFactory(graph, configuration)
         factory.exec()
 
@@ -163,7 +169,7 @@ class GraphModelUnitTests {
         assertTrue(graphCopy.deepEquals(graph))
 
         //If we manipulate the copy, the structural equality is lost (change happens only in one object)
-        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode("N_FOO", Label.BLUE))
+        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode(null, "N_FOO", Label.BLUE))
         assertFalse(graph.deepEquals(graphCopy))
     }
 
@@ -174,9 +180,10 @@ class GraphModelUnitTests {
             edgesPerNode = 3.0,
             regionProbability = 0.1,
             edgeDistortion = 0.2,
-            randomSeed = 1000
+            randomSeed = 1000,
+            withEIDs = false
         )
-        val graph = Graph(isRoot = true)
+        val graph = Graph(null, isRoot = true)
         val factory = GraphFactory(graph, configuration)
         factory.exec()
 
@@ -191,7 +198,7 @@ class GraphModelUnitTests {
         assertTrue(graphCopy.deepEquals(graph))
 
         //If we manipulate the copy, the structural equality is lost (change happens only in one object)
-        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode("N_FOO", Label.BLUE))
+        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode(null,"N_FOO", Label.BLUE))
         assertFalse(graph.deepEquals(graphCopy))
     }
 
@@ -203,9 +210,10 @@ class GraphModelUnitTests {
             regionProbability = 0.2,
             allowPartitions = false,
             edgeDistortion = 0.2,
-            randomSeed = 10635
+            randomSeed = 10635,
+            withEIDs = false
         )
-        val graph = Graph(isRoot = true)
+        val graph = Graph(null, isRoot = true)
         val factory = GraphFactory(graph, configuration)
         factory.exec()
 
@@ -220,7 +228,7 @@ class GraphModelUnitTests {
         assertTrue(graphCopy.deepEquals(graph))
 
         //If we manipulate the copy, the structural equality is lost (change happens only in one object)
-        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode("N_FOO", Label.BLUE))
+        graphCopy.nodes.filterIsInstance<Region>().first().graph.nodes.add(SimpleNode(null, "N_FOO", Label.BLUE))
         assertFalse(graph.deepEquals(graphCopy))
     }
 

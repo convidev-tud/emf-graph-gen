@@ -8,14 +8,14 @@ import labelgraph.Edge;
 import labelgraph.Graph;
 import labelgraph.LabelgraphPackage;
 import labelgraph.Node;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link labelgraph.impl.GraphImpl#getNodes <em>Nodes</em>}</li>
  *   <li>{@link labelgraph.impl.GraphImpl#getEdges <em>Edges</em>}</li>
+ *   <li>{@link labelgraph.impl.GraphImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,6 +56,26 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * @ordered
 	 */
 	protected EList<Edge> edges;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,6 +128,29 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * @generated
 	 */
 	@Override
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LabelgraphPackage.GRAPH__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case LabelgraphPackage.GRAPH__NODES:
@@ -129,6 +173,8 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 			return getNodes();
 		case LabelgraphPackage.GRAPH__EDGES:
 			return getEdges();
+		case LabelgraphPackage.GRAPH__ID:
+			return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -150,6 +196,9 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 			getEdges().clear();
 			getEdges().addAll((Collection<? extends Edge>) newValue);
 			return;
+		case LabelgraphPackage.GRAPH__ID:
+			setId((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -168,6 +217,9 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 		case LabelgraphPackage.GRAPH__EDGES:
 			getEdges().clear();
 			return;
+		case LabelgraphPackage.GRAPH__ID:
+			setId(ID_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -184,8 +236,27 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 			return nodes != null && !nodes.isEmpty();
 		case LabelgraphPackage.GRAPH__EDGES:
 			return edges != null && !edges.isEmpty();
+		case LabelgraphPackage.GRAPH__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(')');
+		return result.toString();
 	}
 
 } //GraphImpl

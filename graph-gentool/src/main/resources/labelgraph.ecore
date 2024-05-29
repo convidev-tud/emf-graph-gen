@@ -8,11 +8,11 @@
         eType="#//Edge" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Edge">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" unique="false" lowerBound="2" upperBound="2"
-        eType="#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" unique="false" lowerBound="2"
+        upperBound="2" eType="#//Node"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Label">
     <eLiterals name="GREY"/>

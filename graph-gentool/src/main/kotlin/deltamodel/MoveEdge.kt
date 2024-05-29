@@ -29,9 +29,17 @@ import org.eclipse.emf.ecore.EObject
  * This action exists to model and represent the movement of edges after a node was moved ensuring that edges
  * are located in the same region as their first node.
  */
-class MoveEdge(val edge: Edge,
-               val newRegion: Region? = null,
-               val oldRegion: Region? = null,) : DeltaOperation() {
+class MoveEdge(/*all*/ id: String,
+               val nodeAName: String?,
+               val nodeAID: String?,
+               val nodeBName: String?,
+               val nodeBID: String?,
+               val edgeID: String?,
+               val newRegionName: String? = "root",
+               val newRegionID: String? = "root",
+               val oldRegionName: String? = "root",
+               val oldRegionID: String? = "root",
+               val serializeWithIDs: Boolean) : DeltaOperation(id) {
 
     val description = "MoveEdge"
 
@@ -43,20 +51,30 @@ class MoveEdge(val edge: Edge,
                           label: EEnum?, nodeType: EEnum?): EObject {
         val operation = factory.create(classes[description])
 
-        val newReg = newRegion?.name ?: ""
-        val oldReg = oldRegion?.name ?: ""
+        val idAttribute = operation.eClass().getEStructuralFeature("id")
+        operation.eSet(idAttribute, id)
 
-        val nodeAAttribute = operation.eClass().getEStructuralFeature("nodeA")
-        val nodeBAttribute = operation.eClass().getEStructuralFeature("nodeB")
-
-        operation.eSet(nodeAAttribute, edge.a.name)
-        operation.eSet(nodeBAttribute, edge.b.name)
-
-        val newRegAttribute = operation.eClass().getEStructuralFeature("newRegion")
-        val oldRegAttribute = operation.eClass().getEStructuralFeature("oldRegion")
-
-        operation.eSet(oldRegAttribute, oldReg)
-        operation.eSet(newRegAttribute, newReg)
+        if(serializeWithIDs){
+            val nodeAIDAttribute = operation.eClass().getEStructuralFeature("nodeAID")
+            val nodeBIDAttribute = operation.eClass().getEStructuralFeature("nodeBID")
+            val newRegionIDAttribute = operation.eClass().getEStructuralFeature("newRegionID")
+            val oldRegionIDAttribute = operation.eClass().getEStructuralFeature("oldRegionID")
+            val edgeIDAttribute = operation.eClass().getEStructuralFeature("edgeID")
+            operation.eSet(nodeAIDAttribute, nodeAID)
+            operation.eSet(nodeBIDAttribute, nodeBID)
+            operation.eSet(newRegionIDAttribute, newRegionID)
+            operation.eSet(oldRegionIDAttribute, oldRegionID)
+            operation.eSet(edgeIDAttribute, edgeID)
+        } else {
+            val nodeANameAttribute = operation.eClass().getEStructuralFeature("nodeA")
+            val nodeBNameAttribute = operation.eClass().getEStructuralFeature("nodeB")
+            val newRegionNameAttribute = operation.eClass().getEStructuralFeature("newRegion")
+            val oldRegionNameAttribute = operation.eClass().getEStructuralFeature("oldRegion")
+            operation.eSet(nodeANameAttribute, nodeAName)
+            operation.eSet(nodeBNameAttribute, nodeBName)
+            operation.eSet(newRegionNameAttribute, newRegionName)
+            operation.eSet(oldRegionNameAttribute, oldRegionName)
+        }
 
         this.buffer = operation
         return operation
@@ -64,9 +82,55 @@ class MoveEdge(val edge: Edge,
 
     override fun deepEquals(other: Any): Boolean {
         if(other is MoveEdge){
-            return edge.deepEquals(other.edge) && oldRegion?.name == other.oldRegion?.name &&
-                    newRegion?.name == other.newRegion?.name
+            return if(serializeWithIDs){
+                nodeAID == other.nodeAID && nodeBID == other.nodeBID &&
+                        newRegionID == other.newRegionID && oldRegionID == other.oldRegionID &&
+                        edgeID == other.edgeID
+            }else{
+                val res = nodeAName == other.nodeAName && nodeBName == other.nodeBName &&
+                        newRegionName == other.newRegionName && oldRegionName == other.oldRegionName
+                if(idEquals(other) && !res){
+                    throw AssertionError("Incoherent Comparison MoveEdge: $this != $other")
+                }
+                res
+            }
         }
         return false
     }
+
+    companion object {
+
+        fun parse(eObject: EObject, serializeWithIDs: Boolean): MoveEdge {
+
+            val id = eObject.eGet(eObject.eClass().getEStructuralFeature("id")) as String
+
+            var nodeAName: String? = null
+            var nodeBName: String? = null
+            var nodeAID: String? = null
+            var nodeBID: String? = null
+            var edgeID: String? = null
+            var newRegionName: String? = null
+            var newRegionID: String? = null
+            var oldRegionName: String? = null
+            var oldRegionID: String? = null
+
+            if(serializeWithIDs){
+                nodeAID = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeAID")) as String
+                nodeBID = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeBID")) as String
+                newRegionID = eObject.eGet(eObject.eClass().getEStructuralFeature("newRegionID")) as String
+                oldRegionID = eObject.eGet(eObject.eClass().getEStructuralFeature("oldRegionID")) as String
+                edgeID = eObject.eGet(eObject.eClass().getEStructuralFeature("edgeID")) as String
+            }else{
+                nodeAName = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeA")) as String
+                nodeBName = eObject.eGet(eObject.eClass().getEStructuralFeature("nodeB")) as String
+                newRegionName = eObject.eGet(eObject.eClass().getEStructuralFeature("newRegion")) as String
+                oldRegionName = eObject.eGet(eObject.eClass().getEStructuralFeature("oldRegion")) as String
+            }
+
+            return MoveEdge(id, nodeAName, nodeAID, nodeBName, nodeBID, edgeID, newRegionName, newRegionID,
+                oldRegionName, oldRegionID, serializeWithIDs)
+        }
+
+    }
+
 }

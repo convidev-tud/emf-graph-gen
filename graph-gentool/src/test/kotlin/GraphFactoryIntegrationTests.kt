@@ -27,18 +27,19 @@ import java.util.*
 class GraphFactoryIntegrationTests {
 
     private var randomSeed: Long = 0
-    private var graph: Graph = Graph()
+    private var graph: Graph = Graph(null)
 
     @BeforeEach
     fun init(){
-        graph = Graph()
+        graph = Graph(null)
         randomSeed = 7
     }
 
     @Test
     fun modelSizeMinimalModelNoNodesTest() {
         val configuration = Configuration(
-            modelSize = 1
+            modelSize = 1,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         try {
@@ -52,7 +53,8 @@ class GraphFactoryIntegrationTests {
     @Test
     fun modelSizeMinimalModelTest() {
         val configuration = Configuration(
-            modelSize = 2
+            modelSize = 2,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -67,7 +69,8 @@ class GraphFactoryIntegrationTests {
         val configuration = Configuration(
             modelSize = 900,
             edgesPerNode = 2.0,
-            regionProbability = 0.0
+            regionProbability = 0.0,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -83,7 +86,8 @@ class GraphFactoryIntegrationTests {
             modelSize = 900,
             edgesPerNode = 2.0,
             regionProbability = 0.3,
-            allowPartitions = false
+            allowPartitions = false,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -98,7 +102,8 @@ class GraphFactoryIntegrationTests {
             modelSize = 90,
             edgesPerNode = 0.5,
             regionProbability = 0.0,
-            allowPartitions = false
+            allowPartitions = false,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -113,7 +118,8 @@ class GraphFactoryIntegrationTests {
             modelSize = 90,
             edgesPerNode = 0.5,
             regionProbability = 0.0,
-            allowPartitions = true
+            allowPartitions = true,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -128,7 +134,8 @@ class GraphFactoryIntegrationTests {
             modelSize = 1000,
             edgesPerNode = 0.0,
             regionProbability = 0.1,
-            allowPartitions = true
+            allowPartitions = true,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -143,7 +150,8 @@ class GraphFactoryIntegrationTests {
             edgesPerNode = 2.0,
             regionProbability = 0.0,
             edgeDistortion = 0.1,
-            allowPartitions = true
+            allowPartitions = true,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -158,7 +166,8 @@ class GraphFactoryIntegrationTests {
             edgesPerNode = 2.0,
             regionProbability = 0.2,
             edgeDistortion = 0.1,
-            allowPartitions = true
+            allowPartitions = true,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -174,7 +183,8 @@ class GraphFactoryIntegrationTests {
             modelSize = 200,
             edgesPerNode = 1.0,
             regionProbability = 0.1,
-            allowPartitions = true
+            allowPartitions = true,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration,)
         factory.exec()
@@ -203,7 +213,8 @@ class GraphFactoryIntegrationTests {
             modelSize = 200,
             edgesPerNode = 1.0,
             regionProbability = 0.1,
-            allowPartitions = true
+            allowPartitions = true,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -238,6 +249,7 @@ class GraphFactoryIntegrationTests {
             modelSize = 20,
             edgesPerNode = 0.0,
             regionProbability = 0.25,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -262,7 +274,8 @@ class GraphFactoryIntegrationTests {
             edgesPerNode = 2.0,
             regionProbability = 0.2,
             edgeDistortion = 0.1,
-            allowPartitions = false
+            allowPartitions = false,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -282,7 +295,8 @@ class GraphFactoryIntegrationTests {
             modelSize = 900,
             edgesPerNode = 0.5,
             regionProbability = 0.2,
-            allowPartitions = true
+            allowPartitions = true,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()
@@ -299,7 +313,8 @@ class GraphFactoryIntegrationTests {
             modelSize = 900,
             edgesPerNode = 0.5,
             regionProbability = 0.2,
-            allowPartitions = false
+            allowPartitions = false,
+            withEIDs = false
         )
         val factory = GraphFactory(graph, configuration)
         factory.exec()

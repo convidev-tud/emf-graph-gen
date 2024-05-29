@@ -19,4 +19,4 @@ import graphmodel.Graph
 
 data class Environment(val baseGraph: Graph,
                        val branchGraphs: MutableList<MutableList<Graph>>,
-                       val branchDeltas: MutableList<DeltaSequence>)
+                       val branchDeltas: MutableList<MutableList<DeltaSequence>>)

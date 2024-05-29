@@ -5,7 +5,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="deltaOperations" upperBound="-1"
         eType="#//DeltaOperation" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeltaOperation" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DeltaOperation" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddNode" eSuperTypes="#//DeltaOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -16,21 +19,29 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeleteNode" eSuperTypes="#//DeltaOperation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodeImplications" upperBound="-1"
-        eType="#//DeleteNode"/>
+        eType="#//DeleteNode" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="edgeImplications" upperBound="-1"
-        eType="#//DeleteEdge"/>
+        eType="#//DeleteEdge" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromRegion" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeType" unique="false"
+        lowerBound="1" eType="#//NodeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" unique="false" eType="#//Label"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddEdge" eSuperTypes="#//DeltaOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeA" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeB" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toRegion" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeleteEdge" eSuperTypes="#//DeltaOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeA" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeB" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromRegion" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MoveNode" eSuperTypes="#//DeltaOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeName" lowerBound="1"
@@ -40,7 +51,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldRegion" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="edgeImplications" upperBound="-1"
-        eType="#//MoveEdge"/>
+        eType="#//MoveEdge" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChangeLabel" eSuperTypes="#//DeltaOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeName" lowerBound="1"
