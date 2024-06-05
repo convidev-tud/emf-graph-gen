@@ -39,9 +39,6 @@ class GraphProcessor(
     private val random: Random = Random(conf.randomSeed)
     private val rootStats: GraphStats = graph.getStats(true)
 
-    private var simpleNodeNameIncrement = 0
-    private var regionNameIncrement = 0
-
     private val IDs = conf.withEIDs
 
     private val changeOperationWeights = weights
@@ -190,9 +187,8 @@ class GraphProcessor(
      * @param region the region to add the new [Node] to. If null, the root [Graph] is used.
      */
     private fun addSimpleNode(region: Region?) {
-        val node = SimpleNode(Graph.generateId(),"NE$simpleNodeNameIncrement",
+        val node = SimpleNode(Graph.generateId(),"SN_"+UUID.randomUUID().toString(),
             SimpleNode.randomLabel(random), serializeWithIDs = IDs)
-        simpleNodeNameIncrement++
         val targetGraph = region?.graph ?: stage.graph
         targetGraph.nodes.add(node)
         val op = AddNode(
@@ -213,9 +209,8 @@ class GraphProcessor(
      * @param region the region to add the new [Node] to. If null, the root [Graph] is used.
      */
     private fun addRegion(region: Region?) {
-        val node = Region(Graph.generateId(),"RE$regionNameIncrement",
+        val node = Region(Graph.generateId(),"RE_"+UUID.randomUUID().toString(),
             Graph(id = Graph.generateId(), serializeWithIDs = IDs), serializeWithIDs = IDs)
-        regionNameIncrement++
         val targetGraph = region?.graph ?: stage.graph
         targetGraph.nodes.add(node)
         val op = AddNode(
