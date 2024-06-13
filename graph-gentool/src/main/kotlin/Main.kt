@@ -130,6 +130,15 @@ class Checksum : Callable<Int> {
     )
     var userRandomSeed: Int = 0
 
+    @CommandLine.Option(
+        names = ["-o", "--edit_probabilities"],
+        description = ["Edit probabilities (int) seperated by ':'. " +
+                "The order is ADD_SIMPLE, ADD_REGION, DELETE_NODE, MOVE_NODE, CHANGE_LABEL, ADD_EDGE, DELETE_EDGE. " +
+                "The sum of all probabilities must be 100. " +
+                "Default: 15:5:5:5:25:25:20"]
+    )
+    var editProbabilities: String = "15:5:5:5:25:25:20"
+
     override fun call(): Int {
         runWithConfig(
             Configuration(
@@ -145,22 +154,13 @@ class Checksum : Callable<Int> {
                 branchEditFocus,
                 atomicCounting,
                 stepwiseExport,
-                withEIDs = withEIDs
+                withEIDs = withEIDs,
+                editProbabilities = editProbabilities
             )
         )
         return 0
     }
 }
-
-private val changeOperationWeights: List<Pair<String, Int>> = listOf(
-    Pair("ADD_SIMPLE", 15),
-    Pair("ADD_REGION", 5),
-    Pair("DELETE_NODE", 5),
-    Pair("MOVE_NODE", 5),
-    Pair("CHANGE_LABEL", 25),
-    Pair("ADD_EDGE", 25),
-    Pair("DELETE_EDGE", 20)
-)
 
 fun main(args: Array<String>) {
     exitProcess(CommandLine(Checksum()).execute(*args))
@@ -213,8 +213,16 @@ fun processBranches(
     deltaMetamodelURI: URI, environment: Environment
 ) {
 
-    //val graphMetaName = if(configuration.withEIDs) "idlabelgraph" else "labelgraph"
-    //val deltaMetaName = if(configuration.withEIDs) "idgraphdelta" else "graphdelta"
+    val editProbabilities = configuration.editProbabilities.split(":").map { it.toInt() }
+    val changeOperationWeights: List<Pair<String, Int>> = listOf(
+        Pair("ADD_SIMPLE", editProbabilities[0]),
+        Pair("ADD_REGION", editProbabilities[1]),
+        Pair("DELETE_NODE", editProbabilities[2]),
+        Pair("MOVE_NODE", editProbabilities[3]),
+        Pair("CHANGE_LABEL", editProbabilities[4]),
+        Pair("ADD_EDGE", editProbabilities[5]),
+        Pair("DELETE_EDGE", editProbabilities[6])
+    )
 
     for ((branchIndex, branch) in branches.withIndex()) {
 

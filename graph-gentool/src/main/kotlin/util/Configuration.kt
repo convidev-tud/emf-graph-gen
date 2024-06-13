@@ -96,7 +96,9 @@ data class Configuration(
     /**
      * Toggle if the processor should export the EIDs of the graphs, nodes and edges.
      */
-    val withEIDs: Boolean = false
+    val withEIDs: Boolean = false,
+
+    val editProbabilities: String = "15:5:5:5:25:25:20"
 
 ){
 
