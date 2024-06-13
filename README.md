@@ -58,6 +58,7 @@ Short | Argument (--arg)| Default | Description
 ``-e`` | ``atomic_counting`` | ``false`` | Toggle, how the edit length is counted. ``true`` for atomic counting and ``false`` for accumulative counting. If ``true``, the resulting edit sequence will have exactly the same size as specified by the branch edit length. If ``false``, the number of explicit (high-level) edits is counted (although writing the atomic edits to the edit sequence). For example, let there be a region R containing 3 nodes and 2 edges. If ``delete R`` is the edit.  If R gets deleted, its composite contents must be deleted as well. The result are 6 atomic edits which are added to the edit sequence (one explicit edit and 5 implicit edits). If atomic counting is used, the counter increments by 6. If no atomic counting is used, the counter increments by 1 (BOOL).
 ``-x`` | ``--stepwise_export`` | ``false``| Toggle if the processor the variants only once or after each step. The base model generation is not influenced by this toggle. If set to true, a model variant with an edit length of 10 leads to 10 exported models. This operation is not compatible with atomic counting (BOOL).
 ``-u`` | ``--random_seed``| ``0`` | Random seed for the strict deterministic random generation algorithms (INT).
+``-o`` | ``--edit_probabilities`` | ``"15:5:5:5:25:25:20"`` | Edit probabilities (int) seperated by ':'. The order is ADD_SIMPLE, ADD_REGION, DELETE_NODE, MOVE_NODE, CHANGE_LABEL, ADD_EDGE, DELETE_EDGE. The sum of all probabilities must be 100. "
 
 **(1) Connectedness** 
 
