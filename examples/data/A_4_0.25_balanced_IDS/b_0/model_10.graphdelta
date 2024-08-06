@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="7f7aa6d9-d690-4630-adaf-dcaa89425eb4" nodeAID="50c6d9d4-4bda-4fab-9099-7da9bd273401" nodeBID="ccabe841-d257-40fa-8f45-edcaff7f5b98" edgeID="e2f1f231-cafa-48dc-b61d-f63faf0c77c3" fromRegionID="550da022-1ea5-4228-980e-5f2cf29c84b0"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="bfe82325-f1d3-45fc-9666-91b9ec577b39" nodeID="c22769a1-4eb0-4fde-8313-9bfc5d32c6b0" toRegionID="550da022-1ea5-4228-980e-5f2cf29c84b0" nodeName="SN_b5763660-6786-4045-8909-93f65daf0dec"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="40a87a20-9035-4f65-aa6b-30c943225e10" nodeID="b43ebee9-e780-43f2-adf6-1c491dcc663d" newLabel="BLUE" oldLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="efdb0064-0d8d-46da-af34-f72436577fa2" nodeID="b43ebee9-e780-43f2-adf6-1c491dcc663d" oldLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="d33f7c71-135c-4a8e-9c0c-118a42f494f7" nodeAID="d28e754f-be8c-4136-a0bc-f575d2ddaefb" nodeBID="1fe14d87-d8ca-4868-ae8f-bb15ed87dc36" edgeID="716fcd9b-97fb-42aa-9007-fcdde016e70a" toRegionID="550da022-1ea5-4228-980e-5f2cf29c84b0"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="9d7d532d-32b6-4994-aba0-c4e8d407c8c1" nodeID="7001d571-a4bf-458e-bacd-ae657697fe07" toRegionID="86a5d28e-e82c-4bb4-97f0-602b9ea8f275" nodeName="SN_d3e00132-e658-4e8c-86b1-9dac65a58808"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="45e19476-4bb7-40bc-a022-4ae9596b1afd" nodeID="a3767de0-d711-4041-9124-f57b83cdc6ca" targetRegionID="ca19b4d3-2816-400a-acac-33bfea00b5df" oldRegionID="86a5d28e-e82c-4bb4-97f0-602b9ea8f275">
+    <edgeImplications id="ef7be723-9aac-4fbb-bf4b-51dc040baabb" oldRegionID="86a5d28e-e82c-4bb4-97f0-602b9ea8f275" newRegionID="ca19b4d3-2816-400a-acac-33bfea00b5df" nodeAID="a3767de0-d711-4041-9124-f57b83cdc6ca" nodeBID="5a0bda91-6316-4cb6-9dcb-a94be572b992" edgeID="c2c260c6-08b4-4900-a321-418f199f66bb"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="bfd35a3a-b0b3-4ee4-9299-f35807d7fccc" nodeAID="75339609-9305-48bc-a567-beb4c31995f1" nodeBID="5a0bda91-6316-4cb6-9dcb-a94be572b992" edgeID="eabaf808-0f2a-43a7-b9db-5d9d11aab9ad" fromRegionID="86a5d28e-e82c-4bb4-97f0-602b9ea8f275"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="2bb8451f-4a32-482b-8983-40ddad8622c2" nodeID="3f264865-781d-46aa-b996-2dde6fb08bfc" toRegionID="86a5d28e-e82c-4bb4-97f0-602b9ea8f275" nodeName="SN_35cfe591-fb4b-41c1-a373-72e4c436c261"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="2b8d365c-95f2-46b8-a649-b080ff625c8d" nodeID="b2f90fcf-f52a-4cf5-b2ec-d9609873e01f" newLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="356296f1-00d7-4dbc-92c9-aa6d6d94cf71" nodeAID="b2f90fcf-f52a-4cf5-b2ec-d9609873e01f" nodeBID="ccb6b4bf-4c5c-4200-b4c5-2258ce558c55" edgeID="91b33d21-ffc1-4409-9b1f-8556c4251850" toRegionID="86a5d28e-e82c-4bb4-97f0-602b9ea8f275"/>
+</graphdelta:DeltaSequence>

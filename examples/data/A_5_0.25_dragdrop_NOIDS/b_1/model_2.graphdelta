@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="00e1dff8-17a5-41a3-b509-ad2955110459" nodeName="N47" fromRegion="R4" label="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="0ec94100-ff9a-41b2-a479-f42603dd88b8" nodeName="N5" targetRegion="R18" oldRegion="R4">
+    <edgeImplications id="5049a9e9-d405-46be-af97-501173cc64f0" oldRegion="R4" newRegion="R18" nodeA="N5" nodeB="N26"/>
+    <edgeImplications id="a55ff31d-9df6-4efc-9b86-7c6c8025d703" oldRegion="R4" newRegion="R18" nodeA="N5" nodeB="R7"/>
+    <edgeImplications id="0ef0037f-0794-4a04-9710-36adf80aebe2" oldRegion="R4" newRegion="R18" nodeA="N5" nodeB="R14"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="1f03d325-e0d1-4d61-9cba-4e8556635310" nodeName="RE_61cb16e9-7e83-4bb3-b942-d7c72927413f" nodeType="REGION" toRegion="R4"/>
+</graphdelta:DeltaSequence>

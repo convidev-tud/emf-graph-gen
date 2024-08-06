@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="c0c05ad7-2e22-4720-a8dd-43cb5a5d3c3b" nodeID="7260c1d2-1ebd-4ee7-a462-9945d59e5c05" fromRegionID="aee67222-18a2-4b06-9e18-2b726e62a35b" nodeName="N8" label="BLUE"/>
+</graphdelta:DeltaSequence>

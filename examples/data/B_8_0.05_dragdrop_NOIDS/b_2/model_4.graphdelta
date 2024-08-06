@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="46f7e664-f88b-4917-aefa-c3f0140b4e45" nodeName="N37" targetRegion="root" oldRegion="R1">
+    <edgeImplications id="9d4fe3e3-83da-4ddb-810c-a2e5dc77e602" oldRegion="R1" newRegion="root" nodeA="N37" nodeB="N52"/>
+    <edgeImplications id="1e89c347-701a-426e-b6a7-9077903aeef5" oldRegion="R1" newRegion="root" nodeA="N37" nodeB="N57"/>
+    <edgeImplications id="76971b87-12bf-4b4a-aad7-b82d81749b47" oldRegion="R1" newRegion="root" nodeA="N37" nodeB="N12"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="78386413-6c1f-48d5-b7db-b618e8e64a74" nodeName="RE_6f378c41-fdee-42dd-b299-ad0b766bc0b9" nodeType="REGION" toRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="3858c9de-47e5-4eeb-af7a-c617bbc4545d" nodeName="N12" targetRegion="R3" oldRegion="R1">
+    <edgeImplications id="d75beca0-7ba7-4491-85e1-85b6f4f9239c" oldRegion="R1" newRegion="R3" nodeA="N12" nodeB="N17"/>
+    <edgeImplications id="db31f614-3249-4d6f-95b9-be947b6ced8b" oldRegion="R1" newRegion="R3" nodeA="N12" nodeB="N37"/>
+    <edgeImplications id="38c0c2bc-26b0-40b4-80fa-47792782e216" oldRegion="R1" newRegion="R3" nodeA="N12" nodeB="N77"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="ab1b90c2-638d-4ede-8b96-3af6056a384b" nodeName="SN_42e6dcfa-f994-4230-8081-da6257ec66ff" toRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="2787efb9-25c1-4ed9-b6b3-b473890f3a76" nodeName="N2" targetRegion="R2" oldRegion="R1">
+    <edgeImplications id="629c247e-fcc2-4a57-acdd-c69463492579" oldRegion="R1" newRegion="R2" nodeA="N2" nodeB="N7"/>
+    <edgeImplications id="0aa420c6-1f3c-4733-a6f5-868e972d36fa" oldRegion="R1" newRegion="R2" nodeA="N2" nodeB="N12"/>
+    <edgeImplications id="589204e0-4296-459b-ba0a-ef0491368bbb" oldRegion="R1" newRegion="R2" nodeA="N2" nodeB="N22"/>
+    <edgeImplications id="f6ab6fe1-89da-498a-9b6b-739069e244e0" oldRegion="R1" newRegion="R2" nodeA="N2" nodeB="N32"/>
+  </deltaOperations>
+</graphdelta:DeltaSequence>

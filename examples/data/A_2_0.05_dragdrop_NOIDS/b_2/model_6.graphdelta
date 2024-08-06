@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="79deb6f5-2050-47d2-84d0-10a912fedc53" nodeA="N53" nodeB="N34" fromRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="806b60dc-ccde-46d3-845b-3f213e94124d" nodeName="SN_7ac29c10-0b32-4593-9958-8f0e6ff34b31" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="c47e02aa-8ba1-43bc-b77e-bd72e34ab552" nodeName="N8" targetRegion="R3" oldRegion="R2">
+    <edgeImplications id="e09b424f-68ff-4cf3-88c6-20d659fcb65a" oldRegion="R2" newRegion="R3" nodeA="N8" nodeB="N13"/>
+    <edgeImplications id="0778ec75-fd3a-413e-90c0-918d8940b0ec" oldRegion="R2" newRegion="R3" nodeA="N8" nodeB="N23"/>
+    <edgeImplications id="c0fc6f78-17c0-4cbb-942e-68ffec51a76b" oldRegion="R2" newRegion="R3" nodeA="N8" nodeB="N38"/>
+    <edgeImplications id="27f0aa79-367f-4073-ad10-0268203b8d1e" oldRegion="R2" newRegion="R3" nodeA="N8" nodeB="N68"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="094c7702-7f62-4bf4-844c-139118c45194" nodeName="N78" targetRegion="root" oldRegion="R2">
+    <edgeImplications id="429e86fc-8d38-4a79-888a-f201ea9101c7" oldRegion="R2" newRegion="root" nodeA="N78" nodeB="N18"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="9c405518-4f79-4bce-bbad-2280d217b971" nodeName="N68" targetRegion="root" oldRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="50cdab3e-931b-4252-b63e-9a7b07ecdc69" nodeName="N33" targetRegion="R1" oldRegion="R2">
+    <edgeImplications id="f5829216-6399-4777-852c-38e48cdee5ce" oldRegion="R2" newRegion="R1" nodeA="N33" nodeB="N63"/>
+    <edgeImplications id="90576254-a175-4bb1-bb1c-af3e537e045d" oldRegion="R2" newRegion="R1" nodeA="N33" nodeB="N58"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="77590f7a-e787-40d4-9063-530086c58bc0" nodeA="N18" nodeB="N33" fromRegion="R2"/>
+</graphdelta:DeltaSequence>

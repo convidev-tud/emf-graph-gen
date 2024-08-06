@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="f23472c3-aada-4d3b-a2c0-0735b7ae8113" nodeAID="3dae88b1-beec-4287-a873-5ac8389211cc" nodeBID="8667961e-2ce7-41dc-94a5-ffa37fe88d49" edgeID="14f1b7e8-415e-4978-96a6-1934611ee1b1" fromRegionID="aee67222-18a2-4b06-9e18-2b726e62a35b"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="a8372ee4-823b-4a46-896a-57dd0558e4a3" nodeID="f02d60fe-1270-4637-940e-45c00ba21915" toRegionID="aee67222-18a2-4b06-9e18-2b726e62a35b" nodeName="SN_fcf52035-4f8f-455a-a7a7-936e240cd798"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="2212a5f6-349b-46d0-9f60-011778b498bc" nodeID="7260c1d2-1ebd-4ee7-a462-9945d59e5c05" targetRegionID="9284eaba-a95a-45d7-9414-deaa97253ef9" oldRegionID="aee67222-18a2-4b06-9e18-2b726e62a35b">
+    <edgeImplications id="a1a2d1e6-9dd1-412b-94eb-c4b78d2af440" oldRegionID="aee67222-18a2-4b06-9e18-2b726e62a35b" newRegionID="9284eaba-a95a-45d7-9414-deaa97253ef9" nodeAID="7260c1d2-1ebd-4ee7-a462-9945d59e5c05" nodeBID="d2125534-85e5-4335-833d-916d7c06ab79" edgeID="564dba2c-b370-4b1e-a9a9-4814c65331db"/>
+    <edgeImplications id="696faacd-6b70-4620-a2f1-12c2861d7332" oldRegionID="aee67222-18a2-4b06-9e18-2b726e62a35b" newRegionID="9284eaba-a95a-45d7-9414-deaa97253ef9" nodeAID="7260c1d2-1ebd-4ee7-a462-9945d59e5c05" nodeBID="726e2edf-6f9b-4573-b208-8666af6a0ce6" edgeID="8a6a5287-3672-489d-9eea-167442d327d4"/>
+    <edgeImplications id="75d1c742-05a7-42f3-8e07-4cccb81673fe" oldRegionID="aee67222-18a2-4b06-9e18-2b726e62a35b" newRegionID="9284eaba-a95a-45d7-9414-deaa97253ef9" nodeAID="7260c1d2-1ebd-4ee7-a462-9945d59e5c05" nodeBID="fc63e822-9fe2-45b5-a724-fe224c2956bf" edgeID="eda9bb16-37b5-4671-aa9a-c297d984b074"/>
+    <edgeImplications id="125fac0b-eda5-4764-b4f2-8eab74b488db" oldRegionID="aee67222-18a2-4b06-9e18-2b726e62a35b" newRegionID="9284eaba-a95a-45d7-9414-deaa97253ef9" nodeAID="7260c1d2-1ebd-4ee7-a462-9945d59e5c05" nodeBID="fdc047ad-bf6f-4dda-af7d-88a9ce11d085" edgeID="061a0029-bda8-470c-87fc-0794a28bb9b4"/>
+  </deltaOperations>
+</graphdelta:DeltaSequence>

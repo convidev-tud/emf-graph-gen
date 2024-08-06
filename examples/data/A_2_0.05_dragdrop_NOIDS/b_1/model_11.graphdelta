@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:AddNode" id="f840fb45-3900-4d04-8744-b47c774a03d5" nodeName="SN_0b044bfc-1fb3-4ff5-908c-80db2e4cfa3c" toRegion="R3"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="050612b5-d9e2-4004-a447-cbcfddd889ce" nodeName="N77" targetRegion="R0" oldRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="f618b385-4c4a-4e69-b8f8-4a33bfa38885" nodeA="N27" nodeB="N62" fromRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="a6d2a312-4d1f-494d-a995-45976eef4749" nodeA="N37" nodeB="N17" toRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="65125113-e0a6-4bff-b7fd-df1fbd7f7b1c" nodeName="N13" fromRegion="R2" label="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="d1704287-9c87-42c4-82fd-138a41345687" nodeA="N11" nodeB="N41" fromRegion="R0"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="8d090f6f-af48-4372-bd32-4d356d5458f9" nodeName="RE_b118eb6e-6483-4be4-80a5-a040455a24bf" nodeType="REGION" toRegion="R0"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="5f230680-aeb9-4301-af66-964c10af34de" nodeA="N21" nodeB="N76" toRegion="R0"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="85386f6a-c0c4-48c4-a6c8-4bc39cade09f" nodeName="SN_70a093f0-c091-4937-96a5-c2fa0dea8f74" toRegion="R0"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="9d997f2f-e3fb-4879-b7b2-0584f7ef84fb" nodeName="SN_70a093f0-c091-4937-96a5-c2fa0dea8f74" targetRegion="R2" oldRegion="R0"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="0640a87b-8dc6-4c81-8001-e58e4fd31fd8" nodeName="SN_c5a85029-18d5-46e4-9623-bee4d840f424" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="8a09996f-ba02-47ac-8c2b-6969544be70b" nodeName="SN_70a093f0-c091-4937-96a5-c2fa0dea8f74" targetRegion="R0" oldRegion="R2"/>
+</graphdelta:DeltaSequence>

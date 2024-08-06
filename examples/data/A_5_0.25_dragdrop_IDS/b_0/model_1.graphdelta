@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="6b0ce064-6ee2-43d9-843c-a4f3c383638c" nodeID="c2fff0f5-b78f-4679-a84e-2d4d871c723b" targetRegionID="5665c330-da0e-412e-afce-62444d43d946" oldRegionID="7a214b39-8592-404e-8550-08d3a51a8533">
+    <edgeImplications id="5ae972ce-efe9-43e6-bac0-57f96d8c2553" oldRegionID="7a214b39-8592-404e-8550-08d3a51a8533" newRegionID="5665c330-da0e-412e-afce-62444d43d946" nodeAID="c2fff0f5-b78f-4679-a84e-2d4d871c723b" nodeBID="f46b4572-744a-4b23-8f5e-8ffbfa4460fc" edgeID="59b1b16c-b700-40e5-b8bb-09d4f365a58b"/>
+    <edgeImplications id="1fa4104b-6af5-47c6-a8e5-8c2d90efb8cb" oldRegionID="7a214b39-8592-404e-8550-08d3a51a8533" newRegionID="5665c330-da0e-412e-afce-62444d43d946" nodeAID="c2fff0f5-b78f-4679-a84e-2d4d871c723b" nodeBID="064a7c84-59a3-4277-bc8b-3585b7269fe0" edgeID="f260f30d-3bdb-43f7-a1b9-31c94de83be4"/>
+    <edgeImplications id="9c3706c2-3136-4e3a-8106-5b0983dcb704" oldRegionID="7a214b39-8592-404e-8550-08d3a51a8533" newRegionID="5665c330-da0e-412e-afce-62444d43d946" nodeAID="c2fff0f5-b78f-4679-a84e-2d4d871c723b" nodeBID="41c88dd6-0d11-42a2-9527-a4197689d296" edgeID="54730df8-55fb-4b10-b7ce-e929c24b8962"/>
+    <edgeImplications id="b78f148e-d578-46d9-9e55-a17ac4be1bcf" oldRegionID="7a214b39-8592-404e-8550-08d3a51a8533" newRegionID="5665c330-da0e-412e-afce-62444d43d946" nodeAID="c2fff0f5-b78f-4679-a84e-2d4d871c723b" nodeBID="c2fff0f5-b78f-4679-a84e-2d4d871c723b" edgeID="1b816354-6d1b-420c-a0c8-d7812f16af67"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="1114dd0f-4512-4d87-9afe-62074f79ae41" nodeAID="064a7c84-59a3-4277-bc8b-3585b7269fe0" nodeBID="c2fff0f5-b78f-4679-a84e-2d4d871c723b" edgeID="547d1195-eca4-443d-b4c8-d521b97e8364" fromRegionID="7a214b39-8592-404e-8550-08d3a51a8533"/>
+</graphdelta:DeltaSequence>

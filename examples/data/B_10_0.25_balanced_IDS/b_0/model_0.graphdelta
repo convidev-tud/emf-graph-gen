@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="6357563e-e09e-4bef-816c-5c872731649b" nodeID="0a45eed3-401c-4126-8df8-6da031e3250c" newLabel="GREEN" oldLabel="ORANGE"/>
+</graphdelta:DeltaSequence>

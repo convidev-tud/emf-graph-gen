@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="478dcbe7-f50f-433e-ae92-9fcd54c80a29" nodeName="N14" fromRegion="R3" label="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="16d1e7f7-dfc6-4d1c-bd90-ed25905d3ec8" nodeName="N49" fromRegion="R3" label="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="8ef79176-7290-49f8-9120-6249be44476d" nodeName="N4" fromRegion="R3" label="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="081f4e49-a5d3-4b7b-8b65-175624c5d2d1" nodeName="N19" fromRegion="R3" label="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="59d1ec07-9822-444e-bd64-6e5dd658853c" nodeA="N44" nodeB="N69" toRegion="R3"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="d6683cdd-0ff1-4a1e-9a25-3dfc97a7edc0" nodeName="SN_6a5f4175-55e5-4127-899f-43ab0cfab694" toRegion="R3"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="0b90f0e9-30c1-4bea-abe7-7f1978f6b19d" nodeName="N73" newLabel="GREEN" oldLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="fd7f5a7a-c56f-4e75-a1ab-52f135e55bbe" nodeName="RE_77c85ac7-e615-4bba-a428-9000f643f187" nodeType="REGION" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="baaedfdf-7cc9-4d90-9801-b5ad9944a806" nodeName="N3" newLabel="ORANGE" oldLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="9bc4a58e-1d49-43a2-93f3-1e0f28b3c7a5" nodeName="N28" fromRegion="R2" label="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="1442ff35-debe-4ef5-ab07-0d29758a4618" nodeName="SN_02426282-0159-4fcf-87cb-c288857e3e66" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="c1afb5ce-8f36-4433-84ef-459462e9a8d2" nodeA="N34" nodeB="N24" fromRegion="R3"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="a5d9d2f1-fff5-4d1d-af04-2b058e341c09" nodeName="SN_6a5f4175-55e5-4127-899f-43ab0cfab694" newLabel="BLUE" oldLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="216fd6d5-6681-4503-8902-ff21f3998493" nodeName="N39" fromRegion="R3" label="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="331e2616-4d59-4ad3-a4f6-b521a390cfe6" nodeName="N59" newLabel="GREEN" oldLabel="BLUE"/>
+</graphdelta:DeltaSequence>

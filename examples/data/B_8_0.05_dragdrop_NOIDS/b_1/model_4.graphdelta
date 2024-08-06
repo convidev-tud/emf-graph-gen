@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="1bc9d976-7159-49cb-9e40-8f5ebf624a7f" nodeName="N73" targetRegion="R1" oldRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="7cc8722b-2fa8-451b-a230-7f09b5d3398f" nodeName="RE_85a0783d-8272-41bd-ab8c-843a5ef31c75" nodeType="REGION" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="e004fe86-e855-4c59-996f-3dc206d3d243" nodeName="SN_1db011b7-d514-4c2c-ab46-7e2bcd41736d" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="f321bd6a-5521-4687-9840-46e0763f7d3b" nodeName="SN_396e1239-4a74-491f-b28a-cfe770d0581c" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="8d374807-1ac1-4e4b-8969-28218c6f6a1b" nodeName="N3" targetRegion="R1" oldRegion="R2">
+    <edgeImplications id="62a99046-ab0e-445e-a146-26ec077b9961" oldRegion="R2" newRegion="R1" nodeA="N3" nodeB="N8"/>
+    <edgeImplications id="f6c172f1-a78e-43fb-949b-3571dd8c3c4c" oldRegion="R2" newRegion="R1" nodeA="N3" nodeB="N43"/>
+    <edgeImplications id="08e1ea7e-9867-4c76-940b-de91cc92075c" oldRegion="R2" newRegion="R1" nodeA="N3" nodeB="N63"/>
+    <edgeImplications id="b0e285f2-f102-40e0-836e-512553575fe1" oldRegion="R2" newRegion="R1" nodeA="N3" nodeB="N63"/>
+  </deltaOperations>
+</graphdelta:DeltaSequence>

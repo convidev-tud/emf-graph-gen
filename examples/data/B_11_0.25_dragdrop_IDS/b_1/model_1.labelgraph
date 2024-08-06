@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<labelgraph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:labelgraph="http://st.tud.de/labelgraph" id="root">
+  <nodes xsi:type="labelgraph:SimpleNode" name="N0" id="b5000a21-4dae-4fa9-b10c-acc951cc8f3a" label="GREEN"/>
+  <nodes xsi:type="labelgraph:SimpleNode" name="N21" id="8467ce85-c040-4bc3-901c-f04eeeb701ec" label="ORANGE"/>
+  <nodes xsi:type="labelgraph:SimpleNode" name="N42" id="3b9cba5f-7b88-4d5c-b360-19889fc181d1" label="GREEN"/>
+  <nodes xsi:type="labelgraph:Region" name="R0" id="6b763bce-c73f-438b-80ca-1326c87d5a4c">
+    <graph id="817469f1-0bd1-474b-8eaf-4510a9487469">
+      <nodes xsi:type="labelgraph:SimpleNode" name="N1" id="36c129b8-5881-4182-b052-3cb1b8c1466e" label="ORANGE"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N22" id="03ab8a57-bda3-4ed7-a833-867adf049be9"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N43" id="b3420086-299a-4fec-b673-de5c6e4e1449" label="ORANGE"/>
+      <nodes xsi:type="labelgraph:Region" name="R1" id="dbe744d8-9c64-46ea-9a27-8e0b4f0353a9">
+        <graph id="1a343632-21aa-41e0-9dd0-bc7e49ab8d88">
+          <nodes xsi:type="labelgraph:SimpleNode" name="N2" id="60fde5e5-b094-4cc7-a933-98a52fab7018"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N23" id="2011d0e1-6ecd-47c6-ade6-6e1e59a60073"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N44" id="b6f0bb4f-7573-408a-99c4-e88319d369b2" label="ORANGE"/>
+          <nodes xsi:type="labelgraph:Region" name="R2" id="f80e5bc2-059e-4771-956d-5182c2e97227">
+            <graph id="c96699f8-4663-44a8-b581-ddf4ea5c92f5">
+              <nodes xsi:type="labelgraph:SimpleNode" name="N3" id="8b3ed275-32ed-432b-b852-873e0e89828f" label="GREEN"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N24" id="f4e50c7b-d0f2-4997-a6f8-badb9d5159f0"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N45" id="44c1ec02-532f-4de3-bfe6-13d09d3650ec" label="GREEN"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N31" id="970027ee-a2ee-4d97-ad76-17df1fce0907" label="ORANGE"/>
+              <edges nodes="8b3ed275-32ed-432b-b852-873e0e89828f f4e50c7b-d0f2-4997-a6f8-badb9d5159f0" id="cb0ea2d8-7431-4236-9604-c9d9926fb10f"/>
+              <edges nodes="8b3ed275-32ed-432b-b852-873e0e89828f 44c1ec02-532f-4de3-bfe6-13d09d3650ec" id="2cb39a3a-f5d3-4aee-a66c-ffea0796697b"/>
+              <edges nodes="44c1ec02-532f-4de3-bfe6-13d09d3650ec 44c1ec02-532f-4de3-bfe6-13d09d3650ec" id="2cf81b32-38fe-49f2-b61c-7a138e2ff529"/>
+              <edges nodes="8b3ed275-32ed-432b-b852-873e0e89828f 8b3ed275-32ed-432b-b852-873e0e89828f" id="0f6bec35-06f2-48bb-9faa-4a3b93b06be7"/>
+              <edges nodes="8b3ed275-32ed-432b-b852-873e0e89828f 8b3ed275-32ed-432b-b852-873e0e89828f" id="9dbacb97-d66a-4bad-ae49-1cf294fc39ae"/>
+              <edges nodes="f4e50c7b-d0f2-4997-a6f8-badb9d5159f0 44c1ec02-532f-4de3-bfe6-13d09d3650ec" id="3a3bfeee-5ce6-47d9-99c9-a436f275d096"/>
+              <edges nodes="970027ee-a2ee-4d97-ad76-17df1fce0907 202bc5db-5946-41ba-bc06-2944e7127f6f" id="97e6ea58-8886-4bd3-9f33-f834a55f2599"/>
+            </graph>
+          </nodes>
+          <nodes xsi:type="labelgraph:Region" name="R14" id="5ae91780-96ca-4d91-9b99-8e4221b22871">
+            <graph id="92776ae6-375c-4472-a0c6-c0d2a669e1ab">
+              <nodes xsi:type="labelgraph:SimpleNode" name="N15" id="b552d9c3-7f03-4911-963a-a055b7d45df0"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N36" id="56685a2c-64cd-4d52-9a7a-20578bdfdf71" label="ORANGE"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N57" id="937fa33c-73c7-4c72-976f-cbce66d037c2"/>
+              <edges nodes="b552d9c3-7f03-4911-963a-a055b7d45df0 56685a2c-64cd-4d52-9a7a-20578bdfdf71" id="10a328e4-19e5-409d-9667-674c2489b8b5"/>
+              <edges nodes="56685a2c-64cd-4d52-9a7a-20578bdfdf71 937fa33c-73c7-4c72-976f-cbce66d037c2" id="91424209-9083-417b-8dcb-9d80410e5189"/>
+              <edges nodes="b552d9c3-7f03-4911-963a-a055b7d45df0 b552d9c3-7f03-4911-963a-a055b7d45df0" id="885fa88b-ed3e-4981-bf2e-6851260d2486"/>
+              <edges nodes="56685a2c-64cd-4d52-9a7a-20578bdfdf71 b552d9c3-7f03-4911-963a-a055b7d45df0" id="c79143ca-4738-4765-9964-10382cf76afc"/>
+              <edges nodes="937fa33c-73c7-4c72-976f-cbce66d037c2 b552d9c3-7f03-4911-963a-a055b7d45df0" id="b437079b-7976-4d43-856e-1fb6c8fb6b62"/>
+              <edges nodes="56685a2c-64cd-4d52-9a7a-20578bdfdf71 937fa33c-73c7-4c72-976f-cbce66d037c2" id="5d7a9c84-b5ee-4c14-9f61-6c2595394aa4"/>
+            </graph>
+          </nodes>
+          <edges nodes="60fde5e5-b094-4cc7-a933-98a52fab7018 2011d0e1-6ecd-47c6-ade6-6e1e59a60073" id="25307b10-5473-4552-a638-36417a3ec004"/>
+          <edges nodes="60fde5e5-b094-4cc7-a933-98a52fab7018 b6f0bb4f-7573-408a-99c4-e88319d369b2" id="cc1ef68d-d39c-4265-ac8a-5e518b766130"/>
+          <edges nodes="2011d0e1-6ecd-47c6-ade6-6e1e59a60073 f80e5bc2-059e-4771-956d-5182c2e97227" id="029ffe8c-005a-43ce-94f6-6b7d65b05a06"/>
+          <edges nodes="f80e5bc2-059e-4771-956d-5182c2e97227 5ae91780-96ca-4d91-9b99-8e4221b22871" id="59ead32e-2b89-4e18-b82b-ec79971be0cd"/>
+          <edges nodes="60fde5e5-b094-4cc7-a933-98a52fab7018 2011d0e1-6ecd-47c6-ade6-6e1e59a60073" id="748b80d8-a224-4eb6-a57d-46fd4161957f"/>
+          <edges nodes="b6f0bb4f-7573-408a-99c4-e88319d369b2 60fde5e5-b094-4cc7-a933-98a52fab7018" id="7b29cdde-ec6a-4c7d-a218-5893b1603e06"/>
+          <edges nodes="60fde5e5-b094-4cc7-a933-98a52fab7018 60fde5e5-b094-4cc7-a933-98a52fab7018" id="d354f5ef-1376-4f24-be87-fb3b7130876a"/>
+          <edges nodes="2011d0e1-6ecd-47c6-ade6-6e1e59a60073 2011d0e1-6ecd-47c6-ade6-6e1e59a60073" id="06364fc9-7a25-4b67-9cb6-ab4b45122f51"/>
+        </graph>
+      </nodes>
+      <nodes xsi:type="labelgraph:Region" name="R7" id="d4a0be18-c39d-462a-a021-456808e6f791">
+        <graph id="67811f28-8426-4bba-b802-3baf5d370fe3">
+          <nodes xsi:type="labelgraph:SimpleNode" name="N8" id="15e82714-5da3-4075-997e-4a4bafa15778" label="BLUE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N29" id="5c1951ef-326f-4bfe-9f6e-f64ae02266c1" label="GREEN"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N50" id="851c6490-abaf-498b-82bb-f7476e927d4b" label="BLUE"/>
+          <nodes xsi:type="labelgraph:Region" name="R8" id="a372bdb0-73a6-489f-b28b-3a4859fbc94c">
+            <graph id="8b8e85c9-1cb4-4e05-bf77-b1038f0ce162">
+              <nodes xsi:type="labelgraph:SimpleNode" name="N9" id="9029f392-1439-409c-8e56-19109467a304" label="GREEN"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N30" id="de7d7216-60b8-4cde-80a3-b7f1ffae1afd" label="GREEN"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N51" id="384a7b02-f59c-4468-b027-a254f951bd96" label="BLUE"/>
+              <nodes xsi:type="labelgraph:Region" name="R11" id="1ff72794-7e66-4ac4-b130-db45e1bed6ef">
+                <graph id="ed9db2c7-068c-48cb-a5c8-19f692bf66c0">
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N12" id="8518fa73-3555-4c9f-8396-8695e55f1bb6" label="BLUE"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N33" id="e6416122-9b58-4ccf-8290-8ed91f36b6b5"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N54" id="469d54b7-019f-4d07-8487-663f6934e075" label="GREEN"/>
+                  <edges nodes="8518fa73-3555-4c9f-8396-8695e55f1bb6 e6416122-9b58-4ccf-8290-8ed91f36b6b5" id="117a3839-cc58-4085-8bff-a368579de026"/>
+                  <edges nodes="e6416122-9b58-4ccf-8290-8ed91f36b6b5 469d54b7-019f-4d07-8487-663f6934e075" id="57ff666d-2c6b-4b32-87ac-7341fd2f928b"/>
+                  <edges nodes="8518fa73-3555-4c9f-8396-8695e55f1bb6 469d54b7-019f-4d07-8487-663f6934e075" id="1f353ed1-6f4c-46c7-bca7-c65b6fd7963a"/>
+                  <edges nodes="8518fa73-3555-4c9f-8396-8695e55f1bb6 469d54b7-019f-4d07-8487-663f6934e075" id="ab8628aa-f380-45a0-a82d-469c75903248"/>
+                  <edges nodes="e6416122-9b58-4ccf-8290-8ed91f36b6b5 8518fa73-3555-4c9f-8396-8695e55f1bb6" id="3f35f3c7-3046-47ae-be35-f8185ffb91fd"/>
+                  <edges nodes="8518fa73-3555-4c9f-8396-8695e55f1bb6 469d54b7-019f-4d07-8487-663f6934e075" id="8f51a723-c305-4159-9e82-f1e933f55109"/>
+                  <edges nodes="8518fa73-3555-4c9f-8396-8695e55f1bb6 469d54b7-019f-4d07-8487-663f6934e075" id="1caf3368-f7c2-4653-b2f8-8665e49ec1a9"/>
+                </graph>
+              </nodes>
+              <edges nodes="9029f392-1439-409c-8e56-19109467a304 de7d7216-60b8-4cde-80a3-b7f1ffae1afd" id="10260da1-9d33-4e13-8716-efb0f7e37ff5"/>
+              <edges nodes="de7d7216-60b8-4cde-80a3-b7f1ffae1afd 384a7b02-f59c-4468-b027-a254f951bd96" id="5347cec0-617b-40a1-b1bb-2a3b75f4b890"/>
+              <edges nodes="9029f392-1439-409c-8e56-19109467a304 1ff72794-7e66-4ac4-b130-db45e1bed6ef" id="bea8cbd5-3953-4da2-95b8-3b1730e0c16d"/>
+              <edges nodes="de7d7216-60b8-4cde-80a3-b7f1ffae1afd 384a7b02-f59c-4468-b027-a254f951bd96" id="3984673b-39a2-442a-939a-ce27ea0336c6"/>
+              <edges nodes="9029f392-1439-409c-8e56-19109467a304 384a7b02-f59c-4468-b027-a254f951bd96" id="a51cc7f3-c4e0-4a90-8463-8169a16f7edd"/>
+            </graph>
+          </nodes>
+          <edges nodes="15e82714-5da3-4075-997e-4a4bafa15778 5c1951ef-326f-4bfe-9f6e-f64ae02266c1" id="b3eac4b7-c45b-46cc-8afe-d4074bb151fd"/>
+          <edges nodes="5c1951ef-326f-4bfe-9f6e-f64ae02266c1 851c6490-abaf-498b-82bb-f7476e927d4b" id="69f63c06-b4b4-4c0b-9060-914c9d94b122"/>
+          <edges nodes="851c6490-abaf-498b-82bb-f7476e927d4b a372bdb0-73a6-489f-b28b-3a4859fbc94c" id="9b2bb98a-1ad7-4ad8-9f02-9ce31b8061e9"/>
+          <edges nodes="a372bdb0-73a6-489f-b28b-3a4859fbc94c 5c1951ef-326f-4bfe-9f6e-f64ae02266c1" id="372c7ddf-6392-4158-8e66-1b3420dd74f6"/>
+          <edges nodes="851c6490-abaf-498b-82bb-f7476e927d4b 5c1951ef-326f-4bfe-9f6e-f64ae02266c1" id="f6f8d1e8-2d9f-4d35-b5a0-8bba37920868"/>
+          <edges nodes="5c1951ef-326f-4bfe-9f6e-f64ae02266c1 851c6490-abaf-498b-82bb-f7476e927d4b" id="b38a58eb-3a2d-46fd-ab0c-3f71a5b85c61"/>
+          <edges nodes="5c1951ef-326f-4bfe-9f6e-f64ae02266c1 5c1951ef-326f-4bfe-9f6e-f64ae02266c1" id="190689e3-6404-4a27-9513-be65dd069911"/>
+        </graph>
+      </nodes>
+      <nodes xsi:type="labelgraph:Region" name="R10" id="2748cc10-e413-4be1-9e18-a661cce8451b">
+        <graph id="634eaf4c-61d0-415b-bbf3-91881178aed9">
+          <nodes xsi:type="labelgraph:SimpleNode" name="N11" id="355af527-cc87-47a1-b7ae-b6b6fd4ad26c"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N32" id="d886f79a-49da-46ae-a20c-36ddb04f9f08"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N53" id="f3fe7a93-5431-4939-953e-b1b8191d49ea" label="ORANGE"/>
+          <nodes xsi:type="labelgraph:Region" name="R12" id="987be7d6-0fd1-4e53-90ea-ed953a705096">
+            <graph id="2d8e9c18-83f7-4381-a7ce-1608f2b464d9">
+              <nodes xsi:type="labelgraph:SimpleNode" name="N13" id="8b097270-ce9c-4c29-9ae0-51e6fbcd8ee1"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N34" id="da4e8f02-33c1-452c-ad41-39f22cdee425" label="BLUE"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N55" id="b1cfb9b7-fc98-4717-8266-8acbfde0bbfc" label="GREEN"/>
+              <nodes xsi:type="labelgraph:Region" name="R13" id="a2ddf442-bbbe-430c-ba50-eb4a0812f3ae">
+                <graph id="5ffc2cf5-f8dd-4fed-977a-67aa8cf646c7">
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N14" id="afe73a8a-5dc4-436a-8923-76fd723a939d" label="GREEN"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N35" id="0025d3fa-b5ac-4ac1-92be-a3717342e60b"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N56" id="def3e85c-4a9b-416f-9781-1c298d1e5516"/>
+                  <edges nodes="afe73a8a-5dc4-436a-8923-76fd723a939d 0025d3fa-b5ac-4ac1-92be-a3717342e60b" id="122d67e7-b9cf-45af-b322-0256a971ec82"/>
+                  <edges nodes="afe73a8a-5dc4-436a-8923-76fd723a939d def3e85c-4a9b-416f-9781-1c298d1e5516" id="7896335d-3ba5-4f33-90c2-6a8cf0f7dde1"/>
+                  <edges nodes="0025d3fa-b5ac-4ac1-92be-a3717342e60b 0025d3fa-b5ac-4ac1-92be-a3717342e60b" id="54477d75-76d6-4d95-a9a6-f8a6eb131389"/>
+                  <edges nodes="afe73a8a-5dc4-436a-8923-76fd723a939d afe73a8a-5dc4-436a-8923-76fd723a939d" id="bf203418-4745-4f11-beea-fd4d2d9e33b7"/>
+                  <edges nodes="afe73a8a-5dc4-436a-8923-76fd723a939d afe73a8a-5dc4-436a-8923-76fd723a939d" id="dc806aec-9559-40e1-bd13-e879c4df7699"/>
+                  <edges nodes="afe73a8a-5dc4-436a-8923-76fd723a939d afe73a8a-5dc4-436a-8923-76fd723a939d" id="6e560be1-0010-4907-bac1-9dedb2d3af3a"/>
+                  <edges nodes="def3e85c-4a9b-416f-9781-1c298d1e5516 def3e85c-4a9b-416f-9781-1c298d1e5516" id="e06a9d10-94c0-47e6-9709-f8321c6ee796"/>
+                  <edges nodes="afe73a8a-5dc4-436a-8923-76fd723a939d def3e85c-4a9b-416f-9781-1c298d1e5516" id="887618b4-a473-43f9-a3c8-62302f5e95d3"/>
+                  <edges nodes="afe73a8a-5dc4-436a-8923-76fd723a939d 0025d3fa-b5ac-4ac1-92be-a3717342e60b" id="63afad97-429e-455f-b8b8-c013887005f5"/>
+                </graph>
+              </nodes>
+              <nodes xsi:type="labelgraph:Region" name="R19" id="c72812d5-35e9-45af-bc30-5422bd31e919">
+                <graph id="a8f1a248-a480-46b7-8c10-c322f8a27a91">
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N20" id="4adc8b30-3bc7-4953-9bb2-50bc7f231feb"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N41" id="68ed6fb1-8465-4a7b-8e6b-426d39baf893" label="GREEN"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N62" id="baebd021-7bef-408f-b80b-71f628293d3f" label="BLUE"/>
+                  <edges nodes="4adc8b30-3bc7-4953-9bb2-50bc7f231feb 68ed6fb1-8465-4a7b-8e6b-426d39baf893" id="0ded5185-d55a-4835-aa61-6d4257ef141b"/>
+                  <edges nodes="68ed6fb1-8465-4a7b-8e6b-426d39baf893 baebd021-7bef-408f-b80b-71f628293d3f" id="2a8aaf18-d521-420b-8f67-88ea5b80b889"/>
+                  <edges nodes="68ed6fb1-8465-4a7b-8e6b-426d39baf893 937fa33c-73c7-4c72-976f-cbce66d037c2" id="223e1bae-ca44-4e55-8e93-6e0ca8d955b0"/>
+                  <edges nodes="4adc8b30-3bc7-4953-9bb2-50bc7f231feb 68ed6fb1-8465-4a7b-8e6b-426d39baf893" id="345c7364-f63c-4531-81a3-c9c4c107f1cb"/>
+                  <edges nodes="baebd021-7bef-408f-b80b-71f628293d3f 68ed6fb1-8465-4a7b-8e6b-426d39baf893" id="38cfabcb-3432-4bb2-80aa-16c567bd2183"/>
+                  <edges nodes="68ed6fb1-8465-4a7b-8e6b-426d39baf893 4adc8b30-3bc7-4953-9bb2-50bc7f231feb" id="36a7cb39-d121-4aa2-8d49-f9575c9452a2"/>
+                  <edges nodes="baebd021-7bef-408f-b80b-71f628293d3f 4adc8b30-3bc7-4953-9bb2-50bc7f231feb" id="bb1b9a16-97c0-4e95-aada-8708f46409d3"/>
+                </graph>
+              </nodes>
+              <edges nodes="8b097270-ce9c-4c29-9ae0-51e6fbcd8ee1 da4e8f02-33c1-452c-ad41-39f22cdee425" id="77d591a4-abdd-4e58-b429-b74f010d7afb"/>
+              <edges nodes="da4e8f02-33c1-452c-ad41-39f22cdee425 b1cfb9b7-fc98-4717-8266-8acbfde0bbfc" id="133067a6-7e21-4119-99de-b8ba1dee6191"/>
+              <edges nodes="b1cfb9b7-fc98-4717-8266-8acbfde0bbfc a2ddf442-bbbe-430c-ba50-eb4a0812f3ae" id="424b71f2-8dec-4a0f-8c0b-134f7456a509"/>
+              <edges nodes="a2ddf442-bbbe-430c-ba50-eb4a0812f3ae c72812d5-35e9-45af-bc30-5422bd31e919" id="890ff8ba-15c3-465f-b8c5-c79ff809bd3c"/>
+              <edges nodes="b1cfb9b7-fc98-4717-8266-8acbfde0bbfc a2ddf442-bbbe-430c-ba50-eb4a0812f3ae" id="61413f47-a0f5-4df3-b41a-b9ce627c0b67"/>
+              <edges nodes="c72812d5-35e9-45af-bc30-5422bd31e919 c72812d5-35e9-45af-bc30-5422bd31e919" id="b11e9182-fec5-4950-b6f9-eb0dc8cea22a"/>
+              <edges nodes="a2ddf442-bbbe-430c-ba50-eb4a0812f3ae c72812d5-35e9-45af-bc30-5422bd31e919" id="c4c5d8d7-6c16-4b19-a4c3-296d348f0cf4"/>
+            </graph>
+          </nodes>
+          <edges nodes="355af527-cc87-47a1-b7ae-b6b6fd4ad26c d886f79a-49da-46ae-a20c-36ddb04f9f08" id="5e5e4d5c-653e-410c-ad3e-c933a4433592"/>
+          <edges nodes="d886f79a-49da-46ae-a20c-36ddb04f9f08 f3fe7a93-5431-4939-953e-b1b8191d49ea" id="5f5bca18-7c48-4943-b7e1-0ec7ff07ef1b"/>
+          <edges nodes="f3fe7a93-5431-4939-953e-b1b8191d49ea 987be7d6-0fd1-4e53-90ea-ed953a705096" id="ccbdbe33-9aed-44c9-a092-6f9f985883f8"/>
+          <edges nodes="355af527-cc87-47a1-b7ae-b6b6fd4ad26c 5c1951ef-326f-4bfe-9f6e-f64ae02266c1" id="cc5be8c0-674c-45e6-bdae-d3753ed2b5a5"/>
+          <edges nodes="f3fe7a93-5431-4939-953e-b1b8191d49ea 355af527-cc87-47a1-b7ae-b6b6fd4ad26c" id="1e00e6cd-e85c-4074-ad62-4bcbcca6bb97"/>
+          <edges nodes="355af527-cc87-47a1-b7ae-b6b6fd4ad26c f3fe7a93-5431-4939-953e-b1b8191d49ea" id="8aa9d711-7020-4488-89b9-e8d7b548b735"/>
+        </graph>
+      </nodes>
+      <edges nodes="36c129b8-5881-4182-b052-3cb1b8c1466e 03ab8a57-bda3-4ed7-a833-867adf049be9" id="69604d23-fd14-45f5-9d78-d490b06b3df1"/>
+      <edges nodes="36c129b8-5881-4182-b052-3cb1b8c1466e b3420086-299a-4fec-b673-de5c6e4e1449" id="02cc943b-0272-4f8b-975a-6e987e3d9332"/>
+      <edges nodes="b3420086-299a-4fec-b673-de5c6e4e1449 dbe744d8-9c64-46ea-9a27-8e0b4f0353a9" id="7b1b660a-88e6-4036-9813-14cb96541031"/>
+      <edges nodes="dbe744d8-9c64-46ea-9a27-8e0b4f0353a9 d4a0be18-c39d-462a-a021-456808e6f791" id="a0cee6a6-b07c-4a28-84b5-73a437dfbb5a"/>
+      <edges nodes="36c129b8-5881-4182-b052-3cb1b8c1466e 2748cc10-e413-4be1-9e18-a661cce8451b" id="e9815c69-1d06-4612-89c0-55175edc3c02"/>
+      <edges nodes="dbe744d8-9c64-46ea-9a27-8e0b4f0353a9 b6f0bb4f-7573-408a-99c4-e88319d369b2" id="598a5928-eb8c-4aac-998b-fcdac78796bc"/>
+      <edges nodes="03ab8a57-bda3-4ed7-a833-867adf049be9 03ab8a57-bda3-4ed7-a833-867adf049be9" id="72f7ae33-cd20-4927-8124-ecb553117744"/>
+      <edges nodes="d4a0be18-c39d-462a-a021-456808e6f791 03ab8a57-bda3-4ed7-a833-867adf049be9" id="cb9b2c51-c291-410d-9edb-c6d3a4d4ed14"/>
+      <edges nodes="03ab8a57-bda3-4ed7-a833-867adf049be9 2748cc10-e413-4be1-9e18-a661cce8451b" id="b71255e0-1db0-4b77-9750-7570254b90c9"/>
+      <edges nodes="b3420086-299a-4fec-b673-de5c6e4e1449 36c129b8-5881-4182-b052-3cb1b8c1466e" id="c30cb63a-2f7c-457b-9f0c-b3954d3a7383"/>
+      <edges nodes="b3420086-299a-4fec-b673-de5c6e4e1449 d4a0be18-c39d-462a-a021-456808e6f791" id="02e53282-3ea8-4f28-bef4-00fb12562665"/>
+      <edges nodes="2748cc10-e413-4be1-9e18-a661cce8451b b3420086-299a-4fec-b673-de5c6e4e1449" id="f480f8c7-5437-4bf1-aa20-d8cf63d9d607"/>
+      <edges nodes="dbe744d8-9c64-46ea-9a27-8e0b4f0353a9 d4a0be18-c39d-462a-a021-456808e6f791" id="5397e6a0-a609-41e0-a6fe-57d2c20423cd"/>
+      <edges nodes="dbe744d8-9c64-46ea-9a27-8e0b4f0353a9 dbe744d8-9c64-46ea-9a27-8e0b4f0353a9" id="73526038-3573-46c9-8f50-e4e6178ea268"/>
+      <edges nodes="b3420086-299a-4fec-b673-de5c6e4e1449 b3420086-299a-4fec-b673-de5c6e4e1449" id="daaf37c1-44db-4cbd-9a21-31046c45a41a"/>
+    </graph>
+  </nodes>
+  <nodes xsi:type="labelgraph:Region" name="R3" id="949c18a8-010f-4860-b7fe-c7f0ed22accc">
+    <graph id="4882a19b-afe4-4aad-a8ea-c2d4b71ddf20">
+      <nodes xsi:type="labelgraph:SimpleNode" name="N4" id="4581bfce-a7c6-4d04-91e4-9231ba44eef3" label="GREEN"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N25" id="c0c5ce93-c821-43ec-853d-58e132901044" label="GREEN"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N46" id="a33e90b0-5172-4d9f-a12d-9dc0e142b32e" label="BLUE"/>
+      <nodes xsi:type="labelgraph:Region" name="R5" id="9b66c8b9-2db2-4d67-ae78-6f97df5e7615">
+        <graph id="d9ae5757-59db-4860-a338-8daddd2d87f9">
+          <nodes xsi:type="labelgraph:SimpleNode" name="N6" id="bfcdfcf1-de8e-43e8-b5c7-0933fc3b524e" label="ORANGE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N27" id="192af8fa-e6bc-4038-8f9e-19750ab1ab64"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N48" id="c486c32c-b868-4824-8463-f823e90cbf2e" label="ORANGE"/>
+          <nodes xsi:type="labelgraph:Region" name="R17" id="fe6cce0a-8a1e-48fd-ab61-81dd23e8fe26">
+            <graph id="9a761b04-03f1-4b4e-bb3c-c991a885ffb4">
+              <nodes xsi:type="labelgraph:SimpleNode" name="N18" id="64703a27-1815-41a6-a273-5f180f2572bf" label="BLUE"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N39" id="59331faa-ef73-498a-9411-78926ee4c1da"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N60" id="cdaf24d5-73e9-466c-8c5c-f1492b49be2c" label="ORANGE"/>
+              <edges nodes="64703a27-1815-41a6-a273-5f180f2572bf 59331faa-ef73-498a-9411-78926ee4c1da" id="d53bfdaf-c300-4eeb-9e6b-f27a0fba100b"/>
+              <edges nodes="64703a27-1815-41a6-a273-5f180f2572bf cdaf24d5-73e9-466c-8c5c-f1492b49be2c" id="7f22741a-33c9-4680-ba14-1db84a8074db"/>
+              <edges nodes="cdaf24d5-73e9-466c-8c5c-f1492b49be2c 64703a27-1815-41a6-a273-5f180f2572bf" id="f77320c9-1a6f-4164-adad-ab547d7cffac"/>
+              <edges nodes="59331faa-ef73-498a-9411-78926ee4c1da cdaf24d5-73e9-466c-8c5c-f1492b49be2c" id="e91b765c-d389-437c-9271-b6672050c39e"/>
+              <edges nodes="cdaf24d5-73e9-466c-8c5c-f1492b49be2c cdaf24d5-73e9-466c-8c5c-f1492b49be2c" id="ac2af90c-cd89-4c43-9d80-b5d53a1f881b"/>
+              <edges nodes="cdaf24d5-73e9-466c-8c5c-f1492b49be2c 64703a27-1815-41a6-a273-5f180f2572bf" id="ccd3c29a-bb3c-4128-b315-3079f32618b5"/>
+            </graph>
+          </nodes>
+          <edges nodes="bfcdfcf1-de8e-43e8-b5c7-0933fc3b524e 192af8fa-e6bc-4038-8f9e-19750ab1ab64" id="1bef524a-427e-4cbb-b193-8e6bba0fb4c7"/>
+          <edges nodes="192af8fa-e6bc-4038-8f9e-19750ab1ab64 c486c32c-b868-4824-8463-f823e90cbf2e" id="c046086d-37ef-48c3-ac5b-427a444b77bd"/>
+          <edges nodes="192af8fa-e6bc-4038-8f9e-19750ab1ab64 fe6cce0a-8a1e-48fd-ab61-81dd23e8fe26" id="93cbac73-88f7-4183-b389-249847a805b6"/>
+          <edges nodes="bfcdfcf1-de8e-43e8-b5c7-0933fc3b524e 192af8fa-e6bc-4038-8f9e-19750ab1ab64" id="ce09a06e-0184-4af0-9995-1a81c0f7f5f9"/>
+          <edges nodes="c486c32c-b868-4824-8463-f823e90cbf2e fe6cce0a-8a1e-48fd-ab61-81dd23e8fe26" id="0a30ec4e-3602-4d09-ae25-37e3fbce80a7"/>
+          <edges nodes="fe6cce0a-8a1e-48fd-ab61-81dd23e8fe26 bfcdfcf1-de8e-43e8-b5c7-0933fc3b524e" id="35379b88-3985-4023-bf77-370bafbebb92"/>
+          <edges nodes="c486c32c-b868-4824-8463-f823e90cbf2e bfcdfcf1-de8e-43e8-b5c7-0933fc3b524e" id="1b9945e7-5765-4b28-abdf-840574156c32"/>
+          <edges nodes="bfcdfcf1-de8e-43e8-b5c7-0933fc3b524e bfcdfcf1-de8e-43e8-b5c7-0933fc3b524e" id="61a375d4-f801-45e5-8b09-f4641b33d7aa"/>
+        </graph>
+      </nodes>
+      <nodes xsi:type="labelgraph:Region" name="R6" id="62858489-71b0-4cde-a6df-4073dccfc9fe">
+        <graph id="5a536a78-9b33-4102-9f9d-44aee4dd2a17">
+          <nodes xsi:type="labelgraph:SimpleNode" name="N7" id="6640f40c-d56b-4a76-a5df-9c1fc45357cb"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N28" id="e046201a-e711-4274-8624-269e454ec4f9"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N49" id="c57f523e-c071-4350-8889-1e3812f26382" label="GREEN"/>
+          <edges nodes="6640f40c-d56b-4a76-a5df-9c1fc45357cb e046201a-e711-4274-8624-269e454ec4f9" id="6572e3c0-cd40-45af-8695-2f264cc1f358"/>
+          <edges nodes="6640f40c-d56b-4a76-a5df-9c1fc45357cb c57f523e-c071-4350-8889-1e3812f26382" id="6147bbe7-72a4-4957-8760-dcbb131ab3e8"/>
+          <edges nodes="6640f40c-d56b-4a76-a5df-9c1fc45357cb 1841fd5a-d1f4-4081-bdca-4c04b857407c" id="88b33f91-62c2-4761-8d33-bc2882eab719"/>
+          <edges nodes="e046201a-e711-4274-8624-269e454ec4f9 e046201a-e711-4274-8624-269e454ec4f9" id="8f65dae5-d7bd-43b2-9b92-a9fe09355c0b"/>
+          <edges nodes="e046201a-e711-4274-8624-269e454ec4f9 c57f523e-c071-4350-8889-1e3812f26382" id="8355a1c7-5c57-4a08-8dc1-b87a1d2a6062"/>
+          <edges nodes="c57f523e-c071-4350-8889-1e3812f26382 c57f523e-c071-4350-8889-1e3812f26382" id="a7807404-f82f-445e-a44e-177e413f3f3a"/>
+          <edges nodes="e046201a-e711-4274-8624-269e454ec4f9 6640f40c-d56b-4a76-a5df-9c1fc45357cb" id="543c7499-0d78-48d3-b288-fe86f1869e61"/>
+          <edges nodes="e046201a-e711-4274-8624-269e454ec4f9 6640f40c-d56b-4a76-a5df-9c1fc45357cb" id="4cd71d45-0bf8-46fd-b22e-ffef00023fd0"/>
+          <edges nodes="6640f40c-d56b-4a76-a5df-9c1fc45357cb 6640f40c-d56b-4a76-a5df-9c1fc45357cb" id="40eeb4ef-3b48-4289-9453-bb05445d6967"/>
+        </graph>
+      </nodes>
+      <nodes xsi:type="labelgraph:Region" name="R16" id="ccf63d78-6f0f-4524-b7e8-d3138b0aa38c">
+        <graph id="6c1a8d18-8267-4d39-be3f-e5114e7cc2d4">
+          <nodes xsi:type="labelgraph:SimpleNode" name="N17" id="7902fe80-071d-429c-8b4e-1c172136e1b8"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N38" id="a123727b-195f-44a8-b792-909069186a18" label="BLUE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N59" id="43232c9f-ea11-472b-ba35-dd1f75efddfb" label="BLUE"/>
+          <edges nodes="7902fe80-071d-429c-8b4e-1c172136e1b8 a123727b-195f-44a8-b792-909069186a18" id="ad9a818d-039f-4930-9a05-dcbb1de8a05c"/>
+          <edges nodes="a123727b-195f-44a8-b792-909069186a18 43232c9f-ea11-472b-ba35-dd1f75efddfb" id="9926685f-51f0-4b9f-bc92-69941ddadd06"/>
+          <edges nodes="43232c9f-ea11-472b-ba35-dd1f75efddfb b726bb27-352c-4d78-84f2-fd0c9ad5cfd4" id="74fac675-209e-4564-8b5d-5ead49cb009a"/>
+          <edges nodes="7902fe80-071d-429c-8b4e-1c172136e1b8 43232c9f-ea11-472b-ba35-dd1f75efddfb" id="2c16e64e-14da-482b-b03b-396a1d23d05f"/>
+          <edges nodes="7902fe80-071d-429c-8b4e-1c172136e1b8 a123727b-195f-44a8-b792-909069186a18" id="69abca5c-b703-44d4-9440-05c9baa54d1f"/>
+          <edges nodes="a123727b-195f-44a8-b792-909069186a18 a123727b-195f-44a8-b792-909069186a18" id="6f9da4fb-bed6-46b8-ad52-26eaf8aa547f"/>
+          <edges nodes="a123727b-195f-44a8-b792-909069186a18 43232c9f-ea11-472b-ba35-dd1f75efddfb" id="c6a02851-7e88-4b22-9f1f-2e21543a763f"/>
+        </graph>
+      </nodes>
+      <edges nodes="4581bfce-a7c6-4d04-91e4-9231ba44eef3 c0c5ce93-c821-43ec-853d-58e132901044" id="0fbbf579-5f1b-4668-bacb-d42eae88262b"/>
+      <edges nodes="4581bfce-a7c6-4d04-91e4-9231ba44eef3 a33e90b0-5172-4d9f-a12d-9dc0e142b32e" id="63989875-0a20-4484-9a31-3273a35b160b"/>
+      <edges nodes="c0c5ce93-c821-43ec-853d-58e132901044 9b66c8b9-2db2-4d67-ae78-6f97df5e7615" id="cd2fb25d-2826-473e-98e6-9047a5142dde"/>
+      <edges nodes="9b66c8b9-2db2-4d67-ae78-6f97df5e7615 62858489-71b0-4cde-a6df-4073dccfc9fe" id="9d3dd89d-8326-494f-881a-3e870aae3822"/>
+      <edges nodes="a33e90b0-5172-4d9f-a12d-9dc0e142b32e ccf63d78-6f0f-4524-b7e8-d3138b0aa38c" id="10c6f34d-f49f-4110-b095-f67b0270f93a"/>
+      <edges nodes="9b66c8b9-2db2-4d67-ae78-6f97df5e7615 bfcdfcf1-de8e-43e8-b5c7-0933fc3b524e" id="6372dda8-01ad-4b48-bb1b-deb470682d7b"/>
+      <edges nodes="4581bfce-a7c6-4d04-91e4-9231ba44eef3 a33e90b0-5172-4d9f-a12d-9dc0e142b32e" id="86523f4d-69cc-4ac0-873a-59224434145e"/>
+      <edges nodes="c0c5ce93-c821-43ec-853d-58e132901044 ccf63d78-6f0f-4524-b7e8-d3138b0aa38c" id="989297f4-f64e-4c27-8300-9e0339a12012"/>
+    </graph>
+  </nodes>
+  <nodes xsi:type="labelgraph:Region" name="R4" id="251bd9c9-e749-4bd7-812b-5696b80e6f6d">
+    <graph id="34abd6ff-65a0-49bb-a1a2-bffe52e4e976">
+      <nodes xsi:type="labelgraph:SimpleNode" name="N5" id="313de894-2895-4107-9484-f8d8d2299b1c"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N26" id="1823580e-f54e-4c8a-a6ec-64b88f6d4000"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N47" id="1841fd5a-d1f4-4081-bdca-4c04b857407c" label="GREEN"/>
+      <edges nodes="313de894-2895-4107-9484-f8d8d2299b1c 1823580e-f54e-4c8a-a6ec-64b88f6d4000" id="80e40917-bab2-4f50-bc59-9d65c2d53053"/>
+      <edges nodes="313de894-2895-4107-9484-f8d8d2299b1c 1841fd5a-d1f4-4081-bdca-4c04b857407c" id="49e916e2-eaa8-4858-8356-da17f081491f"/>
+      <edges nodes="313de894-2895-4107-9484-f8d8d2299b1c 1823580e-f54e-4c8a-a6ec-64b88f6d4000" id="a32f7f68-b784-44a4-998d-20ab043a08de"/>
+    </graph>
+  </nodes>
+  <nodes xsi:type="labelgraph:Region" name="R9" id="67d83058-46ea-462c-ba24-677a5440e978">
+    <graph id="21aa1dfd-61ac-4465-8973-9340ee5ae46f">
+      <nodes xsi:type="labelgraph:SimpleNode" name="N10" id="bfabdadb-be3b-45d3-bfb7-f70494ddcbc1" label="BLUE"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N52" id="5a020717-c6a1-4655-88c4-bfbb8d3061cd" label="ORANGE"/>
+      <nodes xsi:type="labelgraph:Region" name="R15" id="202bc5db-5946-41ba-bc06-2944e7127f6f">
+        <graph id="be3c26b2-6ef7-498d-8fbf-0e67ba714f90">
+          <nodes xsi:type="labelgraph:SimpleNode" name="N16" id="c2a925f7-5986-47eb-a7de-a1ab4aa61866"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N37" id="b726bb27-352c-4d78-84f2-fd0c9ad5cfd4" label="BLUE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N58" id="226a0da7-a9a9-490a-b234-c5861fc62854" label="ORANGE"/>
+          <edges nodes="c2a925f7-5986-47eb-a7de-a1ab4aa61866 b726bb27-352c-4d78-84f2-fd0c9ad5cfd4" id="3aeb720d-95ff-4c05-b0e2-1d4186536b78"/>
+          <edges nodes="c2a925f7-5986-47eb-a7de-a1ab4aa61866 226a0da7-a9a9-490a-b234-c5861fc62854" id="2d17a7fd-84d6-431e-8cae-896f2cccbdcc"/>
+          <edges nodes="b726bb27-352c-4d78-84f2-fd0c9ad5cfd4 313de894-2895-4107-9484-f8d8d2299b1c" id="67e31ded-1a10-4ad3-bd8f-c8a20d0e08f4"/>
+          <edges nodes="b726bb27-352c-4d78-84f2-fd0c9ad5cfd4 a123727b-195f-44a8-b792-909069186a18" id="7c12552f-284b-4477-a425-52ec71e2d7e7"/>
+          <edges nodes="c2a925f7-5986-47eb-a7de-a1ab4aa61866 226a0da7-a9a9-490a-b234-c5861fc62854" id="3614745b-12d3-4369-88c2-866dfd359ef3"/>
+          <edges nodes="c2a925f7-5986-47eb-a7de-a1ab4aa61866 b726bb27-352c-4d78-84f2-fd0c9ad5cfd4" id="1c6e1fbc-d874-4f55-b7ae-8171ce0f9262"/>
+          <edges nodes="c2a925f7-5986-47eb-a7de-a1ab4aa61866 b726bb27-352c-4d78-84f2-fd0c9ad5cfd4" id="69b25ed4-3839-466a-941e-2ea39549f5a5"/>
+          <edges nodes="b726bb27-352c-4d78-84f2-fd0c9ad5cfd4 c2a925f7-5986-47eb-a7de-a1ab4aa61866" id="34abd820-89f0-4bd9-8ce5-fe0b31b4ff89"/>
+          <edges nodes="b726bb27-352c-4d78-84f2-fd0c9ad5cfd4 b726bb27-352c-4d78-84f2-fd0c9ad5cfd4" id="de35ce27-8efe-4b3f-932c-8913a1ee56bb"/>
+          <edges nodes="226a0da7-a9a9-490a-b234-c5861fc62854 226a0da7-a9a9-490a-b234-c5861fc62854" id="7633916d-4d4a-4790-9bd5-c441ed80287e"/>
+        </graph>
+      </nodes>
+      <nodes xsi:type="labelgraph:Region" name="R18" id="52a1c12c-788f-4d8c-9d05-0eb308a384d8">
+        <graph id="076859c6-ec56-41cb-8531-346cc566e0fb">
+          <nodes xsi:type="labelgraph:SimpleNode" name="N19" id="084499df-0e98-42ce-b02d-cc5f84ec41b8" label="ORANGE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N40" id="24425b85-b9cc-4880-82ad-4a31a54f1338" label="GREEN"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N61" id="390cefb1-b56a-4f13-9768-2c766105b643" label="BLUE"/>
+          <edges nodes="084499df-0e98-42ce-b02d-cc5f84ec41b8 24425b85-b9cc-4880-82ad-4a31a54f1338" id="a5d96132-b518-4752-9950-3dc17e6d565a"/>
+          <edges nodes="084499df-0e98-42ce-b02d-cc5f84ec41b8 390cefb1-b56a-4f13-9768-2c766105b643" id="7099ff50-11bb-4be2-b3a7-dbccaf51e363"/>
+          <edges nodes="084499df-0e98-42ce-b02d-cc5f84ec41b8 937fa33c-73c7-4c72-976f-cbce66d037c2" id="5757a991-e58f-42f7-8a37-09dc74480dd8"/>
+          <edges nodes="390cefb1-b56a-4f13-9768-2c766105b643 cdaf24d5-73e9-466c-8c5c-f1492b49be2c" id="ee049936-893c-4592-806c-600f83d0b3b3"/>
+          <edges nodes="084499df-0e98-42ce-b02d-cc5f84ec41b8 084499df-0e98-42ce-b02d-cc5f84ec41b8" id="7e322265-1f20-432d-9432-e6c2875834a3"/>
+          <edges nodes="24425b85-b9cc-4880-82ad-4a31a54f1338 d4a0be18-c39d-462a-a021-456808e6f791" id="95d118d5-4437-4e2c-bc90-5dfc0160de42"/>
+          <edges nodes="084499df-0e98-42ce-b02d-cc5f84ec41b8 24425b85-b9cc-4880-82ad-4a31a54f1338" id="6cde17bf-0818-4337-856c-ef23116fd98d"/>
+          <edges nodes="390cefb1-b56a-4f13-9768-2c766105b643 084499df-0e98-42ce-b02d-cc5f84ec41b8" id="2e35268c-5f36-4073-bdab-274089d94c48"/>
+          <edges nodes="390cefb1-b56a-4f13-9768-2c766105b643 24425b85-b9cc-4880-82ad-4a31a54f1338" id="360d7e91-02da-4017-860e-e0e350c4d545"/>
+          <edges nodes="390cefb1-b56a-4f13-9768-2c766105b643 390cefb1-b56a-4f13-9768-2c766105b643" id="223b4436-bab3-4d68-b911-754aaf957f90"/>
+          <edges nodes="24425b85-b9cc-4880-82ad-4a31a54f1338 084499df-0e98-42ce-b02d-cc5f84ec41b8" id="4a2ee806-89f7-4433-9eb5-781e6e90bd40"/>
+        </graph>
+      </nodes>
+      <edges nodes="bfabdadb-be3b-45d3-bfb7-f70494ddcbc1 970027ee-a2ee-4d97-ad76-17df1fce0907" id="6829895e-54df-4a74-9138-96ccf65b5180"/>
+      <edges nodes="bfabdadb-be3b-45d3-bfb7-f70494ddcbc1 5a020717-c6a1-4655-88c4-bfbb8d3061cd" id="e3e89570-c8a4-4926-8aac-28ab161e19b7"/>
+      <edges nodes="bfabdadb-be3b-45d3-bfb7-f70494ddcbc1 202bc5db-5946-41ba-bc06-2944e7127f6f" id="a7e68cd7-30b6-48fe-8e65-a6096595e34b"/>
+      <edges nodes="bfabdadb-be3b-45d3-bfb7-f70494ddcbc1 52a1c12c-788f-4d8c-9d05-0eb308a384d8" id="333b82d5-0785-4b8d-8a06-860ff63cafa8"/>
+      <edges nodes="202bc5db-5946-41ba-bc06-2944e7127f6f 62858489-71b0-4cde-a6df-4073dccfc9fe" id="93762873-9d10-43a2-b03b-7e7a3ee2b39f"/>
+      <edges nodes="52a1c12c-788f-4d8c-9d05-0eb308a384d8 5a020717-c6a1-4655-88c4-bfbb8d3061cd" id="b5b45b6e-e20c-4498-9bd9-98ff94a05397"/>
+      <edges nodes="202bc5db-5946-41ba-bc06-2944e7127f6f 970027ee-a2ee-4d97-ad76-17df1fce0907" id="341bd9ee-6536-4ee2-95db-19e99346ec24"/>
+      <edges nodes="202bc5db-5946-41ba-bc06-2944e7127f6f 970027ee-a2ee-4d97-ad76-17df1fce0907" id="e6cf59a3-6035-4617-90a1-74dfeb7d87dd"/>
+      <edges nodes="5a020717-c6a1-4655-88c4-bfbb8d3061cd 52a1c12c-788f-4d8c-9d05-0eb308a384d8" id="77849e96-7d61-45ad-ba80-12e6859836f6"/>
+    </graph>
+  </nodes>
+  <edges nodes="b5000a21-4dae-4fa9-b10c-acc951cc8f3a 8467ce85-c040-4bc3-901c-f04eeeb701ec" id="0ea976ca-e007-49fa-8a14-a606820f2fe9"/>
+  <edges nodes="b5000a21-4dae-4fa9-b10c-acc951cc8f3a 3b9cba5f-7b88-4d5c-b360-19889fc181d1" id="4cf04d82-a1c1-458c-9226-dc9656b388c6"/>
+  <edges nodes="b5000a21-4dae-4fa9-b10c-acc951cc8f3a 6b763bce-c73f-438b-80ca-1326c87d5a4c" id="b5044b03-c240-4d69-adbf-9b67dd566685"/>
+  <edges nodes="8467ce85-c040-4bc3-901c-f04eeeb701ec 949c18a8-010f-4860-b7fe-c7f0ed22accc" id="898eb1a4-af71-4c98-b140-3d47481466b1"/>
+  <edges nodes="3b9cba5f-7b88-4d5c-b360-19889fc181d1 251bd9c9-e749-4bd7-812b-5696b80e6f6d" id="2276e1bd-10eb-4435-993c-9e1797cf562e"/>
+  <edges nodes="3b9cba5f-7b88-4d5c-b360-19889fc181d1 67d83058-46ea-462c-ba24-677a5440e978" id="996b72fa-5db0-4438-a88a-7e338303b7f1"/>
+  <edges nodes="251bd9c9-e749-4bd7-812b-5696b80e6f6d f3fe7a93-5431-4939-953e-b1b8191d49ea" id="3e085b6c-225c-4729-b957-ba95b2364a4c"/>
+  <edges nodes="8467ce85-c040-4bc3-901c-f04eeeb701ec 970027ee-a2ee-4d97-ad76-17df1fce0907" id="51ca5c75-9b73-45d2-8268-c059828295e8"/>
+  <edges nodes="251bd9c9-e749-4bd7-812b-5696b80e6f6d 949c18a8-010f-4860-b7fe-c7f0ed22accc" id="d60622af-1748-4e6b-b5ab-f43887c5548c"/>
+  <edges nodes="949c18a8-010f-4860-b7fe-c7f0ed22accc 67d83058-46ea-462c-ba24-677a5440e978" id="8e33541b-872e-45da-bf9e-254498a6822e"/>
+  <edges nodes="3b9cba5f-7b88-4d5c-b360-19889fc181d1 3b9cba5f-7b88-4d5c-b360-19889fc181d1" id="37f80c44-3fa6-45dd-b4ed-d77fdfd61354"/>
+  <edges nodes="3b9cba5f-7b88-4d5c-b360-19889fc181d1 8467ce85-c040-4bc3-901c-f04eeeb701ec" id="8d43d14a-473a-4c9e-9d93-2559ffd1b438"/>
+  <edges nodes="251bd9c9-e749-4bd7-812b-5696b80e6f6d 251bd9c9-e749-4bd7-812b-5696b80e6f6d" id="6956742f-2d87-48aa-b7c7-09a0e456db00"/>
+</labelgraph:Graph>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="a5915150-4873-452c-943b-f4efa4fb933a" nodeID="f314b3e0-0fb8-4772-8ce7-5119a44463e6" targetRegionID="578582fe-4f94-4eb2-90e1-f18194e07d74" oldRegionID="50405dac-ff58-4cd2-a2e5-ab89fc03b86e"/>
+</graphdelta:DeltaSequence>

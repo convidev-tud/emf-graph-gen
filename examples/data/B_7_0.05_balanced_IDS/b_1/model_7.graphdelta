@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="cedf5741-a19e-46e3-81cf-a5d3d52ea4d9" nodeID="2faf4abc-3fac-40cc-b3e1-3f02a2afeb9f" newLabel="GREEN" oldLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="5b6e7862-39b6-4c96-9c95-ed40ab4caf60" nodeID="086998fa-76ed-4850-8496-0187426075a8" nodeType="REGION" toRegionID="012b2b94-246e-4c9f-862b-639ce925f84e" nodeName="RE_b1b3caf0-7e8b-4b7b-a9ff-0befcf532cec"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="7b53d673-f6da-45df-8a94-9a16b17cc913" nodeAID="ba201804-f60c-4028-967b-6f071aa8f300" nodeBID="23b41365-96a7-43de-abdd-cfac802d0052" edgeID="44bc6425-96e5-49bf-8ec8-6e64248b4edb" toRegionID="d3525144-4fa9-4948-bab6-db2f0b6f2721"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="21735e5d-2cf9-4b2f-8c2b-dad3edb54f68" nodeAID="802e3a4c-9705-4398-b6f3-4d1f366e0c17" nodeBID="a933174b-0cd4-4ffd-92a7-749e2a83bf94" edgeID="46f6ddf5-9505-4f56-8c93-798818d08f8a" fromRegionID="d4188e04-3300-4120-9a6a-ca1a9b06393c"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="dc6ba7bb-f258-4ba8-a41d-8975cab902d0" nodeID="4beae242-da98-4fa9-9d4c-6f2893dd1e61" newLabel="BLUE" oldLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="91d3d203-220c-4f5b-89e7-209f2519c3d5" nodeID="c24ecbc6-8ece-45aa-b89f-b04125fab5d3" newLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="ea88e064-e408-42b0-a9e8-9da224c83ee1" nodeID="950e47e3-873b-457c-b6f7-ca654f65244e" newLabel="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="11edd994-6d34-44e3-9a89-a695062aa8fb" nodeAID="d4969a1e-d279-4918-a522-324c7cbe6c6b" nodeBID="62019308-41b1-4b5d-9523-a98f795aa386" edgeID="accbd01d-8bdc-4a43-964a-b4bcafb62bcf" toRegionID="d4188e04-3300-4120-9a6a-ca1a9b06393c"/>
+</graphdelta:DeltaSequence>

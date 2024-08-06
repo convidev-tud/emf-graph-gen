@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="5e4dfebd-5a9e-4d9e-ade8-b628115b97d2" nodeA="N78" nodeB="N43" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="18030d20-558d-4814-a743-19b21abfdf3a" nodeA="N23" nodeB="N58" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="0a74468b-1b91-4789-9f98-6b07a61d3613" nodeName="SN_e6f6b03e-ae43-47eb-b530-fdb77d2a106d" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="0d81991d-f1e7-4506-bafb-d2624b625cef" nodeName="SN_4cf844f5-41d0-4ec7-968b-c2bc3b9e98a9" toRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="aaf133b5-e31e-4843-bd57-c2c733aa90f2" nodeA="N18" nodeB="N58" fromRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="75e88905-465a-4c99-8b66-7379013b5b2a" nodeA="N58" nodeB="N8" toRegion="R2"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="80da0a97-3469-4a61-a91e-be25da36f378" nodeName="N74" newLabel="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="03897b10-2a5a-4722-95e7-d869222bf92e" nodeName="SN_d00af437-dcd4-4def-b6f7-9f3954652f98" toRegion="R3"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="0098aa66-c056-496f-978d-b90e1c8f4ccf" nodeName="N71" oldLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="892c2f2b-74f6-422a-92a9-d44018671712" nodeName="N16" newLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="1822092f-3b0c-40d8-907a-7f04f31084af" nodeName="SN_995da3b8-1610-4373-9077-d46c9cfd46ad" toRegion="R0"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="7679d956-2dc5-484e-b9b3-c594b1c12d6f" nodeA="N12" nodeB="N22" fromRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="0f6dc98f-85d7-437b-a7ed-f1f3c709caec" nodeName="SN_99757d5e-fce3-41c0-b1c1-ef2cd3144a5e" toRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="29b398de-a162-4a90-85b6-0d843df1b52d" nodeName="SN_fb827410-7b88-4f57-9550-cf93f6bb3b93" toRegion="R0"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="3d26b3f1-2131-4cc7-a48d-33f75aa66e6e" nodeName="SN_380dbfaf-ebfc-44e1-a693-45c03877eb89" toRegion="R3"/>
+</graphdelta:DeltaSequence>

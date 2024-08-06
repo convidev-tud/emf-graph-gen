@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="598dc6a8-c991-4223-bf36-dc6747ae6daa" nodeID="2fcb1b1d-3f55-4483-b4fb-32b59b0a49f8" newLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="a88288da-ce13-4080-90e4-5a227e85c3f5" nodeID="0ad3003b-7a12-42c6-bc7d-251e854c224e" newLabel="GREEN" oldLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="c17ad650-609a-42ff-8b61-1f64539fff9a" nodeAID="189de6f4-10b7-4e1c-9217-4fa86de88cac" nodeBID="398ad7b7-cd1f-4f86-892a-38a03ab5c10f" edgeID="ab620a1f-0777-447e-9624-a029a09193eb" toRegionID="f849c692-d8b2-4bee-94b6-8f6b30920ec1"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="51af1264-f6e1-428f-b816-2d961b1de112" nodeID="189de6f4-10b7-4e1c-9217-4fa86de88cac" newLabel="ORANGE" oldLabel="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="bf7dab26-e8bb-408e-9131-0e6266f8d41a" nodeID="9d2784c8-1983-4422-b50b-2888e29ceb7c" newLabel="GREEN" oldLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="270260eb-5b6f-4c78-af69-ab2f7b0766f4" nodeID="141d48d9-bbeb-4551-9187-26b7544f23ec" toRegionID="0ad31f48-5bcc-40ba-ac3e-895ecdf45b2b" nodeName="SN_31d0fc19-3e21-4c00-8d4c-757d88c0b441"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="954d49d5-3492-4871-8557-314366d50bc2" nodeAID="3320e1f4-578c-41b4-b386-cfd9193bb95a" nodeBID="9d2784c8-1983-4422-b50b-2888e29ceb7c" edgeID="1a7f12cc-179f-4acc-ae00-494648714749" toRegionID="0ad31f48-5bcc-40ba-ac3e-895ecdf45b2b"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="87eefe9d-dbfd-41b7-9c03-0992eea24d0e" nodeID="7075f9de-eed2-4225-b0d7-9cdbb13c1e8f" newLabel="BLUE" oldLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="c5324a3b-e99a-4209-abd1-3ef182979190" nodeID="ee9eca6a-fb42-4782-8459-0034cd6ee109" nodeType="REGION" toRegionID="0d8cc12e-3ef4-45a2-9c09-e90c5a852fe7" nodeName="RE_5540ba9b-a88c-4e3c-a93a-2689643a742d"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="bbdf3423-3b5b-4972-8606-81877d3588dd" nodeAID="0ad31f48-5bcc-40ba-ac3e-895ecdf45b2b" nodeBID="bd0256a4-98dc-48d9-a4d5-3b59a1ed5e3a" edgeID="d81ec132-a9de-4dd1-9076-a46ed16cf1de" toRegionID="f4998045-9914-4803-b4e2-4aaa26bf0ede"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="8fd9e012-4e79-4c7f-a103-2031a3ef1452" nodeID="b22a32c1-0a1d-4dd1-ac2b-43a0d551b75c" newLabel="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="9c4b89ef-c5d7-4bd7-bc2d-0f1250cf291e" nodeAID="560e7623-4e10-4a43-844a-0542bd3e6c8d" nodeBID="560e7623-4e10-4a43-844a-0542bd3e6c8d" edgeID="e8c44ffe-8303-4671-a4b0-225309a1f292" fromRegionID="831ed88c-251b-4e2f-9aa9-d0fd21906562"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="fdd498b4-709b-4594-9e0f-4631d836da2c" nodeID="18c13e88-e8b3-40d6-95b2-9ef3296af0bb" toRegionID="ebdf5960-9d70-4ad5-b851-5604ada65ab6" nodeName="SN_61be9864-9660-4112-8fea-bdcd751c11b1"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="c4cb5342-38c1-4063-b588-ea840a41a274" nodeID="559c9e16-ae09-4419-b081-78a174bd4b81" fromRegionID="ebdf5960-9d70-4ad5-b851-5604ada65ab6" nodeName="N55" label="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="e0f47fe4-2fe7-4851-b8c9-779baf4e1347" nodeAID="f849c692-d8b2-4bee-94b6-8f6b30920ec1" nodeBID="8062a8f4-6291-49c1-b355-e62750881f9d" edgeID="f51cf261-9e5e-46e7-9a10-c09125fa9add" fromRegionID="89422bd5-47b3-45c7-91e7-c47ebbdf2526"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="583aa737-8d43-4fcb-9777-283ebd51951a" nodeID="5e6b4051-7975-4406-8dc7-eb48b68e42db" fromRegionID="89422bd5-47b3-45c7-91e7-c47ebbdf2526" nodeName="R3">
+    <nodeImplications id="ced4c650-e405-45aa-b562-28b4df360dc7" nodeID="7f6f9264-3cb1-48b7-b456-b882194be7b3" fromRegionID="5e6b4051-7975-4406-8dc7-eb48b68e42db" nodeName="N4" label="ORANGE"/>
+    <nodeImplications id="50cde719-8770-4859-9794-2d2530c2d6e2" nodeID="61739097-6fc5-42d1-a1f4-5616b68b8178" fromRegionID="5e6b4051-7975-4406-8dc7-eb48b68e42db" nodeName="N25" label="BLUE"/>
+    <nodeImplications id="6bde35be-5ca1-490a-b594-900143ea64d5" nodeID="8ab28175-1c63-4015-bee9-faec4b114995" fromRegionID="5e6b4051-7975-4406-8dc7-eb48b68e42db" nodeName="N46" label="GREEN"/>
+    <nodeImplications id="1310c956-e31c-4bb8-9904-e33e7a84a54c" nodeID="0dddfa60-c75d-4b68-aa6c-00e34cfab3ab" fromRegionID="5e6b4051-7975-4406-8dc7-eb48b68e42db" nodeName="R11">
+      <nodeImplications id="d3b77923-bef3-4179-8f7a-dfb04485c264" nodeID="48eb020b-c805-40dd-8346-e570d36122fc" fromRegionID="0dddfa60-c75d-4b68-aa6c-00e34cfab3ab" nodeName="N12" label="ORANGE"/>
+      <nodeImplications id="07748290-d828-41df-9b71-f695f558d05c" nodeID="46c12f73-4741-46bc-b9a5-a77600616914" fromRegionID="0dddfa60-c75d-4b68-aa6c-00e34cfab3ab" nodeName="N33" label="GREY"/>
+      <nodeImplications id="44a3a7fc-af0b-4f05-9295-76ffa9fd1b8c" nodeID="5e1bdef7-106c-492f-8792-93899596bb0e" fromRegionID="0dddfa60-c75d-4b68-aa6c-00e34cfab3ab" nodeName="N54" label="BLUE"/>
+    </nodeImplications>
+    <nodeImplications id="839afdf8-5e0a-4438-9987-4d37629ba8ec" nodeID="28caf351-8370-41a1-8bd1-ff2cb8e20ee5" fromRegionID="5e6b4051-7975-4406-8dc7-eb48b68e42db" nodeName="R13">
+      <nodeImplications id="2f6028ac-fd3e-4130-bb77-434b1a632ce4" nodeID="48a9a8fa-756e-45a4-97e5-98a00ddceb20" fromRegionID="28caf351-8370-41a1-8bd1-ff2cb8e20ee5" nodeName="N14" label="BLUE"/>
+      <nodeImplications id="cbc4002b-e9b2-4504-8879-47b377106472" nodeID="68df4801-59ae-42d0-8d81-57a5239d4eef" fromRegionID="28caf351-8370-41a1-8bd1-ff2cb8e20ee5" nodeName="N35" label="ORANGE"/>
+      <nodeImplications id="31fd351d-22fa-47ad-a4b4-82489127e4ab" nodeID="3ad1e18e-a7a2-4e98-8679-9403d36fda83" fromRegionID="28caf351-8370-41a1-8bd1-ff2cb8e20ee5" nodeName="N56" label="ORANGE"/>
+      <nodeImplications id="01882e54-0879-44e2-aa29-c7c2b56cfebd" nodeID="831ed88c-251b-4e2f-9aa9-d0fd21906562" fromRegionID="28caf351-8370-41a1-8bd1-ff2cb8e20ee5" nodeName="R17">
+        <nodeImplications id="ca573ac3-1265-4968-920d-2c69d9792582" nodeID="560e7623-4e10-4a43-844a-0542bd3e6c8d" fromRegionID="831ed88c-251b-4e2f-9aa9-d0fd21906562" nodeName="N18" label="ORANGE"/>
+        <nodeImplications id="a349917c-62df-477b-957e-a57a4a4f3f1a" nodeID="7d2b07ff-7047-4172-8fcb-ec5d509816c5" fromRegionID="831ed88c-251b-4e2f-9aa9-d0fd21906562" nodeName="N39" label="GREEN"/>
+        <nodeImplications id="fc6342f6-569c-465f-bb6e-794a3c1ab986" nodeID="5dbc9512-6247-415c-8472-ab1c5dec89a1" fromRegionID="831ed88c-251b-4e2f-9aa9-d0fd21906562" nodeName="N60" label="GREEN"/>
+      </nodeImplications>
+      <nodeImplications id="68bec5b6-78a0-4934-838d-12c6e6e38889" nodeID="ce4f9482-d596-477f-a4d7-fa4db41c1f47" fromRegionID="28caf351-8370-41a1-8bd1-ff2cb8e20ee5" nodeName="R19">
+        <nodeImplications id="bc88834a-92db-4252-8a98-5da6d9bab9e9" nodeID="689622fa-271a-45f0-bafb-907a6c3876b4" fromRegionID="ce4f9482-d596-477f-a4d7-fa4db41c1f47" nodeName="N20" label="BLUE"/>
+        <nodeImplications id="bf2e4331-e953-4bb4-ab25-886c22bd1891" nodeID="83ba0592-fcda-446c-b504-7df7c49b61dc" fromRegionID="ce4f9482-d596-477f-a4d7-fa4db41c1f47" nodeName="N41" label="ORANGE"/>
+        <nodeImplications id="bf0793c6-365b-4714-8114-43691be62a09" nodeID="ae21ca18-35ef-4ed4-b9b3-fd17f8a0669c" fromRegionID="ce4f9482-d596-477f-a4d7-fa4db41c1f47" nodeName="N62" label="ORANGE"/>
+      </nodeImplications>
+    </nodeImplications>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="beb41aec-306a-4563-83e1-28093cca5991" nodeID="810793dd-9d9b-4ee2-bf36-531eea817cb2" nodeType="REGION" toRegionID="078de8c6-b32c-4011-9b92-382becdf7547" nodeName="RE_2c992ebc-6531-44ca-8bf0-f62188bc3259"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="1b5320c8-1e73-4e79-948f-6f6f49e94337" nodeAID="63508e1f-26a9-45c9-b6a3-106c4fff2d15" nodeBID="ebdf5960-9d70-4ad5-b851-5604ada65ab6" edgeID="304d3b0a-d54f-42e9-aa34-d1d63f47d426" toRegionID="078de8c6-b32c-4011-9b92-382becdf7547"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="55e31479-8935-4f0b-b79b-d93173c585a6" nodeID="44574c00-6979-4c1c-98c8-d83ae328de4e" fromRegionID="078de8c6-b32c-4011-9b92-382becdf7547" nodeName="N49" label="GREY"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="0335c4a6-d446-404f-83f0-72d3785203a3" nodeID="63508e1f-26a9-45c9-b6a3-106c4fff2d15" fromRegionID="078de8c6-b32c-4011-9b92-382becdf7547" nodeName="N28" label="BLUE"/>
+</graphdelta:DeltaSequence>

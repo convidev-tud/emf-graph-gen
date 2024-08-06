@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="9530231c-8331-4bdd-ba32-7ee958329813" nodeName="N67" targetRegion="R0" oldRegion="R1">
+    <edgeImplications id="55b5525f-8e57-4c91-b4fd-ba160d53f84a" oldRegion="R1" newRegion="R0" nodeA="N67" nodeB="N7"/>
+    <edgeImplications id="d4ceef91-1802-463a-bcfe-93e7b1a7f70c" oldRegion="R1" newRegion="R0" nodeA="N67" nodeB="N72"/>
+    <edgeImplications id="a16b56d6-ae39-4367-8dc9-75d0f3bc0083" oldRegion="R1" newRegion="R0" nodeA="N67" nodeB="N62"/>
+    <edgeImplications id="4a4eb35a-91f5-4630-862b-3eb00190f146" oldRegion="R1" newRegion="R0" nodeA="N67" nodeB="N42"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="1a2ad3b0-712e-4f3b-af70-0517ac44cbcd" nodeA="N57" nodeB="N17" toRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="9ad7012a-1ffd-430d-8ea0-8001712db9a7" nodeName="SN_6668de06-7d6a-4dca-95ca-9f11631ecce0" toRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="fd2de2c0-6598-4634-bff9-93831b3c1bff" nodeName="N24" newLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="9b91edcf-381c-4138-9721-a5a0cc9b7f1f" nodeName="SN_7b1446a5-9e38-4445-b378-f7af6dc59066" toRegion="R3"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="4cdba983-6c29-4d17-9ce3-83de13108494" nodeA="N29" nodeB="N54" fromRegion="R3"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="1ff26d64-1228-4490-8af8-74980e85ab2f" nodeName="N64" oldLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="1d8ed2c0-400a-4822-a16e-02f040c25cd1" nodeName="N34" newLabel="GREEN" oldLabel="BLUE"/>
+</graphdelta:DeltaSequence>

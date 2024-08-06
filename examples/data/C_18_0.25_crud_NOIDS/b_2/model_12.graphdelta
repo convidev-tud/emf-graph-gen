@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:AddNode" id="c682a2f9-e9c5-45b9-b15c-73b97b0290f2" nodeName="SN_13d608ac-2efa-4042-871a-b204ffc1fcc2" toRegion="R12"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="7b4cc162-65bd-416a-bba7-a818ba1ebfb6" nodeName="N55" newLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="bfdd4681-c288-4bd6-affe-5088535e9cc2" nodeName="SN_66edea48-a214-408e-ac05-c83e3208560b" toRegion="R12"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="2cda6cdc-554d-4bbc-a6d9-95fa8fc8095b" nodeA="N27" nodeB="N48" toRegion="R5"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="4953b5d8-b240-4134-84e3-67312559e80d" nodeName="SN_618082d9-e665-44e6-bdfa-ede5bda83d3c" toRegion="R5"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="b0072968-ed29-4390-9bbc-842ace912889" nodeName="N27" newLabel="ORANGE" oldLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="dc2abd72-1db3-42fe-a44a-f1fee15c6f79" nodeName="RE_30ef461a-1cec-4df9-93fb-2abfff2dd1ba" nodeType="REGION" toRegion="R5"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="8b9185d1-0e54-451d-aff1-6cbb010f9230" nodeName="N27" fromRegion="R5" label="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="c59523e5-3f6a-491f-b145-b2c063b457b8" nodeName="N48" newLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="4677eaea-9dd3-4849-92e5-f6244fe3b6c6" nodeA="RE_30ef461a-1cec-4df9-93fb-2abfff2dd1ba" nodeB="N48" toRegion="R5"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="ea48cd5d-c4d4-402a-947d-f478d493a3de" nodeA="N48" nodeB="R11" toRegion="R5"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="3549ce80-88e3-4d23-b3fa-f31264070805" nodeName="N61" fromRegion="R18" label="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="2e5f3b62-6191-452f-b63d-dc528cabb631" nodeName="RE_ef56d88a-fe35-40cd-b8ee-840bd99972da" nodeType="REGION" toRegion="R8"/>
+</graphdelta:DeltaSequence>

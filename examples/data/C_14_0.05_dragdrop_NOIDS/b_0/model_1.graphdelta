@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="5899e40c-5b50-46f9-8fbc-520c6f65f697" nodeA="N17" nodeB="N22" fromRegion="R1"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="bee2cf5c-c9d2-4312-b0fb-29c54bfa53bd" nodeName="N42" targetRegion="R2" oldRegion="R1">
+    <edgeImplications id="68caecaf-2aba-47a7-af71-1636a946ba16" oldRegion="R1" newRegion="R2" nodeA="N42" nodeB="N72"/>
+    <edgeImplications id="1e90d9ae-149e-45aa-802b-c50ca0e478b6" oldRegion="R1" newRegion="R2" nodeA="N42" nodeB="N32"/>
+  </deltaOperations>
+</graphdelta:DeltaSequence>

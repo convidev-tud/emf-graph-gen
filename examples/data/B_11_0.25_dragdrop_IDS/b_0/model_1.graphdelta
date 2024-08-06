@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="d2e11700-7aa5-4de8-b9de-c0afc82f81b4" nodeID="084499df-0e98-42ce-b02d-cc5f84ec41b8" targetRegionID="949c18a8-010f-4860-b7fe-c7f0ed22accc" oldRegionID="52a1c12c-788f-4d8c-9d05-0eb308a384d8">
+    <edgeImplications id="fb24c197-1a94-4999-a795-7d05dcabf596" oldRegionID="52a1c12c-788f-4d8c-9d05-0eb308a384d8" newRegionID="949c18a8-010f-4860-b7fe-c7f0ed22accc" nodeAID="084499df-0e98-42ce-b02d-cc5f84ec41b8" nodeBID="24425b85-b9cc-4880-82ad-4a31a54f1338" edgeID="a5d96132-b518-4752-9950-3dc17e6d565a"/>
+    <edgeImplications id="68f6c690-3a66-4707-85dc-982cd1de2a61" oldRegionID="52a1c12c-788f-4d8c-9d05-0eb308a384d8" newRegionID="949c18a8-010f-4860-b7fe-c7f0ed22accc" nodeAID="084499df-0e98-42ce-b02d-cc5f84ec41b8" nodeBID="390cefb1-b56a-4f13-9768-2c766105b643" edgeID="7099ff50-11bb-4be2-b3a7-dbccaf51e363"/>
+    <edgeImplications id="b5796f39-e66e-4c76-b291-ec9ca524eefc" oldRegionID="52a1c12c-788f-4d8c-9d05-0eb308a384d8" newRegionID="949c18a8-010f-4860-b7fe-c7f0ed22accc" nodeAID="084499df-0e98-42ce-b02d-cc5f84ec41b8" nodeBID="937fa33c-73c7-4c72-976f-cbce66d037c2" edgeID="5757a991-e58f-42f7-8a37-09dc74480dd8"/>
+    <edgeImplications id="7c71d01b-ba95-46f8-8944-f7f8bafb22f1" oldRegionID="52a1c12c-788f-4d8c-9d05-0eb308a384d8" newRegionID="949c18a8-010f-4860-b7fe-c7f0ed22accc" nodeAID="084499df-0e98-42ce-b02d-cc5f84ec41b8" nodeBID="084499df-0e98-42ce-b02d-cc5f84ec41b8" edgeID="7e322265-1f20-432d-9432-e6c2875834a3"/>
+    <edgeImplications id="1d8664bd-cf48-400c-83be-90af267714db" oldRegionID="52a1c12c-788f-4d8c-9d05-0eb308a384d8" newRegionID="949c18a8-010f-4860-b7fe-c7f0ed22accc" nodeAID="084499df-0e98-42ce-b02d-cc5f84ec41b8" nodeBID="24425b85-b9cc-4880-82ad-4a31a54f1338" edgeID="6cde17bf-0818-4337-856c-ef23116fd98d"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="bfea64d7-4a9e-48db-9eba-8a77242232cf" nodeAID="24425b85-b9cc-4880-82ad-4a31a54f1338" nodeBID="084499df-0e98-42ce-b02d-cc5f84ec41b8" edgeID="4a2ee806-89f7-4433-9eb5-781e6e90bd40" fromRegionID="52a1c12c-788f-4d8c-9d05-0eb308a384d8"/>
+</graphdelta:DeltaSequence>

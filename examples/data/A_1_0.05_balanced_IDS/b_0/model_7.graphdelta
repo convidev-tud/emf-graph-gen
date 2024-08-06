@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="f4c22150-d41f-4419-b243-defc6a2db254" nodeAID="9e2b981f-6585-420f-8f41-5216440627d4" nodeBID="31728824-d099-46f7-bd3c-430aa63da126" edgeID="a9e1177f-d977-4d18-a146-8b6b6b80d22a" toRegionID="35be2056-99d5-4c75-8f78-c8b2d797cc3c"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="efa8544c-c1d1-46b1-bb8a-e419affb5186" nodeAID="ce8cd23a-dd4a-442f-9ffc-25c989654496" nodeBID="b4e0a94b-26a4-448d-a834-73c0ce114900" edgeID="ced9afcd-63e6-4a7b-acdb-b0b8316a18e2" toRegionID="35be2056-99d5-4c75-8f78-c8b2d797cc3c"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="11bd0cfe-f9e6-44f1-b8fe-046b4757a070" nodeID="572c90f2-0b74-4e08-b58d-0b68fff0f365" toRegionID="35be2056-99d5-4c75-8f78-c8b2d797cc3c" nodeName="SN_daf318ee-e72e-478a-9011-a06d88e772ec"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="c3a77b36-1da7-45f4-b4e3-1018d7ef60e7" nodeID="b1fc8c1a-ac65-4223-883d-c9775e763ce6" toRegionID="b9bae777-8536-480b-898e-7f4233ce64a7" nodeName="SN_85a4720f-9824-4d29-8ed7-975d798d3236"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="d32b244c-fef8-4ca5-8b82-06aad23a2c9f" nodeAID="d62304da-4d14-4e42-a74a-58b821056ac0" nodeBID="b4e0a94b-26a4-448d-a834-73c0ce114900" edgeID="dcbe68ee-55f2-426a-8a40-2a54baaa4245" fromRegionID="35be2056-99d5-4c75-8f78-c8b2d797cc3c"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="b36e546b-5db1-4062-8c18-2876ea181979" nodeAID="b4e0a94b-26a4-448d-a834-73c0ce114900" nodeBID="0d92bee5-167b-472a-83a5-ee7cacbdffb0" edgeID="89f2e120-027a-42d4-bb86-59f6cf96ac2e" toRegionID="35be2056-99d5-4c75-8f78-c8b2d797cc3c"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="4d3c57df-390c-450b-ac40-addcb7abc3a2" nodeID="482533c6-3068-4c5c-b325-3f80ccebed61" newLabel="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="8d18d2eb-2143-4565-8aa7-3c3256dc0265" nodeID="6e9d4b87-3f65-426c-b378-2b3f8cd5e550" toRegionID="5eaca54f-a13a-4b53-b8e7-2f9c6f2a9bf4" nodeName="SN_840d334c-362f-41d3-baa7-38f61e11e656"/>
+</graphdelta:DeltaSequence>

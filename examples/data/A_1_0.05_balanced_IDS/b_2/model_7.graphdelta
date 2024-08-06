@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:AddNode" id="acffa919-d78b-46a3-8d71-f94d657b490e" nodeID="16edf6cd-3dac-4213-9e10-6968ec7e91fc" toRegionID="5eaca54f-a13a-4b53-b8e7-2f9c6f2a9bf4" nodeName="SN_cdd95901-6828-4783-a553-6270d17973c2"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="fde15409-b506-4672-a55d-72c2bb74ad73" nodeID="fe1627ab-648f-4b51-9a27-1f0460b46b35" newLabel="BLUE" oldLabel="ORANGE"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="a2b942df-613f-4fe4-890b-73563af6cb8e" nodeAID="94421b1c-0fee-4675-8533-17a8c4bd7309" nodeBID="437361a1-722d-4d3e-a371-211d724c7eaf" edgeID="036f392a-e851-4484-9ee1-a67a52feaa7c" fromRegionID="35be2056-99d5-4c75-8f78-c8b2d797cc3c"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="0661545f-a20e-4df1-8928-21342a5aa449" nodeAID="9e2b981f-6585-420f-8f41-5216440627d4" nodeBID="9e2b981f-6585-420f-8f41-5216440627d4" edgeID="c1755c0e-0eb6-46ab-b19d-995ef53a6807" toRegionID="35be2056-99d5-4c75-8f78-c8b2d797cc3c"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="97b6df95-f62d-4659-8416-e46d36a01847" nodeID="ed7ec297-d910-415d-abdb-98b5da9e5e84" fromRegionID="b9bae777-8536-480b-898e-7f4233ce64a7" nodeName="N12" label="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="a621cf91-7367-464c-ab1b-f87df1e54a22" nodeAID="332394a0-37e1-4f5e-bc46-2a119395680b" nodeBID="9ba473b2-9682-434d-92c6-6971e0bb7372" edgeID="ba26a156-9f7c-438a-a24f-4af2e0f5afc1" fromRegionID="76a33f06-2a8c-4841-90d6-8bf883021f88"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="1b3ab0f4-70ef-4d85-baff-b0b36d43cadf" nodeID="cedc97db-0004-4a76-9159-c4bcef22f782" nodeType="REGION" toRegionID="76a33f06-2a8c-4841-90d6-8bf883021f88" nodeName="RE_b1e6e830-c334-493b-aef5-f36c97236b28"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="b90653a1-ebcf-4cd7-b5d2-3bf1a37d8d87" nodeAID="b9bae777-8536-480b-898e-7f4233ce64a7" nodeBID="9014551d-39ad-40f9-86b8-1a4e0da4b2d4" edgeID="2e4acec8-de7c-490c-afb9-28da985c2626" toRegionID="76a33f06-2a8c-4841-90d6-8bf883021f88"/>
+</graphdelta:DeltaSequence>

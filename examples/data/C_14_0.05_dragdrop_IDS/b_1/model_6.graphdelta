@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="0fa93ec0-cc6a-4ef2-a6d0-67d3fb384ec3" nodeID="6b64fa5b-6c18-4c40-a0fd-f97c8b33f177" fromRegionID="57cf88be-d660-4276-ae15-6789649bca3d" nodeName="N52" label="GREY"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="f7eb588b-f525-4c91-a487-0272ae81eee7" nodeID="907fe107-14e4-449c-8284-f0052fd9370a" nodeType="REGION" toRegionID="57cf88be-d660-4276-ae15-6789649bca3d" nodeName="RE_64878f07-c31c-4361-bc6a-72a19acb70e6"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="fede84f9-0fb0-406b-8250-73aef41ab4d6" nodeID="2941d95f-6ebd-45a2-a278-e6b1ff587472" nodeType="REGION" toRegionID="57cf88be-d660-4276-ae15-6789649bca3d" nodeName="RE_d705db0d-d147-430c-8649-1f1a98c20c53"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="c1a43e0d-3815-4dba-be6e-65183349ce8d" nodeAID="f883e448-fb84-4ca5-82b0-81bd391e2457" nodeBID="a0cfa400-b43a-4eb9-a607-37e2822a09d1" edgeID="d999d60c-c198-4c36-8f6f-dbbb73f45bd5" fromRegionID="57cf88be-d660-4276-ae15-6789649bca3d"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="ede1a204-d149-4640-976e-4dc5e38272a5" nodeID="7def656d-dd43-40a1-8ee1-3ae26dcd58b9" toRegionID="6de8b9d1-54bc-4eff-85e7-9f5d35c6c8b4" nodeName="SN_8e0045e7-c26b-4d9c-8712-4f3498d9a216"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="4d457b69-669c-4c76-afdf-4922919916b6" nodeAID="63dd0e96-16e7-410e-8a62-586bc790bb7e" nodeBID="63dd0e96-16e7-410e-8a62-586bc790bb7e" edgeID="7e95c179-a8ae-423b-a23a-c7b9dfb2b15b" toRegionID="6de8b9d1-54bc-4eff-85e7-9f5d35c6c8b4"/>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="fe7b38dd-0955-45d5-b97e-e96219bdbcea" nodeID="4e0f08e3-3ac4-40c5-b9bf-b002c8f9c669" nodeType="REGION" toRegionID="6de8b9d1-54bc-4eff-85e7-9f5d35c6c8b4" nodeName="RE_dea3ae33-59bf-4b03-ba56-5b7f2d14ac8c"/>
+</graphdelta:DeltaSequence>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="1c025e0d-b52d-44c6-864c-3db9d6a68e76" nodeID="d28e754f-be8c-4136-a0bc-f575d2ddaefb" targetRegionID="836e3a35-f16a-4579-867e-71edfb5120b4" oldRegionID="550da022-1ea5-4228-980e-5f2cf29c84b0">
+    <edgeImplications id="eb0e9fcb-4ae0-48a5-a4f6-8e60dc3f4536" oldRegionID="550da022-1ea5-4228-980e-5f2cf29c84b0" newRegionID="836e3a35-f16a-4579-867e-71edfb5120b4" nodeAID="d28e754f-be8c-4136-a0bc-f575d2ddaefb" nodeBID="86a5d28e-e82c-4bb4-97f0-602b9ea8f275" edgeID="4fccad17-32b6-413f-8cea-a1d2bff950cb"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="dbbc0a1e-2e36-4db2-913a-00a48661ae54" nodeID="b43ebee9-e780-43f2-adf6-1c491dcc663d" oldLabel="ORANGE"/>
+</graphdelta:DeltaSequence>

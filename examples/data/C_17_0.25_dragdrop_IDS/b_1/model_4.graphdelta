@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="a733421d-4d6e-4b0c-bc94-606dc36e02e4" nodeID="0f53fd6f-0f4c-4ce2-8016-9f04da5894ce" targetRegionID="b25f4994-414d-4e55-84de-0599178ab0af" oldRegionID="2f1d7e20-8450-482a-be0a-71a14051e4eb">
+    <edgeImplications id="795d7804-c296-4494-a997-11eabf5cc1a3" oldRegionID="2f1d7e20-8450-482a-be0a-71a14051e4eb" newRegionID="b25f4994-414d-4e55-84de-0599178ab0af" nodeAID="0f53fd6f-0f4c-4ce2-8016-9f04da5894ce" nodeBID="0a3312c2-c33b-4e6b-afdf-813a40d40dd9" edgeID="f11b5f1a-ccf3-4dd3-aee4-793fa3a625c9"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="a8e0cb11-29b2-4e89-9d1a-c5aa1ff510f2" nodeID="ce8addb5-83f8-4f3a-b596-2bafbe07cce8" fromRegionID="d68febf6-f261-4c0d-848c-f9cacf4e601f" nodeName="N30" label="GREY"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="2a4a6656-33ef-4787-aea8-6da5088bca53" nodeID="f202a361-5640-47fe-8e81-d33d7f0b96fd" targetRegionID="e331133a-e180-45ff-8c80-a2bbe9b153cb" oldRegionID="d68febf6-f261-4c0d-848c-f9cacf4e601f"/>
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="5735d574-afbe-40a7-8d00-6821d8127b13" nodeID="427f72fe-3c3c-4da0-9552-833951a03976" targetRegionID="5033b5ae-0f54-4fb8-b8fb-44b4ea8b42a6" oldRegionID="535aea01-cb14-4689-a9eb-4f0803f9cded">
+    <edgeImplications id="f96051be-a0be-4043-a526-8ae5a89f9beb" oldRegionID="535aea01-cb14-4689-a9eb-4f0803f9cded" newRegionID="5033b5ae-0f54-4fb8-b8fb-44b4ea8b42a6" nodeAID="427f72fe-3c3c-4da0-9552-833951a03976" nodeBID="c9df1807-0542-4368-8cca-ffff5f70c5e1" edgeID="a394a7e5-7766-4ec8-ba93-2d24fc520a0a"/>
+    <edgeImplications id="0c9382c2-e1a5-4bea-a261-cfcd7ad526fd" oldRegionID="535aea01-cb14-4689-a9eb-4f0803f9cded" newRegionID="5033b5ae-0f54-4fb8-b8fb-44b4ea8b42a6" nodeAID="427f72fe-3c3c-4da0-9552-833951a03976" nodeBID="0b40e4b7-3a97-4936-9942-535743a779bd" edgeID="166429cc-efa0-4e5c-9acc-163139eab25f"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:AddNode" id="34f6524c-d571-42c3-8ec1-7506310bdb97" nodeID="19447ce0-fa00-4f7f-a955-73d004ac7331" toRegionID="535aea01-cb14-4689-a9eb-4f0803f9cded" nodeName="SN_159aa97b-6bba-4d67-8c7c-1816feddb483"/>
+</graphdelta:DeltaSequence>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="99a70bc2-a648-4afa-a21a-4a6e2c75b03c" nodeAID="6d1c1dd5-150a-47cc-a38c-4fa515a2e1b8" nodeBID="0ad3003b-7a12-42c6-bc7d-251e854c224e" edgeID="91e55633-aec5-4dc5-baf2-5912f1e49dd4" toRegionID="a238e8e6-b44c-4b6a-b42a-0de23e6cf95c"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="4514378b-83be-45b9-8386-fcdae681ae0f" nodeID="1ec81d1d-85db-4115-b34f-769bcfb417a5" fromRegionID="a238e8e6-b44c-4b6a-b42a-0de23e6cf95c" nodeName="N38" label="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:DeleteEdge" id="8bd2e05f-2c12-4231-84bd-7642cd0958d6" nodeAID="6d1c1dd5-150a-47cc-a38c-4fa515a2e1b8" nodeBID="0ad3003b-7a12-42c6-bc7d-251e854c224e" edgeID="91e55633-aec5-4dc5-baf2-5912f1e49dd4" fromRegionID="a238e8e6-b44c-4b6a-b42a-0de23e6cf95c"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="884aa0ec-1b0e-4398-aea6-bab8c25e595c" nodeID="0ad3003b-7a12-42c6-bc7d-251e854c224e" newLabel="GREEN" oldLabel="BLUE"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="ef4832dd-7974-413c-8edf-cf96805609b3" nodeID="6d1c1dd5-150a-47cc-a38c-4fa515a2e1b8" newLabel="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="b32373a0-e905-4239-b230-bd4540cc9d72" nodeID="6d1c1dd5-150a-47cc-a38c-4fa515a2e1b8" newLabel="ORANGE" oldLabel="GREEN"/>
+  <deltaOperations xsi:type="graphdelta:AddEdge" id="68ad8521-139c-49d3-bc38-36de669baae9" nodeAID="0ad3003b-7a12-42c6-bc7d-251e854c224e" nodeBID="6d1c1dd5-150a-47cc-a38c-4fa515a2e1b8" edgeID="f391f5bb-fb17-46e1-814e-f5ae885ae57e" toRegionID="a238e8e6-b44c-4b6a-b42a-0de23e6cf95c"/>
+  <deltaOperations xsi:type="graphdelta:DeleteNode" id="d67aaf2d-6d4b-4049-a768-66532ceec911" nodeID="6d1c1dd5-150a-47cc-a38c-4fa515a2e1b8" fromRegionID="a238e8e6-b44c-4b6a-b42a-0de23e6cf95c" nodeName="N17" label="ORANGE"/>
+</graphdelta:DeltaSequence>

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<labelgraph:Graph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:labelgraph="http://st.tud.de/labelgraph">
+  <nodes xsi:type="labelgraph:SimpleNode" name="N0" label="GREEN"/>
+  <nodes xsi:type="labelgraph:SimpleNode" name="N21" label="ORANGE"/>
+  <nodes xsi:type="labelgraph:SimpleNode" name="N42" label="GREEN"/>
+  <nodes xsi:type="labelgraph:Region" name="R0">
+    <graph>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N1" label="ORANGE"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N22"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N43" label="ORANGE"/>
+      <nodes xsi:type="labelgraph:Region" name="R1">
+        <graph>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N2"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N23"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N44" label="ORANGE"/>
+          <nodes xsi:type="labelgraph:Region" name="R2">
+            <graph>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N3" label="GREEN"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N24"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N45" label="GREEN"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2 //@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+            </graph>
+          </nodes>
+          <nodes xsi:type="labelgraph:Region" name="R14">
+            <graph>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N15"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N36" label="ORANGE"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N57"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.1"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.1 //@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.2"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.0"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.1 //@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.0"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.2 //@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.0"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.1 //@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.2"/>
+            </graph>
+          </nodes>
+          <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.3/@graph/@nodes.3"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.3 //@nodes.3/@graph/@nodes.3/@graph/@nodes.4"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.2 //@nodes.3/@graph/@nodes.3/@graph/@nodes.0"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.0"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.3/@graph/@nodes.1"/>
+        </graph>
+      </nodes>
+      <nodes xsi:type="labelgraph:Region" name="R7">
+        <graph>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N8" label="BLUE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N29" label="GREEN"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N50" label="BLUE"/>
+          <nodes xsi:type="labelgraph:Region" name="R8">
+            <graph>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N9" label="GREEN"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N30" label="GREEN"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N51" label="BLUE"/>
+              <nodes xsi:type="labelgraph:Region" name="R11">
+                <graph>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N12" label="BLUE"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N33"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N54" label="GREEN"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+                </graph>
+              </nodes>
+              <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.1"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.2"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.2"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.2"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.0"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3/@graph/@nodes.3"/>
+            </graph>
+          </nodes>
+          <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.1 //@nodes.3/@graph/@nodes.4/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.2 //@nodes.3/@graph/@nodes.4/@graph/@nodes.3"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.3 //@nodes.3/@graph/@nodes.4/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.2 //@nodes.3/@graph/@nodes.4/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.1 //@nodes.3/@graph/@nodes.4/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.4/@graph/@nodes.1 //@nodes.3/@graph/@nodes.4/@graph/@nodes.1"/>
+        </graph>
+      </nodes>
+      <nodes xsi:type="labelgraph:Region" name="R10">
+        <graph>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N11"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N32"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N53" label="ORANGE"/>
+          <nodes xsi:type="labelgraph:Region" name="R12">
+            <graph>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N13"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N34" label="BLUE"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N55" label="GREEN"/>
+              <nodes xsi:type="labelgraph:Region" name="R13">
+                <graph>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N14" label="GREEN"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N35"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N56"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1"/>
+                </graph>
+              </nodes>
+              <nodes xsi:type="labelgraph:Region" name="R19">
+                <graph>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N20"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N41" label="GREEN"/>
+                  <nodes xsi:type="labelgraph:SimpleNode" name="N62" label="BLUE"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.1"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.1 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.2"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.1 //@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.2"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.1"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.2 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.1"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.1 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.0"/>
+                  <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.2 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.0"/>
+                </graph>
+              </nodes>
+              <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.1"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.2"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.2 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.2 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4"/>
+              <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.3 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3/@graph/@nodes.4"/>
+            </graph>
+          </nodes>
+          <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.1 //@nodes.3/@graph/@nodes.5/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.2 //@nodes.3/@graph/@nodes.5/@graph/@nodes.3"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.0 //@nodes.3/@graph/@nodes.4/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.2 //@nodes.3/@graph/@nodes.5/@graph/@nodes.0"/>
+          <edges nodes="//@nodes.3/@graph/@nodes.5/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5/@graph/@nodes.2"/>
+        </graph>
+      </nodes>
+      <edges nodes="//@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.1"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.2"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.2 //@nodes.3/@graph/@nodes.3"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.3 //@nodes.3/@graph/@nodes.4"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.0 //@nodes.3/@graph/@nodes.5"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.3 //@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.1"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.4 //@nodes.3/@graph/@nodes.1"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.1 //@nodes.3/@graph/@nodes.5"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.2 //@nodes.3/@graph/@nodes.0"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.2 //@nodes.3/@graph/@nodes.4"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.5 //@nodes.3/@graph/@nodes.2"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.3 //@nodes.3/@graph/@nodes.4"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.3 //@nodes.3/@graph/@nodes.3"/>
+      <edges nodes="//@nodes.3/@graph/@nodes.2 //@nodes.3/@graph/@nodes.2"/>
+    </graph>
+  </nodes>
+  <nodes xsi:type="labelgraph:Region" name="R3">
+    <graph>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N4" label="GREEN"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N25" label="GREEN"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N46" label="BLUE"/>
+      <nodes xsi:type="labelgraph:Region" name="R5">
+        <graph>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N6" label="ORANGE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N27"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N48" label="ORANGE"/>
+          <nodes xsi:type="labelgraph:Region" name="R17">
+            <graph>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N18" label="BLUE"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N39"/>
+              <nodes xsi:type="labelgraph:SimpleNode" name="N60" label="ORANGE"/>
+              <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1"/>
+              <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0 //@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+              <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2 //@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0"/>
+              <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.1 //@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+              <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2 //@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+              <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2 //@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.0"/>
+            </graph>
+          </nodes>
+          <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.0 //@nodes.4/@graph/@nodes.3/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.1 //@nodes.4/@graph/@nodes.3/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.1 //@nodes.4/@graph/@nodes.3/@graph/@nodes.3"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.0 //@nodes.4/@graph/@nodes.3/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.2 //@nodes.4/@graph/@nodes.3/@graph/@nodes.3"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.3 //@nodes.4/@graph/@nodes.3/@graph/@nodes.0"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.2 //@nodes.4/@graph/@nodes.3/@graph/@nodes.0"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.3/@graph/@nodes.0 //@nodes.4/@graph/@nodes.3/@graph/@nodes.0"/>
+        </graph>
+      </nodes>
+      <nodes xsi:type="labelgraph:Region" name="R6">
+        <graph>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N7"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N28"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N49" label="GREEN"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.4/@graph/@nodes.0 //@nodes.4/@graph/@nodes.4/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.4/@graph/@nodes.0 //@nodes.4/@graph/@nodes.4/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.4/@graph/@nodes.0 //@nodes.5/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.4/@graph/@nodes.1 //@nodes.4/@graph/@nodes.4/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.4/@graph/@nodes.1 //@nodes.4/@graph/@nodes.4/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.4/@graph/@nodes.2 //@nodes.4/@graph/@nodes.4/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.4/@graph/@nodes.1 //@nodes.4/@graph/@nodes.4/@graph/@nodes.0"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.4/@graph/@nodes.1 //@nodes.4/@graph/@nodes.4/@graph/@nodes.0"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.4/@graph/@nodes.0 //@nodes.4/@graph/@nodes.4/@graph/@nodes.0"/>
+        </graph>
+      </nodes>
+      <nodes xsi:type="labelgraph:Region" name="R16">
+        <graph>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N17"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N38" label="BLUE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N59" label="BLUE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="SN_eb5b21d8-746b-4a5c-b2f8-25822968cb02" label="BLUE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="SN_b8672319-20a9-42f9-af0b-967300284991" label="BLUE"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.5/@graph/@nodes.0 //@nodes.4/@graph/@nodes.5/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.5/@graph/@nodes.1 //@nodes.4/@graph/@nodes.5/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.5/@graph/@nodes.2 //@nodes.6/@graph/@nodes.3/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.5/@graph/@nodes.0 //@nodes.4/@graph/@nodes.5/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.5/@graph/@nodes.0 //@nodes.4/@graph/@nodes.5/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.5/@graph/@nodes.1 //@nodes.4/@graph/@nodes.5/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.5/@graph/@nodes.1 //@nodes.4/@graph/@nodes.5/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.5/@graph/@nodes.4 //@nodes.4/@graph/@nodes.5/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.5/@graph/@nodes.0 //@nodes.4/@graph/@nodes.5/@graph/@nodes.4"/>
+          <edges nodes="//@nodes.4/@graph/@nodes.5/@graph/@nodes.1 //@nodes.4/@graph/@nodes.5/@graph/@nodes.0"/>
+        </graph>
+      </nodes>
+      <edges nodes="//@nodes.4/@graph/@nodes.0 //@nodes.4/@graph/@nodes.1"/>
+      <edges nodes="//@nodes.4/@graph/@nodes.0 //@nodes.4/@graph/@nodes.2"/>
+      <edges nodes="//@nodes.4/@graph/@nodes.1 //@nodes.4/@graph/@nodes.3"/>
+      <edges nodes="//@nodes.4/@graph/@nodes.3 //@nodes.4/@graph/@nodes.4"/>
+      <edges nodes="//@nodes.4/@graph/@nodes.2 //@nodes.4/@graph/@nodes.5"/>
+      <edges nodes="//@nodes.4/@graph/@nodes.3 //@nodes.4/@graph/@nodes.3/@graph/@nodes.0"/>
+      <edges nodes="//@nodes.4/@graph/@nodes.0 //@nodes.4/@graph/@nodes.2"/>
+      <edges nodes="//@nodes.4/@graph/@nodes.1 //@nodes.4/@graph/@nodes.5"/>
+    </graph>
+  </nodes>
+  <nodes xsi:type="labelgraph:Region" name="R4">
+    <graph>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N26"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N47" label="GREEN"/>
+    </graph>
+  </nodes>
+  <nodes xsi:type="labelgraph:Region" name="R9">
+    <graph>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N10" label="BLUE"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N31" label="ORANGE"/>
+      <nodes xsi:type="labelgraph:SimpleNode" name="N52" label="ORANGE"/>
+      <nodes xsi:type="labelgraph:Region" name="R15">
+        <graph>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N16"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N37" label="BLUE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N58" label="ORANGE"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.3/@graph/@nodes.0 //@nodes.6/@graph/@nodes.3/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.3/@graph/@nodes.0 //@nodes.6/@graph/@nodes.3/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.3/@graph/@nodes.1 //@nodes.4/@graph/@nodes.5/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.3/@graph/@nodes.0 //@nodes.6/@graph/@nodes.3/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.3/@graph/@nodes.0 //@nodes.6/@graph/@nodes.3/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.3/@graph/@nodes.0 //@nodes.6/@graph/@nodes.3/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.3/@graph/@nodes.1 //@nodes.6/@graph/@nodes.3/@graph/@nodes.0"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.3/@graph/@nodes.1 //@nodes.6/@graph/@nodes.3/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.3/@graph/@nodes.2 //@nodes.6/@graph/@nodes.3/@graph/@nodes.2"/>
+        </graph>
+      </nodes>
+      <nodes xsi:type="labelgraph:Region" name="R18">
+        <graph>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N19" label="ORANGE"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N40" label="GREEN"/>
+          <nodes xsi:type="labelgraph:SimpleNode" name="N61" label="BLUE"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.0 //@nodes.6/@graph/@nodes.4/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.0 //@nodes.6/@graph/@nodes.4/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.0 //@nodes.3/@graph/@nodes.3/@graph/@nodes.4/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.2 //@nodes.4/@graph/@nodes.3/@graph/@nodes.3/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.0 //@nodes.6/@graph/@nodes.4/@graph/@nodes.0"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.1 //@nodes.3/@graph/@nodes.4"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.0 //@nodes.6/@graph/@nodes.4/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.2 //@nodes.6/@graph/@nodes.4/@graph/@nodes.0"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.2 //@nodes.6/@graph/@nodes.4/@graph/@nodes.1"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.2 //@nodes.6/@graph/@nodes.4/@graph/@nodes.2"/>
+          <edges nodes="//@nodes.6/@graph/@nodes.4/@graph/@nodes.1 //@nodes.6/@graph/@nodes.4/@graph/@nodes.0"/>
+        </graph>
+      </nodes>
+      <edges nodes="//@nodes.6/@graph/@nodes.0 //@nodes.6/@graph/@nodes.1"/>
+      <edges nodes="//@nodes.6/@graph/@nodes.0 //@nodes.6/@graph/@nodes.2"/>
+      <edges nodes="//@nodes.6/@graph/@nodes.0 //@nodes.6/@graph/@nodes.3"/>
+      <edges nodes="//@nodes.6/@graph/@nodes.0 //@nodes.6/@graph/@nodes.4"/>
+      <edges nodes="//@nodes.6/@graph/@nodes.3 //@nodes.4/@graph/@nodes.4"/>
+      <edges nodes="//@nodes.6/@graph/@nodes.1 //@nodes.6/@graph/@nodes.3"/>
+      <edges nodes="//@nodes.6/@graph/@nodes.4 //@nodes.6/@graph/@nodes.2"/>
+      <edges nodes="//@nodes.6/@graph/@nodes.3 //@nodes.6/@graph/@nodes.1"/>
+      <edges nodes="//@nodes.6/@graph/@nodes.3 //@nodes.6/@graph/@nodes.1"/>
+    </graph>
+  </nodes>
+  <edges nodes="//@nodes.0 //@nodes.1"/>
+  <edges nodes="//@nodes.0 //@nodes.2"/>
+  <edges nodes="//@nodes.0 //@nodes.3"/>
+  <edges nodes="//@nodes.1 //@nodes.4"/>
+  <edges nodes="//@nodes.2 //@nodes.5"/>
+  <edges nodes="//@nodes.2 //@nodes.6"/>
+  <edges nodes="//@nodes.5 //@nodes.3/@graph/@nodes.5/@graph/@nodes.2"/>
+  <edges nodes="//@nodes.1 //@nodes.6/@graph/@nodes.1"/>
+  <edges nodes="//@nodes.5 //@nodes.4"/>
+  <edges nodes="//@nodes.4 //@nodes.6"/>
+  <edges nodes="//@nodes.2 //@nodes.2"/>
+  <edges nodes="//@nodes.2 //@nodes.1"/>
+  <edges nodes="//@nodes.5 //@nodes.5"/>
+</labelgraph:Graph>

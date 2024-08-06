@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphdelta:DeltaSequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graphdelta="http://st.tud.de/graphdelta">
+  <deltaOperations xsi:type="graphdelta:MoveNode" id="a2e51022-9b79-4fd4-9058-37d5491449d4" nodeName="N6" targetRegion="R3" oldRegion="R0">
+    <edgeImplications id="ff48a49c-50bc-4339-beeb-e743a141b830" oldRegion="R0" newRegion="R3" nodeA="N6" nodeB="N11"/>
+  </deltaOperations>
+  <deltaOperations xsi:type="graphdelta:ChangeLabel" id="66bea4e1-fda0-4847-9e5f-1589f46a3656" nodeName="N61" newLabel="GREEN"/>
+</graphdelta:DeltaSequence>
